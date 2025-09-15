@@ -171,4 +171,36 @@ export default function TaskPage() {
                       className={`px-3 py-1 rounded ${selectedMindMapIdx === null && selectedTemplateIdx === idx ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
                       onClick={() => handleTemplateSelect(idx)}
                     >
-        
+                      {tpl.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {/* Show template content or mind map */}
+              {selectedMindMapIdx === null ? (
+                // Template view only
+                <div className="space-y-6 bg-white p-6 rounded-lg shadow-md mb-6">
+                  {bandTemplates[selectedBand][selectedTemplateIdx].content.map(({ key, value }) => (
+                    <div key={key}>
+                      <h2 className="text-xl font-semibold text-gray-700 mb-2">{key.replace(/([A-Z])/g, ' $1').trim()}</h2>
+                      <p className="text-gray-800 bg-gray-50 p-4 rounded whitespace-pre-wrap">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                // Mind Map view only (for Task 2) or placeholder for Task 1
+                taskType === 'task2' ? (
+                  <MindMapViewer mindMapData={taskData.MindMapTopics[selectedMindMapIdx]} />
+                ) : (
+                  <div className="flex items-center justify-center h-full text-lg text-gray-500">
+                    <span>Show mind map, diagram, or sample for: <b>{sidebarTopics[selectedMindMapIdx]?.topic}</b></span>
+                  </div>
+                )
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

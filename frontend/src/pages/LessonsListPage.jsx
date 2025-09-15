@@ -134,4 +134,38 @@ export default function LessonsListPage() {
                     ))}
                   </div>
                 )}
-  
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* --- Task 1 --- */}
+        <div>
+          <h2 className="text-3xl font-semibold mb-6 pb-3 border-b-2 border-primary-600">Writing Task 1 (Academic Only, Grouped)</h2>
+          <div className="space-y-4">
+            {task1AcademicClusters.map((cluster, idx) => (
+              <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}> {/* Colored group */}
+                <button
+                  className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
+                  onClick={() => setOpenTask1Idx(openTask1Idx === idx ? -1 : idx)}
+                  aria-expanded={openTask1Idx === idx}
+                >
+                  <span>{cluster.title}</span>
+                  <span className="ml-4 text-xl">{openTask1Idx === idx ? '−' : '+'}</span>
+                </button>
+                {openTask1Idx === idx && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
+                    {cluster.types.map(type => (
+                      <TaskCard key={type.key} title={type.label} to={`/tasks/task1/academic/${type.key}`} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
