@@ -1,0 +1,43 @@
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/.vite/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend/app/__pycache__/
+
+# Database
+*.db
+
+# VSCode
+.vscode/
+
+# Env
+.env
+.env.*
+
+# Misc
+*.swp
+*.swo
+.idea/
+*.iml
+
+# Test coverage
+coverage/
+
+# Others
+*.bak
