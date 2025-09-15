@@ -1,0 +1,90 @@
+[
+  {
+    "id": "cohesion-01",
+    "title": "Introduction to Coherence & Cohesion",
+    "content": [
+      {"type": "p", "text": "Coherence and cohesion are crucial for high-scoring IELTS essays. Coherence refers to the logical flow of ideas, while cohesion refers to the grammatical and lexical links between sentences and paragraphs."},
+      {"type": "p", "text": "This lesson introduces the fundamental concepts."},
+      {"type": "example", "band": "5", "text": "The problem of pollution is very big. Cars make pollution. Factories also make pollution. We need to stop pollution."},
+      {"type": "example", "band": "8", "text": "One of the most significant environmental challenges facing the modern world is pollution. This issue stems from various sources, including vehicle emissions and industrial waste. Therefore, addressing the root causes of pollution is essential to protect our planet."}
+    ],
+    "exercises": ["ex-reorder-01", "ex-skeleton-01"]
+  },
+  {
+    "id": "cohesion-02",
+    "title": "Using Transition Words Effectively",
+    "content": [
+      {"type": "p", "text": "Transition words and phrases (also called linking devices) are like bridges between your ideas. They help the reader follow your train of thought. Common categories include addition (e.g., 'moreover', 'in addition'), contrast (e.g., 'however', 'on the other hand'), and result (e.g., 'therefore', 'as a result')."},
+      {"type": "example", "band": "6", "text": "Studying abroad is expensive. However, it provides valuable life experience."},
+      {"type": "example", "band": "8", "text": "While studying abroad can be a significant financial investment, it provides invaluable life experience and cultural exposure that cannot be gained otherwise."}
+    ],
+    "exercises": ["ex-connector-01", "ex-connector-02"]
+  },
+  {
+    "id": "cohesion-03",
+    "title": "Paragraphing and Topic Sentences",
+    "content": [
+      {"type": "p", "text": "A well-structured paragraph should focus on a single main idea. This idea is usually introduced in a 'topic sentence' at the beginning of the paragraph. The following sentences should support and develop this main idea with explanations, examples, and evidence."},
+      {"type": "p", "text": "Aim for 4-5 paragraphs in a Task 2 essay: an introduction, 2-3 body paragraphs, and a conclusion."}
+    ],
+    "exercises": ["ex-reorder-02", "ex-skeleton-02"]
+  },
+  {
+    "id": "cohesion-04",
+    "title": "Referencing: Pronouns and Synonyms",
+    "content": [
+      {"type": "p", "text": "To avoid repetition and improve flow, you can use referencing devices. Pronouns (it, they, this, that) can refer back to a previously mentioned noun. Using synonyms (words with similar meanings) is another effective technique."},
+      {"type": "example", "band": "5", "text": "Electric cars are becoming popular. Electric cars are good for the environment. People should buy electric cars."},
+      {"type": "example", "band": "8", "text": "Electric cars are becoming increasingly popular, largely because these vehicles are beneficial for the environment. Consequently, consumers are encouraged to purchase them as a more sustainable alternative to conventional automobiles."}
+    ],
+    "exercises": ["ex-connector-03"]
+  },
+  {
+    "id": "cohesion-05",
+    "title": "Structuring an Introduction",
+    "content": [
+      {"type": "p", "text": "A strong introduction should do three things: 1. Provide some general background on the topic. 2. Paraphrase the question to show you understand it. 3. State your thesis, which is your main position and a brief outline of your essay."}
+    ],
+    "exercises": ["ex-skeleton-01"]
+  },
+  {
+    "id": "cohesion-06",
+    "title": "Writing Effective Body Paragraphs",
+    "content": [
+      {"type": "p", "text": "Each body paragraph should follow a clear structure, often called PEEL: Point (your main idea in a topic sentence), Explanation (explain your point in more detail), Example (provide a specific example to support your point), and Link (link the idea back to your main argument or the next paragraph)."}
+    ],
+    "exercises": ["ex-reorder-03"]
+  },
+  {
+    "id": "cohesion-07",
+    "title": "The Art of the Conclusion",
+    "content": [
+      {"type": "p", "text": "Your conclusion should summarize your main points and restate your thesis in different words. Do not introduce new ideas in the conclusion. A strong concluding sentence can leave a lasting impression on the examiner."}
+    ],
+    "exercises": ["ex-skeleton-03"]
+  },
+  {
+    "id": "cohesion-08",
+    "title": "Contrast and Concession",
+    "content": [
+      {"type": "p", "text": "To present a balanced argument, you need to use language of contrast and concession. Words like 'although', 'despite', 'while', and 'on the other hand' are essential for this. They show that you have considered both sides of the issue."}
+    ],
+    "exercises": ["ex-connector-04"]
+  },
+  {
+    "id": "cohesion-09",
+    "title": "Lexical Cohesion: Using Word Families",
+    "content": [
+      {"type": "p", "text": "Another way to link ideas is through lexical chains. This involves using words from the same topic or word family. For example, if you are writing about the economy, you might use words like 'finance', 'investment', 'profit', and 'economic'."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "cohesion-10",
+    "title": "Review and Common Mistakes",
+    "content": [
+      {"type": "p", "text": "This lesson reviews the key concepts of coherence and cohesion and highlights common mistakes to avoid, such as overusing transition words or having unclear referencing."}
+    ],
+    "exercises": []
+  }
+]
