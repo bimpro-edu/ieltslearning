@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import LessonsListPage from './pages/LessonsListPage';
+import HomePage from './pages/HomePage';
 import LessonPage from './pages/LessonPage';
+import LessonsListPage from './pages/LessonsListPage';
 import ExercisePage from './pages/ExercisePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -31,7 +32,8 @@ function App() {
           <main className="py-8 sm:py-12">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <Routes>
-                <Route path="/" element={<LessonsListPage />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/lessons" element={<LessonsListPage />} />
                 <Route path="/lessons/:lessonId" element={<LessonPage />} />
                 <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
                 <Route path="/login" element={<LoginPage />} />
