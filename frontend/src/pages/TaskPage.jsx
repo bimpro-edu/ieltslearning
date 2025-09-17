@@ -27,7 +27,19 @@ function getTaskData(taskType, category, subCategory) {
 
 export default function TaskPage() {
   const { taskType, category, subCategory } = useParams();
-  const { data: taskData, title } = getTaskData(taskType, category, subCategory);
+
+  // Map route category to templateMap key
+  const categoryKeyMap = {
+    opinion: 'opinion',
+    discussion: 'discussion',
+    positivenegativedevelopment: 'positiveNegativeDevelopment',
+    positivenegativedevelopment: 'positiveNegativeDevelopment',
+    'positive-negative-development': 'positiveNegativeDevelopment',
+    'positiveNegativeDevelopment': 'positiveNegativeDevelopment',
+    // Add more mappings as needed
+  };
+  const normalizedCategory = categoryKeyMap[category?.toLowerCase()] || category;
+  const { data: taskData, title } = getTaskData(taskType, normalizedCategory, subCategory);
   const [selectedMindMapIdx, setSelectedMindMapIdx] = useState(null); // null = template mode
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [selectedBand, setSelectedBand] = useState(7); // Default to Band 7
@@ -52,7 +64,7 @@ export default function TaskPage() {
 
   // Sidebar topics for Task 1 or Task 2
   const sidebarTopics = taskType === 'task2'
-    ? (taskData?.MindMapTopics || []).map(t => t)
+    ? (taskData?.MindMapTopics && Array.isArray(taskData.MindMapTopics) ? taskData.MindMapTopics : [])
     : task1SidebarFlat;
 
   // Band options
@@ -62,9 +74,9 @@ export default function TaskPage() {
   useEffect(() => {
     setLoadingTemplates(true);
     setTemplateError(null);
-    console.log('DEBUG: loadTemplates', { taskType, category, band: selectedBand });
+    console.log('DEBUG: loadTemplates', { taskType, category: normalizedCategory, band: selectedBand });
     try {
-      const templates = loadTemplates({ taskType, category: category?.toLowerCase(), band: selectedBand });
+      const templates = loadTemplates({ taskType, category: normalizedCategory, band: selectedBand });
       setBandTemplates(templates);
       setSelectedTemplateIdx(0);
       setLoadingTemplates(false);
@@ -73,7 +85,7 @@ export default function TaskPage() {
       setTemplateError('Failed to load templates.');
       setLoadingTemplates(false);
     }
-  }, [taskType, category, selectedBand]);
+  }, [taskType, normalizedCategory, selectedBand]);
 
   // Handlers
   const handleTopicSelect = (idx) => {
@@ -89,11 +101,13 @@ export default function TaskPage() {
     setSelectedTemplateIdx(idx);
   };
 
-  if (!taskData && taskType === 'task2') {
+  // Only show error for Task 1 if taskData is missing
+  if (!taskData && taskType === 'task1') {
     return <div className="p-8 text-center text-red-500">Task data not found or is empty for this category.</div>;
   }
+  // For Task 2, always show the template UI, only show sidebar if MindMapTopics exist
   const hasMindMap = taskType === 'task2'
-    ? taskData && taskData.MindMapTopics && taskData.MindMapTopics.length > 0
+    ? !!(taskData && taskData.MindMapTopics && taskData.MindMapTopics.length > 0)
     : true;
 
   return (
@@ -115,71 +129,69 @@ export default function TaskPage() {
         {/* Title */}
         <h1 className="text-2xl font-bold px-6 py-4 border-b bg-white sticky top-0 z-10">{title}</h1>
         <div className="overflow-y-auto flex-1 p-6">
-          {hasMindMap && (
-            <div className="relative bg-white rounded-lg shadow-md" style={{ minHeight: 600 }}>
-              {/* Band Dropdown and Template Tabs always sticky at the top of the canvas */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 bg-white border-b px-4 py-2 shadow-sm sticky top-0 z-20">
-                <label className="font-semibold mr-2">Band:</label>
-                <select
-                  className="border rounded px-2 py-1 text-base focus:outline-none focus:ring-2 focus:ring-primary-400"
-                  value={selectedBand}
-                  onChange={handleBandChange}
-                >
-                  {bandOptions.map(band => (
-                    <option key={band} value={band}>{band === 8 ? 'Band 8+' : `Band ${band}`}</option>
-                  ))}
-                </select>
-                <div className="flex gap-2 ml-4">
-                  {bandTemplates.length > 0 ? (
-                    bandTemplates.map((tpl, idx) => (
-                      <button
-                        key={tpl.name || idx}
-                        className={`px-3 py-1 rounded ${selectedMindMapIdx === null && selectedTemplateIdx === idx ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
-                        onClick={() => handleTemplateSelect(idx)}
-                      >
-                        {tpl.name || `Template ${idx + 1}`}
-                      </button>
-                    ))
-                  ) : (
-                    <span className="text-gray-400 italic">No templates for this band/category.</span>
-                  )}
-                </div>
-              </div>
-              {/* Show template content or mind map */}
-              {loadingTemplates ? (
-                <div className="p-8 text-center text-gray-400">Loading templates...</div>
-              ) : templateError ? (
-                <div className="p-8 text-center text-red-500">{templateError}</div>
-              ) : selectedMindMapIdx === null ? (
-                <div className="space-y-6 bg-white p-6 rounded-lg shadow-md mb-6">
-                  {bandTemplates[selectedTemplateIdx] && Array.isArray(bandTemplates[selectedTemplateIdx].content) ? (
-                    bandTemplates[selectedTemplateIdx].content.map((sentence, idx) => (
-                      <div key={idx}>
-                        <p className="text-gray-800 bg-gray-50 p-4 rounded whitespace-pre-wrap">{sentence}</p>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="text-red-500">No template content available for this band.</div>
-                  )}
-                  {bandTemplates[selectedTemplateIdx]?.fullExample && (
-                    <div className="mt-6">
-                      <h3 className="text-lg font-bold text-blue-700 mb-2">Full Example</h3>
-                      <pre className="bg-blue-50 text-blue-900 p-4 rounded whitespace-pre-wrap">{bandTemplates[selectedTemplateIdx].fullExample}</pre>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                // Mind Map view only (for Task 2) or placeholder for Task 1
-                taskType === 'task2' ? (
-                  <MindMapViewer mindMapData={taskData.MindMapTopics[selectedMindMapIdx]} />
+          <div className="relative bg-white rounded-lg shadow-md" style={{ minHeight: 600 }}>
+            {/* Band Dropdown and Template Tabs always sticky at the top of the canvas */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 bg-white border-b px-4 py-2 shadow-sm sticky top-0 z-20">
+              <label className="font-semibold mr-2">Band:</label>
+              <select
+                className="border rounded px-2 py-1 text-base focus:outline-none focus:ring-2 focus:ring-primary-400"
+                value={selectedBand}
+                onChange={handleBandChange}
+              >
+                {bandOptions.map(band => (
+                  <option key={band} value={band}>{band === 8 ? 'Band 8+' : `Band ${band}`}</option>
+                ))}
+              </select>
+              <div className="flex gap-2 ml-4">
+                {bandTemplates.length > 0 ? (
+                  bandTemplates.map((tpl, idx) => (
+                    <button
+                      key={tpl.name || idx}
+                      className={`px-3 py-1 rounded ${selectedMindMapIdx === null && selectedTemplateIdx === idx ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}
+                      onClick={() => handleTemplateSelect(idx)}
+                    >
+                      {tpl.name || `Template ${idx + 1}`}
+                    </button>
+                  ))
                 ) : (
-                  <div className="flex items-center justify-center h-full text-lg text-gray-500">
-                    <span>Show mind map, diagram, or sample for: <b>{sidebarTopics[selectedMindMapIdx]?.topic}</b></span>
-                  </div>
-                )
-              )}
+                  <span className="text-gray-400 italic">No templates for this band/category.</span>
+                )}
+              </div>
             </div>
-          )}
+            {/* Show template content or mind map */}
+            {loadingTemplates ? (
+              <div className="p-8 text-center text-gray-400">Loading templates...</div>
+            ) : templateError ? (
+              <div className="p-8 text-center text-red-500">{templateError}</div>
+            ) : selectedMindMapIdx === null ? (
+              <div className="space-y-6 bg-white p-6 rounded-lg shadow-md mb-6">
+                {bandTemplates[selectedTemplateIdx] && Array.isArray(bandTemplates[selectedTemplateIdx].content) ? (
+                  bandTemplates[selectedTemplateIdx].content.map((sentence, idx) => (
+                    <div key={idx}>
+                      <p className="text-gray-800 bg-gray-50 p-4 rounded whitespace-pre-wrap">{sentence}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div className="text-red-500">No template content available for this band.</div>
+                )}
+                {bandTemplates[selectedTemplateIdx]?.fullExample && (
+                  <div className="mt-6">
+                    <h3 className="text-lg font-bold text-blue-700 mb-2">Full Example</h3>
+                    <pre className="bg-blue-50 text-blue-900 p-4 rounded whitespace-pre-wrap">{bandTemplates[selectedTemplateIdx].fullExample}</pre>
+                  </div>
+                )}
+              </div>
+            ) : (
+              // Mind Map view only (for Task 2) or placeholder for Task 1
+              taskType === 'task2' ? (
+                <MindMapViewer mindMapData={taskData.MindMapTopics[selectedMindMapIdx]} />
+              ) : (
+                <div className="flex items-center justify-center h-full text-lg text-gray-500">
+                  <span>Show mind map, diagram, or sample for: <b>{sidebarTopics[selectedMindMapIdx]?.topic}</b></span>
+                </div>
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>

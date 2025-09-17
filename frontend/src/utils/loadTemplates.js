@@ -1,3 +1,7 @@
+import task2_positiveNegativeDevelopment_band5 from '../templates/task2/positiveNegativeDevelopment/band5.js';
+import task2_positiveNegativeDevelopment_band6 from '../templates/task2/positiveNegativeDevelopment/band6.js';
+import task2_positiveNegativeDevelopment_band7 from '../templates/task2/positiveNegativeDevelopment/band7.js';
+import task2_positiveNegativeDevelopment_band8 from '../templates/task2/positiveNegativeDevelopment/band8.js';
 // Utility to dynamically import template data for modular, scalable management
 // Import all templates statically
 
@@ -26,6 +30,12 @@ const templateMap = {
       6: task2_discussion_band6,
       7: task2_discussion_band7,
       8: task2_discussion_band8,
+    },
+    positiveNegativeDevelopment: {
+      5: task2_positiveNegativeDevelopment_band5,
+      6: task2_positiveNegativeDevelopment_band6,
+      7: task2_positiveNegativeDevelopment_band7,
+      8: task2_positiveNegativeDevelopment_band8,
     },
     // Add more categories as needed
   },
