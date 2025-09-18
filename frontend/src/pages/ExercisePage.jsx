@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import SkeletonFill from '../components/SkeletonFill';
 import ReorderExercise from '../components/ReorderExercise'; 
 import ConnectorChoiceExercise from '../components/ConnectorChoiceExercise';
@@ -33,8 +35,12 @@ export default function ExercisePage() {
   };
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      {renderExercise()}
-    </div>
+    <>
+      <Header />
+      <div className="p-4 max-w-4xl mx-auto">
+        {renderExercise()}
+      </div>
+      <Footer />
+    </>
   );
 }

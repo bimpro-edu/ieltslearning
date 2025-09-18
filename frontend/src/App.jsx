@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import HomePage from './pages/HomePage';
 import LessonPage from './pages/LessonPage';
@@ -17,19 +17,20 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-            <Route path="/lessons" element={<LessonsListPage />} />
-            <Route path="/lessons/:lessonId" element={<LessonPage />} />
-            <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/teacher/dashboard" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
-            {/* New Task Routes */}
-            <Route path="/tasks/:taskType/:category/" element={<TaskPage />} />
-            <Route path="/tasks/:taskType/:category/:subCategory" element={<TaskPage />} />
-          </Routes>
-        </Router>
-      </AuthProvider>
-    );
+          <Route path="/lessons" element={<Navigate to="/tasks/writing" replace />} />
+          <Route path="/lessons/:lessonId" element={<LessonPage />} />
+          <Route path="/tasks/writing" element={<LessonsListPage />} />
+          <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/teacher/dashboard" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
+          {/* New Task Routes */}
+          <Route path="/tasks/:taskType/:category/" element={<TaskPage />} />
+          <Route path="/tasks/:taskType/:category/:subCategory" element={<TaskPage />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
 }
 
 function AuthButtons() {

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import IELTS from '../ielts-data'; // Import the new data
 
 // Helper component for styling cards
@@ -109,63 +111,67 @@ export default function LessonsListPage() {
   const [openTask1Idx, setOpenTask1Idx] = useState(0); // Accordion: first open by default (Task 1)
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">IELTS Writing Tasks</h1>
+    <>
+      <Header />
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">IELTS Writing Tasks</h1>
 
-      <div className="space-y-12">
-        {/* --- Task 2 --- */}
-        <div>
-          <h2 className="text-3xl font-semibold mb-6 pb-3 border-b-2 border-primary-500">Writing Task 2 Categories (Grouped for Easy Navigation)</h2>
-          <div className="space-y-4">
-            {task2Clusters.map((cluster, idx) => (
-              <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}> {/* Colored group */}
-                <button
-                  className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
-                  onClick={() => setOpenClusterIdx(openClusterIdx === idx ? -1 : idx)}
-                  aria-expanded={openClusterIdx === idx}
-                >
-                  <span>{cluster.title}</span>
-                  <span className="ml-4 text-xl">{openClusterIdx === idx ? '−' : '+'}</span>
-                </button>
-                {openClusterIdx === idx && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
-                    {cluster.categories.map(cat => (
-                      <TaskCard key={cat.key} title={cat.label} to={`/tasks/task2/${cat.key}`} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+        <div className="space-y-12">
+          {/* --- Task 2 --- */}
+          <div>
+            <h2 className="text-3xl font-semibold mb-6 pb-3 border-b-2 border-primary-500">Writing Task 2 Categories (Grouped for Easy Navigation)</h2>
+            <div className="space-y-4">
+              {task2Clusters.map((cluster, idx) => (
+                <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}> {/* Colored group */}
+                  <button
+                    className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
+                    onClick={() => setOpenClusterIdx(openClusterIdx === idx ? -1 : idx)}
+                    aria-expanded={openClusterIdx === idx}
+                  >
+                    <span>{cluster.title}</span>
+                    <span className="ml-4 text-xl">{openClusterIdx === idx ? '−' : '+'}</span>
+                  </button>
+                  {openClusterIdx === idx && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
+                      {cluster.categories.map(cat => (
+                        <TaskCard key={cat.key} title={cat.label} to={`/tasks/task2/${cat.key}`} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* --- Task 1 --- */}
-        <div>
-          <h2 className="text-3xl font-semibold mb-6 pb-3 border-b-2 border-primary-600">Writing Task 1 (Academic Only, Grouped)</h2>
-          <div className="space-y-4">
-            {task1AcademicClusters.map((cluster, idx) => (
-              <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}> {/* Colored group */}
-                <button
-                  className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
-                  onClick={() => setOpenTask1Idx(openTask1Idx === idx ? -1 : idx)}
-                  aria-expanded={openTask1Idx === idx}
-                >
-                  <span>{cluster.title}</span>
-                  <span className="ml-4 text-xl">{openTask1Idx === idx ? '−' : '+'}</span>
-                </button>
-                {openTask1Idx === idx && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
-                    {cluster.types.map(type => (
-                      <TaskCard key={type.key} title={type.label} to={`/tasks/task1/academic/${type.key}`} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+          {/* --- Task 1 --- */}
+          <div>
+            <h2 className="text-3xl font-semibold mb-6 pb-3 border-b-2 border-primary-600">Writing Task 1 (Academic Only, Grouped)</h2>
+            <div className="space-y-4">
+              {task1AcademicClusters.map((cluster, idx) => (
+                <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}> {/* Colored group */}
+                  <button
+                    className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
+                    onClick={() => setOpenTask1Idx(openTask1Idx === idx ? -1 : idx)}
+                    aria-expanded={openTask1Idx === idx}
+                  >
+                    <span>{cluster.title}</span>
+                    <span className="ml-4 text-xl">{openTask1Idx === idx ? '−' : '+'}</span>
+                  </button>
+                  {openTask1Idx === idx && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
+                      {cluster.types.map(type => (
+                        <TaskCard key={type.key} title={type.label} to={`/tasks/task1/academic/${type.key}`} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

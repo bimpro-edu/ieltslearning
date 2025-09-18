@@ -12,38 +12,38 @@ const HomePage = () => {
         <section className="mt-10">
           <h2 className="text-2xl font-bold text-primary-700 mb-6 text-center tracking-wide">Core Skills</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl shadow flex flex-col items-center p-6">
+            <Link to="/tasks/listening" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">🎧</span>
               <span className="font-bold text-lg mb-1">Listening</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
                 <div className="h-full bg-blue-500 rounded-full" style={{ width: '40%' }}></div>
               </div>
               <span className="text-xs text-gray-500">40% done</span>
-            </div>
-            <div className="bg-white rounded-xl shadow flex flex-col items-center p-6">
+            </Link>
+            <Link to="/tasks/reading" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">📖</span>
               <span className="font-bold text-lg mb-1">Reading</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
                 <div className="h-full bg-green-500 rounded-full" style={{ width: '30%' }}></div>
               </div>
               <span className="text-xs text-gray-500">30% done</span>
-            </div>
-            <div className="bg-white rounded-xl shadow flex flex-col items-center p-6">
+            </Link>
+            <Link to="/tasks/writing" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">✍️</span>
               <span className="font-bold text-lg mb-1">Writing</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
                 <div className="h-full bg-pink-500 rounded-full" style={{ width: '50%' }}></div>
               </div>
               <span className="text-xs text-gray-500">50% done</span>
-            </div>
-            <div className="bg-white rounded-xl shadow flex flex-col items-center p-6">
+            </Link>
+            <Link to="/tasks/speaking" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">🎤</span>
               <span className="font-bold text-lg mb-1">Speaking</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
                 <div className="h-full bg-yellow-500 rounded-full" style={{ width: '25%' }}></div>
               </div>
               <span className="text-xs text-gray-500">25% done</span>
-            </div>
+            </Link>
           </div>
         </section>
 

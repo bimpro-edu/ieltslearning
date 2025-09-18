@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 const roadmap = [
   { title: 'Orientation', items: ['What IELTS Listening tests', 'Band descriptors explained', 'Listening strategies'] },
   { title: 'Part 1: Short Conversations', items: ['Everyday topics', 'Identifying key information'] },
@@ -38,27 +41,32 @@ function RoadmapAccordion() {
 const ListeningPage = () => {
   const [tab, setTab] = useState(0);
   return (
-    <div className="w-full max-w-5xl mx-auto px-2 py-8">
-      <h1 className="text-3xl font-extrabold text-primary-700 mb-8 text-center">IELTS Listening Course</h1>
-      <div className="flex justify-center mb-8">
-        <button
-          className={`px-6 py-2 rounded-t-lg font-semibold text-lg border-b-2 transition-colors duration-200 ${tab === 0 ? 'border-primary-600 text-primary-700 bg-primary-50' : 'border-transparent text-gray-500 bg-white hover:bg-primary-50'}`}
-          onClick={() => setTab(0)}
-        >
-          Guided Course Roadmap
-        </button>
-        <button
-          className={`px-6 py-2 rounded-t-lg font-semibold text-lg border-b-2 transition-colors duration-200 ${tab === 1 ? 'border-primary-600 text-primary-700 bg-primary-50' : 'border-transparent text-gray-500 bg-white hover:bg-primary-50'}`}
-          onClick={() => setTab(1)}
-        >
-          Lesson Library
-        </button>
+    <>
+      <Header />
+      <div className="w-full max-w-5xl mx-auto px-2 py-8">
+        <h1 className="text-3xl font-extrabold text-primary-700 mb-8 text-center">IELTS Listening Course</h1>
+        <div className="flex justify-center mb-8">
+          <button
+            className={`px-6 py-2 rounded-t-lg font-semibold text-lg border-b-2 transition-colors duration-200 ${tab === 0 ? 'border-primary-600 text-primary-700 bg-primary-50' : 'border-transparent text-gray-500 bg-white hover:bg-primary-50'}`}
+            onClick={() => setTab(0)}
+          >
+            Guided Course Roadmap
+          </button>
+          <button
+            className={`px-6 py-2 rounded-t-lg font-semibold text-lg border-b-2 transition-colors duration-200 ${tab === 1 ? 'border-primary-600 text-primary-700 bg-primary-50' : 'border-transparent text-gray-500 bg-white hover:bg-primary-50'}`}
+            onClick={() => setTab(1)}
+          >
+            Lesson Library
+          </button>
+        </div>
+        <div className="bg-white rounded-xl shadow p-6 min-h-[400px]">
+          {tab === 0 ? <RoadmapAccordion /> : <div className="text-center text-gray-400">(Lesson Library coming soon)</div>}
+        </div>
       </div>
-      <div className="bg-white rounded-xl shadow p-6 min-h-[400px]">
-        {tab === 0 ? <RoadmapAccordion /> : <div className="text-center text-gray-400">(Lesson Library coming soon)</div>}
-      </div>
-    </div>
+
+      <Footer />
+    </>
   );
-};
+}
 
 export default ListeningPage;
