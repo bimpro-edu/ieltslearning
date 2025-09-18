@@ -7,9 +7,11 @@ import { loadTemplates } from '../utils/loadTemplates';
 
 function getTaskData(taskType, category, subCategory) {
   if (taskType === 'task2') {
+    // Capitalize first letter for Task2 data lookup (e.g., 'opinion' -> 'Opinion')
+    const dataKey = category.charAt(0).toUpperCase() + category.slice(1);
     return {
-      data: IELTS.Task2[category],
-      title: `Task 2 - ${category.replace(/([A-Z])/g, ' $1').trim()}`
+      data: IELTS.Task2[dataKey],
+      title: `Task 2 - ${dataKey.replace(/([A-Z])/g, ' $1').trim()}`
     };
   }
   if (taskType === 'task1') {
@@ -62,10 +64,14 @@ export default function TaskPage() {
   ];
   const task1SidebarFlat = task1SidebarTopics.flatMap(g => g.topics.map(t => ({ group: g.group, topic: t })));
 
-  // Sidebar topics for Task 1 or Task 2
-  const sidebarTopics = taskType === 'task2'
-    ? (taskData?.MindMapTopics && Array.isArray(taskData.MindMapTopics) ? taskData.MindMapTopics : [])
-    : task1SidebarFlat;
+
+  // For Task 2, sidebar topics come directly from MindMapTopics (restoring original behavior)
+  let sidebarTopics = [];
+  if (taskType === 'task2') {
+    sidebarTopics = (taskData?.MindMapTopics && Array.isArray(taskData.MindMapTopics)) ? taskData.MindMapTopics : [];
+  } else {
+    sidebarTopics = task1SidebarFlat;
+  }
 
   // Band options
   const bandOptions = [5, 6, 7, 8];
@@ -105,10 +111,9 @@ export default function TaskPage() {
   if (!taskData && taskType === 'task1') {
     return <div className="p-8 text-center text-red-500">Task data not found or is empty for this category.</div>;
   }
-  // For Task 2, always show the template UI, only show sidebar if MindMapTopics exist
-  const hasMindMap = taskType === 'task2'
-    ? !!(taskData && taskData.MindMapTopics && taskData.MindMapTopics.length > 0)
-    : true;
+
+  // For Task 2, always show the sidebar if there are topics for the category
+  const hasMindMap = sidebarTopics.length > 0;
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -182,9 +187,9 @@ export default function TaskPage() {
                 )}
               </div>
             ) : (
-              // Mind Map view only (for Task 2) or placeholder for Task 1
+              // Mind Map view for Task 2: always show mind map for the selected topic (restored behavior)
               taskType === 'task2' ? (
-                <MindMapViewer mindMapData={taskData.MindMapTopics[selectedMindMapIdx]} />
+                <MindMapViewer mindMapData={sidebarTopics[selectedMindMapIdx]} />
               ) : (
                 <div className="flex items-center justify-center h-full text-lg text-gray-500">
                   <span>Show mind map, diagram, or sample for: <b>{sidebarTopics[selectedMindMapIdx]?.topic}</b></span>
