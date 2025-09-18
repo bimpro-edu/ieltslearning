@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f6fa]">
+    <div className="min-h-screen flex flex-col bg-site-bg">
       <Header />
       <main className="flex-1 w-full max-w-5xl mx-auto py-8 px-2">
         {/* Core Skills Section */}
