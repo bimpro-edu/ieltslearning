@@ -135,15 +135,15 @@ function Task1Mindmap() {
               background: '#fff',
               borderRadius: 18,
               boxShadow: '0 8px 32px #0004',
-              padding: 40,
-              minWidth: 420,
-              maxWidth: 900,
-              width: '90vw',
-              minHeight: 260,
+              padding: 24,
+              minWidth: 630,
+              maxWidth: 1350,
+              width: '95vw',
+              minHeight: 390,
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'flex-start',
-              gap: 48,
+              gap: 8,
               position: 'relative',
               animation: 'fadeInUp .4s cubic-bezier(.4,0,.2,1)',
             }}
@@ -170,12 +170,12 @@ function Task1Mindmap() {
               Close
             </button>
             {/* Chart or demo on the left (30% width, larger) */}
-              <div style={{ flex: '0 0 45%', maxWidth: '45%', minWidth: 270, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              {selected === 'line' && <MiniLineChart width={260} height={180} />}
-              {selected === 'bar' && <MiniBarChart width={260} height={180} />}
-              {selected === 'pie' && <MiniPieChart width={260} height={180} />}
+              <div style={{ flex: '0 0 38%', maxWidth: '38%', minWidth: 320, display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+              {selected === 'line' && <MiniLineChart width={390} height={270} />}
+              {selected === 'bar' && <MiniBarChart width={390} height={270} />}
+              {selected === 'pie' && <MiniPieChart width={390} height={270} />}
               {selected === 'table' && (
-                <table style={{ width: 220, borderCollapse: 'collapse', fontSize: 16 }}>
+                <table style={{ width: 330, borderCollapse: 'collapse', fontSize: 24 }}>
                   <thead>
                     <tr style={{ background: '#e3f2fd' }}>
                       <th style={{ border: '1px solid #90caf9', padding: 5 }}>Country</th>
@@ -198,52 +198,52 @@ function Task1Mindmap() {
                 </table>
               )}
               {selected === 'mixed' && (
-                <div style={{ maxWidth: 220, maxHeight: 180, overflow: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <MixedChart width={200} height={150} />
+                <div style={{ maxWidth: 330, maxHeight: 270, overflow: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <MixedChart width={300} height={225} />
                 </div>
               )}
-              {selected === 'stacked' && <StackedBarChart width={260} height={180} />}
-              {selected === 'area' && <AreaChart width={260} height={180} />}
-              {selected === 'scatter' && <ScatterChart width={260} height={180} />}
-              {['process', 'natural', 'manufacturing', 'mechanical'].includes(selected) && <ProcessDiagram width={220} height={120} />}
+              {selected === 'stacked' && <StackedBarChart width={390} height={270} />}
+              {selected === 'area' && <AreaChart width={570} height={360} />}
+              {selected === 'scatter' && <ScatterChart width={390} height={270} />}
+              {['process', 'natural', 'manufacturing', 'mechanical'].includes(selected) && <ProcessDiagram width={330} height={180} />}
               {/* For nodes that are chart-related but missing a demo, show a placeholder */}
               {selected === 'charts' && (
-                <div style={{ width: 200, height: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e3f2fd', borderRadius: 8, color: '#1976d2', fontWeight: 500 }}>
+                <div style={{ width: 300, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e3f2fd', borderRadius: 8, color: '#1976d2', fontWeight: 500 }}>
                   Chart Overview
                 </div>
               )}
               {selected === 'mixedTableChart' && (
-                <div style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'center', justifyContent: 'center' }}>
-                  <table style={{ width: 180, borderCollapse: 'collapse', fontSize: 16, marginRight: 16 }}>
+                <div style={{ display: 'flex', flexDirection: 'row', gap: 30, alignItems: 'center', justifyContent: 'center' }}>
+                  <table style={{ width: 270, borderCollapse: 'collapse', fontSize: 24, marginRight: 24 }}>
                     <thead>
                       <tr style={{ background: '#e3f2fd' }}>
-                        <th style={{ border: '1px solid #90caf9', padding: 6 }}>Year</th>
-                        <th style={{ border: '1px solid #90caf9', padding: 6 }}>Sales</th>
+                        <th style={{ border: '1px solid #90caf9', padding: 9 }}>Year</th>
+                        <th style={{ border: '1px solid #90caf9', padding: 9 }}>Sales</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td style={{ border: '1px solid #90caf9', padding: 6 }}>2020</td>
-                        <td style={{ border: '1px solid #90caf9', padding: 6 }}>120</td>
+                        <td style={{ border: '1px solid #90caf9', padding: 9 }}>2020</td>
+                        <td style={{ border: '1px solid #90caf9', padding: 9 }}>120</td>
                       </tr>
                       <tr>
-                        <td style={{ border: '1px solid #90caf9', padding: 6 }}>2021</td>
-                        <td style={{ border: '1px solid #90caf9', padding: 6 }}>150</td>
+                        <td style={{ border: '1px solid #90caf9', padding: 9 }}>2021</td>
+                        <td style={{ border: '1px solid #90caf9', padding: 9 }}>150</td>
                       </tr>
                       <tr>
-                        <td style={{ border: '1px solid #90caf9', padding: 6 }}>2022</td>
-                        <td style={{ border: '1px solid #90caf9', padding: 6 }}>180</td>
+                        <td style={{ border: '1px solid #90caf9', padding: 9 }}>2022</td>
+                        <td style={{ border: '1px solid #90caf9', padding: 9 }}>180</td>
                       </tr>
                     </tbody>
                   </table>
-                  <MiniBarChart width={120} height={140} />
+                  <MiniBarChart width={180} height={210} />
                 </div>
               )}
             </div>
             {/* Info on the right (60% width, larger font) */}
-              <div style={{ flex: '0 0 55%', maxWidth: '55%', minWidth: 300 }}>
+              <div style={{ flex: '0 0 62%', maxWidth: '62%', minWidth: 320, width: 'auto', marginLeft: 0, wordBreak: 'break-word', whiteSpace: 'pre-line', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
               <div style={{ color: '#1976d2', fontSize: 22, fontWeight: 600, marginBottom: 12 }}>{nodeDetails[selected].title}</div>
-              <div style={{ fontSize: 17, whiteSpace: 'pre-line' }}>{nodeDetails[selected].details}</div>
+              <div style={{ fontSize: 17, wordBreak: 'break-word', whiteSpace: 'pre-line' }}>{nodeDetails[selected].details}</div>
             </div>
           </div>
         </div>
