@@ -15,6 +15,22 @@ const nodeBaseStyle = {
   cursor: 'pointer',
 };
 
+// Simple SVG map illustration for demo
+function MiniMapSVG({ width = 320, height = 180 }) {
+  return (
+    <svg width={width} height={height} viewBox="0 0 320 180" style={{ background: '#e3f2fd', borderRadius: 12 }}>
+      <rect x="20" y="40" width="80" height="60" fill="#90caf9" stroke="#1976d2" strokeWidth="2" />
+      <rect x="120" y="60" width="60" height="40" fill="#a5d6a7" stroke="#388e3c" strokeWidth="2" />
+      <rect x="200" y="30" width="90" height="90" fill="#ffe082" stroke="#fbc02d" strokeWidth="2" />
+      <circle cx="70" cy="120" r="18" fill="#ab47bc" stroke="#6a1b9a" strokeWidth="2" />
+      <text x="60" y="75" fontSize="16" fill="#1976d2">Park</text>
+      <text x="130" y="85" fontSize="16" fill="#2e7d32">School</text>
+      <text x="220" y="80" fontSize="16" fill="#f9a825">Mall</text>
+      <text x="55" y="130" fontSize="14" fill="#6a1b9a">Lake</text>
+    </svg>
+  );
+}
+
 // Example nodeDetails (replace with your full object as needed)
 const nodeDetails = {
   // ...existing nodeDetails...
@@ -35,7 +51,7 @@ const nodeDetails = {
   natural: { title: "Natural Processes", details: "Natural processes include cycles or flows in nature (e.g., water cycle, life cycle of a frog). Use sequence language and passive forms. Describe each stage and use appropriate vocabulary (begins with, ends with, cycle, stage, process). Demo diagram below." },
   manufacturing: { title: "Manufacturing Processes", details: "Manufacturing processes describe industrial steps (e.g., making bricks, coffee production). Use sequence language and passive forms. Describe each stage, machinery, inputs, and outputs. Demo diagram below." },
   mechanical: { title: "Mechanical Diagrams", details: "Mechanical diagrams show how a machine or system works. Explain function, describe parts, and use technical vocabulary (consists of, powered by, connected to, rotates, moves). Demo diagram below." },
-  maps: { title: "Maps & Spatial Representations", details: "Maps may show changes over time (before/after development), static layouts, or comparisons between locations. Use prepositions (north of, adjacent to, across from), describe changes (was replaced by, expanded into), and mention key features. No demo chart." },
+  maps: { title: "Maps & Spatial Representations", details: "Maps may show changes over time (before/after development), static layouts, or comparisons between locations. Use prepositions (north of, adjacent to, across from), describe changes (was replaced by, expanded into), and mention key features. Demo map below." },
   mixedTableChart: { title: "Mixed Table + Chart", details: "Some IELTS tasks combine a table and a chart. Synthesize information from both sources, compare, contrast, and summarize data across formats." },
   vocabBank: { title: "Key Vocabulary Bank", details: "Essential vocabulary for each task type. Practice using these words in context: increase, decline, plateau, fluctuate, peak, dip, surge, plummet, remain steady, is heated, is produced, is filtered, is collected, is transported, next to, north of, replaced by, adjacent to, expanded, demolished, constructed." },
   pitfalls: { title: "Pitfalls & Mistakes", details: "Common mistakes in Task 1: over-describing every number, missing overall trends, missing sequence connectors, not using passive voice, confusing tenses, unclear spatial language. Focus on key features, use correct grammar, and avoid repetition." },
@@ -237,6 +253,11 @@ function Task1Mindmap() {
                     </tbody>
                   </table>
                   <MiniBarChart width={180} height={210} />
+                </div>
+              )}
+              {selected === 'maps' && (
+                <div style={{ width: 320, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent' }}>
+                  <MiniMapSVG width={320} height={180} />
                 </div>
               )}
             </div>
