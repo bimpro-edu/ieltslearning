@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import ReactFlow, { Background, Controls, applyNodeChanges } from "reactflow";
+import React, { useState, useCallback, useEffect } from "react";
+import ReactFlow, { useNodesState, useEdgesState, Background, Controls } from "reactflow";
 import "reactflow/dist/style.css";
 import { MiniLineChart, MiniBarChart, MiniPieChart, AreaChart, ScatterChart, StackedBarChart, MixedChart, ProcessDiagram } from "./MiniCharts";
 
@@ -94,9 +94,9 @@ const nodeDetails = {
     title: "Strategy Nodes",
     details: `How to group data, compare key features, and write an effective overview.\n\n- Grouping: Find logical categories or time periods.\n- Comparing: Use comparative structures (more than, less than, as much as).\n- Overview: Summarize main trends, differences, or changes without details.\n\nInteractive: Sentence builder game to practice grouping and overview writing.`
   },
+  // Removed Task 2 nodeDetails
 };
 
-// Improved initialNodes layout for better mind map view
 const initialNodes = [
   { id: "t1", data: { label: "Task 1 Mastery (Academic)" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
   { id: "charts", data: { label: "Charts" }, position: { x: -200, y: 150 }, draggable: true, style: nodeBaseStyle },
@@ -117,9 +117,9 @@ const initialNodes = [
   { id: "vocabBank", data: { label: "Key Vocabulary Bank" }, position: { x: 350, y: 600 }, draggable: true, style: nodeBaseStyle },
   { id: "pitfalls", data: { label: "Pitfalls & Mistakes" }, position: { x: 600, y: 600 }, draggable: true, style: nodeBaseStyle },
   { id: "strategy", data: { label: "Strategy" }, position: { x: 850, y: 600 }, draggable: true, style: nodeBaseStyle },
+  // Removed Task 2 nodes
 ];
 
-// Initial edges connecting nodes
 const initialEdges = [
   { id: "e1", source: "t1", target: "charts" },
   { id: "e2", source: "charts", target: "line" },
@@ -139,11 +139,12 @@ const initialEdges = [
   { id: "e16", source: "charts", target: "vocabBank" },
   { id: "e17", source: "charts", target: "pitfalls" },
   { id: "e18", source: "charts", target: "strategy" },
-  { id: "e19", source: "charts", target: "aiFeedback" },
+  // Removed aiFeedback edge
   { id: 't1-mixedTableChart', source: 't1', target: 'mixedTableChart', type: 'smoothstep' },
   { id: 't1-vocabBank', source: 't1', target: 'vocabBank', type: 'smoothstep' },
   { id: 't1-pitfalls', source: 't1', target: 'pitfalls', type: 'smoothstep' },
   { id: 't1-strategy', source: 't1', target: 'strategy', type: 'smoothstep' },
+  // Removed Task 2 nodes/edges
 ];
 
 // AreaChart fallback for debugging
@@ -155,115 +156,43 @@ function AreaChartWithFallback(props) {
   }
 }
 
+
 function Task1Mindmap() {
   const [detached, setDetached] = useState(false);
   const [selected, setSelected] = useState(null);
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges); // <-- FIX: define edges state
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  // Node click handler
-  const onNodeClick = (_event, node) => setSelected(node.id);
+  useEffect(() => {
+    setNodes(initialNodes);
+    setEdges(initialEdges);
+  }, []);
 
-  // Node drag handler
-  const onNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
-  );
+  // Only allow Task 1 node ids for details
+  const allowedNodeIds = [
+    "t1", "charts", "line", "bar", "pie", "table", "mixed", "stacked", "area", "scatter",
+    "process", "natural", "manufacturing", "mechanical", "maps", "mixedTableChart", "vocabBank", "pitfalls", "strategy"
+  ];
 
-  // Details panel
-  const details = selected ? nodeDetails[selected] : null;
-  const renderProcessDiagram = ["process", "natural", "manufacturing", "mechanical"].includes(selected);
+  const details = selected && allowedNodeIds.includes(selected) ? nodeDetails[selected] : null;
 
   const Mindmap = (
-    <div style={{ width: "100%", height: "1000px", minHeight: 700, position: "relative" }}>
+    <div style={{ width: "100%", height: "1000px", minHeight: 700, position: "relative", background: "#f8fafc", border: "1px solid #ccc", borderRadius: 8 }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
-        onNodeClick={onNodeClick}
+        onEdgesChange={onEdgesChange}
+        onNodeClick={(_event, node) => setSelected(node.id)}
         nodesDraggable={true}
         panOnDrag={true}
         zoomOnScroll={true}
         zoomOnPinch={true}
         zoomOnDoubleClick={true}
       >
-        <Background />
+        <Background variant="dots" gap={12} size={1} />
         <Controls />
       </ReactFlow>
-      {details && (
-        <div style={{ position: "absolute", top: 20, right: 20, width: 600, background: "#fff", borderRadius: 14, boxShadow: "0 2px 16px #0002", padding: 32, zIndex: 10, maxHeight: 900, overflowY: 'auto' }}>
-          <div className="font-bold text-lg mb-2">{details.title}</div>
-          {/* Show chart for specific node types */}
-          {selected === 'line' && (
-            <div className="mb-8 flex justify-center w-full">
-              <MiniLineChart width={"100%"} height={480} />
-            </div>
-          )}
-          {selected === 'bar' && (
-            <div className="mb-8 flex justify-center w-full">
-              <MiniBarChart width={"100%"} height={480} />
-            </div>
-          )}
-          {selected === 'pie' && (
-            <div className="mb-8 flex justify-center w-full">
-              <MiniPieChart width={"100%"} height={520} />
-            </div>
-          )}
-          {selected === 'table' && (
-            <div className="mb-8 flex justify-center w-full">
-              {/* Table as a styled HTML table for clarity */}
-              <table style={{ width: '90%', borderCollapse: 'collapse', fontSize: 20 }}>
-                <thead>
-                  <tr style={{ background: '#e3f2fd' }}>
-                    <th style={{ border: '1px solid #90caf9', padding: 8 }}>Country</th>
-                    <th style={{ border: '1px solid #90caf9', padding: 8 }}>2010</th>
-                    <th style={{ border: '1px solid #90caf9', padding: 8 }}>2015</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style={{ border: '1px solid #90caf9', padding: 8 }}>UK</td>
-                    <td style={{ border: '1px solid #90caf9', padding: 8 }}>62M</td>
-                    <td style={{ border: '1px solid #90caf9', padding: 8 }}>64M</td>
-                  </tr>
-                  <tr>
-                    <td style={{ border: '1px solid #90caf9', padding: 8 }}>New Zealand</td>
-                    <td style={{ border: '1px solid #90caf9', padding: 8 }}>4.3M</td>
-                    <td style={{ border: '1px solid #90caf9', padding: 8 }}>4.5M</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          )}
-          {selected === 'mixed' && (
-            <div className="mb-8 flex flex-col items-center w-full gap-8">
-              <MixedChart width={"100%"} height={520} />
-            </div>
-          )}
-          {selected === 'stacked' && (
-            <div className="mb-8 flex justify-center w-full">
-              <StackedBarChart width={"100%"} height={480} />
-            </div>
-          )}
-          {selected === 'area' && (
-            <div className="mb-8 flex justify-center w-full">
-              <AreaChartWithFallback width={"100%"} height={480} />
-            </div>
-          )}
-          {selected === 'scatter' && (
-            <div className="mb-8 flex justify-center w-full">
-              <ScatterChart width={"100%"} height={480} />
-            </div>
-          )}
-          {renderProcessDiagram && (
-            <div className="mb-8 flex justify-center w-full">
-              <ProcessDiagram width={420} height={180} />
-            </div>
-          )}
-          <div className="text-sm whitespace-pre-line">{details.details}</div>
-          <button className="mt-4 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-sm font-semibold shadow" onClick={() => setSelected(null)}>Close</button>
-        </div>
-      )}
     </div>
   );
 
@@ -275,6 +204,82 @@ function Task1Mindmap() {
         </button>
       </div>
       <div className="mb-6" style={{ maxHeight: 820, overflowY: "auto" }}>{Mindmap}</div>
+      <div style={{ marginTop: 24, background: '#f9f9f9', borderRadius: 8, padding: 24, boxShadow: '0 2px 8px #0001', border: '1px solid #e3e3e3', maxWidth: 900, marginLeft: 'auto', marginRight: 'auto', minHeight: 120 }}>
+        {selected && nodeDetails[selected] !== undefined ? (
+          <>
+            <div className="font-bold text-lg mb-2" style={{ color: '#1976d2' }}>{nodeDetails[selected].title}</div>
+            {selected === 'line' && (
+              <div className="mb-8 flex justify-center w-full">
+                <MiniLineChart width={"100%"} height={340} />
+              </div>
+            )}
+            {selected === 'bar' && (
+              <div className="mb-8 flex justify-center w-full">
+                <MiniBarChart width={"100%"} height={340} />
+              </div>
+            )}
+            {selected === 'pie' && (
+              <div className="mb-8 flex justify-center w-full">
+                <MiniPieChart width={"100%"} height={400} />
+              </div>
+            )}
+            {selected === 'table' && (
+              <div className="mb-8 flex justify-center w-full">
+                <table style={{ width: '90%', borderCollapse: 'collapse', fontSize: 20 }}>
+                  <thead>
+                    <tr style={{ background: '#e3f2fd' }}>
+                      <th style={{ border: '1px solid #90caf9', padding: 8 }}>Country</th>
+                      <th style={{ border: '1px solid #90caf9', padding: 8 }}>2010</th>
+                      <th style={{ border: '1px solid #90caf9', padding: 8 }}>2015</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style={{ border: '1px solid #90caf9', padding: 8 }}>UK</td>
+                      <td style={{ border: '1px solid #90caf9', padding: 8 }}>62M</td>
+                      <td style={{ border: '1px solid #90caf9', padding: 8 }}>64M</td>
+                    </tr>
+                    <tr>
+                      <td style={{ border: '1px solid #90caf9', padding: 8 }}>New Zealand</td>
+                      <td style={{ border: '1px solid #90caf9', padding: 8 }}>4.3M</td>
+                      <td style={{ border: '1px solid #90caf9', padding: 8 }}>4.5M</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {selected === 'mixed' && (
+              <div className="mb-8 flex flex-col items-center w-full gap-8">
+                <MixedChart width={"100%"} height={520} />
+              </div>
+            )}
+            {selected === 'stacked' && (
+              <div className="mb-8 flex justify-center w-full">
+                <StackedBarChart width={"100%"} height={480} />
+              </div>
+            )}
+            {selected === 'area' && (
+              <div className="mb-8 flex justify-center w-full">
+                <AreaChartWithFallback width={"100%"} height={480} />
+              </div>
+            )}
+            {selected === 'scatter' && (
+              <div className="mb-8 flex justify-center w-full">
+                <ScatterChart width={"100%"} height={480} />
+              </div>
+            )}
+            {['process', 'natural', 'manufacturing', 'mechanical'].includes(selected) && (
+              <div className="mb-8 flex justify-center w-full">
+                <ProcessDiagram width={420} height={180} />
+              </div>
+            )}
+            <div className="text-sm whitespace-pre-line">{nodeDetails[selected].details}</div>
+            <button className="mt-4 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-sm font-semibold shadow" onClick={() => setSelected(null)}>Close</button>
+          </>
+        ) : (
+          <div className="text-gray-500 text-base" style={{textAlign:'center',padding:'32px 0'}}>Click a node to see details here.</div>
+        )}
+      </div>
       {detached && (
         <div style={{ position: "fixed", zIndex: 1000, top: 0, left: 0, width: "100vw", height: "100vh", background: "rgba(30,40,60,0.92)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <div style={{ width: "90vw", height: "90vh", background: "#fff", borderRadius: 12, boxShadow: "0 4px 32px #0006", position: "relative", padding: 24, display: "flex", flexDirection: "column" }}>

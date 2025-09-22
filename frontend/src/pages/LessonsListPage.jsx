@@ -11,7 +11,7 @@ const TaskCard = ({ title, to }) => (
   </Link>
 );
 
-export default function LessonsListPage() {
+export default function LessonsListPage({ hideHeaderFooter }) {
   // --- Task 2 Category Structure ---
   const task2Clusters = [
     {
@@ -112,7 +112,7 @@ export default function LessonsListPage() {
 
   return (
     <>
-      <Header />
+      {!hideHeaderFooter && <Header />}
       <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">IELTS Writing Tasks</h1>
 
@@ -170,7 +170,7 @@ export default function LessonsListPage() {
           </div>
         </div>
       </div>
-      <Footer />
+  {!hideHeaderFooter && <Footer />}
     </>
   );
 }

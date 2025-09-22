@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import HomePage from './pages/HomePage';
 import LessonPage from './pages/LessonPage';
 import LessonsListPage from './pages/LessonsListPage';
+import WritingPage from './pages/WritingPage';
 import ExercisePage from './pages/ExercisePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -19,7 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/lessons" element={<Navigate to="/tasks/writing" replace />} />
           <Route path="/lessons/:lessonId" element={<LessonPage />} />
-          <Route path="/tasks/writing" element={<LessonsListPage />} />
+          <Route path="/tasks/writing" element={<WritingPage />} />
           <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />

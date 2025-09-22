@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import { loadTemplates } from '../utils/loadTemplates';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Task1Mindmap from '../components/Task1Mindmap';
 
 function getTaskData(taskType, category, subCategory) {
   if (taskType === 'task2') {
@@ -204,6 +205,9 @@ export default function TaskPage() {
         </div>
       </div>
       <Footer />
+      <div className="py-8 px-4 min-h-[80vh] bg-gray-50">
+        <Task1Mindmap />
+      </div>
     </>
   );
 }
