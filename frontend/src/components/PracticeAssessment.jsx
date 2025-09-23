@@ -31,11 +31,30 @@ const nodeBaseStyle = {
   borderRadius: 12,
   padding: 12,
   fontSize: 16,
-  background: '#fff',
+  background: '#fff', // default
   boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
   minWidth: 180,
   minHeight: 40,
   cursor: 'pointer',
+};
+
+// Color map for node backgrounds by category
+const nodeBgColors = {
+  practiceAssessment: '#e3f2fd', // main node (blue)
+  timedTests: '#c8e6c9', // timed tests (green)
+  task1Practice: '#c8e6c9',
+  task2Practice: '#c8e6c9',
+  fullTest: '#c8e6c9',
+  bandComparisons: '#fff9c4', // band comparisons (yellow)
+  sideBySide: '#fff9c4',
+  slider: '#b2ebf2', // interactive/game (cyan)
+  rewriteChallenge: '#b2ebf2', // interactive/game (cyan)
+  checklists: '#ede7f6', // checklists (purple)
+  task1Checklist: '#ede7f6',
+  task2Checklist: '#ede7f6',
+  selfScoring: '#ede7f6',
+  peerAI: '#f8bbd0', // feedback (pink)
+  miniTest: '#f8bbd0', // assessment (pink)
 };
 
 const CollapsibleNode = memo((props) => {
@@ -82,25 +101,31 @@ const nodeDetails = {
 };
 
 const initialNodes = [
-  { id: "practiceAssessment", data: { label: "Practice & Assessment" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
+  { id: "practiceAssessment", data: { label: "Practice & Assessment" }, position: { x: 0, y: 0 }, draggable: true },
   // Timed Mock Tests
-  { id: "timedTests", type: "collapsible", data: { label: "Timed Mock Tests" }, position: { x: -220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "task1Practice", data: { label: "Task 1 Practice (20 min)" }, position: { x: -420, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "task2Practice", data: { label: "Task 2 Practice (40 min)" }, position: { x: -220, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "fullTest", data: { label: "Full Writing Test Simulation (60 min)" }, position: { x: -20, y: 220 }, draggable: true, style: nodeBaseStyle },
+  { id: "timedTests", type: "collapsible", data: { label: "Timed Mock Tests" }, position: { x: -220, y: 120 }, draggable: true },
+  { id: "task1Practice", data: { label: "Task 1 Practice (20 min)" }, position: { x: -420, y: 220 }, draggable: true },
+  { id: "task2Practice", data: { label: "Task 2 Practice (40 min)" }, position: { x: -220, y: 220 }, draggable: true },
+  { id: "fullTest", data: { label: "Full Writing Test Simulation (60 min)" }, position: { x: -20, y: 220 }, draggable: true },
   // Band Comparisons
-  { id: "bandComparisons", type: "collapsible", data: { label: "Band 5 → 9 Comparisons" }, position: { x: 0, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "sideBySide", data: { label: "Side-by-Side Model Answers" }, position: { x: -200, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "slider", data: { label: "Interactive Slider" }, position: { x: 0, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "rewriteChallenge", data: { label: "Rewrite Challenge" }, position: { x: 200, y: 220 }, draggable: true, style: nodeBaseStyle },
+  { id: "bandComparisons", type: "collapsible", data: { label: "Band 5 → 9 Comparisons" }, position: { x: 0, y: 120 }, draggable: true },
+  { id: "sideBySide", data: { label: "Side-by-Side Model Answers" }, position: { x: -200, y: 220 }, draggable: true },
+  { id: "slider", data: { label: "Interactive Slider" }, position: { x: 0, y: 220 }, draggable: true },
+  { id: "rewriteChallenge", data: { label: "Rewrite Challenge" }, position: { x: 200, y: 220 }, draggable: true },
   // Evaluation Checklists
-  { id: "checklists", type: "collapsible", data: { label: "Evaluation Checklists" }, position: { x: 220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "task1Checklist", data: { label: "Task 1 Checklist" }, position: { x: 420, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "task2Checklist", data: { label: "Task 2 Checklist" }, position: { x: 220, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "selfScoring", data: { label: "Self-Scoring Rubric" }, position: { x: 20, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "peerAI", data: { label: "Peer/AI Feedback Mode" }, position: { x: 220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "miniTest", data: { label: "✅ Mini-Test (Assessment Mode)" }, position: { x: 420, y: 320 }, draggable: true, style: nodeBaseStyle },
-];
+  { id: "checklists", type: "collapsible", data: { label: "Evaluation Checklists" }, position: { x: 220, y: 120 }, draggable: true },
+  { id: "task1Checklist", data: { label: "Task 1 Checklist" }, position: { x: 420, y: 220 }, draggable: true },
+  { id: "task2Checklist", data: { label: "Task 2 Checklist" }, position: { x: 220, y: 220 }, draggable: true },
+  { id: "selfScoring", data: { label: "Self-Scoring Rubric" }, position: { x: 20, y: 220 }, draggable: true },
+  { id: "peerAI", data: { label: "Peer/AI Feedback Mode" }, position: { x: 220, y: 320 }, draggable: true },
+  { id: "miniTest", data: { label: "✅ Mini-Test (Assessment Mode)" }, position: { x: 420, y: 320 }, draggable: true },
+].map(n => ({
+  ...n,
+  style: {
+    ...nodeBaseStyle,
+    background: nodeBgColors[n.id] || nodeBaseStyle.background,
+  },
+}));
 const initialEdges = [
   // Main branches
   { id: "e-practiceAssessment-timedTests", source: "practiceAssessment", target: "timedTests" },

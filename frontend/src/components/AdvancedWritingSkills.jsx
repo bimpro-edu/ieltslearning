@@ -32,11 +32,49 @@ const nodeBaseStyle = {
   borderRadius: 12,
   padding: 12,
   fontSize: 16,
-  background: '#fff',
+  background: '#fff', // default
   boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
   minWidth: 180,
   minHeight: 40,
   cursor: 'pointer',
+};
+
+// Color map for node backgrounds by category
+const nodeBgColors = {
+  advanced: '#e3f2fd', // main node (blue)
+  cohesion: '#c8e6c9', // cohesion branch (green)
+  logicalFlow: '#c8e6c9',
+  avoidRepetition: '#c8e6c9',
+  paragraphUnity: '#c8e6c9',
+  linkingDevices: '#c8e6c9',
+  linkingGame: '#b2ebf2', // game (cyan)
+  reorderChallenge: '#b2ebf2', // game (cyan)
+  lexical: '#fff9c4', // lexical branch (yellow)
+  vocabFunction: '#fff9c4',
+  collocations: '#fff9c4',
+  paraphrasing: '#fff9c4',
+  avoidRepetitionLex: '#fff9c4',
+  paraphraseGame: '#b2ebf2', // game (cyan)
+  wordCloud: '#b2ebf2', // game (cyan)
+  grammar: '#ede7f6', // grammar branch (purple)
+  complexSentences: '#ede7f6',
+  passiveVoice: '#ede7f6',
+  conditionals: '#ede7f6',
+  nominalClauses: '#ede7f6',
+  accuracy: '#ede7f6',
+  grammarGame: '#b2ebf2', // game (cyan)
+  errorQuiz: '#b2ebf2', // game (cyan)
+  pitfalls: '#ffe0b2', // pitfalls (orange)
+  overuseConnectors: '#ffe0b2',
+  vocabMisuse: '#ffe0b2',
+  complexClarity: '#ffe0b2',
+  bandWash: '#ffe0b2',
+  practice: '#f8bbd0', // practice (pink)
+  microPractice: '#f8bbd0',
+  paragraphRewrites: '#f8bbd0',
+  essayRefinement: '#f8bbd0',
+  timedTest: '#f8bbd0',
+  aiBooster: '#f8bbd0',
 };
 
 const CollapsibleNode = memo((props) => {
@@ -104,46 +142,52 @@ const nodeDetails = {
 };
 
 const initialNodes = [
-  { id: "advanced", data: { label: "Advanced Writing Skills" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
+  { id: "advanced", data: { label: "Advanced Writing Skills" }, position: { x: 0, y: 0 }, draggable: true },
   // Cohesion & Coherence
-  { id: "cohesion", type: "collapsible", data: { label: "Cohesion & Coherence" }, position: { x: -220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "logicalFlow", data: { label: "Logical Flow of Ideas" }, position: { x: -420, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "avoidRepetition", data: { label: "Avoiding Repetition" }, position: { x: -220, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "paragraphUnity", data: { label: "Paragraph Unity" }, position: { x: -20, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "linkingDevices", data: { label: "Linking Devices" }, position: { x: -220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "linkingGame", data: { label: "🎮 Linking Word Match Game" }, position: { x: -420, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "reorderChallenge", data: { label: "🎮 Paragraph Reorder Challenge" }, position: { x: -20, y: 320 }, draggable: true, style: nodeBaseStyle },
+  { id: "cohesion", type: "collapsible", data: { label: "Cohesion & Coherence" }, position: { x: -220, y: 120 }, draggable: true },
+  { id: "logicalFlow", data: { label: "Logical Flow of Ideas" }, position: { x: -420, y: 220 }, draggable: true },
+  { id: "avoidRepetition", data: { label: "Avoiding Repetition" }, position: { x: -220, y: 220 }, draggable: true },
+  { id: "paragraphUnity", data: { label: "Paragraph Unity" }, position: { x: -20, y: 220 }, draggable: true },
+  { id: "linkingDevices", data: { label: "Linking Devices" }, position: { x: -220, y: 320 }, draggable: true },
+  { id: "linkingGame", data: { label: "🎮 Linking Word Match Game" }, position: { x: -420, y: 320 }, draggable: true },
+  { id: "reorderChallenge", data: { label: "🎮 Paragraph Reorder Challenge" }, position: { x: -20, y: 320 }, draggable: true },
   // Lexical Resource
-  { id: "lexical", type: "collapsible", data: { label: "Lexical Resource" }, position: { x: 0, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "vocabFunction", data: { label: "Academic Vocabulary by Function" }, position: { x: -200, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "collocations", data: { label: "Collocations" }, position: { x: 0, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "paraphrasing", data: { label: "Paraphrasing Techniques" }, position: { x: 200, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "avoidRepetitionLex", data: { label: "Avoiding Repetition (Lexical)" }, position: { x: 0, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "paraphraseGame", data: { label: "🎮 Paraphrase Generator Game" }, position: { x: -200, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "wordCloud", data: { label: "🎮 Word Cloud Explorer" }, position: { x: 200, y: 320 }, draggable: true, style: nodeBaseStyle },
+  { id: "lexical", type: "collapsible", data: { label: "Lexical Resource" }, position: { x: 0, y: 120 }, draggable: true },
+  { id: "vocabFunction", data: { label: "Academic Vocabulary by Function" }, position: { x: -200, y: 220 }, draggable: true },
+  { id: "collocations", data: { label: "Collocations" }, position: { x: 0, y: 220 }, draggable: true },
+  { id: "paraphrasing", data: { label: "Paraphrasing Techniques" }, position: { x: 200, y: 220 }, draggable: true },
+  { id: "avoidRepetitionLex", data: { label: "Avoiding Repetition (Lexical)" }, position: { x: 0, y: 320 }, draggable: true },
+  { id: "paraphraseGame", data: { label: "🎮 Paraphrase Generator Game" }, position: { x: -200, y: 320 }, draggable: true },
+  { id: "wordCloud", data: { label: "🎮 Word Cloud Explorer" }, position: { x: 200, y: 320 }, draggable: true },
   // Grammar
-  { id: "grammar", type: "collapsible", data: { label: "Grammar for Higher Bands" }, position: { x: 220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "complexSentences", data: { label: "Complex Sentences" }, position: { x: 420, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "passiveVoice", data: { label: "Passive Voice" }, position: { x: 220, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "conditionals", data: { label: "Conditional Sentences" }, position: { x: 20, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "nominalClauses", data: { label: "Nominal Clauses" }, position: { x: 220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "accuracy", data: { label: "Common Accuracy Issues" }, position: { x: 420, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "grammarGame", data: { label: "🎮 Grammar Transformation Game" }, position: { x: 20, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "errorQuiz", data: { label: "🎮 Error Correction Quizzes" }, position: { x: 220, y: 420 }, draggable: true, style: nodeBaseStyle },
+  { id: "grammar", type: "collapsible", data: { label: "Grammar for Higher Bands" }, position: { x: 220, y: 120 }, draggable: true },
+  { id: "complexSentences", data: { label: "Complex Sentences" }, position: { x: 420, y: 220 }, draggable: true },
+  { id: "passiveVoice", data: { label: "Passive Voice" }, position: { x: 220, y: 220 }, draggable: true },
+  { id: "conditionals", data: { label: "Conditional Sentences" }, position: { x: 20, y: 220 }, draggable: true },
+  { id: "nominalClauses", data: { label: "Nominal Clauses" }, position: { x: 220, y: 320 }, draggable: true },
+  { id: "accuracy", data: { label: "Common Accuracy Issues" }, position: { x: 420, y: 320 }, draggable: true },
+  { id: "grammarGame", data: { label: "🎮 Grammar Transformation Game" }, position: { x: 20, y: 320 }, draggable: true },
+  { id: "errorQuiz", data: { label: "🎮 Error Correction Quizzes" }, position: { x: 220, y: 420 }, draggable: true },
   // Pitfalls
-  { id: "pitfalls", type: "collapsible", data: { label: "Common Pitfalls" }, position: { x: -120, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "overuseConnectors", data: { label: "Overuse of Connectors" }, position: { x: -320, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "vocabMisuse", data: { label: "Vocabulary Misuse" }, position: { x: -120, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "complexClarity", data: { label: "Overly Complex Sentences" }, position: { x: 80, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "bandWash", data: { label: "Grammar 'Band-Wash'" }, position: { x: -120, y: 520 }, draggable: true, style: nodeBaseStyle },
+  { id: "pitfalls", type: "collapsible", data: { label: "Common Pitfalls" }, position: { x: -120, y: 320 }, draggable: true },
+  { id: "overuseConnectors", data: { label: "Overuse of Connectors" }, position: { x: -320, y: 420 }, draggable: true },
+  { id: "vocabMisuse", data: { label: "Vocabulary Misuse" }, position: { x: -120, y: 420 }, draggable: true },
+  { id: "complexClarity", data: { label: "Overly Complex Sentences" }, position: { x: 80, y: 420 }, draggable: true },
+  { id: "bandWash", data: { label: "Grammar 'Band-Wash'" }, position: { x: -120, y: 520 }, draggable: true },
   // Practice
-  { id: "practice", type: "collapsible", data: { label: "Practice & Application" }, position: { x: 120, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "microPractice", data: { label: "Targeted Micro-Practice" }, position: { x: 320, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "paragraphRewrites", data: { label: "Paragraph Rewrites" }, position: { x: 120, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "essayRefinement", data: { label: "Full Essay Refinement" }, position: { x: 320, y: 520 }, draggable: true, style: nodeBaseStyle },
-  { id: "timedTest", data: { label: "Timed Advanced Test" }, position: { x: 120, y: 520 }, draggable: true, style: nodeBaseStyle },
-  { id: "aiBooster", data: { label: "AI Band Booster" }, position: { x: 520, y: 520 }, draggable: true, style: nodeBaseStyle },
-];
+  { id: "practice", type: "collapsible", data: { label: "Practice & Application" }, position: { x: 120, y: 320 }, draggable: true },
+  { id: "microPractice", data: { label: "Targeted Micro-Practice" }, position: { x: 320, y: 420 }, draggable: true },
+  { id: "paragraphRewrites", data: { label: "Paragraph Rewrites" }, position: { x: 120, y: 420 }, draggable: true },
+  { id: "essayRefinement", data: { label: "Full Essay Refinement" }, position: { x: 320, y: 520 }, draggable: true },
+  { id: "timedTest", data: { label: "Timed Advanced Test" }, position: { x: 120, y: 520 }, draggable: true },
+  { id: "aiBooster", data: { label: "AI Band Booster" }, position: { x: 320, y: 620 }, draggable: true },
+].map(n => ({
+  ...n,
+  style: {
+    ...nodeBaseStyle,
+    background: nodeBgColors[n.id] || nodeBaseStyle.background,
+  },
+}));
 const initialEdges = [
   // Main branches
   { id: "e-advanced-cohesion", source: "advanced", target: "cohesion" },
