@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from "react";
-import ReactFlow, { useNodesState, useEdgesState, Background, Controls } from "reactflow";
+import React, { useState, useCallback, useEffect, memo } from "react";
+import ReactFlow, { useNodesState, useEdgesState, Background, Controls, Handle, Position } from "reactflow";
 import "reactflow/dist/style.css";
 import { MiniBarChart } from "./MiniCharts";
 
@@ -12,13 +12,7 @@ const EssayIcon = () => (
     <rect x="16" y="36" width="20" height="4" rx="2" fill="#90caf9"/>
     <rect x="16" y="44" width="12" height="4" rx="2" fill="#90caf9"/>
   </svg>
-);
-const WarningIcon = () => (
-  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
-    <polygon points="32,8 60,56 4,56" fill="#ffb300" stroke="#f57c00" strokeWidth="2"/>
-    <rect x="29" y="28" width="6" height="16" rx="3" fill="#f57c00"/>
-    <circle cx="32" cy="50" r="3" fill="#f57c00"/>
-  </svg>
+// End EssayIcon
 );
 const LightbulbIcon = () => (
   <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
@@ -179,6 +173,25 @@ const nodeBaseStyle = {
 };
 
 // Mindmap node and edge arrays
+// Custom collapsible node component
+const CollapsibleNode = memo((props) => {
+  const { id, data } = props;
+  const { isExpanded, onToggle } = data;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <Handle type="target" position={Position.Left} />
+      <div style={{ fontWeight: 600 }}>{data.label}</div>
+      <button
+        style={{ marginLeft: 8, padding: '2px 10px', borderRadius: 6, border: '1px solid #1976d2', background: isExpanded ? '#e3f2fd' : '#fff', color: '#1976d2', cursor: 'pointer', fontSize: 14 }}
+        onClick={e => { e.stopPropagation(); onToggle(id); }}
+      >
+        {isExpanded ? 'Collapse' : 'Expand'}
+      </button>
+      <Handle type="source" position={Position.Right} />
+    </div>
+  );
+});
+
 const initialNodes = [
   // Sub-nodes for pitfalls
   { id: "offTopic", data: { label: "Off-topic/Not Answering" }, position: { x: 420, y: 400 }, draggable: true, style: nodeBaseStyle },
@@ -189,9 +202,10 @@ const initialNodes = [
   { id: "grammarErrors", data: { label: "Grammar/Spelling Errors" }, position: { x: 420, y: 600 }, draggable: true, style: nodeBaseStyle },
   { id: "t2", data: { label: "Task 2 Mastery (Essay Writing)" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
   { id: "essayTypes", data: { label: "Essay Types" }, position: { x: -220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "essayStructure", data: { label: "Essay Structure" }, position: { x: 220, y: 120 }, draggable: true, style: nodeBaseStyle },
+  { id: "essayStructure", type: "collapsible", data: { label: "Essay Structure" }, position: { x: 220, y: 120 }, draggable: true, style: nodeBaseStyle },
   { id: "introduction", data: { label: "Introduction" }, position: { x: 420, y: 80 }, draggable: true, style: nodeBaseStyle },
   { id: "bodyParagraph", data: { label: "Body Paragraph" }, position: { x: 420, y: 120 }, draggable: true, style: nodeBaseStyle },
+  
   { id: "conclusion", data: { label: "Conclusion" }, position: { x: 420, y: 160 }, draggable: true, style: nodeBaseStyle },
   { id: "skills", data: { label: "Skills & Strategies" }, position: { x: 0, y: 220 }, draggable: true, style: nodeBaseStyle },
   { id: "vocab", data: { label: "Vocabulary Banks" }, position: { x: -220, y: 320 }, draggable: true, style: nodeBaseStyle },
@@ -216,7 +230,6 @@ const initialNodes = [
   { id: "mockTest", data: { label: "Mock Test" }, position: { x: 0, y: 520 }, draggable: true, style: nodeBaseStyle },
   { id: "bandBenchmark", data: { label: "Band Benchmarking" }, position: { x: 120, y: 520 }, draggable: true, style: nodeBaseStyle },
 ];
-
 const initialEdges = [
   // Pitfalls sub-branches
   { id: "e-pitfalls-offTopic", source: "pitfalls", target: "offTopic" },
@@ -255,7 +268,11 @@ const initialEdges = [
   { id: "e-practice-bandBenchmark", source: "practice", target: "bandBenchmark" },
 ];
 
+const nodeTypes = { collapsible: CollapsibleNode };
+
 function Task2Mindmap() {
+  // Start with Essay Structure expanded by default
+  const [expanded, setExpanded] = useState({ essayStructure: true });
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selected, setSelected] = useState(null);
@@ -265,6 +282,23 @@ function Task2Mindmap() {
     setNodes(initialNodes);
     setEdges(initialEdges);
   }, []);
+  // Toggle expand/collapse for collapsible nodes
+  const handleToggle = useCallback((id) => {
+    setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
+    setSelected(null); // Deselect node when toggling
+  }, []);
+
+  // Filter nodes/edges based on expanded state
+  const getVisibleNodesAndEdges = () => {
+    let visibleNodes = [...initialNodes];
+    let visibleEdges = [...initialEdges];
+    // If essayStructure is collapsed, hide its children and connecting edges
+    if (!expanded.essayStructure) {
+      visibleNodes = visibleNodes.filter(n => !['introduction', 'bodyParagraph', 'conclusion'].includes(n.id));
+      visibleEdges = visibleEdges.filter(e => e.source !== 'essayStructure');
+    }
+    return { visibleNodes, visibleEdges };
+  };
 
   const onNodeClick = useCallback((event, node) => {
     setSelected(node.id);
@@ -292,15 +326,21 @@ function Task2Mindmap() {
     'significant', 'considerable', 'controversial', 'perspective', 'justify'
   ];
 
+  const { visibleNodes, visibleEdges } = getVisibleNodesAndEdges();
   const Mindmap = (
     <div style={{ width: '100%', height: '800px', border: '1px solid #ccc', borderRadius: '8px', position: 'relative', background: '#f8fafc' }}>
       <ReactFlow
-        nodes={nodes}
-        edges={edges}
+        nodes={visibleNodes.map(n =>
+          n.type === 'collapsible'
+            ? { ...n, data: { ...n.data, isExpanded: !!expanded[n.id], onToggle: handleToggle } }
+            : n
+        )}
+        edges={visibleEdges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         fitView
         onNodeClick={onNodeClick}
+        nodeTypes={nodeTypes}
       >
         <Controls />
         <Background variant="dots" gap={12} size={1} />
