@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import ReactFlow, { Background, Controls, applyNodeChanges } from "reactflow";
+import React, { useState, useCallback, useEffect } from "react";
+import ReactFlow, { useNodesState, useEdgesState, Background, Controls } from "reactflow";
 import "reactflow/dist/style.css";
+import { MiniBarChart } from "./MiniCharts";
 
 // Task 2 Mindmap node details (imported from Task1Mindmap.jsx for now)
 const nodeDetails = {
@@ -10,7 +11,8 @@ const nodeDetails = {
   },
   essayTypes: {
     title: "Essay Types",
-    details: `Opinion, Discussion, Problem–Solution, Advantages–Disadvantages, Double Question, Hybrid.\n\nInteractive: Classifier game for essay questions.`
+    details: `Opinion, Discussion, Problem–Solution, Advantages–Disadvantages, Double Question, Hybrid.\n\nInteractive: Classifier game for essay questions.`, 
+    chart: <MiniBarChart height={200} />
   },
   essayStructure: {
     title: "Essay Structure",
@@ -72,13 +74,19 @@ const initialEdges = [
 ];
 
 function Task2Mindmap() {
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selected, setSelected] = useState(null);
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
   const [detached, setDetached] = useState(false);
 
-  const onNodeClick = (_event, node) => setSelected(node.id);
-  const onNodesChange = changes => setNodes(nds => applyNodeChanges(changes, nds));
+  useEffect(() => {
+    setNodes(initialNodes);
+    setEdges(initialEdges);
+  }, []);
+
+  const onNodeClick = useCallback((event, node) => {
+    setSelected(node.id);
+  }, []);
 
   const details = selected ? nodeDetails[selected] : null;
 
@@ -88,6 +96,7 @@ function Task2Mindmap() {
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
         onNodeClick={onNodeClick}
         nodesDraggable={true}
         panOnDrag={true}
@@ -98,13 +107,6 @@ function Task2Mindmap() {
         <Background />
         <Controls />
       </ReactFlow>
-      {details && (
-        <div style={{ position: "absolute", top: 20, right: 20, width: 500, background: "#fff", borderRadius: 14, boxShadow: "0 2px 16px #0002", padding: 24, zIndex: 10, maxHeight: 600, overflowY: 'auto' }}>
-          <div className="font-bold text-lg mb-2">{details.title}</div>
-          <div className="text-sm whitespace-pre-line">{details.details}</div>
-          <button className="mt-4 px-3 py-1 rounded bg-green-600 text-white hover:bg-green-700 text-sm font-semibold shadow" onClick={() => setSelected(null)}>Close</button>
-        </div>
-      )}
     </div>
   );
 
@@ -116,6 +118,18 @@ function Task2Mindmap() {
         </button>
       </div>
       <div className="mb-6" style={{ maxHeight: 720, overflowY: "auto" }}>{Mindmap}</div>
+      <div style={{ marginTop: 24, background: '#f9f9f9', borderRadius: 8, padding: 24, boxShadow: '0 2px 8px #0001', border: '1px solid #e3e3e3', maxWidth: 900, marginLeft: 'auto', marginRight: 'auto', minHeight: 120 }}>
+        {details ? (
+          <>
+            <div className="font-bold text-lg mb-2" style={{ color: '#1b5e20' }}>{details.title}</div>
+            <div className="text-sm whitespace-pre-line">{details.details}</div>
+            {details.chart && <div className="mt-4">{details.chart}</div>}
+            <button className="mt-4 px-3 py-1 rounded bg-green-600 text-white hover:bg-green-700 text-sm font-semibold shadow" onClick={() => setSelected(null)}>Close</button>
+          </>
+        ) : (
+          <div className="text-gray-500 text-base" style={{textAlign:'center',padding:'32px 0'}}>Click a node to see details here.</div>
+        )}
+      </div>
       {detached && (
         <div style={{ position: "fixed", zIndex: 1000, top: 0, left: 0, width: "100vw", height: "100vh", background: "rgba(30,40,60,0.92)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <div style={{ width: "90vw", height: "90vh", background: "#fff", borderRadius: 12, boxShadow: "0 4px 32px #0006", position: "relative", padding: 24, display: "flex", flexDirection: "column" }}>

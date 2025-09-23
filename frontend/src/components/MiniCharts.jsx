@@ -149,17 +149,32 @@ export function AreaChart({ width = "100%", height = 480 }) {
 }
 
 export function ProcessDiagram({ width = 320, height = 180 }) {
-  // Simple SVG process diagram
+  // Enriched SVG process diagram: 4 steps, arrows, icons, and labels
   return (
     <svg width={width} height={height} viewBox="0 0 320 180">
-      <rect x="20" y="60" width="60" height="40" rx="8" fill="#90caf9" />
-      <rect x="120" y="60" width="60" height="40" rx="8" fill="#a5d6a7" />
-      <rect x="220" y="60" width="60" height="40" rx="8" fill="#ffe082" />
-      <text x="50" y="85" textAnchor="middle" fontSize="16" fill="#1565c0">Start</text>
-      <text x="150" y="85" textAnchor="middle" fontSize="16" fill="#2e7d32">Step 2</text>
-      <text x="250" y="85" textAnchor="middle" fontSize="16" fill="#f9a825">End</text>
-      <polygon points="80,80 100,80 100,85 110,75 100,65 100,70 80,70" fill="#1976d2" />
-      <polygon points="180,80 200,80 200,85 210,75 200,65 200,70 180,70" fill="#388e3c" />
+      {/* Step 1: Input */}
+      <rect x="10" y="60" width="60" height="40" rx="8" fill="#90caf9" />
+      <text x="40" y="85" textAnchor="middle" fontSize="15" fill="#1565c0">Input</text>
+      <circle cx="40" cy="50" r="10" fill="#42a5f5" />
+      <text x="40" y="54" textAnchor="middle" fontSize="10" fill="#fff">A</text>
+      {/* Arrow 1 */}
+      <polygon points="70,80 90,80 90,85 100,75 90,65 90,70 70,70" fill="#1976d2" />
+      {/* Step 2: Process */}
+      <rect x="110" y="60" width="60" height="40" rx="8" fill="#a5d6a7" />
+      <text x="140" y="85" textAnchor="middle" fontSize="15" fill="#2e7d32">Process</text>
+      <rect x="135" y="45" width="10" height="20" rx="3" fill="#66bb6a" />
+      {/* Arrow 2 */}
+      <polygon points="170,80 190,80 190,85 200,75 190,65 190,70 170,70" fill="#388e3c" />
+      {/* Step 3: Output */}
+      <rect x="210" y="60" width="60" height="40" rx="8" fill="#ffe082" />
+      <text x="240" y="85" textAnchor="middle" fontSize="15" fill="#f9a825">Output</text>
+      <circle cx="240" cy="50" r="10" fill="#fbc02d" />
+      <text x="240" y="54" textAnchor="middle" fontSize="10" fill="#fff">B</text>
+      {/* Arrow 3 */}
+      <polygon points="270,80 290,80 290,85 300,75 290,65 290,70 270,70" fill="#fbc02d" />
+      {/* Step 4: Storage */}
+      <rect x="290" y="60" width="20" height="40" rx="6" fill="#ab47bc" />
+      <text x="300" y="115" textAnchor="middle" fontSize="12" fill="#6a1b9a">Store</text>
     </svg>
   );
 }
