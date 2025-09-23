@@ -228,6 +228,38 @@ function Task1Mindmap() {
                   Chart Overview
                 </div>
               )}
+              {selected === 'vocabBank' && (
+                <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e3f2fd', borderRadius: 12 }}>
+                  {/* Book SVG icon */}
+                  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
+                    <rect x="8" y="12" width="20" height="40" rx="4" fill="#90caf9" stroke="#1976d2" strokeWidth="2"/>
+                    <rect x="36" y="12" width="20" height="40" rx="4" fill="#fff" stroke="#1976d2" strokeWidth="2"/>
+                    <path d="M28 16H12M28 24H12M28 32H12M28 40H12" stroke="#1976d2" strokeWidth="2"/>
+                    <path d="M52 16H40M52 24H40M52 32H40M52 40H40" stroke="#1976d2" strokeWidth="2"/>
+                  </svg>
+                </div>
+              )}
+              {selected === 'pitfalls' && (
+                <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff3e0', borderRadius: 12 }}>
+                  {/* Warning SVG icon */}
+                  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
+                    <polygon points="32,8 60,56 4,56" fill="#ffb300" stroke="#f57c00" strokeWidth="2"/>
+                    <rect x="29" y="28" width="6" height="16" rx="3" fill="#f57c00"/>
+                    <circle cx="32" cy="50" r="3" fill="#f57c00"/>
+                  </svg>
+                </div>
+              )}
+              {selected === 'strategy' && (
+                <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e8f5e9', borderRadius: 12 }}>
+                  {/* Lightbulb SVG icon */}
+                  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
+                    <ellipse cx="32" cy="28" rx="18" ry="20" fill="#fffde7" stroke="#fbc02d" strokeWidth="2"/>
+                    <rect x="26" y="48" width="12" height="10" rx="3" fill="#fbc02d"/>
+                    <rect x="28" y="58" width="8" height="4" rx="2" fill="#ffe082"/>
+                    <path d="M32 8v6M16 16l4 4M48 16l-4 4" stroke="#fbc02d" strokeWidth="2"/>
+                  </svg>
+                </div>
+              )}
               {selected === 'mixedTableChart' && (
                 <div style={{ display: 'flex', flexDirection: 'row', gap: 30, alignItems: 'center', justifyContent: 'center' }}>
                   <table style={{ width: 270, borderCollapse: 'collapse', fontSize: 24, marginRight: 24 }}>
@@ -264,7 +296,31 @@ function Task1Mindmap() {
             {/* Info on the right (60% width, larger font) */}
               <div style={{ flex: '0 0 62%', maxWidth: '62%', minWidth: 320, width: 'auto', marginLeft: 0, wordBreak: 'break-word', whiteSpace: 'pre-line', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
               <div style={{ color: '#1976d2', fontSize: 22, fontWeight: 600, marginBottom: 12 }}>{nodeDetails[selected].title}</div>
-              <div style={{ fontSize: 20, wordBreak: 'break-word', whiteSpace: 'pre-line' }}>{nodeDetails[selected].details}</div>
+              {selected === 'vocabBank' ? (
+                <div style={{ fontSize: 20, marginBottom: 12 }}>{nodeDetails[selected].details.split('Practice using these words in context:')[0]}</div>
+              ) : null}
+              {selected === 'vocabBank' ? (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 8 }}>
+                  {[
+                    'increase', 'decline', 'plateau', 'fluctuate', 'peak', 'dip', 'surge', 'plummet', 'remain steady',
+                    'is heated', 'is produced', 'is filtered', 'is collected', 'is transported',
+                    'next to', 'north of', 'replaced by', 'adjacent to', 'expanded', 'demolished', 'constructed'
+                  ].map((word, idx) => (
+                    <span key={word} style={{
+                      background: '#e3f2fd',
+                      color: '#1976d2',
+                      borderRadius: 8,
+                      padding: '6px 14px',
+                      fontSize: 18,
+                      fontWeight: 500,
+                      border: '1px solid #90caf9',
+                      marginBottom: 4
+                    }}>{word}</span>
+                  ))}
+                </div>
+              ) : (
+                <div style={{ fontSize: 24, wordBreak: 'break-word', whiteSpace: 'pre-line' }}>{nodeDetails[selected].details}</div>
+              )}
             </div>
           </div>
         </div>
