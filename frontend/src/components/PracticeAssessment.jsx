@@ -60,25 +60,25 @@ const nodeTypes = { collapsible: CollapsibleNode };
 const nodeDetails = {
   practiceAssessment: {
     title: "Practice & Assessment",
-    details: `A comprehensive module for timed practice, band comparisons, and self/AI evaluation. Expand each branch for interactive tools and model answers.`
+    details: `A comprehensive module for timed practice, band comparisons, and self/AI evaluation.\n\nExpand each branch for interactive tools, model answers, and actionable feedback to maximize your IELTS Writing performance.`
   },
   // Timed Mock Tests
-  timedTests: { title: "Timed Mock Tests", details: `Simulate real exam conditions for Task 1, Task 2, or both. Includes countdown timer, autosave, and random prompts.` },
-  task1Practice: { title: "Task 1 Practice (20 min)", details: `Practice Task 1 with new data sets each time (charts, processes, maps). 20-minute timer, autosave, and instant feedback.` },
-  task2Practice: { title: "Task 2 Practice (40 min)", details: `Practice Task 2 with randomized essay questions by topic. 40-minute timer, built-in word counter, and “time’s up” lock.` },
-  fullTest: { title: "Full Writing Test Simulation (60 min)", details: `Do Task 1 + Task 2 in one go. 60-minute timer, auto-export answers for review.` },
+  timedTests: { title: "Timed Mock Tests", details: `Simulate real exam conditions for Task 1, Task 2, or both.\n\nFeatures:\n- Countdown timer\n- Autosave\n- Randomized prompts\n- Instant feedback after submission\n\nTip: Practice under timed conditions to build exam stamina.` },
+  task1Practice: { title: "Task 1 Practice (20 min)", details: `Practice Task 1 with a new data set every time (charts, processes, maps).\n\n- 20-minute timer\n- Autosave your work\n- Get instant feedback on structure and data accuracy\n\nExample prompt:\n"The chart below shows the percentage of households with internet access in five countries. Summarize the information..."` },
+  task2Practice: { title: "Task 2 Practice (40 min)", details: `Practice Task 2 with randomized essay questions by topic (education, environment, technology, etc.).\n\n- 40-minute timer\n- Built-in word counter\n- “Time’s up” lock prevents further editing\n\nExample prompt:\n"Some people believe that technology has made our lives more complicated. To what extent do you agree or disagree?"` },
+  fullTest: { title: "Full Writing Test Simulation (60 min)", details: `Take a full IELTS Writing test: Task 1 + Task 2 in one go.\n\n- 60-minute timer\n- Auto-export your answers for review\n- Simulates real exam pressure\n\nTip: Review your answers and note areas for improvement after each simulation.` },
   // Band Comparisons
-  bandComparisons: { title: "Band 5 → 9 Comparisons", details: `See side-by-side model answers for the same prompt at different band levels. Use the slider to compare and try the rewrite challenge!` },
-  sideBySide: { title: "Side-by-Side Model Answers", details: `View Band 5, 6, 7, 8, and 9 responses to the same prompt. Highlighted differences in vocabulary, cohesion, grammar, and task response.` },
-  slider: { title: "Interactive Slider", details: `Drag the slider to visually “upgrade” an essay from Band 5 to Band 9. See how each improvement raises the score.` },
-  rewriteChallenge: { title: "Rewrite Challenge", details: `Try to “upgrade” a Band 6 answer into Band 7+. Get instant feedback on your rewrite.` },
+  bandComparisons: { title: "Band 5 → 9 Comparisons", details: `See side-by-side model answers for the same prompt at different band levels.\n\n- Vocabulary richness\n- Cohesion & coherence\n- Grammar range & accuracy\n- Task response quality\n\nUse the slider and rewrite challenge to learn how to upgrade your writing.` },
+  sideBySide: { title: "Side-by-Side Model Answers", details: `Compare Band 5, 6, 7, 8, and 9 responses to the same prompt.\n\nHighlighted differences:\n- Band 5: Simple vocabulary, weak structure\n- Band 7: Varied vocabulary, clear progression\n- Band 9: Sophisticated language, flawless logic\n\nTip: Study the differences and apply them to your own writing.` },
+  slider: { title: "Interactive Slider", details: `Drag the slider to visually “upgrade” an essay from Band 5 to Band 9.\n\nSee how improvements in vocabulary, grammar, and structure raise the score.\n\nExample: Watch "important" become "crucial", "bad" become "detrimental", and sentences become more complex.` },
+  rewriteChallenge: { title: "Rewrite Challenge", details: `Try to “upgrade” a Band 6 answer into Band 7+.\n\n- Edit the sample answer\n- Get instant feedback on your changes\n- Focus on vocabulary, cohesion, and grammar\n\nTip: Use the Band 7+ model as inspiration, but write in your own words.` },
   // Evaluation Checklists
-  checklists: { title: "Evaluation Checklists", details: `Use detailed checklists for Task 1 and Task 2. Self-score your work or get peer/AI feedback.` },
-  task1Checklist: { title: "Task 1 Checklist", details: `Checklist: Overview present? Key trends/changes highlighted? Clear comparisons? Data accuracy?` },
-  task2Checklist: { title: "Task 2 Checklist", details: `Checklist: Clear position? Balanced arguments/examples? Logical progression? Range of structures and vocabulary?` },
-  selfScoring: { title: "Self-Scoring Rubric", details: `Tick boxes to estimate your Band. Use as a self-assessment tool after each practice.` },
-  peerAI: { title: "Peer/AI Feedback Mode", details: `Upload your answer for instant annotated feedback. Highlights grammar errors, vague vocab, missing overview, and more.` },
-  miniTest: { title: "✅ Mini-Test (Assessment Mode)", details: `5 timed prompts (mix of Task 1 & 2). Auto-generated report: strengths, weaknesses, band estimate, and next-step recommendation.` },
+  checklists: { title: "Evaluation Checklists", details: `Use detailed checklists for Task 1 and Task 2.\n\n- Self-score your work\n- Peer or AI feedback\n- Identify strengths and weaknesses\n\nTip: Use the checklist after every practice essay.` },
+  task1Checklist: { title: "Task 1 Checklist", details: `Task 1 must-haves:\n- Overview present?\n- Key trends/changes highlighted?\n- Clear comparisons?\n- Data accuracy?\n\nExample: "Overall, internet access increased in all countries, with the UK leading."` },
+  task2Checklist: { title: "Task 2 Checklist", details: `Task 2 must-haves:\n- Clear position throughout?\n- Balanced arguments/examples?\n- Logical progression of ideas?\n- Range of structures and vocabulary?\n\nExample: "While technology has brought challenges, its benefits outweigh the drawbacks."` },
+  selfScoring: { title: "Self-Scoring Rubric", details: `Tick boxes to estimate your Band.\n\n- Use after each practice\n- Honest self-assessment helps you target weak areas\n\nTip: Compare your self-score with teacher or AI feedback for accuracy.` },
+  peerAI: { title: "Peer/AI Feedback Mode", details: `Upload your answer for instant annotated feedback.\n\n- Grammar errors highlighted\n- Vague vocabulary flagged\n- Missing overview or unclear position noted\n\nTip: Use feedback to make targeted improvements before your next attempt.` },
+  miniTest: { title: "✅ Mini-Test (Assessment Mode)", details: `5 timed prompts (mix of Task 1 & 2).\n\n- Each prompt timed\n- Auto-generated report: strengths, weaknesses, band estimate, and next-step recommendation\n\nTip: Use the report to plan your next study session.` },
 };
 
 const initialNodes = [
