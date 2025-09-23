@@ -40,6 +40,8 @@ import Footer from '../components/Footer';
 import OrientationMindmap from '../components/OrientationMindmap';
 import Task1Mindmap from "../components/Task1Mindmap";
 import Task2Mindmap from "../components/Task2Mindmap";
+import AdvancedWritingSkills from '../components/AdvancedWritingSkills';
+import PracticeAssessment from '../components/PracticeAssessment';
 
 
 const roadmap = [
@@ -128,6 +130,14 @@ function RoadmapAccordion() {
               {/* If Task 2 Mastery (Essays), show Task2Mindmap above the list */}
               {section.title === 'Task 2 Mastery (Essays)' && open === idx && (
                 <div className="mb-6"><Task2Mindmap /></div>
+              )}
+              {/* If Advanced Writing Skills, show AdvancedWritingSkills mindmap above the list */}
+              {section.title === 'Advanced Writing Skills' && open === idx && (
+                <div className="mb-6"><AdvancedWritingSkills /></div>
+              )}
+              {/* If Practice & Assessment, show PracticeAssessment mindmap above the list */}
+              {section.title === 'Practice & Assessment' && open === idx && (
+                <div className="mb-6"><PracticeAssessment /></div>
               )}
               <ul className="list-disc ml-6 space-y-2">
                 {section.items.map(item => (
