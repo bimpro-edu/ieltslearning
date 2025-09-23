@@ -1,3 +1,12 @@
+// Book SVG icon for default visuals
+const BookIcon = () => (
+  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
+    <rect x="8" y="12" width="20" height="40" rx="4" fill="#90caf9" stroke="#1976d2" strokeWidth="2"/>
+    <rect x="36" y="12" width="20" height="40" rx="4" fill="#fff" stroke="#1976d2" strokeWidth="2"/>
+    <path d="M28 16H12M28 24H12M28 32H12M28 40H12" stroke="#1976d2" strokeWidth="2"/>
+    <path d="M52 16H40M52 24H40M52 32H40M52 40H40" stroke="#1976d2" strokeWidth="2"/>
+  </svg>
+);
 import React, { useState, useCallback, useEffect, memo } from "react";
 import ReactFlow, { useNodesState, useEdgesState, Background, Controls, Handle, Position } from "reactflow";
 // SVG icon for warning nodes (e.g., pitfalls)
@@ -330,23 +339,12 @@ function Task1Mindmap() {
               )}
               {selected === 'vocabBank' && (
                 <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e3f2fd', borderRadius: 12 }}>
-                  {/* Book SVG icon */}
-                  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
-                    <rect x="8" y="12" width="20" height="40" rx="4" fill="#90caf9" stroke="#1976d2" strokeWidth="2"/>
-                    <rect x="36" y="12" width="20" height="40" rx="4" fill="#fff" stroke="#1976d2" strokeWidth="2"/>
-                    <path d="M28 16H12M28 24H12M28 32H12M28 40H12" stroke="#1976d2" strokeWidth="2"/>
-                    <path d="M52 16H40M52 24H40M52 32H40M52 40H40" stroke="#1976d2" strokeWidth="2"/>
-                  </svg>
+                  <BookIcon />
                 </div>
               )}
               {selected === 'pitfalls' && (
                 <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff3e0', borderRadius: 12 }}>
-                  {/* Warning SVG icon */}
-                  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
-                    <polygon points="32,8 60,56 4,56" fill="#ffb300" stroke="#f57c00" strokeWidth="2"/>
-                    <rect x="29" y="28" width="6" height="16" rx="3" fill="#f57c00"/>
-                    <circle cx="32" cy="50" r="3" fill="#f57c00"/>
-                  </svg>
+                  <WarningIcon />
                 </div>
               )}
               {selected === 'strategy' && (
@@ -358,6 +356,12 @@ function Task1Mindmap() {
                     <rect x="28" y="58" width="8" height="4" rx="2" fill="#ffe082"/>
                     <path d="M32 8v6M16 16l4 4M48 16l-4 4" stroke="#fbc02d" strokeWidth="2"/>
                   </svg>
+                </div>
+              )}
+              {/* Default visual for nodes without a chart or special icon */}
+              {!(selected === 'line' || selected === 'bar' || selected === 'pie' || selected === 'table' || selected === 'mixed' || selected === 'stacked' || selected === 'area' || selected === 'scatter' || ['process', 'natural', 'manufacturing', 'mechanical'].includes(selected) || selected === 'charts' || selected === 'vocabBank' || selected === 'pitfalls' || selected === 'strategy' || selected === 'mixedTableChart' || selected === 'maps') && (
+                <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e3f2fd', borderRadius: 12 }}>
+                  <BookIcon />
                 </div>
               )}
               {selected === 'mixedTableChart' && (
