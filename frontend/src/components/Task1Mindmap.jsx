@@ -1,5 +1,34 @@
-import React, { useState, useCallback, useEffect } from "react";
-import ReactFlow, { useNodesState, useEdgesState, Background, Controls } from "reactflow";
+import React, { useState, useCallback, useEffect, memo } from "react";
+import ReactFlow, { useNodesState, useEdgesState, Background, Controls, Handle, Position } from "reactflow";
+// SVG icon for warning nodes (e.g., pitfalls)
+const WarningIcon = () => (
+  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
+    <circle cx="32" cy="32" r="28" fill="#fff3cd" stroke="#ff9800" strokeWidth="3" />
+    <rect x="29" y="18" width="6" height="24" rx="3" fill="#ff9800" />
+    <rect x="29" y="46" width="6" height="6" rx="3" fill="#ff9800" />
+  </svg>
+);
+// Collapsible node component for parent nodes
+const CollapsibleNode = memo((props) => {
+  const { id, data } = props;
+  const { isExpanded, onToggle } = data;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, ...(props.style || {}) }} className={props.className}>
+      <Handle type="target" position={Position.Left} />
+      <div style={{ fontWeight: 600, cursor: 'grab' }}>{data.label}</div>
+      <button
+        style={{ marginLeft: 8, padding: '2px 10px', borderRadius: 6, border: '1px solid #1976d2', background: isExpanded ? '#e3f2fd' : '#fff', color: '#1976d2', cursor: 'pointer', fontSize: 14 }}
+        onClick={e => { e.stopPropagation(); onToggle(id); }}
+      >
+        {isExpanded ? 'Collapse' : 'Expand'}
+      </button>
+      <Handle type="source" position={Position.Right} />
+    </div>
+  );
+});
+
+// Memoized nodeTypes outside the component to avoid React Flow warning
+const nodeTypes = { collapsible: CollapsibleNode };
 import "reactflow/dist/style.css";
 import { MiniLineChart, MiniBarChart, MiniPieChart, AreaChart, ScatterChart, StackedBarChart, MixedChart, ProcessDiagram } from "./MiniCharts";
 
@@ -55,13 +84,33 @@ const nodeDetails = {
   mixedTableChart: { title: "Mixed Table + Chart", details: `Some IELTS tasks combine a table and a chart.\n\n- Synthesize information from both sources.\n- Compare, contrast, and summarize data across formats.\n- Example: "The table shows a steady increase, while the chart highlights a sharp drop in 2018."\n\nTip: Write a single overview that covers both visuals!` },
   vocabBank: { title: "Key Vocabulary Bank", details: `Essential vocabulary for each task type.\n\n- Practice using these words in context: increase, decline, plateau, fluctuate, peak, dip, surge, plummet, remain steady, is heated, is produced, is filtered, is collected, is transported, next to, north of, replaced by, adjacent to, expanded, demolished, constructed.\n- Try to use a variety of vocabulary in your writing.\n- Example: "The number of visitors surged in 2022, then plateaued the following year."\n\nTip: Avoid repeating the same words—use synonyms and paraphrasing!` },
   pitfalls: { title: "Pitfalls & Mistakes", details: `Common mistakes in Task 1:\n\n- Over-describing every number instead of summarizing trends.\n- Missing the overall trend or overview.\n- Not using sequence connectors or passive voice in processes.\n- Confusing tenses or using unclear spatial language.\n- Repeating vocabulary or copying from the prompt.\n\nHow to avoid them:\n- Focus on key features and main trends.\n- Use a range of grammar and vocabulary.\n- Always write a clear overview and group similar data.\n\nTip: Proofread your answer and check for repetition or missing information!` },
+  overDescribe: {
+    title: "Over-describing Numbers",
+    details: `Listing every number or detail makes your report hard to follow.\n\nTips:\n- Summarize trends and group similar data.\n- Focus on the most significant changes or features.\n\nExample: Instead of 'A was 20, B was 21, C was 22...', write 'All three categories were similar, around 20–22.'`
+  },
+  missingOverview: {
+    title: "Missing the Overview",
+    details: `Not including a clear overview lowers your score.\n\nTips:\n- Always write a summary sentence after the introduction.\n- Highlight the main trend, biggest change, or overall pattern.\n\nExample: 'Overall, sales increased in all regions, but the growth was strongest in Asia.'`
+  },
+  weakSequence: {
+    title: "No Sequence Connectors (Processes)",
+    details: `For process diagrams, you must use sequence words and passive voice.\n\nTips:\n- Use 'first', 'next', 'then', 'finally'.\n- Use passive forms: 'is heated', 'are collected'.\n\nExample: 'First, the raw materials are collected. Next, they are processed.'`
+  },
+  tenseConfusion: {
+    title: "Confusing Tenses/Spatial Language",
+    details: `Mixing up tenses or unclear spatial language confuses the reader.\n\nTips:\n- Use past, present, or future tense as shown in the chart.\n- Use clear prepositions: 'north of', 'adjacent to', 'replaced by'.\n\nExample: 'The park was replaced by a shopping mall to the north.'`
+  },
+  repetition: {
+    title: "Repetition/Copied Language",
+    details: `Repeating vocabulary or copying from the prompt lowers your lexical score.\n\nTips:\n- Paraphrase the question.\n- Use synonyms and a range of vocabulary.\n\nExample: Instead of repeating 'increase', use 'rise', 'grow', 'climb', 'surge'.`
+  },
   strategy: { title: "Strategy Nodes", details: `How to group data, compare key features, and write an effective overview.\n\n- Group logical categories or time periods.\n- Use comparative structures (more than, less than, as much as).\n- Summarize main trends, differences, or changes without unnecessary detail.\n- Example: "Overall, sales increased in all regions, but the growth was strongest in Asia."\n\nTip: Plan your answer before you write—identify the main groups and trends first!` },
 };
 
 
 const initialNodes = [
   { id: "t1", data: { label: "Task 1 Mastery (Academic)" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
-  { id: "charts", data: { label: "Charts" }, position: { x: -120, y: 100 }, draggable: true, style: nodeBaseStyle },
+  { id: "charts", type: "collapsible", data: { label: "Charts" }, position: { x: -120, y: 100 }, draggable: true, style: nodeBaseStyle },
   { id: "line", data: { label: "Line Chart" }, position: { x: -220, y: 200 }, draggable: true, style: nodeBaseStyle },
   { id: "bar", data: { label: "Bar Chart" }, position: { x: -110, y: 200 }, draggable: true, style: nodeBaseStyle },
   { id: "pie", data: { label: "Pie Chart" }, position: { x: 0, y: 200 }, draggable: true, style: nodeBaseStyle },
@@ -70,17 +119,28 @@ const initialNodes = [
   { id: "stacked", data: { label: "Stacked Bar Chart" }, position: { x: 330, y: 200 }, draggable: true, style: nodeBaseStyle },
   { id: "area", data: { label: "Area Chart" }, position: { x: 440, y: 200 }, draggable: true, style: nodeBaseStyle },
   { id: "scatter", data: { label: "Scatter Chart" }, position: { x: 550, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "process", data: { label: "Process Diagram" }, position: { x: 120, y: 100 }, draggable: true, style: nodeBaseStyle },
+  { id: "process", type: "collapsible", data: { label: "Process Diagram" }, position: { x: 120, y: 100 }, draggable: true, style: nodeBaseStyle },
   { id: "natural", data: { label: "Natural Diagram" }, position: { x: 240, y: 100 }, draggable: true, style: nodeBaseStyle },
   { id: "manufacturing", data: { label: "Manufacturing Diagram" }, position: { x: 360, y: 100 }, draggable: true, style: nodeBaseStyle },
   { id: "mechanical", data: { label: "Mechanical Diagram" }, position: { x: 480, y: 100 }, draggable: true, style: nodeBaseStyle },
   { id: "maps", data: { label: "Maps & Spatial Representations" }, position: { x: 600, y: 100 }, draggable: true, style: nodeBaseStyle },
   { id: "mixedTableChart", data: { label: "Mixed Table + Chart" }, position: { x: -60, y: 320 }, draggable: true, style: nodeBaseStyle },
   { id: "vocabBank", data: { label: "Key Vocabulary Bank" }, position: { x: 120, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "pitfalls", data: { label: "Pitfalls & Mistakes" }, position: { x: 300, y: 320 }, draggable: true, style: nodeBaseStyle },
+  { id: "pitfalls", type: "collapsible", data: { label: "Pitfalls & Mistakes" }, position: { x: 300, y: 320 }, draggable: true, style: nodeBaseStyle },
+  { id: "overDescribe", data: { label: "Over-describing Numbers" }, position: { x: 480, y: 400 }, draggable: true, style: nodeBaseStyle },
+  { id: "missingOverview", data: { label: "Missing the Overview" }, position: { x: 480, y: 440 }, draggable: true, style: nodeBaseStyle },
+  { id: "weakSequence", data: { label: "No Sequence Connectors" }, position: { x: 480, y: 480 }, draggable: true, style: nodeBaseStyle },
+  { id: "tenseConfusion", data: { label: "Confusing Tenses/Spatial" }, position: { x: 480, y: 520 }, draggable: true, style: nodeBaseStyle },
+  { id: "repetition", data: { label: "Repetition/Copied Language" }, position: { x: 480, y: 560 }, draggable: true, style: nodeBaseStyle },
   { id: "strategy", data: { label: "Strategy" }, position: { x: 480, y: 320 }, draggable: true, style: nodeBaseStyle },
 ];
 function Task1Mindmap() {
+  // Start with all parent nodes expanded by default
+  const [expanded, setExpanded] = useState({
+    charts: true,
+    process: true,
+    pitfalls: true,
+  });
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const initialEdges = [
     { id: 'e-t1-charts', source: 't1', target: 'charts' },
@@ -90,6 +150,12 @@ function Task1Mindmap() {
     { id: 'e-t1-vocabBank', source: 't1', target: 'vocabBank' },
     { id: 'e-t1-pitfalls', source: 't1', target: 'pitfalls' },
     { id: 'e-t1-strategy', source: 't1', target: 'strategy' },
+    // Pitfalls sub-branches
+    { id: 'e-pitfalls-overDescribe', source: 'pitfalls', target: 'overDescribe' },
+    { id: 'e-pitfalls-missingOverview', source: 'pitfalls', target: 'missingOverview' },
+    { id: 'e-pitfalls-weakSequence', source: 'pitfalls', target: 'weakSequence' },
+    { id: 'e-pitfalls-tenseConfusion', source: 'pitfalls', target: 'tenseConfusion' },
+    { id: 'e-pitfalls-repetition', source: 'pitfalls', target: 'repetition' },
     // Charts branch
     { id: 'e-charts-line', source: 'charts', target: 'line' },
     { id: 'e-charts-bar', source: 'charts', target: 'bar' },
@@ -104,9 +170,36 @@ function Task1Mindmap() {
     { id: 'e-process-manufacturing', source: 'process', target: 'manufacturing' },
     { id: 'e-process-mechanical', source: 'process', target: 'mechanical' },
   ];
+
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selected, setSelected] = useState(null);
   const [detached, setDetached] = useState(false);
+
+  // Map of parent node IDs to their children node IDs
+  const parentToChildren = {
+    charts: ['line', 'bar', 'pie', 'table', 'mixed', 'stacked', 'area', 'scatter'],
+    process: ['natural', 'manufacturing', 'mechanical'],
+    pitfalls: ['overDescribe', 'missingOverview', 'weakSequence', 'tenseConfusion', 'repetition'],
+  };
+
+  // Filter nodes/edges based on expanded state for all parent nodes with sub-nodes
+  const getVisibleNodesAndEdges = () => {
+    let visibleNodes = nodes;
+    let visibleEdges = edges;
+    Object.entries(parentToChildren).forEach(([parent, children]) => {
+      if (!expanded[parent]) {
+        visibleNodes = visibleNodes.filter(n => !children.includes(n.id));
+        visibleEdges = visibleEdges.filter(e => e.source !== parent);
+      }
+    });
+    return { visibleNodes, visibleEdges };
+  };
+
+  // Toggle expand/collapse for collapsible nodes
+  const handleToggle = useCallback((id) => {
+    setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
+    setSelected(sel => (sel === id ? null : sel));
+  }, []);
 
   useEffect(() => {
     setNodes(initialNodes);
@@ -117,15 +210,22 @@ function Task1Mindmap() {
     setSelected(node.id);
   }, []);
 
+  const { visibleNodes, visibleEdges } = getVisibleNodesAndEdges();
   const Mindmap = (
     <div style={{ width: '100%', height: '800px', border: '1px solid #ccc', borderRadius: '8px', position: 'relative', background: '#f8fafc' }}>
       <ReactFlow
-        nodes={nodes}
-        edges={edges}
+        nodes={visibleNodes.map(n =>
+          n.type === 'collapsible'
+            ? { ...n, data: { ...n.data, isExpanded: !!expanded[n.id], onToggle: handleToggle } }
+            : n
+        )}
+        edges={visibleEdges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         fitView
         onNodeClick={onNodeClick}
+        nodeTypes={nodeTypes}
+        nodesDraggable={true}
       >
         <Controls />
         <Background variant="dots" gap={12} size={1} />
