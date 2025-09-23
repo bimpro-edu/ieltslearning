@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, memo } from "react";
+import React, { useState, useCallback, useEffect, memo, useRef, forwardRef, useImperativeHandle } from "react";
 import ReactFlow, { useNodesState, useEdgesState, Background, Controls, Handle, Position } from "reactflow";
 import "reactflow/dist/style.css";
 import { MiniBarChart } from "./MiniCharts";
@@ -178,9 +178,9 @@ const CollapsibleNode = memo((props) => {
   const { id, data } = props;
   const { isExpanded, onToggle } = data;
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, ...(props.style || {}) }} className={props.className}>
       <Handle type="target" position={Position.Left} />
-      <div style={{ fontWeight: 600 }}>{data.label}</div>
+      <div className="collapsible-drag-handle" style={{ fontWeight: 600, cursor: 'grab' }}>{data.label}</div>
       <button
         style={{ marginLeft: 8, padding: '2px 10px', borderRadius: 6, border: '1px solid #1976d2', background: isExpanded ? '#e3f2fd' : '#fff', color: '#1976d2', cursor: 'pointer', fontSize: 14 }}
         onClick={e => { e.stopPropagation(); onToggle(id); }}
@@ -268,7 +268,10 @@ const initialEdges = [
   { id: "e-practice-bandBenchmark", source: "practice", target: "bandBenchmark" },
 ];
 
-const nodeTypes = { collapsible: CollapsibleNode };
+
+const nodeTypes = {
+  collapsible: CollapsibleNode
+};
 
 function Task2Mindmap() {
   // Start with Essay Structure expanded by default
@@ -285,7 +288,7 @@ function Task2Mindmap() {
   // Toggle expand/collapse for collapsible nodes
   const handleToggle = useCallback((id) => {
     setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
-    setSelected(null); // Deselect node when toggling
+    setSelected(sel => (sel === id ? null : sel)); // Only deselect if toggling the selected node
   }, []);
 
   // Filter nodes/edges based on expanded state
@@ -332,7 +335,7 @@ function Task2Mindmap() {
       <ReactFlow
         nodes={visibleNodes.map(n =>
           n.type === 'collapsible'
-            ? { ...n, data: { ...n.data, isExpanded: !!expanded[n.id], onToggle: handleToggle } }
+            ? { ...n, data: { ...n.data, isExpanded: !!expanded[n.id], onToggle: handleToggle }, dragHandle: '.collapsible-drag-handle' }
             : n
         )}
         edges={visibleEdges}
