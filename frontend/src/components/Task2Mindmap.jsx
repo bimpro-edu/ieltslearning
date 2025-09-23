@@ -1,3 +1,11 @@
+// SVG icon for warning nodes (e.g., pitfalls)
+const WarningIcon = () => (
+  <svg width="90" height="90" viewBox="0 0 64 64" fill="none">
+    <circle cx="32" cy="32" r="28" fill="#fff3cd" stroke="#ff9800" strokeWidth="3" />
+    <rect x="29" y="18" width="6" height="24" rx="3" fill="#ff9800" />
+    <rect x="29" y="46" width="6" height="6" rx="3" fill="#ff9800" />
+  </svg>
+);
 import React, { useState, useCallback, useEffect, memo, useRef, forwardRef, useImperativeHandle } from "react";
 import ReactFlow, { useNodesState, useEdgesState, Background, Controls, Handle, Position } from "reactflow";
 import "reactflow/dist/style.css";
@@ -201,16 +209,16 @@ const initialNodes = [
   { id: "underWordCount", data: { label: "Under Word Count" }, position: { x: 420, y: 560 }, draggable: true, style: nodeBaseStyle },
   { id: "grammarErrors", data: { label: "Grammar/Spelling Errors" }, position: { x: 420, y: 600 }, draggable: true, style: nodeBaseStyle },
   { id: "t2", data: { label: "Task 2 Mastery (Essay Writing)" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
-  { id: "essayTypes", data: { label: "Essay Types" }, position: { x: -220, y: 120 }, draggable: true, style: nodeBaseStyle },
+  { id: "essayTypes", type: "collapsible", data: { label: "Essay Types" }, position: { x: -220, y: 120 }, draggable: true, style: nodeBaseStyle },
   { id: "essayStructure", type: "collapsible", data: { label: "Essay Structure" }, position: { x: 220, y: 120 }, draggable: true, style: nodeBaseStyle },
   { id: "introduction", data: { label: "Introduction" }, position: { x: 420, y: 80 }, draggable: true, style: nodeBaseStyle },
   { id: "bodyParagraph", data: { label: "Body Paragraph" }, position: { x: 420, y: 120 }, draggable: true, style: nodeBaseStyle },
   
   { id: "conclusion", data: { label: "Conclusion" }, position: { x: 420, y: 160 }, draggable: true, style: nodeBaseStyle },
-  { id: "skills", data: { label: "Skills & Strategies" }, position: { x: 0, y: 220 }, draggable: true, style: nodeBaseStyle },
+  { id: "skills", type: "collapsible", data: { label: "Skills & Strategies" }, position: { x: 0, y: 220 }, draggable: true, style: nodeBaseStyle },
   { id: "vocab", data: { label: "Vocabulary Banks" }, position: { x: -220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "pitfalls", data: { label: "Common Pitfalls" }, position: { x: 220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "practice", data: { label: "Practice & Mock Tests" }, position: { x: 0, y: 420 }, draggable: true, style: nodeBaseStyle },
+  { id: "pitfalls", type: "collapsible", data: { label: "Common Pitfalls" }, position: { x: 220, y: 320 }, draggable: true, style: nodeBaseStyle },
+  { id: "practice", type: "collapsible", data: { label: "Practice & Mock Tests" }, position: { x: 0, y: 420 }, draggable: true, style: nodeBaseStyle },
   { id: "interactive", data: { label: "Extra Interactive Layer" }, position: { x: 0, y: 540 }, draggable: true, style: nodeBaseStyle },
   // Sub-nodes for essay types
   { id: "opinion", data: { label: "Opinion Essay" }, position: { x: -420, y: 220 }, draggable: true, style: nodeBaseStyle },
@@ -274,8 +282,14 @@ const nodeTypes = {
 };
 
 function Task2Mindmap() {
-  // Start with Essay Structure expanded by default
-  const [expanded, setExpanded] = useState({ essayStructure: true });
+  // Start with all parent nodes expanded by default
+  const [expanded, setExpanded] = useState({
+    essayStructure: true,
+    essayTypes: true,
+    skills: true,
+    practice: true,
+    pitfalls: true,
+  });
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [selected, setSelected] = useState(null);
@@ -291,15 +305,27 @@ function Task2Mindmap() {
     setSelected(sel => (sel === id ? null : sel)); // Only deselect if toggling the selected node
   }, []);
 
-  // Filter nodes/edges based on expanded state
+  // Filter nodes/edges based on expanded state for all parent nodes with sub-nodes
   const getVisibleNodesAndEdges = () => {
-    let visibleNodes = [...initialNodes];
-    let visibleEdges = [...initialEdges];
-    // If essayStructure is collapsed, hide its children and connecting edges
-    if (!expanded.essayStructure) {
-      visibleNodes = visibleNodes.filter(n => !['introduction', 'bodyParagraph', 'conclusion'].includes(n.id));
-      visibleEdges = visibleEdges.filter(e => e.source !== 'essayStructure');
-    }
+    let visibleNodes = nodes;
+    let visibleEdges = edges;
+
+    // Map of parent node IDs to their children node IDs
+    const parentToChildren = {
+      essayStructure: ['introduction', 'bodyParagraph', 'conclusion'],
+      essayTypes: ['opinion', 'discussion', 'problemSolution', 'advantagesDisadvantages', 'doubleQuestion', 'hybrid'],
+      skills: ['planning', 'thesis', 'coherence', 'lexical', 'grammar'],
+      practice: ['miniPractice', 'mockTest', 'bandBenchmark'],
+      pitfalls: ['offTopic', 'weakThesis', 'noExamples', 'repetition', 'underWordCount', 'grammarErrors'],
+    };
+
+    Object.entries(parentToChildren).forEach(([parent, children]) => {
+      if (!expanded[parent]) {
+        visibleNodes = visibleNodes.filter(n => !children.includes(n.id));
+        visibleEdges = visibleEdges.filter(e => e.source !== parent);
+      }
+    });
+
     return { visibleNodes, visibleEdges };
   };
 
@@ -335,7 +361,7 @@ function Task2Mindmap() {
       <ReactFlow
         nodes={visibleNodes.map(n =>
           n.type === 'collapsible'
-            ? { ...n, data: { ...n.data, isExpanded: !!expanded[n.id], onToggle: handleToggle }, dragHandle: '.collapsible-drag-handle' }
+            ? { ...n, data: { ...n.data, isExpanded: !!expanded[n.id], onToggle: handleToggle } }
             : n
         )}
         edges={visibleEdges}
@@ -344,6 +370,7 @@ function Task2Mindmap() {
         fitView
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
+        nodesDraggable={true}
       >
         <Controls />
         <Background variant="dots" gap={12} size={1} />
