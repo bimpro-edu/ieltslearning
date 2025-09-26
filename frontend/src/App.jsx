@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import LessonPage from './pages/LessonPage';
 import LessonsListPage from './pages/LessonsListPage';
 import WritingPage from './pages/WritingPage';
+import ListeningPage from './pages/ListeningPage';
 import ExercisePage from './pages/ExercisePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/lessons" element={<Navigate to="/tasks/writing" replace />} />
           <Route path="/lessons/:lessonId" element={<LessonPage />} />
           <Route path="/tasks/writing" element={<WritingPage />} />
+          <Route path="/tasks/listening" element={<ListeningPage />} />
           <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />

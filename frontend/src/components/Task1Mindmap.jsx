@@ -46,11 +46,39 @@ const nodeBaseStyle = {
   borderRadius: 12,
   padding: 12,
   fontSize: 16,
-  background: '#fff',
+  background: '#e3f2fd', // default blue for main nodes
   boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
   minWidth: 180,
   minHeight: 40,
   cursor: 'pointer',
+};
+
+// Color map for node backgrounds
+const nodeBgColors = {
+  t1: '#e3f2fd', // main
+  charts: '#c8e6c9', // green
+  line: '#c8e6c9',
+  bar: '#c8e6c9',
+  pie: '#c8e6c9',
+  table: '#c8e6c9',
+  mixed: '#c8e6c9',
+  stacked: '#c8e6c9',
+  area: '#c8e6c9',
+  scatter: '#c8e6c9',
+  process: '#fff9c4', // yellow
+  natural: '#fff9c4',
+  manufacturing: '#fff9c4',
+  mechanical: '#fff9c4',
+  maps: '#fff9c4',
+  mixedTableChart: '#fff9c4',
+  vocabBank: '#ede7f6', // purple
+  pitfalls: '#ffe0b2', // orange
+  overDescribe: '#ffe0b2',
+  missingOverview: '#ffe0b2',
+  weakSequence: '#ffe0b2',
+  tenseConfusion: '#ffe0b2',
+  repetition: '#ffe0b2',
+  strategy: '#ede7f6', // purple
 };
 
 // Simple SVG map illustration for demo
@@ -74,7 +102,7 @@ const nodeDetails = {
   // ...existing nodeDetails...
   t1: {
     title: "Task 1 Mastery (Academic)",
-    details: `A complete roadmap for IELTS Academic Task 1 visuals and skills.\n\n1. Graphs & Charts\n- Learn to identify and describe all major visual types: line graphs, bar charts, pie charts, tables, mixed and stacked charts, area and scatter graphs.\n- Master the language of trends, comparisons, and proportions.\n- Practice grouping data, summarizing key features, and writing clear overviews.\n\n2. Processes & Diagrams\n- Understand how to describe both natural and man-made processes.\n- Use sequence connectors (first, next, after that, finally) and passive voice.\n- Practice breaking down complex diagrams into clear, logical steps.\n\n3. Maps & Spatial Representations\n- Compare maps across time (before/after development) and describe spatial changes.\n- Use prepositions (north of, adjacent to, across from) and change language (was replaced by, expanded into, converted into).\n\n4. Mini-Tests & Feedback\n- Timed practice with real IELTS-style prompts.\n- Use auto-word counters and get instant AI or peer feedback on your writing.\n\n💡 Interactive Tools\n- Drag-and-drop vocabulary, clickable diagrams, map sliders, and model answer comparisons.\n- Use these tools to build confidence and accuracy for every Task 1 visual.\n\nTip: Always start with a clear overview, group similar data, and avoid describing every detail!`
+  details: `A complete roadmap for IELTS Academic Task 1 visuals and skills.\n\n1. Graphs & Charts\n- Learn to identify and describe all major visual types: line graphs, bar charts, pie charts, tables, mixed and stacked charts, area and scatter graphs.\n- Master the language of trends, comparisons, and proportions.\n- Practice grouping data, summarizing key features, and writing clear overviews.\n\n2. Processes & Diagrams\n- Understand how to describe both natural and man-made processes.\n- Use sequence connectors (first, next, after that, finally) and passive voice.\n- Practice breaking down complex diagrams into clear, logical steps.\n\n3. Maps & Spatial Representations\n- Compare maps across time (before/after development) and describe spatial changes.\n- Use prepositions (north of, adjacent to, across from) and change language (was replaced by, expanded into, converted into).\n\n4. Mini-Tests & Feedback\n- Timed practice with real IELTS-style prompts.\n- Use auto-word counters and get instant AI or peer feedback on your writing.\n\nTip: Always start with a clear overview, group similar data, and avoid describing every detail!`
   },
   charts: { title: "Charts Overview", details: `IELTS Task 1 charts include line, bar, pie, table, mixed, stacked, area, and scatter types.\n\n- Identify the chart type and what it shows (trends, comparisons, proportions, etc.).\n- Look for the main features: highest/lowest, biggest changes, overall patterns.\n- Use appropriate vocabulary for each chart type.\n- Practice writing overviews and grouping data logically.\n\nTip: Always mention the time period, units, and categories shown in the chart!` },
   line: { title: "Line Graphs", details: `Line graphs show changes over time.\n\n- Focus on trends: rising, falling, fluctuating, peaking, dipping, remaining steady.\n- Use time phrases (from 2000 to 2020, over the next decade).\n- Highlight the most significant increases/decreases and periods of stability.\n- Example: "The number of students rose sharply from 2010 to 2015, then plateaued."\n\nTip: Always mention the highest and lowest points, and compare lines if there are multiple!` },
@@ -118,31 +146,37 @@ const nodeDetails = {
 
 
 const initialNodes = [
-  { id: "t1", data: { label: "Task 1 Mastery (Academic)" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
-  { id: "charts", type: "collapsible", data: { label: "Charts" }, position: { x: -120, y: 100 }, draggable: true, style: nodeBaseStyle },
-  { id: "line", data: { label: "Line Chart" }, position: { x: -220, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "bar", data: { label: "Bar Chart" }, position: { x: -110, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "pie", data: { label: "Pie Chart" }, position: { x: 0, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "table", data: { label: "Table" }, position: { x: 110, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "mixed", data: { label: "Mixed Chart" }, position: { x: 220, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "stacked", data: { label: "Stacked Bar Chart" }, position: { x: 330, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "area", data: { label: "Area Chart" }, position: { x: 440, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "scatter", data: { label: "Scatter Chart" }, position: { x: 550, y: 200 }, draggable: true, style: nodeBaseStyle },
-  { id: "process", type: "collapsible", data: { label: "Process Diagram" }, position: { x: 120, y: 100 }, draggable: true, style: nodeBaseStyle },
-  { id: "natural", data: { label: "Natural Diagram" }, position: { x: 240, y: 100 }, draggable: true, style: nodeBaseStyle },
-  { id: "manufacturing", data: { label: "Manufacturing Diagram" }, position: { x: 360, y: 100 }, draggable: true, style: nodeBaseStyle },
-  { id: "mechanical", data: { label: "Mechanical Diagram" }, position: { x: 480, y: 100 }, draggable: true, style: nodeBaseStyle },
-  { id: "maps", data: { label: "Maps & Spatial Representations" }, position: { x: 600, y: 100 }, draggable: true, style: nodeBaseStyle },
-  { id: "mixedTableChart", data: { label: "Mixed Table + Chart" }, position: { x: -60, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "vocabBank", data: { label: "Key Vocabulary Bank" }, position: { x: 120, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "pitfalls", type: "collapsible", data: { label: "Pitfalls & Mistakes" }, position: { x: 300, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "overDescribe", data: { label: "Over-describing Numbers" }, position: { x: 480, y: 400 }, draggable: true, style: nodeBaseStyle },
-  { id: "missingOverview", data: { label: "Missing the Overview" }, position: { x: 480, y: 440 }, draggable: true, style: nodeBaseStyle },
-  { id: "weakSequence", data: { label: "No Sequence Connectors" }, position: { x: 480, y: 480 }, draggable: true, style: nodeBaseStyle },
-  { id: "tenseConfusion", data: { label: "Confusing Tenses/Spatial" }, position: { x: 480, y: 520 }, draggable: true, style: nodeBaseStyle },
-  { id: "repetition", data: { label: "Repetition/Copied Language" }, position: { x: 480, y: 560 }, draggable: true, style: nodeBaseStyle },
-  { id: "strategy", data: { label: "Strategy" }, position: { x: 480, y: 320 }, draggable: true, style: nodeBaseStyle },
-];
+  { id: "t1", data: { label: "Task 1 Mastery (Academic)" }, position: { x: 0, y: 0 }, draggable: true },
+  { id: "charts", type: "collapsible", data: { label: "Charts" }, position: { x: -120, y: 100 }, draggable: true },
+  { id: "line", data: { label: "Line Chart" }, position: { x: -220, y: 200 }, draggable: true },
+  { id: "bar", data: { label: "Bar Chart" }, position: { x: -110, y: 200 }, draggable: true },
+  { id: "pie", data: { label: "Pie Chart" }, position: { x: 0, y: 200 }, draggable: true },
+  { id: "table", data: { label: "Table" }, position: { x: 110, y: 200 }, draggable: true },
+  { id: "mixed", data: { label: "Mixed Chart" }, position: { x: 220, y: 200 }, draggable: true },
+  { id: "stacked", data: { label: "Stacked Bar Chart" }, position: { x: 330, y: 200 }, draggable: true },
+  { id: "area", data: { label: "Area Chart" }, position: { x: 440, y: 200 }, draggable: true },
+  { id: "scatter", data: { label: "Scatter Chart" }, position: { x: 550, y: 200 }, draggable: true },
+  { id: "process", type: "collapsible", data: { label: "Process Diagram" }, position: { x: 120, y: 100 }, draggable: true },
+  { id: "natural", data: { label: "Natural Diagram" }, position: { x: 240, y: 100 }, draggable: true },
+  { id: "manufacturing", data: { label: "Manufacturing Diagram" }, position: { x: 360, y: 100 }, draggable: true },
+  { id: "mechanical", data: { label: "Mechanical Diagram" }, position: { x: 480, y: 100 }, draggable: true },
+  { id: "maps", data: { label: "Maps & Spatial Representations" }, position: { x: 600, y: 100 }, draggable: true },
+  { id: "mixedTableChart", data: { label: "Mixed Table + Chart" }, position: { x: -60, y: 320 }, draggable: true },
+  { id: "vocabBank", data: { label: "Key Vocabulary Bank" }, position: { x: 120, y: 320 }, draggable: true },
+  { id: "pitfalls", type: "collapsible", data: { label: "Pitfalls & Mistakes" }, position: { x: 300, y: 320 }, draggable: true },
+  { id: "overDescribe", data: { label: "Over-describing Numbers" }, position: { x: 480, y: 400 }, draggable: true },
+  { id: "missingOverview", data: { label: "Missing the Overview" }, position: { x: 480, y: 440 }, draggable: true },
+  { id: "weakSequence", data: { label: "No Sequence Connectors" }, position: { x: 480, y: 480 }, draggable: true },
+  { id: "tenseConfusion", data: { label: "Confusing Tenses/Spatial" }, position: { x: 480, y: 520 }, draggable: true },
+  { id: "repetition", data: { label: "Repetition/Copied Language" }, position: { x: 480, y: 560 }, draggable: true },
+  { id: "strategy", data: { label: "Strategy" }, position: { x: 480, y: 320 }, draggable: true },
+].map(n => ({
+  ...n,
+  style: {
+    ...nodeBaseStyle,
+    background: nodeBgColors[n.id] || nodeBaseStyle.background,
+  },
+}));
 function Task1Mindmap() {
   // Start with all parent nodes expanded by default
   const [expanded, setExpanded] = useState({

@@ -173,11 +173,46 @@ const nodeBaseStyle = {
   borderRadius: 12,
   padding: 12,
   fontSize: 16,
-  background: '#fff',
+  background: '#e3f2fd', // default blue for main nodes
   boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
   minWidth: 180,
   minHeight: 40,
   cursor: 'pointer',
+};
+
+// Color map for node backgrounds
+const nodeBgColors = {
+  t2: '#e3f2fd', // main
+  essayTypes: '#c8e6c9', // green
+  opinion: '#c8e6c9',
+  discussion: '#c8e6c9',
+  problemSolution: '#c8e6c9',
+  advantagesDisadvantages: '#c8e6c9',
+  doubleQuestion: '#c8e6c9',
+  hybrid: '#c8e6c9',
+  essayStructure: '#fff9c4', // yellow
+  introduction: '#fff9c4',
+  bodyParagraph: '#fff9c4',
+  conclusion: '#fff9c4',
+  skills: '#ede7f6', // purple
+  planning: '#ede7f6',
+  thesis: '#ede7f6',
+  coherence: '#ede7f6',
+  lexical: '#ede7f6',
+  grammar: '#ede7f6',
+  vocab: '#ede7f6',
+  pitfalls: '#ffe0b2', // orange
+  offTopic: '#ffe0b2',
+  weakThesis: '#ffe0b2',
+  noExamples: '#ffe0b2',
+  repetition: '#ffe0b2',
+  underWordCount: '#ffe0b2',
+  grammarErrors: '#ffe0b2',
+  practice: '#f8bbd0', // pink
+  miniPractice: '#f8bbd0',
+  mockTest: '#f8bbd0',
+  bandBenchmark: '#f8bbd0',
+  interactive: '#b2ebf2', // cyan for extra
 };
 
 // Mindmap node and edge arrays
@@ -202,42 +237,48 @@ const CollapsibleNode = memo((props) => {
 
 const initialNodes = [
   // Sub-nodes for pitfalls
-  { id: "offTopic", data: { label: "Off-topic/Not Answering" }, position: { x: 420, y: 400 }, draggable: true, style: nodeBaseStyle },
-  { id: "weakThesis", data: { label: "Weak/Unclear Thesis" }, position: { x: 420, y: 440 }, draggable: true, style: nodeBaseStyle },
-  { id: "noExamples", data: { label: "No/Weak Examples" }, position: { x: 420, y: 480 }, draggable: true, style: nodeBaseStyle },
-  { id: "repetition", data: { label: "Repetition" }, position: { x: 420, y: 520 }, draggable: true, style: nodeBaseStyle },
-  { id: "underWordCount", data: { label: "Under Word Count" }, position: { x: 420, y: 560 }, draggable: true, style: nodeBaseStyle },
-  { id: "grammarErrors", data: { label: "Grammar/Spelling Errors" }, position: { x: 420, y: 600 }, draggable: true, style: nodeBaseStyle },
-  { id: "t2", data: { label: "Task 2 Mastery (Essay Writing)" }, position: { x: 0, y: 0 }, draggable: true, style: nodeBaseStyle },
-  { id: "essayTypes", type: "collapsible", data: { label: "Essay Types" }, position: { x: -220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "essayStructure", type: "collapsible", data: { label: "Essay Structure" }, position: { x: 220, y: 120 }, draggable: true, style: nodeBaseStyle },
-  { id: "introduction", data: { label: "Introduction" }, position: { x: 420, y: 80 }, draggable: true, style: nodeBaseStyle },
-  { id: "bodyParagraph", data: { label: "Body Paragraph" }, position: { x: 420, y: 120 }, draggable: true, style: nodeBaseStyle },
+  { id: "offTopic", data: { label: "Off-topic/Not Answering" }, position: { x: 420, y: 400 }, draggable: true },
+  { id: "weakThesis", data: { label: "Weak/Unclear Thesis" }, position: { x: 420, y: 440 }, draggable: true },
+  { id: "noExamples", data: { label: "No/Weak Examples" }, position: { x: 420, y: 480 }, draggable: true },
+  { id: "repetition", data: { label: "Repetition" }, position: { x: 420, y: 520 }, draggable: true },
+  { id: "underWordCount", data: { label: "Under Word Count" }, position: { x: 420, y: 560 }, draggable: true },
+  { id: "grammarErrors", data: { label: "Grammar/Spelling Errors" }, position: { x: 420, y: 600 }, draggable: true },
+  { id: "t2", data: { label: "Task 2 Mastery (Essay Writing)" }, position: { x: 0, y: 0 }, draggable: true },
+  { id: "essayTypes", type: "collapsible", data: { label: "Essay Types" }, position: { x: -220, y: 120 }, draggable: true },
+  { id: "essayStructure", type: "collapsible", data: { label: "Essay Structure" }, position: { x: 220, y: 120 }, draggable: true },
+  { id: "introduction", data: { label: "Introduction" }, position: { x: 420, y: 80 }, draggable: true },
+  { id: "bodyParagraph", data: { label: "Body Paragraph" }, position: { x: 420, y: 120 }, draggable: true },
   
-  { id: "conclusion", data: { label: "Conclusion" }, position: { x: 420, y: 160 }, draggable: true, style: nodeBaseStyle },
-  { id: "skills", type: "collapsible", data: { label: "Skills & Strategies" }, position: { x: 0, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "vocab", data: { label: "Vocabulary Banks" }, position: { x: -220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "pitfalls", type: "collapsible", data: { label: "Common Pitfalls" }, position: { x: 220, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "practice", type: "collapsible", data: { label: "Practice & Mock Tests" }, position: { x: 0, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "interactive", data: { label: "Extra Interactive Layer" }, position: { x: 0, y: 540 }, draggable: true, style: nodeBaseStyle },
+  { id: "conclusion", data: { label: "Conclusion" }, position: { x: 420, y: 160 }, draggable: true },
+  { id: "skills", type: "collapsible", data: { label: "Skills & Strategies" }, position: { x: 0, y: 220 }, draggable: true },
+  { id: "vocab", data: { label: "Vocabulary Banks" }, position: { x: -220, y: 320 }, draggable: true },
+  { id: "pitfalls", type: "collapsible", data: { label: "Common Pitfalls" }, position: { x: 220, y: 320 }, draggable: true },
+  { id: "practice", type: "collapsible", data: { label: "Practice & Mock Tests" }, position: { x: 0, y: 420 }, draggable: true },
+  { id: "interactive", data: { label: "Extra Interactive Layer" }, position: { x: 0, y: 540 }, draggable: true },
   // Sub-nodes for essay types
-  { id: "opinion", data: { label: "Opinion Essay" }, position: { x: -420, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "discussion", data: { label: "Discussion Essay" }, position: { x: -320, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "problemSolution", data: { label: "Problem–Solution Essay" }, position: { x: -220, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "advantagesDisadvantages", data: { label: "Advantages–Disadvantages" }, position: { x: -120, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "doubleQuestion", data: { label: "Double Question Essay" }, position: { x: -20, y: 220 }, draggable: true, style: nodeBaseStyle },
-  { id: "hybrid", data: { label: "Hybrid Essay" }, position: { x: 80, y: 220 }, draggable: true, style: nodeBaseStyle },
+  { id: "opinion", data: { label: "Opinion Essay" }, position: { x: -420, y: 220 }, draggable: true },
+  { id: "discussion", data: { label: "Discussion Essay" }, position: { x: -320, y: 220 }, draggable: true },
+  { id: "problemSolution", data: { label: "Problem–Solution Essay" }, position: { x: -220, y: 220 }, draggable: true },
+  { id: "advantagesDisadvantages", data: { label: "Advantages–Disadvantages" }, position: { x: -120, y: 220 }, draggable: true },
+  { id: "doubleQuestion", data: { label: "Double Question Essay" }, position: { x: -20, y: 220 }, draggable: true },
+  { id: "hybrid", data: { label: "Hybrid Essay" }, position: { x: 80, y: 220 }, draggable: true },
   // Sub-nodes for skills
-  { id: "planning", data: { label: "Planning & Brainstorming" }, position: { x: -120, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "thesis", data: { label: "Thesis & Opinion Clarity" }, position: { x: 0, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "coherence", data: { label: "Coherence & Cohesion" }, position: { x: 120, y: 320 }, draggable: true, style: nodeBaseStyle },
-  { id: "lexical", data: { label: "Lexical Resource" }, position: { x: -120, y: 420 }, draggable: true, style: nodeBaseStyle },
-  { id: "grammar", data: { label: "Grammar Range" }, position: { x: 120, y: 420 }, draggable: true, style: nodeBaseStyle },
+  { id: "planning", data: { label: "Planning & Brainstorming" }, position: { x: -120, y: 320 }, draggable: true },
+  { id: "thesis", data: { label: "Thesis & Opinion Clarity" }, position: { x: 0, y: 320 }, draggable: true },
+  { id: "coherence", data: { label: "Coherence & Cohesion" }, position: { x: 120, y: 320 }, draggable: true },
+  { id: "lexical", data: { label: "Lexical Resource" }, position: { x: -120, y: 420 }, draggable: true },
+  { id: "grammar", data: { label: "Grammar Range" }, position: { x: 120, y: 420 }, draggable: true },
   // Sub-nodes for practice
-  { id: "miniPractice", data: { label: "Mini-Practice" }, position: { x: -120, y: 520 }, draggable: true, style: nodeBaseStyle },
-  { id: "mockTest", data: { label: "Mock Test" }, position: { x: 0, y: 520 }, draggable: true, style: nodeBaseStyle },
-  { id: "bandBenchmark", data: { label: "Band Benchmarking" }, position: { x: 120, y: 520 }, draggable: true, style: nodeBaseStyle },
-];
+  { id: "miniPractice", data: { label: "Mini-Practice" }, position: { x: -120, y: 520 }, draggable: true },
+  { id: "mockTest", data: { label: "Mock Test" }, position: { x: 0, y: 520 }, draggable: true },
+  { id: "bandBenchmark", data: { label: "Band Benchmarking" }, position: { x: 120, y: 520 }, draggable: true },
+].map(n => ({
+  ...n,
+  style: {
+    ...nodeBaseStyle,
+    background: nodeBgColors[n.id] || nodeBaseStyle.background,
+  },
+}));
 const initialEdges = [
   // Pitfalls sub-branches
   { id: "e-pitfalls-offTopic", source: "pitfalls", target: "offTopic" },

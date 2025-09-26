@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ListeningSkillMindmap from '../components/ListeningSkillMindmap';
+import ListeningLessonsListPage from './ListeningLessonsListPage';
+import ShortConversationRoadmap from '../components/ShortConversationRoadmap';
+import ShortConversationMindmap from '../components/ShortConversationMindmap';
 
 const roadmap = [
   { title: 'Orientation', items: ['What IELTS Listening tests', 'Band descriptors explained', 'Listening strategies'] },
@@ -30,6 +35,18 @@ function RoadmapAccordion() {
                   <li key={item} className="text-base text-gray-700">{item}</li>
                 ))}
               </ul>
+              {section.title === 'Orientation' && (
+                <div className="mt-8">
+                  <h3 className="text-xl font-bold mb-4 text-primary-700">Orientation Mind Map</h3>
+                  <ListeningSkillMindmap />
+                </div>
+              )}
+              {section.title === 'Part 1: Short Conversations' && (
+                <div className="mt-8">
+                  <h3 className="text-xl font-bold mb-4 text-primary-700">Short Conversation Mind Map</h3>
+                  <ShortConversationMindmap />
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -59,11 +76,12 @@ const ListeningPage = () => {
             Lesson Library
           </button>
         </div>
+
         <div className="bg-white rounded-xl shadow p-6 min-h-[400px]">
-          {tab === 0 ? <RoadmapAccordion /> : <div className="text-center text-gray-400">(Lesson Library coming soon)</div>}
+          {tab === 0 && <RoadmapAccordion />}
+          {tab === 1 && <ListeningLessonsListPage />}
         </div>
       </div>
-
       <Footer />
     </>
   );
