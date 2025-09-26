@@ -104,19 +104,32 @@ const nodeDetails = {
 };
 
 function AcademicDiscussionMindmap() {
-  // ...existing code...
   const [modal, setModal] = useState(null);
-
   const [detached, setDetached] = useState(false);
   const nodeTypes = React.useMemo(() => ({}), []);
 
-
   // Initial nodes and edges (stateful, draggable)
   const initialNodes = [
+    // Root node
+    { id: 'root', type: 'collapsible', data: { label: 'Listening Part 3: Academic Discussion' }, position: { x: 450, y: -120 }, style: { background: '#bae6fd', fontWeight: 'bold', fontSize: 20 } },
+    // Main nodes
     { id: 'orientation', type: 'collapsible', data: { label: nodeDetails.orientation.title }, position: { x: 0, y: 0 }, style: { background: nodeBgColors.orientation } },
     { id: 'foundations', type: 'collapsible', data: { label: nodeDetails.foundations.title }, position: { x: 300, y: 0 }, style: { background: nodeBgColors.foundations } },
     { id: 'mastery', type: 'collapsible', data: { label: nodeDetails.mastery.title }, position: { x: 600, y: 0 }, style: { background: nodeBgColors.mastery } },
     { id: 'advanced', type: 'collapsible', data: { label: nodeDetails.advanced.title }, position: { x: 900, y: 0 }, style: { background: nodeBgColors.advanced } },
+
+    // Orientation sub-nodes
+    { id: 'orientation-purpose', data: { label: 'Purpose', description: 'Tests ability to follow multiple speakers (2–4), often in an academic/semi-formal context.' }, position: { x: -200, y: 100 }, parentNode: 'orientation', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-contexts', data: { label: 'Common contexts' }, position: { x: 0, y: 100 }, parentNode: 'orientation', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-contexts-1', data: { label: 'Students discussing assignments/projects' }, position: { x: 0, y: 180 }, parentNode: 'orientation-contexts', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-contexts-2', data: { label: 'Seminar discussions with a tutor' }, position: { x: 0, y: 220 }, parentNode: 'orientation-contexts', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-contexts-3', data: { label: 'Group planning meetings' }, position: { x: 0, y: 260 }, parentNode: 'orientation-contexts', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-types', data: { label: 'Typical question types' }, position: { x: 200, y: 100 }, parentNode: 'orientation', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-types-1', data: { label: 'Multiple Choice Questions (MCQs)' }, position: { x: 200, y: 180 }, parentNode: 'orientation-types', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-types-2', data: { label: 'Matching ideas to speakers' }, position: { x: 200, y: 220 }, parentNode: 'orientation-types', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-types-3', data: { label: 'Table/Flowchart completion' }, position: { x: 200, y: 260 }, parentNode: 'orientation-types', style: { background: nodeBgColors.leaf } },
+    { id: 'orientation-types-4', data: { label: 'Sentence completion' }, position: { x: 200, y: 300 }, parentNode: 'orientation-types', style: { background: nodeBgColors.leaf } },
+
     // Foundations leaf nodes
     { id: 'awareness', data: { label: nodeDetails.awareness.title }, position: { x: 300, y: 120 }, style: { background: nodeBgColors.leaf } },
     { id: 'stance', data: { label: nodeDetails.stance.title }, position: { x: 420, y: 120 }, style: { background: nodeBgColors.leaf } },
@@ -152,22 +165,26 @@ function AcademicDiscussionMindmap() {
     advanced: ['perspectives', 'cues', 'distractors', 'highlevel'],
   };
 
-  // Filter nodes/edges based on expanded state
-  const getVisibleNodesAndEdges = () => {
-    let visibleNodes = [...nodes];
-    let visibleEdges = [...edges];
-    Object.entries(parentToChildren).forEach(([parent, children]) => {
-      if (!expanded[parent]) {
-        visibleNodes = visibleNodes.filter(n => !children.includes(n.id));
-        visibleEdges = visibleEdges.filter(e => e.source !== parent);
-      }
-    });
-    return { visibleNodes, visibleEdges };
-  };
-  const initialEdges = [
-    { id: 'e1', source: 'orientation', target: 'foundations', animated: true },
-    { id: 'e2', source: 'orientation', target: 'mastery', animated: true },
-    { id: 'e3', source: 'orientation', target: 'advanced', animated: true },
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([
+    // Root to main nodes
+    { id: 'e-root-orientation', source: 'root', target: 'orientation', animated: true },
+    { id: 'e-root-foundations', source: 'root', target: 'foundations', animated: true },
+    { id: 'e-root-mastery', source: 'root', target: 'mastery', animated: true },
+    { id: 'e-root-advanced', source: 'root', target: 'advanced', animated: true },
+
+    // Orientation sub-nodes
+    { id: 'e-orientation-purpose', source: 'orientation', target: 'orientation-purpose', animated: true },
+    { id: 'e-orientation-contexts', source: 'orientation', target: 'orientation-contexts', animated: true },
+    { id: 'e-orientation-contexts-1', source: 'orientation-contexts', target: 'orientation-contexts-1', animated: true },
+    { id: 'e-orientation-contexts-2', source: 'orientation-contexts', target: 'orientation-contexts-2', animated: true },
+    { id: 'e-orientation-contexts-3', source: 'orientation-contexts', target: 'orientation-contexts-3', animated: true },
+    { id: 'e-orientation-types', source: 'orientation', target: 'orientation-types', animated: true },
+    { id: 'e-orientation-types-1', source: 'orientation-types', target: 'orientation-types-1', animated: true },
+    { id: 'e-orientation-types-2', source: 'orientation-types', target: 'orientation-types-2', animated: true },
+    { id: 'e-orientation-types-3', source: 'orientation-types', target: 'orientation-types-3', animated: true },
+    { id: 'e-orientation-types-4', source: 'orientation-types', target: 'orientation-types-4', animated: true },
+
     // Foundations to leaf
     { id: 'e4', source: 'foundations', target: 'awareness', animated: true },
     { id: 'e5', source: 'foundations', target: 'stance', animated: true },
@@ -183,15 +200,20 @@ function AcademicDiscussionMindmap() {
     { id: 'e13', source: 'advanced', target: 'cues', animated: true },
     { id: 'e14', source: 'advanced', target: 'distractors', animated: true },
     { id: 'e15', source: 'advanced', target: 'highlevel', animated: true },
-  ];
+  ]);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  useEffect(() => {
-    setNodes(initialNodes);
-    setEdges(initialEdges);
-  }, []);
+  // Filter nodes/edges based on expanded state
+  const getVisibleNodesAndEdges = () => {
+    let visibleNodes = [...nodes];
+    let visibleEdges = [...edges];
+    Object.entries(parentToChildren).forEach(([parent, children]) => {
+      if (!expanded[parent]) {
+        visibleNodes = visibleNodes.filter(n => !children.includes(n.id));
+        visibleEdges = visibleEdges.filter(e => e.source !== parent);
+      }
+    });
+    return { visibleNodes, visibleEdges };
+  };
 
 
   // Modal rendering for node details
