@@ -1,87 +1,86 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
-// Placeholder for future listening lessons data
-const listeningLessons = [
+// Helper component for styling cards
+const LessonCard = ({ title, description, to }) => (
+  <Link to={to || '#'} className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1 hover:border-primary-500 hover:border-2">
+    <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+    <p className="text-gray-600 text-base flex-1">{description}</p>
+  </Link>
+);
+
+// Grouped clusters for listening lessons
+const listeningClusters = [
   {
-    title: 'Predicting Answers from Context',
-    description: 'Learn to anticipate answers by analyzing question context and speaker cues.'
+    title: 'Core Listening Skills',
+    color: 'bg-blue-50',
+    lessons: [
+      { key: 'predicting', title: 'Predicting Answers from Context', description: 'Learn to anticipate answers by analyzing question context and speaker cues.' },
+      { key: 'signpost', title: 'Listening for Signpost Words', description: 'Identify key transition words and phrases that guide you through the recording.' },
+      { key: 'distractors', title: 'Identifying Key Information vs Distractors', description: 'Practice distinguishing between essential information and misleading details.' },
+      { key: 'paraphrase', title: 'Paraphrase Recognition', description: 'Recognize synonyms and paraphrases between questions and recordings.' },
+      { key: 'multi-speaker', title: 'Multi-Speaker Tracking', description: 'Track who is speaking in multi-speaker recordings.' },
+    ]
   },
   {
-    title: 'Listening for Signpost Words',
-    description: 'Identify key transition words and phrases that guide you through the recording.'
+    title: 'Question Types & Strategies',
+    color: 'bg-green-50',
+    lessons: [
+      { key: 'form', title: 'Form Completion', description: 'Strategies for completing notes, tables, and summaries accurately.' },
+      { key: 'mcq', title: 'Multiple Choice Strategy', description: 'Approaches for tackling multiple choice questions efficiently.' },
+      { key: 'matching', title: 'Matching', description: 'Techniques for matching names, speakers, and features.' },
+      { key: 'map', title: 'Map & Plan Labeling', description: 'Tips for labeling maps and plans correctly.' },
+      { key: 'sentence', title: 'Sentence Completion / Short Answer', description: 'Best practices for sentence completion and short answer questions.' },
+      { key: 'flowchart', title: 'Flow Chart & Diagram Completion', description: 'How to complete flow charts and diagrams in listening tasks.' },
+    ]
   },
   {
-    title: 'Identifying Key Information vs Distractors',
-    description: 'Practice distinguishing between essential information and misleading details.'
-  },
-  {
-    title: 'Spelling & Numbers Training',
-    description: 'Master spelling, numbers, dates, and addresses as they appear in the test.'
-  },
-  {
-    title: 'Paraphrase Recognition',
-    description: 'Recognize synonyms and paraphrases between questions and recordings.'
-  },
-  {
-    title: 'Form Completion',
-    description: 'Strategies for completing notes, tables, and summaries accurately.'
-  },
-  {
-    title: 'Multiple Choice Strategy',
-    description: 'Approaches for tackling multiple choice questions efficiently.'
-  },
-  {
-    title: 'Matching',
-    description: 'Techniques for matching names, speakers, and features.'
-  },
-  {
-    title: 'Map & Plan Labeling',
-    description: 'Tips for labeling maps and plans correctly.'
-  },
-  {
-    title: 'Sentence Completion / Short Answer',
-    description: 'Best practices for sentence completion and short answer questions.'
-  },
-  {
-    title: 'Flow Chart & Diagram Completion',
-    description: 'How to complete flow charts and diagrams in listening tasks.'
-  },
-  {
-    title: 'Dealing with Accents',
-    description: 'Familiarize yourself with UK, US, Australian, and Canadian accents.'
-  },
-  {
-    title: 'Multi-Speaker Tracking',
-    description: 'Track who is speaking in multi-speaker recordings.'
-  },
-  {
-    title: 'Time Management',
-    description: 'Learn when to read ahead and when to focus on listening.'
-  },
-  {
-    title: 'Error Checking',
-    description: 'Check spelling, word count, and grammar fit before submitting answers.'
-  },
-  {
-    title: 'Staying Calm After Missing an Answer',
-    description: 'Strategies to stay focused and recover after missing a question.'
+    title: 'Test Skills & Mindset',
+    color: 'bg-yellow-50',
+    lessons: [
+      { key: 'spelling', title: 'Spelling & Numbers Training', description: 'Master spelling, numbers, dates, and addresses as they appear in the test.' },
+      { key: 'accents', title: 'Dealing with Accents', description: 'Familiarize yourself with UK, US, Australian, and Canadian accents.' },
+      { key: 'timing', title: 'Time Management', description: 'Learn when to read ahead and when to focus on listening.' },
+      { key: 'error', title: 'Error Checking', description: 'Check spelling, word count, and grammar fit before submitting answers.' },
+      { key: 'calm', title: 'Staying Calm After Missing an Answer', description: 'Strategies to stay focused and recover after missing a question.' },
+    ]
   },
 ];
 
-const ListeningLessonsList = () => (
-  <div className="w-full max-w-3xl mx-auto mt-8">
-    <h2 className="text-2xl font-bold text-primary-700 mb-6 text-center">Listening Lesson Library</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {listeningLessons.map((lesson, idx) => (
-        <div key={idx} className="bg-white rounded-lg shadow p-6 flex flex-col">
-          <h3 className="text-lg font-semibold text-primary-800 mb-2">{lesson.title}</h3>
-          <p className="text-gray-600 text-base flex-1">{lesson.description}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+export default function ListeningLessonsListPage({ hideHeaderFooter }) {
+  const [openClusterIdx, setOpenClusterIdx] = useState(0); // Accordion: first open by default
 
-export default ListeningLessonsList;
+  return (
+    <>
+      {!hideHeaderFooter && <Header />}
+      <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">IELTS Listening Lesson Library</h1>
+        <div className="space-y-12">
+          {listeningClusters.map((cluster, idx) => (
+            <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}>
+              <button
+                className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
+                onClick={() => setOpenClusterIdx(openClusterIdx === idx ? -1 : idx)}
+                aria-expanded={openClusterIdx === idx}
+              >
+                <span>{cluster.title}</span>
+                <span className="ml-4 text-xl">{openClusterIdx === idx ? '−' : '+'}</span>
+              </button>
+              {openClusterIdx === idx && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
+                  {cluster.lessons.map(lesson => (
+                    <LessonCard key={lesson.key} title={lesson.title} description={lesson.description} to={lesson.to} />
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      {!hideHeaderFooter && <Footer />}
+    </>
+  );
+}
