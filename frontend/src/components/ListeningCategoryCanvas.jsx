@@ -7,17 +7,46 @@ import ListeningClusterMindmap from './ListeningClusterMindmap';
 
 // Example general tips/traps/predictions for the whole category (replace with real data as needed)
 const generalTips = [
-  'Read all questions before listening and underline keywords.',
-  'Predict the type of answer (number, name, place, etc.) before the audio starts.',
-  'Listen for signpost words and speaker changes.'
+  'Read all questions before listening and underline keywords. This helps you focus on what information to listen for.',
+  'Predict the type of answer (number, name, place, etc.) before the audio starts. Write your prediction next to the question.',
+  'Listen for signpost words (first, however, finally) and speaker changes to follow the structure of the recording.',
+  'Pay attention to instructions: word limits, number of words, and spelling all matter for your score.',
+  'Use the time before each section to scan questions and highlight key information.',
+  'Practice with a variety of accents (British, Australian, American, Canadian) to improve comprehension.',
+  'If you miss an answer, move on quickly—don’t let it affect your focus for the next question.',
+  'Check your answers for spelling, grammar, and word count before submitting.',
+  'Take notes as you listen, especially for names, numbers, and dates.',
+  'Familiarize yourself with common distractors and paraphrasing techniques used in IELTS recordings.',
+  'Practice listening for synonyms and paraphrases, as the audio rarely uses the exact words from the questions.',
+  'Use process of elimination for multiple choice questions—cross out obviously wrong answers as you listen.',
+  'For map and diagram questions, visualize the layout and follow directions carefully.',
+  'Review your mistakes after practice tests and note patterns in your errors.'
 ];
 const generalTraps = [
-  'Don\'t be misled by distractors or corrections in the audio.',
-  'Don\'t assume the first answer you hear is always correct.'
+  'Don\'t be misled by distractors or corrections in the audio. Speakers may change their answers or correct themselves.',
+  'Don\'t assume the first answer you hear is always correct—listen for changes or clarifications.',
+  'Be careful with spelling: even a small mistake can cost you a mark.',
+  'Watch out for word limit instructions (e.g., NO MORE THAN TWO WORDS). Exceeding the limit means no mark.',
+  'Don\'t get stuck on one question. If you miss it, move on and stay focused for the next.',
+  'Don\'t write answers too early—wait until you are sure, as information may be repeated or corrected.',
+  'Don\'t ignore the context of the conversation. Sometimes the answer is implied, not directly stated.',
+  'Don\'t forget to transfer your answers carefully to the answer sheet (for paper-based tests).',
+  'Don\'t rely solely on keywords—listen for synonyms and paraphrased information.',
+  'Don\'t panic if you hear unfamiliar vocabulary. Focus on the overall meaning and context.',
+  'Don\'t leave blanks—always make an educated guess if you are unsure.'
 ];
 const generalPredictions = [
-  'Common traps include spelling errors and exceeding word limits.',
-  'Answers may be paraphrased or given in a different order than the questions.'
+  'Expect to hear a range of accents and speeds. Practice with different recordings to build confidence.',
+  'Questions may not follow the order of the information in the audio, especially in matching and map tasks.',
+  'Answers are often paraphrased—be ready to match meaning, not just words.',
+  'Some questions will have distractors: information that sounds correct but is later changed or clarified.',
+  'You may need to write numbers, dates, or names—practice listening for these details.',
+  'In multiple choice, all options may be mentioned, but only one is correct. Listen for subtle clues.',
+  'For form/note/table completion, answers are usually short and factual.',
+  'In map/diagram questions, directions and spatial language (left, right, next to, opposite) are important.',
+  'Expect some questions to test your ability to follow a sequence or process.',
+  'Some sections will require you to track multiple speakers—note who says what.',
+  'Prediction: The test will include both straightforward and challenging questions. Stay calm and use strategies for both.'
 ];
 
 // Canvas area for Listening topic: shows mindmap, template, tips, traps, etc.
@@ -73,7 +102,7 @@ export default function ListeningCategoryCanvas({ categoryKey, topicKey }) {
       </div>
 
       {/* Topic-specific content below */}
-      {topicKey ? (
+      {topicKey && template && template.title !== 'No data' && (
         <>
           <h2 className="text-2xl font-bold mb-4">{template.title}</h2>
           {(template.tips?.length || template.traps?.length || template.predictions?.length) && (
@@ -106,7 +135,8 @@ export default function ListeningCategoryCanvas({ categoryKey, topicKey }) {
           )}
           {template.mindmap && <div className="mb-8"><ListeningClusterMindmap data={template.mindmap} /></div>}
         </>
-      ) : (
+      )}
+      {!topicKey && (
         <div className="text-gray-500 text-lg mt-12 text-center">Select a topic to view details.</div>
       )}
     </div>
