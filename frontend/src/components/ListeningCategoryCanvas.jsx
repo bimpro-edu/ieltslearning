@@ -231,63 +231,120 @@ export default function ListeningCategoryCanvas({ categoryKey, topicKey }) {
   const [tab, setTab] = useState('tips');
   const template = topicKey ? getListeningTemplateForTopic(categoryKey, topicKey) : null;
 
+  // If a topic is selected and it has any data, show all topic-specific tips/traps/predictions/mindmap; otherwise show general info for the selected tab
   let tabContent;
-  if (tab === 'tips') {
+  if (topicKey && template && template.title !== 'No data' && (template.tips?.length > 0 || template.traps?.length > 0 || template.predictions?.length > 0 || template.mindmap)) {
     tabContent = (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {generalTips.map((tip, i) => (
-          <div key={i} className="flex flex-col gap-2 bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl">{tip.icon}</span>
-              <div>
-                <div className="font-semibold text-blue-900 mb-1">{tip.title}</div>
-                <div className="text-blue-800 text-base">{tip.text}</div>
-              </div>
+      <>
+        <h2 className="text-2xl font-bold mb-6">{template.title}</h2>
+        {template.mindmap && (
+          <div className="mb-8"><ListeningClusterMindmap data={template.mindmap} /></div>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {/* Tips */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm flex flex-col">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xl">💡</span>
+              <h3 className="text-lg font-semibold text-blue-900">Tips</h3>
             </div>
-            <div className="text-xs text-blue-700 mt-1 italic">{tip.example}</div>
+            {template.tips && template.tips.length > 0 ? (
+              <ul className="list-disc ml-5 space-y-2 text-base text-blue-900">
+                {template.tips.map((tip, i) => <li key={i}>{tip}</li>)}
+              </ul>
+            ) : (
+              <div className="text-blue-700 italic">No tips for this topic.</div>
+            )}
           </div>
-        ))}
-      </div>
-    );
-  } else if (tab === 'traps') {
-    tabContent = (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {generalTraps.map((trap, i) => (
-          <div key={i} className="flex flex-col gap-2 bg-red-50 border border-red-200 rounded-lg p-4 shadow-sm">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl">{trap.icon}</span>
-              <div>
-                <div className="font-semibold text-red-900 mb-1">{trap.title}</div>
-                <div className="text-red-800 text-base">{trap.text}</div>
-              </div>
+          {/* Traps */}
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 shadow-sm flex flex-col">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xl">⚠️</span>
+              <h3 className="text-lg font-semibold text-red-700">Traps</h3>
             </div>
-            <div className="text-xs text-red-700 mt-1 italic">{trap.example}</div>
+            {template.traps && template.traps.length > 0 ? (
+              <ul className="list-disc ml-5 space-y-2 text-base text-red-700">
+                {template.traps.map((trap, i) => <li key={i}>{trap}</li>)}
+              </ul>
+            ) : (
+              <div className="text-red-700 italic">No traps for this topic.</div>
+            )}
           </div>
-        ))}
-      </div>
-    );
-  } else if (tab === 'predictions') {
-    tabContent = (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {generalPredictions.map((pred, i) => (
-          <div key={i} className="flex flex-col gap-2 bg-blue-100 border border-blue-300 rounded-lg p-4 shadow-sm">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl">{pred.icon}</span>
-              <div>
-                <div className="font-semibold text-blue-900 mb-1">{pred.title}</div>
-                <div className="text-blue-800 text-base">{pred.text}</div>
-              </div>
+          {/* Predictions */}
+          <div className="bg-blue-100 border border-blue-300 rounded-lg p-4 shadow-sm flex flex-col">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xl">🔮</span>
+              <h3 className="text-lg font-semibold text-blue-700">Predictions</h3>
             </div>
-            <div className="text-xs text-blue-700 mt-1 italic">{pred.example}</div>
+            {template.predictions && template.predictions.length > 0 ? (
+              <ul className="list-disc ml-5 space-y-2 text-base text-blue-700">
+                {template.predictions.map((pred, i) => <li key={i}>{pred}</li>)}
+              </ul>
+            ) : (
+              <div className="text-blue-700 italic">No predictions for this topic.</div>
+            )}
           </div>
-        ))}
-      </div>
+        </div>
+      </>
     );
+  } else {
+    // Show general info for the tab
+    if (tab === 'tips') {
+      tabContent = (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {generalTips.map((tip, i) => (
+            <div key={i} className="flex flex-col gap-2 bg-blue-50 border border-blue-200 rounded-lg p-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">{tip.icon}</span>
+                <div>
+                  <div className="font-semibold text-blue-900 mb-1">{tip.title}</div>
+                  <div className="text-blue-800 text-base">{tip.text}</div>
+                </div>
+              </div>
+              <div className="text-xs text-blue-700 mt-1 italic">{tip.example}</div>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (tab === 'traps') {
+      tabContent = (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {generalTraps.map((trap, i) => (
+            <div key={i} className="flex flex-col gap-2 bg-red-50 border border-red-200 rounded-lg p-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">{trap.icon}</span>
+                <div>
+                  <div className="font-semibold text-red-900 mb-1">{trap.title}</div>
+                  <div className="text-red-800 text-base">{trap.text}</div>
+                </div>
+              </div>
+              <div className="text-xs text-red-700 mt-1 italic">{trap.example}</div>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (tab === 'predictions') {
+      tabContent = (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {generalPredictions.map((pred, i) => (
+            <div key={i} className="flex flex-col gap-2 bg-blue-100 border border-blue-300 rounded-lg p-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">{pred.icon}</span>
+                <div>
+                  <div className="font-semibold text-blue-900 mb-1">{pred.title}</div>
+                  <div className="text-blue-800 text-base">{pred.text}</div>
+                </div>
+              </div>
+              <div className="text-xs text-blue-700 mt-1 italic">{pred.example}</div>
+            </div>
+          ))}
+        </div>
+      );
+    }
   }
 
   return (
     <div className="bg-white rounded-xl shadow p-6 min-h-[400px]">
-      {/* General Trap/Tips/Prediction tabs (always on top) */}
+      {/* Trap/Tips/Prediction tabs (always on top) */}
       <div className="mb-6">
         <div className="flex gap-2 mb-3">
           <button
@@ -307,45 +364,6 @@ export default function ListeningCategoryCanvas({ categoryKey, topicKey }) {
           {tabContent}
         </div>
       </div>
-
-      {/* Topic-specific content below */}
-      {topicKey && template && template.title !== 'No data' && (
-        <>
-          <h2 className="text-2xl font-bold mb-4">{template.title}</h2>
-          {(template.tips?.length || template.traps?.length || template.predictions?.length) && (
-            <div className="flex flex-wrap gap-6 mb-8">
-              {template.tips && template.tips.length > 0 && (
-                <div className="min-w-[180px]">
-                  <h3 className="text-lg font-semibold mb-2 text-primary-700">Tips</h3>
-                  <ul className="list-disc ml-6 space-y-1 text-base text-gray-700">
-                    {template.tips.map((tip, i) => <li key={i}>{tip}</li>)}
-                  </ul>
-                </div>
-              )}
-              {template.traps && template.traps.length > 0 && (
-                <div className="min-w-[180px]">
-                  <h3 className="text-lg font-semibold mb-2 text-red-700">Traps</h3>
-                  <ul className="list-disc ml-6 space-y-1 text-base text-red-700">
-                    {template.traps.map((trap, i) => <li key={i}>{trap}</li>)}
-                  </ul>
-                </div>
-              )}
-              {template.predictions && template.predictions.length > 0 && (
-                <div className="min-w-[180px]">
-                  <h3 className="text-lg font-semibold mb-2 text-blue-700">Predictions</h3>
-                  <ul className="list-disc ml-6 space-y-1 text-base text-blue-700">
-                    {template.predictions.map((pred, i) => <li key={i}>{pred}</li>)}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
-          {template.mindmap && <div className="mb-8"><ListeningClusterMindmap data={template.mindmap} /></div>}
-        </>
-      )}
-      {!topicKey && (
-        <div className="text-gray-500 text-lg mt-12 text-center">Select a topic to view details.</div>
-      )}
     </div>
   );
 }
