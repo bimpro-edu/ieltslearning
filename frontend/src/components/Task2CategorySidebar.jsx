@@ -1,12 +1,13 @@
+import React from 'react';
+import { getTopicsForCategory } from '../utils/loadTemplates';
 
-
-import { getListeningTopicsForCategory } from '../utils/loadTemplates';
-
-export default function ListeningCategorySidebar({ categoryKey, selectedTopic, setSelectedTopic }) {
-  const topics = getListeningTopicsForCategory(categoryKey);
+// Sidebar for Task 2 category topics
+export default function Task2CategorySidebar({ categoryKey, selectedTopic, setSelectedTopic }) {
+  const topics = getTopicsForCategory(categoryKey);
   return (
     <aside className="w-64 bg-white border-r border-gray-200 p-4 flex flex-col">
-      <ul className="space-y-1">
+      <h2 className="text-xl font-bold mb-4">Topics</h2>
+      <ul className="space-y-2">
         {topics.map(topic => (
           <li key={topic.key}>
             <button

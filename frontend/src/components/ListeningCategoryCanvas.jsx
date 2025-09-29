@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { getListeningTemplateForTopic } from '../utils/loadTemplates';
 import ListeningClusterMindmap from './ListeningClusterMindmap';
-
-
+import Header from './Header';
+import Footer from './Footer';
 
 // Example general tips/traps/predictions for the whole category (replace with real data as needed)
 const generalTips = [
@@ -343,27 +342,31 @@ export default function ListeningCategoryCanvas({ categoryKey, topicKey }) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow p-6 min-h-[400px]">
-      {/* Trap/Tips/Prediction tabs (always on top) */}
-      <div className="mb-6">
-        <div className="flex gap-2 mb-3">
-          <button
-            className={`px-4 py-1 rounded font-medium border ${tab === 'tips' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'}`}
-            onClick={() => setTab('tips')}
-          >Tips</button>
-          <button
-            className={`px-4 py-1 rounded font-medium border ${tab === 'traps' ? 'bg-red-600 text-white' : 'bg-gray-100 text-gray-700'}`}
-            onClick={() => setTab('traps')}
-          >Traps</button>
-          <button
-            className={`px-4 py-1 rounded font-medium border ${tab === 'predictions' ? 'bg-blue-700 text-white' : 'bg-gray-100 text-gray-700'}`}
-            onClick={() => setTab('predictions')}
-          >Predictions</button>
-        </div>
-        <div className="bg-gray-50 border rounded p-4 text-base">
-          {tabContent}
+    <>
+      <Header />
+      <div className="w-full max-w-5xl mx-auto px-2 py-8">
+        {/* Trap/Tips/Prediction tabs (always on top) */}
+        <div className="mb-6">
+          <div className="flex gap-2 mb-3">
+            <button
+              className={`px-4 py-1 rounded font-medium border ${tab === 'tips' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'}`}
+              onClick={() => setTab('tips')}
+            >Tips</button>
+            <button
+              className={`px-4 py-1 rounded font-medium border ${tab === 'traps' ? 'bg-red-600 text-white' : 'bg-gray-100 text-gray-700'}`}
+              onClick={() => setTab('traps')}
+            >Traps</button>
+            <button
+              className={`px-4 py-1 rounded font-medium border ${tab === 'predictions' ? 'bg-blue-700 text-white' : 'bg-gray-100 text-gray-700'}`}
+              onClick={() => setTab('predictions')}
+            >Predictions</button>
+          </div>
+          <div className="bg-gray-50 border rounded p-4 text-base">
+            {tabContent}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

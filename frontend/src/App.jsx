@@ -6,12 +6,14 @@ import LessonPage from './pages/LessonPage';
 import LessonsListPage from './pages/LessonsListPage';
 import WritingPage from './pages/WritingPage';
 import ListeningPage from './pages/ListeningPage';
+import ListeningCategoryPage from './pages/listening/ListeningCategoryPage';
 import ExercisePage from './pages/ExercisePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import TeacherDashboard from './pages/TeacherDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import TaskPage from './pages/TaskPage'; // Import TaskPage
+import ReadingPage from './pages/ReadingPage'; // Import ReadingPage
 
 function App() {
   return (
@@ -27,9 +29,12 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/teacher/dashboard" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
-          {/* New Task Routes */}
+          {/* New Listening Category Page (sidebar + canvas) */}
+          <Route path="/listening/:categoryKey" element={<ListeningCategoryPage />} />
+          {/* Old Task Routes */}
           <Route path="/tasks/:taskType/:category/" element={<TaskPage />} />
           <Route path="/tasks/:taskType/:category/:subCategory" element={<TaskPage />} />
+          <Route path="/tasks/reading" element={<ReadingPage />} /> {/* New route for Reading module */}
         </Routes>
       </Router>
     </AuthProvider>

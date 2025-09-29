@@ -58,27 +58,39 @@ export default function ListeningLessonsListPage({ hideHeaderFooter }) {
       {!hideHeaderFooter && <Header />}
       <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">IELTS Listening Lesson Library</h1>
-        <div className="space-y-12">
-          {listeningClusters.map((cluster, idx) => (
-            <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}>
-              <button
-                className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
-                onClick={() => setOpenClusterIdx(openClusterIdx === idx ? -1 : idx)}
-                aria-expanded={openClusterIdx === idx}
-              >
-                <span>{cluster.title}</span>
-                <span className="ml-4 text-xl">{openClusterIdx === idx ? '−' : '+'}</span>
-              </button>
-              {openClusterIdx === idx && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-6 pb-6">
-                  {cluster.lessons.map(lesson => (
-                    <LessonCard key={lesson.key} title={lesson.title} description={lesson.description} to={lesson.to} />
-                  ))}
+          <div className="space-y-12">
+            {listeningClusters.map((cluster, idx) => {
+              // Convert cluster title to kebab-case for URL
+              const clusterKey = cluster.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+              return (
+                <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}>
+                  <button
+                    className="w-full flex justify-between items-center px-6 py-4 focus:outline-none text-left text-2xl font-semibold text-primary-700 hover:bg-opacity-80 transition"
+                    onClick={() => setOpenClusterIdx(openClusterIdx === idx ? -1 : idx)}
+                    aria-expanded={openClusterIdx === idx}
+                  >
+                    <span>{cluster.title}</span>
+                    <span className="ml-4 text-xl">{openClusterIdx === idx ? '−' : '+'}</span>
+                  </button>
+                  {openClusterIdx === idx && (
+                    <div className="px-6 pb-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <LessonCard
+                          key={clusterKey}
+                          title={`Explore ${cluster.title}`}
+                          description={`View all topics, tips, and mindmaps for ${cluster.title}.`}
+                          to={`/listening/${clusterKey}`}
+                        />
+                        {cluster.lessons.map(lesson => (
+                          <LessonCard key={lesson.key} title={lesson.title} description={lesson.description} to={lesson.to} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
+              );
+            })}
+          </div>
       </div>
       {!hideHeaderFooter && <Footer />}
     </>
