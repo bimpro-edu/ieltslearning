@@ -47,9 +47,25 @@ def score_coherence_and_cohesion_advanced(text: str):
     pron_ratio = pronoun_reference_ratio(text)
 
     # Advanced analysis with spaCy
-    spacy_analysis = analyze_text_with_spacy(text)
-    avg_sentence_len = spacy_analysis["avg_sentence_len"]
-    sentence_len_std_dev = spacy_analysis["sentence_len_std_dev"]
+    try:
+        spacy_analysis = analyze_text_with_spacy(text)
+        avg_sentence_len = spacy_analysis["avg_sentence_len"]
+        sentence_len_std_dev = spacy_analysis["sentence_len_std_dev"]
+    except Exception as e:
+        print(f"Error in spaCy analysis: {e}")
+        # Fallback to basic analysis if spaCy fails
+        from .coherence import score_coherence_and_cohesion
+        basic_result = score_coherence_and_cohesion(text)
+        return {
+            "score": basic_result.get("score", 5.0),
+            "n_paragraphs": n_par,
+            "transitions_found": transitions,
+            "pronoun_reference_ratio": round(pron_ratio, 3),
+            "avg_sentence_len": 0,
+            "sentence_len_std_dev": 0,
+            "pos_counts": {},
+            "warning": "Advanced analysis unavailable, using basic grading"
+        }
     
     # Heuristic scoring
     score = 4.0 # Start with a base score

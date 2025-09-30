@@ -1,10 +1,16 @@
+import os
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
-SECRET_KEY = "your-secret-key"  # In a real app, use a more secure key and load from env
+# Use environment variable for secret key, fallback to development key with warning
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+if not SECRET_KEY:
+    SECRET_KEY = "development-secret-key-not-for-production-use"
+    print("WARNING: Using development JWT secret key. Set JWT_SECRET_KEY environment variable for production!")
+
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -28,6 +34,9 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     return encoded_jwt
 
 async def get_current_user(token: str = Depends(oauth2_scheme)):
+    from .database import SessionLocal
+    from .models import User
+    
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -40,7 +49,13 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
             raise credentials_exception
     except JWTError:
         raise credentials_exception
-    # In a real app, you would fetch the user from the DB here
-    # to ensure the user exists and is active.
-    # For now, we'll just return the username.
-    return {"username": username}
+    
+    # Fetch the user from the database to ensure they exist and are active
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.email == username).first()
+        if user is None:
+            raise credentials_exception
+        return user
+    finally:
+        db.close()
