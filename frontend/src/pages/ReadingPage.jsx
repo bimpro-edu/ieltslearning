@@ -4,46 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ReadingCategorySidebar from '../components/ReadingCategorySidebar';
 import ReadingCategoryCanvas from '../components/ReadingCategoryCanvas';
-import ReadingMindmap from '../components/ReadingMindmap';
-import ReadingMindmapOrientation from '../components/ReadingMindmapOrientation';
-import ReadingMindmapFoundations from '../components/ReadingMindmapFoundations';
-import ReadingMindmapTaskMastery from '../components/ReadingMindmapTaskMastery';
-import ReadingMindmapAdvanced from '../components/ReadingMindmapAdvanced';
-
-// Detachable ReadingMindmapOrientation modal
-function ReadingOrientationMindmapWithDetach() {
-  const [detached, setDetached] = useState(false);
-  return (
-    <>
-      <div className="mb-4 flex justify-end">
-        <button
-          className="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 text-sm font-semibold shadow"
-          onClick={() => setDetached(true)}
-        >
-          Detach (Full Screen)
-        </button>
-      </div>
-      <div className="mb-6" style={{ maxHeight: '820px', overflowY: 'auto' }}>
-        <ReadingMindmapOrientation />
-      </div>
-      {detached && (
-        <div style={{ position: 'fixed', zIndex: 1000, top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(30,40,60,0.92)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ width: '90vw', height: '90vh', background: '#fff', borderRadius: 12, boxShadow: '0 4px 32px #0006', position: 'relative', padding: 24, display: 'flex', flexDirection: 'column' }}>
-            <button
-              onClick={() => setDetached(false)}
-              style={{ position: 'absolute', top: 16, right: 24, zIndex: 10, background: '#e53e3e', color: '#fff', border: 'none', borderRadius: 6, padding: '8px 16px', fontWeight: 600, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #0002' }}
-            >
-              Close
-            </button>
-            <div style={{ flex: 1, minHeight: 0 }}>
-              <ReadingMindmapOrientation />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
+import EnhancedReadingMindmap from '../components/EnhancedReadingMindmap';
 
 const roadmap = [
   {
@@ -112,21 +73,18 @@ function RoadmapAccordion() {
             aria-hidden={open !== idx}
           >
             <div className={`py-4 transition-opacity duration-300 ${open === idx ? 'opacity-100' : 'opacity-0'}`}>
-              {/* If Orientation section, show mindmap above the list */}
+              {/* Enhanced mindmaps for each section */}
               {section.title === 'Orientation' && open === idx && (
-                <ReadingOrientationMindmapWithDetach />
+                <EnhancedReadingMindmap section="orientation" />
               )}
-              {/* If Foundations section, show ReadingMindmapFoundations above the list */}
               {section.title === 'Foundations' && open === idx && (
-                <div className="mb-6"><ReadingMindmapFoundations /></div>
+                <EnhancedReadingMindmap section="foundations" />
               )}
-              {/* If Task Mastery section, show ReadingMindmapTaskMastery above the list */}
               {section.title === 'Task Mastery' && open === idx && (
-                <div className="mb-6"><ReadingMindmapTaskMastery /></div>
+                <EnhancedReadingMindmap section="taskMastery" />
               )}
-              {/* If Advanced Skills section, show ReadingMindmapAdvanced above the list */}
               {section.title === 'Advanced Skills' && open === idx && (
-                <div className="mb-6"><ReadingMindmapAdvanced /></div>
+                <EnhancedReadingMindmap section="advanced" />
               )}
               <ul className="list-disc ml-6 space-y-2">
                 {section.items.map(item => (
