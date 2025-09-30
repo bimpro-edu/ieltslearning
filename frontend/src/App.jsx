@@ -14,6 +14,7 @@ import TeacherDashboard from './pages/TeacherDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import TaskPage from './pages/TaskPage'; // Import TaskPage
 import ReadingPage from './pages/ReadingPage'; // Import ReadingPage
+import ReadingCategoryPage from './pages/reading/ReadingCategoryPage';
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
           <Route path="/teacher/dashboard" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
           {/* New Listening Category Page (sidebar + canvas) */}
           <Route path="/listening/:categoryKey" element={<ListeningCategoryPage />} />
+          {/* New Reading Category Page (sidebar + canvas) */}
+          <Route path="/reading/:categoryKey" element={<ReadingCategoryPage />} />
           {/* Old Task Routes */}
           <Route path="/tasks/:taskType/:category/" element={<TaskPage />} />
           <Route path="/tasks/:taskType/:category/:subCategory" element={<TaskPage />} />

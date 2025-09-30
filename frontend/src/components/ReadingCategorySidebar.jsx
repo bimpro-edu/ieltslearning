@@ -1,25 +1,26 @@
 import React from 'react';
+import { getReadingTopicsForCategory } from '../utils/loadTemplates';
 
-const readingTopics = [
-  { key: 'skimming', title: 'Skimming & Scanning' },
-  { key: 'main-ideas', title: 'Identifying Main Ideas' },
-  { key: 'detailed', title: 'Detailed Comprehension' },
-  { key: 'inference', title: 'Inference Questions' },
-  { key: 'mock-tests', title: 'Mock Reading Tests' },
-  { key: 'band-comparison', title: 'Band 5 → 9 Comparisons' },
-  { key: 'checklists', title: 'Evaluation Checklists' }
-];
-
-export default function ReadingCategorySidebar({ selected, onSelect }) {
+export default function ReadingCategorySidebar({ categoryKey = 'core-reading-skills', selectedTopic, setSelectedTopic }) {
+  const topics = getReadingTopicsForCategory(categoryKey);
+  
   return (
-    <aside className="w-64 border-r bg-white h-full p-4">
-      <nav>
-        <ul className="space-y-2">
-          {readingTopics.map(topic => (
+    <aside className="w-64 bg-white border-r border-gray-200 p-4 flex flex-col h-full">
+      <div className="mb-4">
+        <h3 className="text-lg font-semibold text-primary-700 mb-2">Reading Skills</h3>
+        <p className="text-sm text-gray-600">Select a topic to explore tips, traps, and predictions</p>
+      </div>
+      <nav className="flex-1">
+        <ul className="space-y-1">
+          {topics.map(topic => (
             <li key={topic.key}>
               <button
-                className={`w-full text-left px-3 py-2 rounded ${selected === topic.key ? 'bg-primary-100 font-bold text-primary-700' : 'hover:bg-primary-50 text-gray-700'}`}
-                onClick={() => onSelect(topic.key)}
+                className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
+                  selectedTopic === topic.key 
+                    ? 'bg-primary-100 text-primary-700 border border-primary-200' 
+                    : 'hover:bg-gray-100 text-gray-700'
+                }`}
+                onClick={() => setSelectedTopic(topic.key)}
               >
                 {topic.title}
               </button>
