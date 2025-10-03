@@ -4,16 +4,32 @@ import 'reactflow/dist/style.css';
 
 const initialNodes = [
   {
-    id: 'orientation',
-    type: 'input',
-    data: { label: 'Orientation\n- Purpose: Assess academic reading\n- Format: 3 passages, 40 Qs, 60 min\n- Challenges: Vocab, paraphrase, time, traps' },
-    position: { x: 0, y: 0 },
-    style: { width: 320 }
-  },
-  {
     id: 'foundations',
-    data: { label: 'Foundations\n- Skimming, Scanning, Close Reading\n- Q Types: TFNG, YNNG, Matching, MCQ, Short Answer\n- Build vocab: AWL, synonyms, topics' },
-    position: { x: 400, y: 0 },
+    type: 'input',
+    data: {
+      label:
+        'Foundations\n' +
+        '- Reading Skills:\n' +
+        '  • Skimming: Grabbing main idea quickly.\n' +
+        '  • Scanning: Locating specific facts (dates, names, numbers).\n' +
+        '  • Close Reading: For True/False/Not Given, inference, matching headings.\n' +
+        '\n' +
+        '- Understanding Question Types:\n' +
+        '  • True/False/Not Given (TFNG)\n' +
+        '  • Yes/No/Not Given (YNNG)\n' +
+        '  • Matching headings\n' +
+        '  • Matching information/features\n' +
+        '  • Sentence completion\n' +
+        '  • Summary/Note/Table completion\n' +
+        '  • Multiple Choice Questions (MCQs)\n' +
+        '  • Short answer questions\n' +
+        '\n' +
+        '- Building Vocabulary for Reading:\n' +
+        '  • Academic Word List (AWL)\n' +
+        '  • Synonyms and collocations\n' +
+        '  • Topic-based clusters (science, history, environment, society)'
+    },
+    position: { x: 0, y: 0 },
     style: { width: 320 }
   },
   {
@@ -31,8 +47,6 @@ const initialNodes = [
 ];
 
 const initialEdges = [
-  { id: 'e1-2', source: 'orientation', target: 'foundations', animated: true },
-  { id: 'e1-3', source: 'orientation', target: 'task-mastery', animated: true },
   { id: 'e2-4', source: 'foundations', target: 'advanced', animated: true },
   { id: 'e3-4', source: 'task-mastery', target: 'advanced', animated: true }
 ];

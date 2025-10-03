@@ -11,102 +11,6 @@ const nodeBgColors = {
 
 // Mindmap data for each section
 const mindmapData = {
-  orientation: {
-    label: 'Orientation',
-    color: nodeBgColors.orientation,
-    children: [
-      {
-        label: 'Purpose',
-        color: nodeBgColors.leaf,
-        children: [
-          {
-            label: 'Assess ability to understand academic texts',
-            color: nodeBgColors.leaf,
-            details: 'You must read and comprehend complex academic texts.'
-          },
-          {
-            label: 'Locate information',
-            color: nodeBgColors.leaf,
-            details: 'Find specific facts, details, and references in the text.'
-          },
-          {
-            label: 'Process paraphrased details under time pressure',
-            color: nodeBgColors.leaf,
-            details: 'Recognize information even when it is reworded or paraphrased.'
-          }
-        ]
-      },
-      {
-        label: 'Format',
-        color: nodeBgColors.leaf,
-        children: [
-          {
-            label: 'Academic Reading',
-            color: nodeBgColors.leaf,
-            children: [
-              {
-                label: '3 long passages (~900 words each)',
-                color: nodeBgColors.leaf,
-                details: 'Each passage is about 900 words, testing endurance and comprehension.'
-              },
-              {
-                label: '40 questions',
-                color: nodeBgColors.leaf,
-                details: 'A total of 40 questions, covering a range of skills.'
-              },
-              {
-                label: '60 minutes',
-                color: nodeBgColors.leaf,
-                details: 'You have 60 minutes to complete all passages and questions.'
-              }
-            ]
-          },
-          {
-            label: 'General Training Reading',
-            color: nodeBgColors.leaf,
-            children: [
-              {
-                label: 'Shorter, workplace & social texts',
-                color: nodeBgColors.leaf,
-                details: 'Texts are shorter and based on everyday or workplace situations.'
-              },
-              {
-                label: '1 long passage',
-                color: nodeBgColors.leaf,
-                details: 'The final passage is long and more complex, similar to Academic.'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: 'Key Challenges',
-        color: nodeBgColors.leaf,
-        children: [
-          {
-            label: 'Vocabulary density',
-            color: nodeBgColors.leaf,
-            details: 'Texts contain many academic and topic-specific words.'
-          },
-          {
-            label: 'Paraphrasing & synonyms',
-            color: nodeBgColors.leaf,
-            details: 'Questions and answers often use different words with the same meaning.'
-          },
-          {
-            label: 'Time management (20 min per passage guideline)',
-            color: nodeBgColors.leaf,
-            details: 'Aim to spend about 20 minutes per passage to finish on time.'
-          },
-          {
-            label: 'Trap answers & distractors',
-            color: nodeBgColors.leaf,
-            details: 'Some options are designed to mislead; read carefully and check evidence.'
-          }
-        ]
-      }
-    ]
-  },
   foundations: {
     label: 'Foundations',
     color: nodeBgColors.foundations,
@@ -114,17 +18,79 @@ const mindmapData = {
       {
         label: 'Reading Skills',
         color: nodeBgColors.leaf,
-        details: 'Skimming: Main idea quickly. Scanning: Find facts. Close Reading: TFNG, inference, headings.'
+        children: [
+          {
+            label: 'Skimming',
+            color: nodeBgColors.leaf,
+            details: 'Grabbing main idea quickly.'
+          },
+          {
+            label: 'Scanning',
+            color: nodeBgColors.leaf,
+            details: 'Locating specific facts (dates, names, numbers).'
+          },
+          {
+            label: 'Close Reading',
+            color: nodeBgColors.leaf,
+            details: 'For True/False/Not Given, inference, matching headings.'
+          }
+        ]
       },
       {
-        label: 'Question Types',
+        label: 'Understanding Question Types',
         color: nodeBgColors.leaf,
-        details: 'TFNG, YNNG, Matching, MCQ, Short Answer, Completion.'
+        children: [
+          {
+            label: 'True/False/Not Given (TFNG)',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Yes/No/Not Given (YNNG)',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Matching headings',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Matching information/features',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Sentence completion',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Summary/Note/Table completion',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Multiple Choice Questions (MCQs)',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Short answer questions',
+            color: nodeBgColors.leaf
+          }
+        ]
       },
       {
-        label: 'Building Vocabulary',
+        label: 'Building Vocabulary for Reading',
         color: nodeBgColors.leaf,
-        details: 'AWL (Academic Word List), Synonyms & collocations, Topic clusters.'
+        children: [
+          {
+            label: 'Academic Word List (AWL)',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Synonyms and collocations',
+            color: nodeBgColors.leaf
+          },
+          {
+            label: 'Topic-based clusters (science, history, environment, society)',
+            color: nodeBgColors.leaf
+          }
+        ]
       }
     ]
   },
