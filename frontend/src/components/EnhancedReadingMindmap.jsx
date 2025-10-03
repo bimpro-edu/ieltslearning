@@ -17,7 +17,7 @@ const nodeBaseStyle = {
 // Color map for node backgrounds
 const nodeBgColors = {
   readingCenter: '#e3f2fd',
-  orientation: '#b3e5fc',
+  foundations: '#f8bbd0',
   purpose: '#fff9c4',
   format: '#c8e6c9',
   academicReading: '#c8e6c9',
@@ -69,14 +69,16 @@ const WarningIcon = () => (
 // Child map definition - must be defined before use
 const getChildMap = () => {
   return {
-    readingCenter: ["orientation"],
-    orientation: ["purpose", "format", "challenges"],
-    format: ["academicReading", "generalTraining"],
-    challenges: ["vocabularyDensity", "paraphrasing", "timeManagement", "trapAnswers"],
+    readingCenter: ["foundations"],
+    foundations: ["readingSkills", "questionTypes", "vocabulary"],
+    readingSkills: ["skimming", "scanning", "closeReading"],
+    questionTypes: ["tfng", "ynng", "matchingHeadings", "matchingInfo", "sentenceCompletion", "summaryCompletion", "mcq", "shortAnswer"],
+    vocabulary: ["awl", "synonyms", "topicClusters"],
   };
 };
 // Node details for modal rendering
 // Collapsible node component for parent nodes  
+// Node types for ReactFlow
 const CollapsibleNode = memo((props) => {
   const { id, data, style, className } = props;
   const { isExpanded, onToggle, hasChildren, label } = data;
@@ -104,100 +106,152 @@ const CollapsibleNode = memo((props) => {
     </div>
   );
 });
+  // Node types for ReactFlow (must be after CollapsibleNode)
+  const nodeTypes = { collapsible: CollapsibleNode };
 const nodeDetails = {
   vocabularyDensity: {
     title: "Vocabulary Density",
-  details: "IELTS Reading passages are packed with challenging vocabulary, technical terms, and topic-specific words.\n\nKey Skills:\nRecognize synonyms and paraphrases\nBuild a strong Academic Word List (AWL) foundation\nUse context clues to infer meaning\nSkim for main ideas, scan for key terms\n\nStrategies:\nPractice reading science, history, and social science texts\nCreate personal vocabulary lists\nUse flashcards and spaced repetition\nReview word families and collocations\n\nCommon Pitfalls:\nIgnoring unfamiliar words\nFocusing only on word-for-word matches\n\nPro Tip:\nHighlight new words and review them regularly.",
+    details: "IELTS Reading passages are packed with challenging vocabulary, technical terms, and topic-specific words.\n\nKey Skills:\nRecognize synonyms and paraphrases\nBuild a strong Academic Word List (AWL) foundation\nUse context clues to infer meaning\nSkim for main ideas, scan for key terms\n\nStrategies:\nPractice reading science, history, and social science texts\nCreate personal vocabulary lists\nUse flashcards and spaced repetition\nReview word families and collocations\n\nCommon Pitfalls:\nIgnoring unfamiliar words\nFocusing only on word-for-word matches\n\nPro Tip:\nHighlight new words and review them regularly.",
     icon: BookIcon,
     bg: '#ffe0b2',
   },
-  paraphrasing: {
-    title: "Paraphrasing & Synonyms",
-  details: "Most IELTS Reading questions require you to spot paraphrased information. The test rarely repeats exact words from the passage.\n\nKey Skills:\nIdentify synonyms and reworded phrases\nNotice changes in sentence structure\nMatch meaning, not just words\n\nStrategies:\nPractice transforming sentences\nCompare question wording to passage\nLook for subtle shifts in meaning\n\nCommon Pitfalls:\nMissing answers due to unfamiliar phrasing\nOverlooking paraphrased ideas\n\nPro Tip:\nAlways check if the question uses different words for the same idea in the text.",
+  skimming: {
+    title: "Skimming",
+    details: "Purpose: Quickly grasp the main idea and structure of a passage.\n\nHow to do it:\n- Read the title, headings, and first sentences of paragraphs.\n- Look for repeated words and phrases.\n- Ignore details and focus on overall flow.\n\nWhen to use:\n- Before answering general questions.\n- To get a sense of the topic and tone.\n\nPro Tips:\n- Practice with news articles and academic texts.\n- Time yourself to improve speed.",
     icon: BookIcon,
-    bg: '#ede7f6',
+    bg: '#f8bbd0',
   },
-  timeManagement: {
-    title: "Time Management",
-  details: "You have 60 minutes for 3 passages (~900 words each) and 40 questions.\n\nRecommended Strategy:\nSpend about 20 minutes per passage\nSkim first for overall structure\nRead questions before the passage\nAnswer easy questions first, return to hard ones later\nLeave 2-3 minutes at the end to review answers\n\nCommon Pitfalls:\nGetting stuck on difficult questions\nNot leaving time for review\n\nPro Tip:\nPractice with a timer to build automatic time awareness.",
-    icon: TargetIcon,
-    bg: '#fff8e1',
-  },
-  trapAnswers: {
-    title: "Trap Answers & Distractors",
-  details: "IELTS Reading is full of trap answers designed to mislead.\n\nTrap Types:\nDistractors use similar words but different meanings\nExtreme language (always, never) is often incorrect\nMinor details presented as main ideas\nOut-of-scope information that sounds logical but isn’t in the text\n\nStrategies:\nAlways find evidence in the passage\nDon’t rely on outside knowledge\nWatch for word matching traps\n\nCommon Pitfalls:\nChoosing answers based on familiar words\nIgnoring context\n\nPro Tip:\nRead carefully and verify every answer with passage evidence.",
-    icon: WarningIcon,
-    bg: '#ffebee',
-  },
-  academicReading: {
-    title: "Academic Reading Format",
-  details: "Academic Reading consists of 3 long passages (about 900 words each) from books, journals, magazines, and newspapers.\n\nFeatures:\n40 questions in 60 minutes\nTopics: science, social science, humanities\nQuestion types: multiple choice, matching, completion, TFNG, YNNG\nIncreasing difficulty from Passage 1 to Passage 3\n\nStrategies:\nPractice with authentic academic texts\nBuild reading stamina\nReview all question types\n\nPro Tip:\nStart with Passage 1 to build confidence, save more time for Passage 3.",
+  scanning: {
+    title: "Scanning",
+    details: "Purpose: Find specific facts, dates, names, or numbers quickly.\n\nHow to do it:\n- Know what you’re looking for before you start.\n- Move your eyes rapidly down the page.\n- Use keywords from the question.\n\nWhen to use:\n- For fact-based questions.\n- When searching for names, numbers, or dates.\n\nPro Tips:\n- Practice with tables, lists, and factual texts.\n- Don’t read every word—focus only on the target info.",
     icon: BookIcon,
-    bg: '#c8e6c9',
+    bg: '#f8bbd0',
   },
-  generalTraining: {
-    title: "General Training Format",
-  details: "General Training Reading includes:\n\nSections:\nSection 1: Short social survival texts (notices, advertisements)\nSection 2: Workplace texts (instructions, job descriptions)\nSection 3: One long passage (similar to Academic)\n40 questions, 60 minutes\n\nStrategies:\nPractice with everyday documents and workplace materials\nReview workplace vocabulary\nFocus on practical reading skills\n\nPro Tip:\nSection 3 is most similar to Academic—prepare for longer, more complex texts.",
+  closeReading: {
+    title: "Close Reading",
+    details: "Purpose: Deeply understand meaning, make inferences, and analyze details.\n\nHow to do it:\n- Read sentences carefully, noting grammar and logic.\n- Look for qualifying words (some, most, all, never).\n- Pay attention to author’s tone and intention.\n\nWhen to use:\n- For True/False/Not Given, inference, and matching headings.\n- When questions require critical thinking.\n\nPro Tips:\n- Practice with complex passages.\n- Annotate or highlight key phrases.",
     icon: BookIcon,
-    bg: '#c8e6c9',
+    bg: '#f8bbd0',
   },
-  purpose: {
-    title: "Purpose of Reading Module",
-  details: "The IELTS Reading module assesses your ability to:\n\nCore Skills:\nUnderstand academic texts\nLocate specific information quickly\nProcess paraphrased details\nManage time under pressure\nDistinguish main ideas from supporting details\n\nStrategies:\nDevelop both speed and accuracy\nPractice with a variety of text types\nReview question types and answer formats\n\nPro Tip:\nSuccess comes from balancing comprehension, speed, and exam technique.",
+  tfng: {
+    title: "True/False/Not Given (TFNG)",
+    details: "Purpose: Decide if statements agree with, contradict, or are not mentioned in the text.\n\nHow to do it:\n- Read the statement and locate the relevant part of the text.\n- Compare meaning, not just words.\n- Watch for paraphrasing and synonyms.\n\nTips:\n- True: Statement matches the text.\n- False: Statement contradicts the text.\n- Not Given: Statement is not addressed in the text.\n\nPro Tips:\n- Practice with sample TFNG questions.\n- Be careful with extreme language (always, never).",
     icon: BookIcon,
-    bg: '#fff9c4',
+    bg: '#f8bbd0',
   },
+  ynng: {
+    title: "Yes/No/Not Given (YNNG)",
+    details: "Purpose: Similar to TFNG but used for opinions or claims.\n\nHow to do it:\n- Identify if the statement agrees, disagrees, or is not mentioned.\n- Focus on author’s opinion or claim.\n\nTips:\n- Yes: Statement agrees with the author.\n- No: Statement disagrees with the author.\n- Not Given: Statement is not addressed.\n\nPro Tips:\n- Practice with opinion-based texts.\n- Look for subtle differences in meaning.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  matchingHeadings: {
+    title: "Matching Headings",
+    details: "Purpose: Match headings to paragraphs or sections based on main ideas.\n\nHow to do it:\n- Skim each paragraph for its main idea.\n- Compare with heading options.\n- Eliminate headings that don’t fit.\n\nTips:\n- Look for topic sentences.\n- Watch for paraphrased headings.\n\nPro Tips:\n- Practice with sample texts.\n- Don’t get distracted by details.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  matchingInfo: {
+    title: "Matching Information/Features",
+    details: "Purpose: Match specific information or features to the correct part of the text.\n\nHow to do it:\n- Scan for keywords.\n- Read surrounding sentences for context.\n- Use process of elimination.\n\nTips:\n- Information may be paraphrased.\n- Check for synonyms and related terms.\n\nPro Tips:\n- Practice with tables and lists.\n- Double-check your matches.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  sentenceCompletion: {
+    title: "Sentence Completion",
+    details: "Purpose: Complete sentences using words from the text, focusing on grammar and meaning.\n\nHow to do it:\n- Read the sentence and locate the relevant part of the text.\n- Pay attention to word limits and instructions.\n- Ensure grammatical accuracy.\n\nTips:\n- Answers must fit grammatically.\n- Use only words from the passage if instructed.\n\nPro Tips:\n- Practice with sample completion tasks.\n- Review grammar rules.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  summaryCompletion: {
+    title: "Summary/Note/Table Completion",
+    details: "Purpose: Fill in summaries, notes, or tables using information from the text.\n\nHow to do it:\n- Skim the summary/table for structure.\n- Scan the text for matching information.\n- Use keywords and context clues.\n\nTips:\n- Answers may be paraphrased.\n- Follow instructions carefully.\n\nPro Tips:\n- Practice with different formats.\n- Highlight key information in the passage.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  mcq: {
+    title: "Multiple Choice Questions (MCQs)",
+    details: "Purpose: Choose the correct answer from several options based on the text.\n\nHow to do it:\n- Read all options before choosing.\n- Locate the relevant part of the text.\n- Eliminate clearly wrong answers.\n\nTips:\n- Watch for distractors.\n- Answers may be paraphrased.\n\nPro Tips:\n- Practice with MCQ samples.\n- Don’t rush—read carefully.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  shortAnswer: {
+    title: "Short Answer Questions",
+    details: "Purpose: Answer questions briefly using information from the text.\n\nHow to do it:\n- Read the question and locate the answer in the text.\n- Use only the required number of words.\n- Check spelling and grammar.\n\nTips:\n- Answers must come from the passage.\n- Follow word limits strictly.\n\nPro Tips:\n- Practice with sample short answer tasks.\n- Review common question types.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  awl: {
+    title: "Academic Word List (AWL)",
+    details: "Purpose: Build strong academic vocabulary for IELTS Reading.\n\nHow to do it:\n- Study the AWL and learn word families.\n- Practice using words in context.\n- Review regularly and use flashcards.\n\nTips:\n- Focus on high-frequency academic words.\n- Group words by topic.\n\nPro Tips:\n- Use AWL resources and quizzes.\n- Track your progress over time.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  synonyms: {
+    title: "Synonyms and Collocations",
+    details: "Purpose: Recognize and use synonyms and collocations to understand and answer questions.\n\nHow to do it:\n- Identify synonyms in questions and text.\n- Learn common collocations for key words.\n- Practice paraphrasing sentences.\n\nTips:\n- Answers may use synonyms instead of exact words.\n- Collocations help with natural language use.\n\nPro Tips:\n- Build lists of synonyms and collocations.\n- Practice with paraphrasing exercises.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  },
+  topicClusters: {
+    title: "Topic-based Clusters",
+    details: "Purpose: Group vocabulary by topic (science, history, environment, society) for better retention and understanding.\n\nHow to do it:\n- Organize vocabulary into clusters by topic.\n- Use mindmaps and charts.\n- Practice with topic-based reading materials.\n\nTips:\n- Topic clusters help with context and meaning.\n- Review clusters before each practice session.\n\nPro Tips:\n- Create your own topic clusters.\n- Use them for revision and practice.",
+    icon: BookIcon,
+    bg: '#f8bbd0',
+  }
 };
-
-// Node types for ReactFlow (must be after CollapsibleNode definition)
-const nodeTypes = { collapsible: CollapsibleNode };
-
+// Edge definitions for mindmap
 // Node structure definition
 const baseNodes = [
   // Center node
-  { id: "readingCenter", data: { label: "IELTS Reading Orientation" }, position: { x: 0, y: 0 }, draggable: true },
-  
-  // Main branch - Orientation only
-  { id: "orientation", type: "collapsible", data: { label: "Orientation" }, position: { x: 0, y: 150 }, draggable: true },
-  
-  // Orientation sub-nodes
-  { id: "purpose", data: { label: "Purpose of Reading Module" }, position: { x: -300, y: 250 }, draggable: true },
-  { id: "format", type: "collapsible", data: { label: "Format" }, position: { x: 0, y: 250 }, draggable: true },
-  { id: "challenges", type: "collapsible", data: { label: "Key Challenges" }, position: { x: 300, y: 250 }, draggable: true },
-  
-  // Format sub-nodes
-  { id: "academicReading", data: { label: "Academic Reading" }, position: { x: -150, y: 350 }, draggable: true },
-  { id: "generalTraining", data: { label: "General Training" }, position: { x: 150, y: 350 }, draggable: true },
-  
-  // Challenges sub-nodes
-  { id: "vocabularyDensity", data: { label: "Vocabulary Density" }, position: { x: 100, y: 350 }, draggable: true },
-  { id: "paraphrasing", data: { label: "Paraphrasing & Synonyms" }, position: { x: 300, y: 350 }, draggable: true },
-  { id: "timeManagement", data: { label: "Time Management" }, position: { x: 500, y: 350 }, draggable: true },
-  { id: "trapAnswers", data: { label: "Trap Answers & Distractors" }, position: { x: 700, y: 350 }, draggable: true },
+  { id: "readingCenter", data: { label: "Reading Foundations" }, position: { x: 0, y: 0 }, draggable: true },
+  // Main branches
+  { id: "foundations", type: "collapsible", data: { label: "Foundations" }, position: { x: 0, y: 150 }, draggable: true },
+  { id: "readingSkills", type: "collapsible", data: { label: "Reading Skills" }, position: { x: -300, y: 300 }, draggable: true },
+  { id: "questionTypes", type: "collapsible", data: { label: "Question Types" }, position: { x: 0, y: 300 }, draggable: true },
+  { id: "vocabulary", type: "collapsible", data: { label: "Vocabulary" }, position: { x: 300, y: 300 }, draggable: true },
+  // Reading Skills subnodes
+  { id: "skimming", data: { label: "Skimming" }, position: { x: -400, y: 450 }, draggable: true },
+  { id: "scanning", data: { label: "Scanning" }, position: { x: -300, y: 450 }, draggable: true },
+  { id: "closeReading", data: { label: "Close Reading" }, position: { x: -200, y: 450 }, draggable: true },
+  // Question Types subnodes
+  { id: "tfng", data: { label: "TFNG" }, position: { x: -100, y: 450 }, draggable: true },
+  { id: "ynng", data: { label: "YNNG" }, position: { x: 0, y: 450 }, draggable: true },
+  { id: "matchingHeadings", data: { label: "Matching Headings" }, position: { x: 100, y: 450 }, draggable: true },
+  { id: "matchingInfo", data: { label: "Matching Info" }, position: { x: 200, y: 450 }, draggable: true },
+  { id: "sentenceCompletion", data: { label: "Sentence Completion" }, position: { x: 300, y: 450 }, draggable: true },
+  { id: "summaryCompletion", data: { label: "Summary Completion" }, position: { x: 400, y: 450 }, draggable: true },
+  { id: "mcq", data: { label: "MCQ" }, position: { x: 500, y: 450 }, draggable: true },
+  { id: "shortAnswer", data: { label: "Short Answer" }, position: { x: 600, y: 450 }, draggable: true },
+  // Vocabulary subnodes
+  { id: "awl", data: { label: "AWL" }, position: { x: 200, y: 600 }, draggable: true },
+  { id: "synonyms", data: { label: "Synonyms" }, position: { x: 300, y: 600 }, draggable: true },
+  { id: "topicClusters", data: { label: "Topic Clusters" }, position: { x: 400, y: 600 }, draggable: true },
 ];
-
 const initialEdges = [
-  // Main branch from center
-  { id: 'e-center-orientation', source: 'readingCenter', target: 'orientation' },
-  
-  // Orientation sub-branches
-  { id: 'e-orientation-purpose', source: 'orientation', target: 'purpose' },
-  { id: 'e-orientation-format', source: 'orientation', target: 'format' },
-  { id: 'e-orientation-challenges', source: 'orientation', target: 'challenges' },
-  
-  // Format sub-branches
-  { id: 'e-format-academic', source: 'format', target: 'academicReading' },
-  { id: 'e-format-general', source: 'format', target: 'generalTraining' },
-  
-  // Challenges sub-branches
-  { id: 'e-challenges-vocab', source: 'challenges', target: 'vocabularyDensity' },
-  { id: 'e-challenges-paraphrase', source: 'challenges', target: 'paraphrasing' },
-  { id: 'e-challenges-time', source: 'challenges', target: 'timeManagement' },
-  { id: 'e-challenges-traps', source: 'challenges', target: 'trapAnswers' },
-];
-
-// Collapsible logic
-const COLLAPSIBLE_IDS = ["orientation", "format", "challenges"];
+  { id: 'e-center-foundations', source: 'readingCenter', target: 'foundations' },
+  { id: 'e-foundations-readingSkills', source: 'foundations', target: 'readingSkills' },
+  { id: 'e-foundations-questionTypes', source: 'foundations', target: 'questionTypes' },
+  { id: 'e-foundations-vocabulary', source: 'foundations', target: 'vocabulary' },
+  // Reading Skills subnodes
+  { id: 'e-readingSkills-skimming', source: 'readingSkills', target: 'skimming' },
+  { id: 'e-readingSkills-scanning', source: 'readingSkills', target: 'scanning' },
+  { id: 'e-readingSkills-closeReading', source: 'readingSkills', target: 'closeReading' },
+  // Question Types subnodes
+  { id: 'e-questionTypes-tfng', source: 'questionTypes', target: 'tfng' },
+  { id: 'e-questionTypes-ynng', source: 'questionTypes', target: 'ynng' },
+  { id: 'e-questionTypes-matchingHeadings', source: 'questionTypes', target: 'matchingHeadings' },
+  { id: 'e-questionTypes-matchingInfo', source: 'questionTypes', target: 'matchingInfo' },
+  { id: 'e-questionTypes-sentenceCompletion', source: 'questionTypes', target: 'sentenceCompletion' },
+  { id: 'e-questionTypes-summaryCompletion', source: 'questionTypes', target: 'summaryCompletion' },
+  { id: 'e-questionTypes-mcq', source: 'questionTypes', target: 'mcq' },
+  { id: 'e-questionTypes-shortAnswer', source: 'questionTypes', target: 'shortAnswer' },
+  // Vocabulary subnodes
+  { id: 'e-vocabulary-awl', source: 'vocabulary', target: 'awl' },
+  { id: 'e-vocabulary-synonyms', source: 'vocabulary', target: 'synonyms' },
+  { id: 'e-vocabulary-topicClusters', source: 'vocabulary', target: 'topicClusters' },
+]; // Collapsible logic
+const COLLAPSIBLE_IDS = ["foundations", "readingSkills", "questionTypes", "vocabulary"];
 
 const EnhancedReadingMindmap = ({ section = 'orientation' }) => {
   const [detached, setDetached] = useState(false);
