@@ -107,43 +107,43 @@ const CollapsibleNode = memo((props) => {
 const nodeDetails = {
   vocabularyDensity: {
     title: "Vocabulary Density",
-    details: "IELTS Reading passages are packed with academic vocabulary, technical terms, and topic-specific words. Success depends on: \n• Recognizing synonyms and paraphrases\n• Building a strong Academic Word List (AWL) foundation\n• Using context clues to infer meaning\n• Skimming for main ideas, scanning for key terms\n\nTip: Practice reading science, history, and social science texts to expand your vocabulary.",
+  details: "IELTS Reading passages are packed with challenging vocabulary, technical terms, and topic-specific words.\n\nKey Skills:\nRecognize synonyms and paraphrases\nBuild a strong Academic Word List (AWL) foundation\nUse context clues to infer meaning\nSkim for main ideas, scan for key terms\n\nStrategies:\nPractice reading science, history, and social science texts\nCreate personal vocabulary lists\nUse flashcards and spaced repetition\nReview word families and collocations\n\nCommon Pitfalls:\nIgnoring unfamiliar words\nFocusing only on word-for-word matches\n\nPro Tip:\nHighlight new words and review them regularly.",
     icon: BookIcon,
     bg: '#ffe0b2',
   },
   paraphrasing: {
     title: "Paraphrasing & Synonyms",
-    details: "Most IELTS Reading questions require you to spot paraphrased information. The test rarely repeats exact words from the passage.\n• Look for synonyms, reworded phrases, and changed sentence structures\n• Practice transforming sentences and matching meaning, not just words\n• Develop skills in recognizing how ideas are restated\n\nTip: When you answer, always check if the question uses different words for the same idea in the text.",
+  details: "Most IELTS Reading questions require you to spot paraphrased information. The test rarely repeats exact words from the passage.\n\nKey Skills:\nIdentify synonyms and reworded phrases\nNotice changes in sentence structure\nMatch meaning, not just words\n\nStrategies:\nPractice transforming sentences\nCompare question wording to passage\nLook for subtle shifts in meaning\n\nCommon Pitfalls:\nMissing answers due to unfamiliar phrasing\nOverlooking paraphrased ideas\n\nPro Tip:\nAlways check if the question uses different words for the same idea in the text.",
     icon: BookIcon,
     bg: '#ede7f6',
   },
   timeManagement: {
     title: "Time Management",
-    details: "You have 60 minutes for 3 passages (~900 words each) and 40 questions. Recommended strategy:\n• Spend ~20 minutes per passage\n• Skim first for overall structure\n• Read questions before the passage\n• Answer easy questions first, return to hard ones later\n• Leave 2-3 minutes at the end to review answers\n\nTip: Don’t get stuck—move on and come back if needed! Practice builds automatic time awareness.",
+  details: "You have 60 minutes for 3 passages (~900 words each) and 40 questions.\n\nRecommended Strategy:\nSpend about 20 minutes per passage\nSkim first for overall structure\nRead questions before the passage\nAnswer easy questions first, return to hard ones later\nLeave 2-3 minutes at the end to review answers\n\nCommon Pitfalls:\nGetting stuck on difficult questions\nNot leaving time for review\n\nPro Tip:\nPractice with a timer to build automatic time awareness.",
     icon: TargetIcon,
     bg: '#fff8e1',
   },
   trapAnswers: {
     title: "Trap Answers & Distractors",
-    details: "IELTS Reading is full of trap answers designed to mislead:\n• Distractors use similar words but different meanings\n• Extreme language (always, never) is often incorrect\n• Minor details presented as main ideas\n• Out-of-scope information that sounds logical but isn’t in the text\n\nTip: Always find evidence in the passage. Don’t rely on outside knowledge or word matching alone.",
+  details: "IELTS Reading is full of trap answers designed to mislead.\n\nTrap Types:\nDistractors use similar words but different meanings\nExtreme language (always, never) is often incorrect\nMinor details presented as main ideas\nOut-of-scope information that sounds logical but isn’t in the text\n\nStrategies:\nAlways find evidence in the passage\nDon’t rely on outside knowledge\nWatch for word matching traps\n\nCommon Pitfalls:\nChoosing answers based on familiar words\nIgnoring context\n\nPro Tip:\nRead carefully and verify every answer with passage evidence.",
     icon: WarningIcon,
     bg: '#ffebee',
   },
   academicReading: {
     title: "Academic Reading Format",
-    details: "Academic Reading consists of 3 long passages (~900 words each) from books, journals, magazines, and newspapers. You’ll answer 40 questions in 60 minutes.\n• Topics: science, social science, humanities\n• Question types: multiple choice, matching, completion, TFNG, YNNG\n• Increasing difficulty from Passage 1 to Passage 3\n\nTip: Practice with authentic academic texts to build stamina and familiarity.",
+  details: "Academic Reading consists of 3 long passages (about 900 words each) from books, journals, magazines, and newspapers.\n\nFeatures:\n40 questions in 60 minutes\nTopics: science, social science, humanities\nQuestion types: multiple choice, matching, completion, TFNG, YNNG\nIncreasing difficulty from Passage 1 to Passage 3\n\nStrategies:\nPractice with authentic academic texts\nBuild reading stamina\nReview all question types\n\nPro Tip:\nStart with Passage 1 to build confidence, save more time for Passage 3.",
     icon: BookIcon,
     bg: '#c8e6c9',
   },
   generalTraining: {
     title: "General Training Format",
-    details: "General Training Reading includes:\n• Section 1: Short social survival texts (notices, advertisements)\n• Section 2: Workplace texts (instructions, job descriptions)\n• Section 3: One long passage (similar to Academic)\n• 40 questions, 60 minutes\n\nTip: Practice with everyday documents and workplace materials to prepare for Sections 1 & 2.",
+  details: "General Training Reading includes:\n\nSections:\nSection 1: Short social survival texts (notices, advertisements)\nSection 2: Workplace texts (instructions, job descriptions)\nSection 3: One long passage (similar to Academic)\n40 questions, 60 minutes\n\nStrategies:\nPractice with everyday documents and workplace materials\nReview workplace vocabulary\nFocus on practical reading skills\n\nPro Tip:\nSection 3 is most similar to Academic—prepare for longer, more complex texts.",
     icon: BookIcon,
     bg: '#c8e6c9',
   },
   purpose: {
     title: "Purpose of Reading Module",
-    details: "The IELTS Reading module assesses your ability to:\n• Understand academic texts\n• Locate specific information quickly\n• Process paraphrased details\n• Manage time under pressure\n• Distinguish main ideas from supporting details\n\nTip: Develop both speed and accuracy to succeed.",
+  details: "The IELTS Reading module assesses your ability to:\n\nCore Skills:\nUnderstand academic texts\nLocate specific information quickly\nProcess paraphrased details\nManage time under pressure\nDistinguish main ideas from supporting details\n\nStrategies:\nDevelop both speed and accuracy\nPractice with a variety of text types\nReview question types and answer formats\n\nPro Tip:\nSuccess comes from balancing comprehension, speed, and exam technique.",
     icon: BookIcon,
     bg: '#fff9c4',
   },
@@ -433,7 +433,7 @@ const EnhancedReadingMindmap = ({ section = 'orientation' }) => {
                 </div>
               )}
             </div>
-            {/* Info on the right */}
+            {/* Info on the right, two columns for rich layout */}
             <div style={{
               flex: 1,
               minWidth: 320,
@@ -478,8 +478,21 @@ const EnhancedReadingMindmap = ({ section = 'orientation' }) => {
                   Close
                 </button>
               </div>
-              <div style={{ flex: 1, minHeight: 0 }}>
-                {nodeDetails[modal].details}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 32,
+                width: '100%',
+                minHeight: 0,
+                alignItems: 'flex-start',
+                marginTop: 8
+              }}>
+                <div style={{ fontSize: 17, color: '#333', whiteSpace: 'pre-line', lineHeight: 1.7 }}>
+                  {nodeDetails[modal].details.split(/\n\n/)[0]}
+                </div>
+                <div style={{ fontSize: 17, color: '#333', whiteSpace: 'pre-line', lineHeight: 1.7 }}>
+                  {nodeDetails[modal].details.split(/\n\n/).slice(1).join('\n\n')}
+                </div>
               </div>
             </div>
           </div>
