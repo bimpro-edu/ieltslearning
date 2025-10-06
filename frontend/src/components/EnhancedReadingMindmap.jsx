@@ -18,6 +18,10 @@ const nodeBaseStyle = {
 const nodeBgColors = {
   readingCenter: '#e3f2fd',
   foundations: '#f8bbd0',
+  // Main branch colors
+  readingSkills: '#c8e6c9', // green
+  questionTypes: '#bbdefb', // light blue
+  vocabulary: '#fff9c4', // light yellow
   purpose: '#fff9c4',
   format: '#c8e6c9',
   academicReading: '#c8e6c9',
@@ -27,6 +31,13 @@ const nodeBgColors = {
   paraphrasing: '#ede7f6',
   timeManagement: '#fff8e1',
   trapAnswers: '#ffebee',
+  // Some leaf-specific overrides (optional)
+  skimming: '#e8f5e9',
+  scanning: '#e8f5e9',
+  closeReading: '#e8f5e9',
+  tfng: '#e3f2fd',
+  ynng: '#e3f2fd',
+  matchingHeadings: '#e3f2fd',
 };
 
 // Icons for different node types
@@ -359,14 +370,39 @@ const EnhancedReadingMindmap = ({ section = 'orientation' }) => {
   const Mindmap = (
     <div style={{ width: '100%', height: '800px', border: '1px solid #ccc', borderRadius: '8px', position: 'relative', background: '#f8fafc' }}>
       <ReactFlow
-        nodes={nodes.map(n => ({
-          ...n,
-          draggable: true,
-          style: {
-            ...nodeBaseStyle,
-            background: nodeBgColors[n.id] || nodeBaseStyle.background,
-          },
-        }))}
+        nodes={nodes.map(n => {
+          // Helper: find nearest ancestor that has this child in its subtree
+          const findNearestAncestorWithColor = (childId) => {
+            // Breadth-first / iterative climb: check immediate parents, then their parents, etc.
+            let current = childId;
+            // Build reverse map parent -> children done once (but small dataset so keep simple)
+            const parentOf = {};
+            for (const [p, children] of Object.entries(childMapMain)) {
+              children.forEach(c => { parentOf[c] = p; });
+            }
+
+            while (current) {
+              const parent = parentOf[current];
+              if (!parent) return null;
+              if (nodeBgColors[parent]) return parent;
+              current = parent;
+            }
+            return null;
+          };
+
+          const ancestorId = findNearestAncestorWithColor(n.id);
+          const bg = nodeBgColors[n.id] || (ancestorId && nodeBgColors[ancestorId]) || nodeBaseStyle.background;
+
+          return {
+            ...n,
+            draggable: true,
+            style: {
+              ...nodeBaseStyle,
+              ...n.style,
+              background: bg,
+            },
+          };
+        })}
         edges={edges}
         nodeTypes={nodeTypes}
         onNodeClick={onNodeClick}
