@@ -60,6 +60,91 @@ const nodeTypes = { collapsible: CollapsibleNode };
 const COLLAPSIBLE_IDS = ["taskMastery", "tfng", "matching", "summaryCompletion", "mcq", "shortAnswer"];
 
 const nodeDetails = {
+  prediction: {
+    title: "Prediction, Paraphrase, Grammar",
+    details: "Step-by-Step Strategy:\n- Predict possible answers based on context and grammar.\n- Recognize paraphrased information and synonyms.\n- Apply grammar awareness to select or write correct answers.\n\nTips:\n- Practice identifying paraphrases and synonyms.\n- Review grammar rules for completion and choice tasks.\n- Use prediction to anticipate answer types and formats.",
+    bg: '#ffe0b2',
+  },
+  matchingHeadings: {
+    title: "Matching Headings",
+    details: "Step-by-Step Strategy:\n- Skim each paragraph for the main idea.\n- Match the paragraph to the most suitable heading.\n- Eliminate headings that don't fit.\n\nTips:\n- Focus on topic sentences and overall theme.\n- Watch for paraphrased headings and synonyms.\n- Practice with sample texts for speed and accuracy.",
+    bg: '#c8e6c9',
+  },
+  skimming: {
+    title: "Skimming, Recognizing paragraph focus",
+    details: "Step-by-Step Strategy:\n- Quickly read for the main idea of each paragraph.\n- Identify topic sentences and paragraph focus.\n- Use skimming to answer organization and structure questions.\n\nTips:\n- Don't get stuck on details—look for the big picture.\n- Practice skimming for speed.\n- Use skimming to save time on test day.",
+    bg: '#c8e6c9',
+  },
+  ynng: {
+    title: "Yes/No/Not Given",
+    details: "Step-by-Step Strategy:\n- Read the question carefully to determine what is being asked.\n- Scan the passage for keywords and synonyms.\n- Decide if the statement matches (Yes), contradicts (No), or is not mentioned (Not Given).\n\nTips:\n- Answers must be based only on the passage, not your own knowledge.\n- Watch for paraphrasing and subtle differences.\n- Practice with sample Y/N/NG questions.",
+    bg: '#ffcdd2',
+  },
+  scanning: {
+    title: "Scanning, Literal comprehension",
+    details: "Step-by-Step Strategy:\n- Quickly look for specific words, numbers, or phrases in the passage.\n- Focus on finding exact matches or closely related information.\n- Use scanning to answer factual and localized questions.\n\nTips:\n- Practice scanning for keywords.\n- Don't read every word—move your eyes quickly over the text.\n- Use scanning to save time on test day.",
+    bg: '#bbdefb',
+  },
+  part1_walkthrough: {
+    title: "Example Walkthrough (Part 1)",
+    details: "See a step-by-step example with text and audio readout for factual & localized information tasks.",
+    bg: '#e3f2fd',
+  },
+  part1_test: {
+    title: "Interactive Test (Part 1)",
+    details: "Try a drag-drop or highlight test for factual & localized information skills.",
+    bg: '#e3f2fd',
+  },
+  part1_drill: {
+    title: "Timed Drill (Part 1)",
+    details: "Practice a timed drill (10–12 min) for factual & localized information tasks.",
+    bg: '#e3f2fd',
+  },
+  part2_walkthrough: {
+    title: "Example Walkthrough (Part 2)",
+    details: "See a step-by-step example with text and audio readout for structural understanding tasks.",
+    bg: '#e3f2fd',
+  },
+  part2_test: {
+    title: "Interactive Test (Part 2)",
+    details: "Try a drag-drop or highlight test for structural understanding skills.",
+    bg: '#e3f2fd',
+  },
+  part2_drill: {
+    title: "Timed Drill (Part 2)",
+    details: "Practice a timed drill (10–12 min) for structural understanding tasks.",
+    bg: '#e3f2fd',
+  },
+  part3_walkthrough: {
+    title: "Example Walkthrough (Part 3)",
+    details: "See a step-by-step example with text and audio readout for completion & choice tasks.",
+    bg: '#e3f2fd',
+  },
+  part3_test: {
+    title: "Interactive Test (Part 3)",
+    details: "Try a drag-drop or highlight test for completion & choice skills.",
+    bg: '#e3f2fd',
+  },
+  part3_drill: {
+    title: "Timed Drill (Part 3)",
+    details: "Practice a timed drill (10–12 min) for completion & choice tasks.",
+    bg: '#e3f2fd',
+  },
+  part1: {
+    title: "Part 1: Factual & Localized Information",
+    details: `Focus: Locating precise data in short sections\n\nKey Question Types:\n- True/False/Not Given\n- Yes/No/Not Given\n- Short Answers\n\nTypical Skills:\n- Scanning\n- Literal comprehension\n\nEach part can have:\n🎧 Example walkthrough (with text + audio readout)\n🧩 Interactive test (drag-drop, highlight)\n🕓 Timed drill (10–12 min)`,
+    bg: nodeBgColors.tfng,
+  },
+  part2: {
+    title: "Part 2: Structural Understanding",
+    details: `Focus: Understanding passage organization\n\nKey Question Types:\n- Matching Headings\n- Matching Information/Features\n\nTypical Skills:\n- Skimming for main idea\n- Recognizing paragraph focus\n\nEach part can have:\n🎧 Example walkthrough (with text + audio readout)\n🧩 Interactive test (drag-drop, highlight)\n🕓 Timed drill (10–12 min)`,
+    bg: nodeBgColors.matchingHeadings,
+  },
+  part3: {
+    title: "Part 3: Completion & Choice Tasks",
+    details: `Focus: Synthesizing multiple ideas\n\nKey Question Types:\n- Summary/Note/Table Completion\n- Multiple Choice Questions\n\nTypical Skills:\n- Prediction\n- Paraphrase recognition\n- Grammar awareness\n\nEach part can have:\n🎧 Example walkthrough (with text + audio readout)\n🧩 Interactive test (drag-drop, highlight)\n🕓 Timed drill (10–12 min)`,
+    bg: nodeBgColors.summaryCompletion,
+  },
   tfng: {
     title: "True/False/Not Given",
     details: "Step-by-Step Strategy:\n- Look for factual statements in the question.\n- Beware of paraphrasing in the passage.\n- Always stick to the text, not your own knowledge.\n\nTrap: Assuming your knowledge—answers must be based only on the passage.\n\nTips:\n- Scan for keywords and match meaning, not just words.\n- Watch for synonyms and paraphrases.\n- Practice with sample TFNG questions.",
@@ -103,37 +188,89 @@ const nodeDetails = {
 };
 
 const baseNodes = [
-  { id: "taskMastery", type: "collapsible", data: { label: "Task Mastery (Step-by-Step Strategy)" }, position: { x: 0, y: 0 }, draggable: true, style: { background: nodeBgColors.taskMasteryCenter } },
-  { id: "tfng", data: { label: "True/False/Not Given" }, position: { x: -350, y: 150 }, draggable: true, style: { background: nodeBgColors.tfng } },
-  { id: "matching", type: "collapsible", data: { label: "Matching" }, position: { x: -100, y: 150 }, draggable: true, style: { background: nodeBgColors.matchingHeadings } },
-  { id: "summaryCompletion", data: { label: "Summary/Note/Table Completion" }, position: { x: 100, y: 150 }, draggable: true, style: { background: nodeBgColors.summaryCompletion } },
-  { id: "mcq", data: { label: "Multiple Choice" }, position: { x: 300, y: 150 }, draggable: true, style: { background: nodeBgColors.mcq } },
-  { id: "shortAnswer", data: { label: "Short Answers" }, position: { x: 200, y: 300 }, draggable: true, style: { background: nodeBgColors.shortAnswer } },
-  // Matching sub-nodes
-  { id: "headingMatching", data: { label: "Heading Matching" }, position: { x: -250, y: 300 }, draggable: true, style: { background: nodeBgColors.matchingHeadings } },
-  { id: "informationMatching", data: { label: "Information Matching" }, position: { x: -100, y: 300 }, draggable: true, style: { background: nodeBgColors.matchingInfo } },
-  { id: "featureMatching", data: { label: "Feature Matching" }, position: { x: 50, y: 300 }, draggable: true, style: { background: nodeBgColors.matchingInfo } },
+  // Main Part nodes
+  { id: "taskMastery", type: "collapsible", data: { label: "Task Mastery (Reorganized into 3 Parts)" }, position: { x: 0, y: 0 }, draggable: true, style: { background: nodeBgColors.taskMasteryCenter } },
+  { id: "part1", type: "collapsible", data: { label: "Part 1: Factual & Localized Information" }, position: { x: -400, y: 100 }, draggable: true, style: { background: '#bbdefb' } },
+  { id: "part2", type: "collapsible", data: { label: "Part 2: Structural Understanding" }, position: { x: 0, y: 100 }, draggable: true, style: { background: '#c8e6c9' } },
+  { id: "part3", type: "collapsible", data: { label: "Part 3: Completion & Choice Tasks" }, position: { x: 400, y: 100 }, draggable: true, style: { background: '#ffe0b2' } },
+  // Part 1 children
+  { id: "tfng", data: { label: "True/False/Not Given" }, position: { x: -600, y: 220 }, draggable: true, style: { background: '#ffcdd2' } },
+  { id: "ynng", data: { label: "Yes/No/Not Given" }, position: { x: -500, y: 220 }, draggable: true, style: { background: '#ffcdd2' } },
+  { id: "shortAnswer", data: { label: "Short Answers" }, position: { x: -400, y: 220 }, draggable: true, style: { background: '#bbdefb' } },
+  { id: "scanning", data: { label: "Scanning, Literal comprehension" }, position: { x: -300, y: 220 }, draggable: true, style: { background: '#bbdefb' } },
+  { id: "part1_walkthrough", data: { label: "🎧 Example Walkthrough" }, position: { x: -600, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  { id: "part1_test", data: { label: "🧩 Interactive Test" }, position: { x: -500, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  { id: "part1_drill", data: { label: "🕓 Timed Drill" }, position: { x: -400, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  // Part 2 children
+  { id: "matchingHeadings", data: { label: "Matching Headings" }, position: { x: -100, y: 220 }, draggable: true, style: { background: '#c8e6c9' } },
+  { id: "matchingInfo", data: { label: "Matching Information/Features" }, position: { x: 0, y: 220 }, draggable: true, style: { background: '#c8e6c9' } },
+  { id: "skimming", data: { label: "Skimming, Recognizing paragraph focus" }, position: { x: 100, y: 220 }, draggable: true, style: { background: '#c8e6c9' } },
+  { id: "part2_walkthrough", data: { label: "🎧 Example Walkthrough" }, position: { x: -100, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  { id: "part2_test", data: { label: "🧩 Interactive Test" }, position: { x: 0, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  { id: "part2_drill", data: { label: "🕓 Timed Drill" }, position: { x: 100, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  // Part 3 children
+  { id: "summaryCompletion", data: { label: "Summary/Note/Table Completion" }, position: { x: 200, y: 220 }, draggable: true, style: { background: '#ffe0b2' } },
+  { id: "mcq", data: { label: "Multiple Choice Questions" }, position: { x: 300, y: 220 }, draggable: true, style: { background: '#ffe0b2' } },
+  { id: "prediction", data: { label: "Prediction, Paraphrase, Grammar" }, position: { x: 400, y: 220 }, draggable: true, style: { background: '#ffe0b2' } },
+  { id: "part3_walkthrough", data: { label: "🎧 Example Walkthrough" }, position: { x: 200, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  { id: "part3_test", data: { label: "🧩 Interactive Test" }, position: { x: 300, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
+  { id: "part3_drill", data: { label: "🕓 Timed Drill" }, position: { x: 400, y: 320 }, draggable: true, style: { background: '#e3f2fd' } },
 ];
 
 const initialEdges = [
-  { id: 'e-taskMastery-tfng', source: 'taskMastery', target: 'tfng' },
-  { id: 'e-taskMastery-matching', source: 'taskMastery', target: 'matching' },
-  { id: 'e-taskMastery-summaryCompletion', source: 'taskMastery', target: 'summaryCompletion' },
-  { id: 'e-taskMastery-mcq', source: 'taskMastery', target: 'mcq' },
-  { id: 'e-taskMastery-shortAnswer', source: 'taskMastery', target: 'shortAnswer' },
-  // Matching sub-nodes
-  { id: 'e-matching-headingMatching', source: 'matching', target: 'headingMatching' },
-  { id: 'e-matching-informationMatching', source: 'matching', target: 'informationMatching' },
-  { id: 'e-matching-featureMatching', source: 'matching', target: 'featureMatching' },
+  // Only unique edges
+  { id: 'e-taskMastery-part1', source: 'taskMastery', target: 'part1' },
+  { id: 'e-taskMastery-part2', source: 'taskMastery', target: 'part2' },
+  { id: 'e-taskMastery-part3', source: 'taskMastery', target: 'part3' },
+  // Part 1 edges
+  { id: 'e-part1-tfng', source: 'part1', target: 'tfng' },
+  { id: 'e-part1-ynng', source: 'part1', target: 'ynng' },
+  { id: 'e-part1-shortAnswer', source: 'part1', target: 'shortAnswer' },
+  { id: 'e-part1-scanning', source: 'part1', target: 'scanning' },
+  { id: 'e-part1-walkthrough', source: 'part1', target: 'part1_walkthrough' },
+  { id: 'e-part1-test', source: 'part1', target: 'part1_test' },
+  { id: 'e-part1-drill', source: 'part1', target: 'part1_drill' },
+  // Part 2 edges
+  { id: 'e-part2-matchingHeadings', source: 'part2', target: 'matchingHeadings' },
+  { id: 'e-part2-matchingInfo', source: 'part2', target: 'matchingInfo' },
+  { id: 'e-part2-skimming', source: 'part2', target: 'skimming' },
+  { id: 'e-part2-walkthrough', source: 'part2', target: 'part2_walkthrough' },
+  { id: 'e-part2-test', source: 'part2', target: 'part2_test' },
+  { id: 'e-part2-drill', source: 'part2', target: 'part2_drill' },
+  // Part 3 edges
+  { id: 'e-part3-summaryCompletion', source: 'part3', target: 'summaryCompletion' },
+  { id: 'e-part3-mcq', source: 'part3', target: 'mcq' },
+  { id: 'e-part3-prediction', source: 'part3', target: 'prediction' },
+  { id: 'e-part3-walkthrough', source: 'part3', target: 'part3_walkthrough' },
+  { id: 'e-part3-test', source: 'part3', target: 'part3_test' },
+  { id: 'e-part3-drill', source: 'part3', target: 'part3_drill' },
 ];
 
 const getChildMap = () => ({
-  taskMastery: ["tfng", "matching", "summaryCompletion", "mcq", "shortAnswer"],
+  taskMastery: ["part1", "part2", "part3"],
+  part1: ["tfng", "ynng", "shortAnswer", "scanning", "part1_walkthrough", "part1_test", "part1_drill"],
+  part2: ["matchingHeadings", "matchingInfo", "skimming", "part2_walkthrough", "part2_test", "part2_drill"],
+  part3: ["summaryCompletion", "mcq", "prediction", "part3_walkthrough", "part3_test", "part3_drill"],
   matching: ["headingMatching", "informationMatching", "featureMatching"],
 });
 
 const TaskMasteryMindmap = () => {
-  const [expanded, setExpanded] = useState(() => Object.fromEntries(COLLAPSIBLE_IDS.map(id => [id, true])));
+  const [expanded, setExpanded] = useState(() => ({
+    taskMastery: true,
+    part1: true,
+    part2: true,
+    part3: true,
+    tfng: true,
+    ynng: true,
+    shortAnswer: true,
+    matchingHeadings: true,
+    matchingInfo: true,
+    summaryCompletion: true,
+    mcq: true,
+    scanning: true,
+    skimming: true,
+    prediction: true,
+  }));
   const [modal, setModal] = useState(null);
   const [detached, setDetached] = useState(false);
   const childMapMain = useMemo(() => getChildMap(), []);
