@@ -16,6 +16,11 @@ const nodeBaseStyle = {
 
 const nodeBgColors = {
   taskMasteryCenter: '#e3f2fd',
+  // Branch colors
+  taskMastery: '#e3f2fd',
+  part1: '#bbdefb',
+  part2: '#c8e6c9',
+  part3: '#ffe0b2',
   tfng: '#f8bbd0',
   matchingHeadings: '#c8e6c9',
   summaryCompletion: '#ffe0b2',
@@ -255,6 +260,56 @@ const getChildMap = () => ({
 });
 
 const TaskMasteryMindmap = () => {
+  const containerRef = React.useRef(null);
+  const rfInstanceRef = React.useRef(null);
+  const [initializing, setInitializing] = React.useState(true);
+  React.useEffect(() => {
+    if (typeof console !== 'undefined') console.log('TaskMasteryMindmap mounted');
+
+    // If the map is initially hidden inside the accordion, ReactFlow may not
+    // compute layout correctly. Use an IntersectionObserver to detect when the
+    // component becomes visible and then trigger a resize event so ReactFlow
+    // recalculates positions. Also trigger a couple of delayed resizes to be safe.
+    const node = containerRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') return;
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('TaskMasteryMindmap now visible — triggering resize events and fitView');
+          // Trigger synchronous resize
+          window.dispatchEvent(new Event('resize'));
+          // If we have a React Flow instance, call fitView to force layout
+          if (rfInstanceRef.current && typeof rfInstanceRef.current.fitView === 'function') {
+            try {
+              rfInstanceRef.current.fitView({ padding: 0.1 });
+              console.log('Called ReactFlow.fitView()');
+            } catch (err) {
+              console.warn('fitView failed:', err);
+            }
+          }
+          // Trigger delayed resizes and fitView attempts to be robust
+          setTimeout(() => {
+            window.dispatchEvent(new Event('resize'));
+            if (rfInstanceRef.current && typeof rfInstanceRef.current.fitView === 'function') {
+              try { rfInstanceRef.current.fitView({ padding: 0.1 }); console.log('Called ReactFlow.fitView() (delayed 120ms)'); } catch (e) {}
+            }
+          }, 120);
+          setTimeout(() => {
+            window.dispatchEvent(new Event('resize'));
+            if (rfInstanceRef.current && typeof rfInstanceRef.current.fitView === 'function') {
+              try { rfInstanceRef.current.fitView({ padding: 0.1 }); console.log('Called ReactFlow.fitView() (delayed 400ms)'); } catch (e) {}
+            }
+            // Mark initialization finished after final attempt
+            setInitializing(false);
+          }, 400);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
   const [expanded, setExpanded] = useState(() => ({
     taskMastery: true,
     part1: true,
@@ -316,32 +371,61 @@ const TaskMasteryMindmap = () => {
     setEdges(visibleEdges);
   }, [visibleNodes, visibleEdges, setNodes, setEdges]);
   const onNodeClick = useCallback((event, node) => {
+    // Open modal for nodes that have details (leaf or parent with content)
     if (nodeDetails[node.id]) {
       setModal(node.id);
     }
   }, []);
+
+  // Helper: find nearest ancestor with a defined color in nodeBgColors
+  const findNearestAncestorWithColor = (childId) => {
+    const parentOf = {};
+    for (const [p, children] of Object.entries(childMapMain)) {
+      children.forEach(c => { parentOf[c] = p; });
+    }
+    let cur = childId;
+    while (cur) {
+      const parent = parentOf[cur];
+      if (!parent) return null;
+      if (nodeBgColors[parent]) return parent;
+      cur = parent;
+    }
+    return null;
+  };
   return (
     <>
       {!detached && (
-        <div style={{ width: '100%', height: '700px', border: '1px solid #ccc', borderRadius: '8px', position: 'relative', background: '#f8fafc' }}>
+        <div ref={containerRef} style={{ width: '100%', height: '700px', border: '1px solid #ccc', borderRadius: '8px', position: 'relative', background: '#f8fafc' }}>
+          {initializing && (
+            <div style={{ position: 'absolute', inset: 12, zIndex: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
+              <div style={{ background: 'rgba(255,255,255,0.9)', borderRadius: 8, padding: '8px 12px', boxShadow: '0 2px 8px #0002', fontWeight: 700, color: '#1976d2' }}>Initializing map…</div>
+            </div>
+          )}
           <button style={{ position: 'absolute', top: 16, right: 16, zIndex: 10, background: '#e3f2fd', border: 'none', borderRadius: 8, padding: '4px 12px', fontWeight: 600, cursor: 'pointer' }} onClick={() => setDetached(true)}>
             Detached View
           </button>
           <ReactFlow
-            nodes={nodes.map(n => ({
-              ...n,
-              draggable: true,
-              style: {
-                ...nodeBaseStyle,
-                background: n.style?.background || nodeBaseStyle.background,
-              },
-            }))}
+            nodes={nodes.map(n => {
+              const ancestor = findNearestAncestorWithColor(n.id);
+              const bg = n.style?.background || nodeBgColors[n.id] || (ancestor && nodeBgColors[ancestor]) || nodeBaseStyle.background;
+              return {
+                ...n,
+                draggable: true,
+                style: {
+                  ...nodeBaseStyle,
+                  ...n.style,
+                  background: bg,
+                },
+              };
+            })}
             edges={edges}
             nodeTypes={nodeTypes}
             nodesDraggable={true}
             nodesConnectable={false}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
+            onNodeClick={onNodeClick}
+            onInit={(instance) => { rfInstanceRef.current = instance; console.log('ReactFlow instance captured'); }}
             fitView
           >
             <Controls />
@@ -350,22 +434,118 @@ const TaskMasteryMindmap = () => {
         </div>
       )}
       {modal && nodeDetails[modal] && (
-        <div style={{ position: 'fixed', left: 0, bottom: 0, width: '100vw', background: 'rgba(255,255,255,0.98)', zIndex: 4000, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 200 }}>
-          <div style={{ background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px #90caf980', padding: 32, maxWidth: 800, width: '100%', textAlign: 'left', position: 'relative', display: 'flex', gap: 24 }}>
-            {/* Left icon area */}
-            <div style={{ flex: '0 0 80px', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', height: 80 }}>
-              {/* Placeholder for icon, can be replaced with actual icon if available */}
-              <div style={{ width: 64, height: 64, borderRadius: 16, background: nodeDetails[modal].bg || '#f8bbd0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {/* You can add an SVG or icon here if available */}
+        <div style={{
+          position: 'fixed',
+          left: 0,
+          bottom: 0,
+          width: '100vw',
+          height: 'auto',
+          background: 'rgba(255,255,255,0.98)',
+          zIndex: 99999,
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'center',
+          boxShadow: '0 -4px 32px #0003',
+          padding: 0
+        }}>
+          <div style={{
+            background: '#fff',
+            borderRadius: 18,
+            boxShadow: '0 8px 32px #0004',
+            padding: 28,
+            minWidth: '900px',
+            maxWidth: '1400px',
+            width: '80vw',
+            height: 'auto',
+            minHeight: 200,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+            gap: 24,
+            position: 'relative',
+            transition: 'all 0.3s ease-out'
+          }}>
+            {/* Visual on the left */}
+            <div style={{
+              flex: '0 0 100px',
+              maxWidth: 100,
+              minWidth: 100,
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-start'
+            }}>
+              <div style={{
+                width: 80,
+                height: 80,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: nodeDetails[modal].bg || '#e3f2fd',
+                borderRadius: 12
+              }} />
+            </div>
+            {/* Info on the right, two columns for rich layout */}
+            <div style={{
+              flex: 1,
+              minWidth: 320,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              wordBreak: 'break-word',
+              height: '100%'
+            }}>
+              <div style={{
+                display: 'flex',
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: 8
+              }}>
+                <div style={{
+                  color: '#1976d2',
+                  fontSize: 22,
+                  fontWeight: 600
+                }}>
+                  {nodeDetails[modal].title}
+                </div>
+                <button
+                  onClick={() => setModal(null)}
+                  style={{
+                    background: '#e53e3e',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: 6,
+                    padding: '8px 16px',
+                    fontWeight: 600,
+                    fontSize: 16,
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 8px #0002',
+                    position: 'absolute',
+                    right: 24,
+                    zIndex: 10
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 24,
+                width: '100%',
+                minHeight: 0,
+                alignItems: 'flex-start',
+                marginTop: 8
+              }}>
+                <div style={{ fontSize: 16, color: '#333', whiteSpace: 'pre-line', lineHeight: 1.6 }}>
+                  {nodeDetails[modal].details.split(/\n\n/)[0]}
+                </div>
+                <div style={{ fontSize: 16, color: '#333', whiteSpace: 'pre-line', lineHeight: 1.6 }}>
+                  {nodeDetails[modal].details.split(/\n\n/).slice(1).join('\n\n')}
+                </div>
               </div>
             </div>
-            {/* Right content area */}
-            <div style={{ flex: 1 }}>
-              <h2 style={{ color: '#1976d2', fontWeight: 700, fontSize: 24, marginBottom: 8 }}>{nodeDetails[modal].title}</h2>
-              {/* Parse details into sections: Purpose, How to do it, When to use, Pro Tips */}
-              {parseModalDetails(nodeDetails[modal].details)}
-            </div>
-            <button style={{ position: 'absolute', top: 24, right: 24, background: '#ef5350', color: '#fff', border: 'none', borderRadius: 8, padding: '6px 18px', fontWeight: 600, cursor: 'pointer', zIndex: 10 }} onClick={() => setModal(null)}>Close</button>
           </div>
         </div>
       )}
@@ -376,14 +556,19 @@ const TaskMasteryMindmap = () => {
               Close Detached
             </button>
             <ReactFlow
-              nodes={nodes.map(n => ({
-                ...n,
-                draggable: true,
-                style: {
-                  ...nodeBaseStyle,
-                  background: n.style?.background || nodeBaseStyle.background,
-                },
-              }))}
+              nodes={nodes.map(n => {
+                const ancestor = findNearestAncestorWithColor(n.id);
+                const bg = n.style?.background || nodeBgColors[n.id] || (ancestor && nodeBgColors[ancestor]) || nodeBaseStyle.background;
+                return {
+                  ...n,
+                  draggable: true,
+                  style: {
+                    ...nodeBaseStyle,
+                    ...n.style,
+                    background: bg,
+                  },
+                };
+              })}
               edges={edges}
               nodeTypes={nodeTypes}
               nodesDraggable={true}
