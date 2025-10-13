@@ -85,124 +85,109 @@ const WarningIcon = () => (
 
 const nodeDetails = {
   // Foundations
-  vocabularyDensity: {
-    title: "Vocabulary Density",
-    details: "IELTS Reading passages are packed with challenging vocabulary, technical terms, and topic-specific words.\n\nKey Skills:\nRecognize synonyms and paraphrases\nBuild a strong Academic Word List (AWL) foundation\nUse context clues to infer meaning\nSkim for main ideas, scan for key terms\n\nStrategies:\nPractice reading science, history, and social science texts\nCreate personal vocabulary lists\nUse flashcards and spaced repetition\nReview word families and collocations\n\nCommon Pitfalls:\nIgnoring unfamiliar words\nFocusing only on word-for-word matches\n\nPro Tip:\nHighlight new words and review them regularly.",
-    icon: BookIcon,
-    bg: '#ffe0b2',
-  },
   skimming: {
-    title: "Skimming",
-    details: "Purpose: Quickly grasp the main idea and structure of a passage.\n\nHow to do it:\n- Read the title, headings, and first sentences of paragraphs.\n- Look for repeated words and phrases.\n- Ignore details and focus on overall flow.\n\nWhen to use:\n- Before answering general questions.\n- To get a sense of the topic and tone.\n\nPro Tips:\n- Practice with news articles and academic texts.\n- Time yourself to improve speed.",
+    title: "Skimming for Gist",
+    details: "Purpose: To quickly get the main idea, overall theme, and structure of a passage without reading every word.\n\nHow to Skim:\n1. Read the title and any headings or subheadings.\n2. Read the first paragraph to understand the introduction.\n3. Read the first sentence of each subsequent paragraph (the topic sentence).\n4. Read the entire last paragraph to understand the conclusion.\n5. Let your eyes sweep over the rest of the text, looking for repeated keywords.\n\nWhen to Use: At the very beginning of a new passage to get oriented, and for questions asking about the main idea or a suitable title.",
     icon: BookIcon,
-    bg: '#f8bbd0',
+    bg: '#e8f5e9',
   },
   scanning: {
-    title: "Scanning",
-    details: "Purpose: Find specific facts, dates, names, or numbers quickly.\n\nHow to do it:\n- Know what you’re looking for before you start.\n- Move your eyes rapidly down the page.\n- Use keywords from the question.\n\nWhen to use:\n- For fact-based questions.\n- When searching for names, numbers, or dates.\n\nPro Tips:\n- Practice with tables, lists, and factual texts.\n- Don’t read every word—focus only on the target info.",
+    title: "Scanning for Details",
+    details: "Purpose: To find specific pieces of information like names, dates, numbers, or keywords quickly.\n\nHow to Scan:\n1. Know exactly what you are looking for. Identify the keyword in the question.\n2. Move your eyes rapidly down the page in a pattern (e.g., S-shape or zig-zag).\n3. Do not read sentences. You are only looking for the specific keyword(s).\n4. When you find a keyword, stop and read the surrounding sentences carefully to see if it's the information you need.\n\nWhen to Use: For fact-based questions, such as sentence completion, short-answer questions, and finding specific details.",
     icon: BookIcon,
-    bg: '#f8bbd0',
+    bg: '#e8f5e9',
   },
   closeReading: {
-    title: "Close Reading",
-    details: "Purpose: Deeply understand meaning, make inferences, and analyze details.\n\nHow to do it:\n- Read sentences carefully, noting grammar and logic.\n- Look for qualifying words (some, most, all, never).\n- Pay attention to author’s tone and intention.\n\nWhen to use:\n- For True/False/Not Given, inference, and matching headings.\n- When questions require critical thinking.\n\nPro Tips:\n- Practice with complex passages.\n- Annotate or highlight key phrases.",
+    title: "Close Reading for Meaning",
+    details: "Purpose: To understand the precise meaning of a sentence or section, including the author's tone, opinion, and any subtle implications.\n\nHow to Read Closely:\n1. Read the sentence or phrase carefully, word by word.\n2. Pay attention to grammatical structure and connecting words (e.g., 'however', 'although', 'therefore').\n3. Notice qualifying words like 'some', 'most', 'all', 'never', as they are crucial for meaning.\n4. Identify synonyms and paraphrasing used by the author.\n\nWhen to Use: Essential for TFNG/YNNG questions, inference questions, and any question where you have located the information but need to understand it deeply.",
     icon: BookIcon,
-    bg: '#f8bbd0',
+    bg: '#e8f5e9',
   },
+
+  // Task Mastery - Identification
   tfng: {
-    title: "True/False/Not Given (TFNG)",
-    details: "Purpose: Decide if statements agree with, contradict, or are not mentioned in the text.\n\nHow to do it:\n- Read the statement and locate the relevant part of the text.\n- Compare meaning, not just words.\n- Watch for paraphrasing and synonyms.\n\nTips:\n- True: Statement matches the text.\n- False: Statement contradicts the text.\n- Not Given: Statement is not addressed in the text.\n\nPro Tips:\n- Practice with sample TFNG questions.\n- Be careful with extreme language (always, never).",
+    title: "True/False/Not Given",
+    details: "Purpose: To test your ability to identify and understand factual information in the text.\n\nStrategy:\n1. Read the statement and identify keywords.\n2. Scan the passage for the keywords or their synonyms.\n3. Once located, read the relevant sentences carefully.\n- TRUE: The passage confirms the statement.\n- FALSE: The passage contradicts the statement.\n- NOT GIVEN: You cannot find the information in the passage.\n\nCommon Pitfall: Confusing 'False' and 'Not Given'. It's 'False' only if the passage explicitly says the opposite. If it says nothing, it's 'Not Given'.\n\nPro Tip: Convert the statement into a question. If you can answer it with the text, it's True or False. If you can't, it's Not Given.",
     icon: BookIcon,
-    bg: '#f8bbd0',
+    bg: '#e1bee7',
   },
   ynng: {
-    title: "Yes/No/Not Given (YNNG)",
-    details: "Purpose: Similar to TFNG but used for opinions or claims.\n\nHow to do it:\n- Identify if the statement agrees, disagrees, or is not mentioned.\n- Focus on author’s opinion or claim.\n\nTips:\n- Yes: Statement agrees with the author.\n- No: Statement disagrees with the author.\n- Not Given: Statement is not addressed.\n\nPro Tips:\n- Practice with opinion-based texts.\n- Look for subtle differences in meaning.",
+    title: "Yes/No/Not Given",
+    details: "Purpose: To test your ability to identify and understand the author's opinions, views, or claims.\n\nStrategy:\n1. Read the statement and identify the core opinion or claim.\n2. Scan the passage for the section where the author discusses this topic.\n3. Read carefully to understand the author's perspective.\n- YES: The author's view aligns with the statement.\n- NO: The author's view contradicts the statement.\n- NOT GIVEN: The author does not express this view.\n\nCommon Pitfall: Mistaking the views of other people mentioned in the text for the author's own view.\n\nPro Tip: Look for words that indicate opinion, such as 'believe', 'claim', 'argue', or adjectives that reveal the author's feelings.",
     icon: BookIcon,
-    bg: '#f8bbd0',
+    bg: '#e1bee7',
   },
+
+  // Task Mastery - Matching
   matchingHeadings: {
     title: "Matching Headings",
-    details: "Purpose: Match headings to paragraphs or sections based on main ideas.\n\nHow to do it:\n- Skim each paragraph for its main idea.\n- Compare with heading options.\n- Eliminate headings that don’t fit.\n\nTips:\n- Look for topic sentences.\n- Watch for paraphrased headings.\n\nPro Tips:\n- Practice with sample texts.\n- Don’t get distracted by details.",
+    details: "Purpose: To test your ability to identify the main idea or topic of a paragraph.\n\nStrategy:\n1. Read the list of headings first to know your options.\n2. Read the first paragraph of the text, then go back to the list and see if a heading matches. If not, move on.\n3. For each paragraph, read it and summarize the main idea in your own words. Then, find the heading that best matches your summary.\n4. There are often more headings than paragraphs, so don't expect to use them all.\n\nCommon Pitfall: Matching based on a single keyword instead of the overall meaning of the paragraph.\n\nPro Tip: Do the paragraphs that have a clear topic sentence first. This can help you eliminate options and make subsequent matches easier.",
     icon: BookIcon,
-    bg: '#f8bbd0',
+    bg: '#d1c4e9',
   },
   matchingInfo: {
     title: "Matching Information",
-    details: "Purpose: Match specific information (e.g., a reason, a description, an example) to the correct paragraph in the text.\n\nHow to do it:\n- Read the information and understand what you are looking for.\n- Scan the text for keywords and paraphrases related to the information.\n- Read the relevant paragraph carefully to confirm the match.\n\nTips:\n- The information is not in order in the text.\n- Some paragraphs may not contain any matches, while others may contain more than one.",
+    details: "Purpose: To test your ability to scan for specific details that are not necessarily the main idea of a paragraph.\n\nStrategy:\n1. Read the statements of information first and underline keywords.\n2. Choose the most unique-looking keyword from the first statement (e.g., a name, a date, a technical term).\n3. Scan the entire passage for that keyword. When you find it, read the surrounding sentences to see if it matches the full statement.\n4. The information is NOT in order in the text. You have to hunt for it.\n\nCommon Pitfall: Reading each paragraph from start to finish. This is a scanning task; you should be searching for specific information.\n\nPro Tip: Some paragraphs may be used more than once, and some may not be used at all. Read the instructions carefully.",
     icon: BookIcon,
     bg: '#d1c4e9',
   },
   matchingFeatures: {
     title: "Matching Features",
-    details: "Purpose: Match a list of features (e.g., opinions, theories, names) to the correct items in the text (e.g., people, places, concepts).\n\nHow to do it:\n- Identify the features and the items to be matched.\n- Scan the text for the items (which are often names and easier to find).\n- Once you find an item, read around it carefully to see which feature is mentioned.\n- The features are often paraphrased in the text.\n\nTips:\n- You may be able to use some items more than once.\n- Do the items you are most confident about first.\n\nPro Tips:\n- This is a scanning and close reading task. Scan for the names/items, then read carefully to match the feature.",
+    details: "Purpose: To test your ability to link a list of features (e.g., theories, findings, characteristics) to a set of items (e.g., researchers, countries, time periods).\n\nStrategy:\n1. Identify the list of features and the set of items.\n2. Scan the passage for the items (e.g., names of researchers), as these are often easier to find than the features.\n3. When you find an item, read everything that is said about it in the passage.\n4. Match the information you read to one of the features in the list.\n\nCommon Pitfall: Assuming that the features for one item will be located in a single place in the text. Information can be spread across the passage.\n\nPro Tip: Do one item at a time. For example, scan the entire text for all mentions of 'Researcher A' and match all their features before moving to 'Researcher B'.",
     icon: TargetIcon,
     bg: '#d1c4e9',
   },
+
+  // Task Mastery - Completion
   sentenceCompletion: {
     title: "Sentence Completion",
-    details: "Purpose: Complete sentences using words from the text, focusing on grammar and meaning.\n\nHow to do it:\n- Read the sentence and locate the relevant part of the text.\n- Pay attention to word limits and instructions.\n- Ensure grammatical accuracy.\n\nTips:\n- Answers must fit grammatically.\n- Use only words from the passage if instructed.\n\nPro Tips:\n- Practice with sample completion tasks.\n- Review grammar rules.",
+    details: "Purpose: To test your ability to find specific information and use it to complete a sentence grammatically and logically.\n\nStrategy:\n1. Read the incomplete sentence and predict the type of word needed (e.g., a noun, a verb, a number).\n2. Identify keywords in the sentence and scan the passage to locate the relevant section.\n3. Read the passage text carefully to find the exact word or words needed.\n4. Ensure your answer does not exceed the word limit (e.g., 'NO MORE THAN TWO WORDS').\n\nCommon Pitfall: The word in the passage needs to be changed to fit the grammar of the sentence. The answer must be taken EXACTLY from the text without changes.\n\nPro Tip: The answers usually appear in the same order in the text as the questions.",
     icon: BookIcon,
     bg: '#b3e5fc',
   },
   summaryCompletion: {
     title: "Summary/Note/Table Completion",
-    details: "Purpose: Fill in summaries, notes, or tables using information from the text.\n\nHow to do it:\n- Skim the summary/table for structure.\n- Scan the text for matching information.\n- Use keywords and context clues.\n\nTips:\n- Answers may be paraphrased.\n- Follow instructions carefully.\n\nPro Tips:\n- Practice with different formats.\n- Highlight key information in the passage.",
+    details: "Purpose: To test your ability to get an overview of a section of the text and extract the key information.\n\nStrategy:\n1. Quickly read the summary to understand its general meaning and structure.\n2. Identify the type of information needed for the first gap (e.g., a date, a reason, an object).\n3. Scan the passage to find the section that the summary relates to.\n4. Read that section carefully to find the words to fill the gaps. Pay close attention to the word limit.\n\nCommon Pitfall: Getting lost in the passage. The summary provides a 'map' of the information, so use it to guide you.\n\nPro Tip: Sometimes the summary is based on a small part of the text (one or two paragraphs), and sometimes it covers the whole passage. Use keywords to locate the right section quickly.",
     icon: BookIcon,
     bg: '#b3e5fc',
   },
+
+  // Task Mastery - Choice & Answer
   mcq: {
-    title: "Multiple Choice Questions (MCQs)",
-    details: "Purpose: Choose the correct answer from several options based on the text.\n\nHow to do it:\n- Read all options before choosing.\n- Locate the relevant part of the text.\n- Eliminate clearly wrong answers.\n\nTips:\n- Watch for distractors.\n- Answers may be paraphrased.\n\nPro Tips:\n- Practice with MCQ samples.\n- Don’t rush—read carefully.",
+    title: "Multiple Choice Questions",
+    details: "Purpose: To test your ability to understand specific points or the main idea and choose the correct answer from a list of options.\n\nStrategy:\n1. Read the question stem (the part before the options) and identify keywords.\n2. Scan the passage to locate the relevant information.\n3. Read that part of the passage carefully and form your own answer in your head before looking at the options.\n4. Compare your answer to the options (A, B, C, D) and choose the one that matches best.\n\nCommon Pitfall: Choosing an option because it contains keywords from the passage. These are often 'distractors'. The correct answer will paraphrase the information, not just repeat it.\n\nPro Tip: Always try to eliminate the obviously wrong answers first. This increases your chances of guessing correctly if you are unsure.",
     icon: BookIcon,
     bg: '#c8e6c9',
   },
   shortAnswer: {
     title: "Short Answer Questions",
-    details: "Purpose: Answer questions briefly using information from the text.\n\nHow to do it:\n- Read the question and locate the answer in the text.\n- Use only the required number of words.\n- Check spelling and grammar.\n\nTips:\n- Answers must come from the passage.\n- Follow word limits strictly.\n\nPro Tips:\n- Practice with sample short answer tasks.\n- Review common question types.",
+    details: "Purpose: To test your ability to find specific factual information and write it as a short answer.\n\nStrategy:\n1. Read the question and identify the 'question word' (e.g., Who, What, Where, When, Why) to know what kind of information to look for.\n2. Identify keywords and scan the passage to find them.\n3. Read the relevant sentence carefully to find the answer.\n4. Write your answer, making sure you obey the word limit (e.g., 'NO MORE THAN THREE WORDS AND/OR A NUMBER').\n\nCommon Pitfall: Writing too many words or copying information that is not essential to the answer.\n\nPro Tip: The answers almost always appear in order in the text. Use this to your advantage to locate the answers more quickly.",
     icon: BookIcon,
     bg: '#c8e6c9',
   },
-  awl: {
-    title: "Academic Word List (AWL)",
-    details: "Purpose: Build strong academic vocabulary for IELTS Reading.\n\nHow to do it:\n- Study the AWL and learn word families.\n- Practice using words in context.\n- Review regularly and use flashcards.\n\nTips:\n- Focus on high-frequency academic words.\n- Group words by topic.\n\nPro Tips:\n- Use AWL resources and quizzes.\n- Track your progress over time.",
-    icon: BookIcon,
-    bg: '#fff9c4',
-  },
-  synonyms: {
-    title: "Synonyms and Collocations",
-    details: "Purpose: Recognize and use synonyms and collocations to understand and answer questions.\n\nHow to do it:\n- Identify synonyms in questions and text.\n- Learn common collocations for key words.\n- Practice paraphrasing sentences.\n\nTips:\n- Answers may use synonyms instead of exact words.\n- Collocations help with natural language use.\n\nPro Tips:\n- Build lists of synonyms and collocations.\n- Practice with paraphrasing exercises.",
-    icon: BookIcon,
-    bg: '#fff9c4',
-  },
-  topicClusters: {
-    title: "Topic-based Clusters",
-    details: "Purpose: Group vocabulary by topic (science, history, environment, society) for better retention and understanding.\n\nHow to do it:\n- Organize vocabulary into clusters by topic.\n- Use mindmaps and charts.\n- Practice with topic-based reading materials.\n\nTips:\n- Topic clusters help with context and meaning.\n- Review clusters before each practice session.\n\nPro Tips:\n- Create your own topic clusters.\n- Use them for revision and practice.",
-    icon: BookIcon,
-    bg: '#fff9c4',
-  },
+
   // Task Mastery Parent Nodes
   identificationTasks: {
     title: "Identification Tasks",
-    details: "These tasks require you to determine if information is present or correct in the passage. This includes True/False/Not Given and Yes/No/Not Given questions.\n\nKey Skill: Careful reading and understanding the difference between a statement being contradicted (False/No) and not being mentioned at all (Not Given).",
+    details: "Purpose: These tasks assess your ability to find specific information in a text and accurately determine if a statement agrees with the text, contradicts it, or is not mentioned at all.\n\nKey Difference:\n- True/False/Not Given: Used for factual information.\n- Yes/No/Not Given: Used for the author's opinions, views, or claims.\n\nCore Challenge: The main difficulty lies in distinguishing between 'False/No' (the text says the opposite) and 'Not Given' (the text doesn't provide this information).",
     icon: TargetIcon,
     bg: '#e1bee7',
   },
   matchingTasks: {
     title: "Matching Tasks",
-    details: "In these tasks, you need to connect information from a list to different parts of the text. This includes matching headings to paragraphs, information to paragraphs, or features to items.\n\nKey Skill: Skimming for main ideas (for headings) and scanning for specific details (for information and features).",
+    details: "Purpose: These tasks test your ability to connect different pieces of information. You might need to match headings to paragraphs, specific details to paragraphs, or features (e.g., theories, names) to items.\n\nTypes:\n- Matching Headings: Match a heading from a list to the correct paragraph.\n- Matching Information: Match a specific piece of information to a paragraph.\n- Matching Features: Match a list of features to items (e.g., researchers, theories).",
     icon: TargetIcon,
     bg: '#d1c4e9',
   },
   completionTasks: {
     title: "Completion Tasks",
-    details: "These tasks require you to fill in gaps in sentences, summaries, notes, or tables using words from the text.\n\nKey Skill: Attention to detail, grammar, and word limits. You must often use the exact words from the passage.",
+    details: "Purpose: These tasks require you to fill in gaps in sentences, summaries, notes, or tables using words from the text.\n\nKey Skill: Attention to detail, grammar, and word limits. You must often use the exact words from the passage.\n\nCommon Feature: The answers are usually in order in the text, which helps you follow along.",
     icon: TargetIcon,
     bg: '#b3e5fc',
   },
   choiceTasks: {
     title: "Choice & Answer Tasks",
-    details: "These tasks present you with options or require you to find a specific piece of information to write as an answer. This includes Multiple Choice and Short Answer questions.\n\nKey Skill: Eliminating incorrect options (distractors) and locating specific information quickly.",
+    details: "Purpose: These tasks present you with options or require you to find a specific piece of information to write as an answer. This includes Multiple Choice and Short Answer questions.\n\nKey Skill: Eliminating incorrect options (distractors) and locating specific information quickly.\n\nCommon Feature: The questions are usually in order in the text.",
     icon: TargetIcon,
     bg: '#c8e6c9',
   },
@@ -419,12 +404,10 @@ const EnhancedReadingMindmap = ({ section = 'orientation' }) => {
   }, [visibleNodes, visibleEdges, setNodes, setEdges]);
 
   const onNodeClick = useCallback((event, node) => {
-    const hasChildren = childMapMain[node.id] && childMapMain[node.id].length > 0;
-    
     if (nodeDetails[node.id]) {
       setModal(node.id);
     }
-  }, [childMapMain]);
+  }, []);
 
   const Mindmap = (
     <div style={{ width: '100%', height: '800px', border: '1px solid #ccc', borderRadius: '8px', position: 'relative', background: '#f8fafc' }}>

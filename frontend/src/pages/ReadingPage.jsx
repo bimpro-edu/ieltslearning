@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import ReadingCategorySidebar from '../components/ReadingCategorySidebar';
 import ReadingCategoryCanvas from '../components/ReadingCategoryCanvas';
 import EnhancedReadingMindmap from '../components/EnhancedReadingMindmap';
+import AdvancedAccordion from '../components/AdvancedAccordion';
 
 const roadmap = [
   {
@@ -41,6 +42,14 @@ const roadmap = [
       'Inference and implication',
       'Trap awareness and avoidance',
       'Time management optimization'
+    ],
+  },
+  {
+    title: 'Advanced Accordion',
+    items: [
+      'Grammatical Range & Accuracy',
+      'Lexical Resource',
+      'Task Response',
     ],
   },
 ];
@@ -85,6 +94,9 @@ function RoadmapAccordion() {
               )}
               {section.title === 'Advanced Skills' && open === idx && (
                 <EnhancedReadingMindmap section="advanced" />
+              )}
+              {section.title === 'Advanced Accordion' && open === idx && (
+                <AdvancedAccordion />
               )}
               <ul className="list-disc ml-6 space-y-2">
                 {section.items.map(item => (
