@@ -2,10 +2,10 @@ import React, { useState, useRef } from 'react';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ReadingCategorySidebar from '../components/ReadingCategorySidebar';
-import ReadingCategoryCanvas from '../components/ReadingCategoryCanvas';
+import ReadingLessonsListPage from './ReadingLessonsListPage';
 import EnhancedReadingMindmap from '../components/EnhancedReadingMindmap';
 import AdvancedAccordion from '../components/AdvancedAccordion';
+import { ROUTES } from '../constants/routes';
 
 const roadmap = [
   {
@@ -113,20 +113,12 @@ function RoadmapAccordion() {
 
 const ReadingPage = () => {
   const [tab, setTab] = useState(0);
-  const [selectedTopic, setSelectedTopic] = useState(null);
-  
+
   return (
     <div className="min-h-screen flex flex-col bg-site-bg">
       <Header />
       <div className="flex flex-1">
-        {tab === 1 && (
-          <ReadingCategorySidebar
-            categoryKey="core-reading-skills"
-            selectedTopic={selectedTopic}
-            setSelectedTopic={setSelectedTopic}
-          />
-        )}
-        <main className={`flex-1 w-full max-w-5xl mx-auto py-8 px-2 ${tab === 1 ? 'ml-0' : ''}`}>
+        <main className={`flex-1 w-full max-w-7xl mx-auto py-8 px-2`}>
           <h1 className="text-3xl font-extrabold text-primary mb-8 text-center">IELTS Reading Course</h1>
           <div className="flex justify-center mb-8">
             <button
@@ -143,7 +135,7 @@ const ReadingPage = () => {
             </button>
           </div>
           <div className="bg-content-bg rounded-xl shadow p-6 min-h-[400px]">
-            {tab === 0 ? <RoadmapAccordion /> : <ReadingCategoryCanvas categoryKey="core-reading-skills" topicKey={selectedTopic} />}
+            {tab === 0 ? <RoadmapAccordion /> : <ReadingLessonsListPage hideHeaderFooter={true} />}
           </div>
         </main>
       </div>

@@ -1,9 +1,7 @@
-
 import React, { useMemo, useState, useCallback } from 'react';
 import ReactFlow, { Background, Controls } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-// Info for lesson nodes (tips, examples, explanations)
 const lessonDetails = {
   predicting: {
     title: 'Predicting Answers from Context',
@@ -71,24 +69,21 @@ const lessonDetails = {
   },
 };
 
-const clusterColors = {
-  'Core Listening Skills': '#bae6fd',
-  'Question Types & Strategies': '#bbf7d0',
-  'Test Skills & Mindset': '#fef9c3',
-};
-
-
-export default function ListeningClusterMindmap({ cluster }) {
+export default function ListeningClusterMindmap({ data }) {
   const [detached, setDetached] = useState(false);
   const [modal, setModal] = useState(null);
 
-  const nodes = useMemo(() => [
+  const nodes = useMemo(() => {
+    if (!data || !data.lessons) {
+        return [];
+    }
+    return [
     {
       id: 'root',
-      data: { label: cluster.title },
+      data: { label: data.title },
       position: { x: 0, y: 0 },
       style: {
-        background: clusterColors[cluster.title] || '#e0e7ef',
+        background: '#bae6fd',
         color: '#1e293b',
         fontWeight: 'bold',
         fontSize: 18,
@@ -97,10 +92,10 @@ export default function ListeningClusterMindmap({ cluster }) {
         minWidth: 200,
       },
     },
-    ...cluster.lessons.map((lesson, idx) => ({
+    ...data.lessons.map((lesson, idx) => ({
       id: lesson.key,
       data: { label: lesson.title },
-      position: { x: (idx - (cluster.lessons.length-1)/2) * 220, y: 120 },
+      position: { x: (idx - (data.lessons.length-1)/2) * 220, y: 120 },
       style: {
         background: '#fff',
         color: '#334155',
@@ -111,19 +106,22 @@ export default function ListeningClusterMindmap({ cluster }) {
         cursor: 'pointer',
       },
     })),
-  ], [cluster]);
+  ]}, [data]);
 
-  const edges = useMemo(() =>
-    cluster.lessons.map(lesson => ({
-      id: `e-root-${lesson.key}`,
-      source: 'root',
-      target: lesson.key,
-      animated: true,
-    })),
-    [cluster]
+  const edges = useMemo(() => {
+      if (!data || !data.lessons) {
+          return [];
+      }
+      return data.lessons.map(lesson => ({
+        id: `e-root-${lesson.key}`,
+        source: 'root',
+        target: lesson.key,
+        animated: true,
+      }))
+    },
+    [data]
   );
 
-  // Node click handler for modal info
   const onNodeClick = useCallback((event, node) => {
     if (lessonDetails[node.id]) {
       setModal(node.id);

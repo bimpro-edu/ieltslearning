@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ROUTES } from './constants/routes.js';
 import HomePage from './pages/HomePage';
 import LessonPage from './pages/LessonPage';
 import LessonsListPage from './pages/LessonsListPage';
@@ -16,28 +17,44 @@ import TaskPage from './pages/TaskPage'; // Import TaskPage
 import ReadingPage from './pages/ReadingPage'; // Import ReadingPage
 import ReadingCategoryPage from './pages/reading/ReadingCategoryPage';
 
+import ReadingLessonsListPage from './pages/ReadingLessonsListPage';
+
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/lessons" element={<Navigate to="/tasks/writing" replace />} />
-          <Route path="/lessons/:lessonId" element={<LessonPage />} />
-          <Route path="/tasks/writing" element={<WritingPage />} />
-          <Route path="/tasks/listening" element={<ListeningPage />} />
-          <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/teacher/dashboard" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
-          {/* New Listening Category Page (sidebar + canvas) */}
-          <Route path="/listening/:categoryKey" element={<ListeningCategoryPage />} />
-          {/* New Reading Category Page (sidebar + canvas) */}
+          {/* Core Routes */}
+          <Route path={ROUTES.HOME} element={<HomePage />} />
+          
+          {/* Auth Routes */}
+          <Route path={ROUTES.AUTH.LOGIN} element={<LoginPage />} />
+          <Route path={ROUTES.AUTH.SIGNUP} element={<SignupPage />} />
+          <Route path={ROUTES.AUTH.TEACHER_DASHBOARD} element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
+          
+          {/* Reading Module */}
+          <Route path={ROUTES.READING.HOME} element={<ReadingPage />} />
+          <Route path="/reading/:categoryKey/:topicKey" element={<ReadingCategoryPage />} />
           <Route path="/reading/:categoryKey" element={<ReadingCategoryPage />} />
-          {/* Old Task Routes */}
+          
+          {/* Listening Module */}
+          <Route path={ROUTES.LISTENING.HOME} element={<ListeningPage />} />
+          <Route path="/listening/:categoryKey/:topicKey" element={<ListeningCategoryPage />} />
+          <Route path="/listening/:categoryKey" element={<ListeningCategoryPage />} />
+          
+          {/* Task Routes */}
+          <Route path={ROUTES.TASKS.WRITING} element={<WritingPage />} />
+          <Route path={ROUTES.TASKS.LISTENING} element={<ListeningPage />} />
+          <Route path={ROUTES.TASKS.READING} element={<ReadingPage />} />
           <Route path="/tasks/:taskType/:category/" element={<TaskPage />} />
           <Route path="/tasks/:taskType/:category/:subCategory" element={<TaskPage />} />
-          <Route path="/tasks/reading" element={<ReadingPage />} /> {/* New route for Reading module */}
+          
+          {/* Exercise Routes */}
+          <Route path="/exercises/:exerciseId" element={<ExercisePage />} />
+          
+          {/* Legacy Routes */}
+          <Route path="/lessons" element={<Navigate to={ROUTES.TASKS.WRITING} replace />} />
+          <Route path="/lessons/:type/:lessonId" element={<LessonPage />} />
         </Routes>
       </Router>
     </AuthProvider>
@@ -48,11 +65,11 @@ function AuthButtons() {
     const { isAuthenticated, logout } = useAuth();
     return isAuthenticated ? (
         <>
-            <Link to="/teacher/dashboard" className="text-base font-medium text-gray-600 hover:text-primary-700 transition-colors duration-200">Dashboard</Link> {/* Changed text-gray-500 and hover */}
-            <button onClick={logout} className="text-base font-medium text-gray-600 hover:text-primary-700 transition-colors duration-200">Logout</button> {/* Changed text-gray-500 and hover */}
+            <Link to={ROUTES.AUTH.TEACHER_DASHBOARD} className="text-base font-medium text-gray-600 hover:text-primary-700 transition-colors duration-200">Dashboard</Link>
+            <button onClick={logout} className="text-base font-medium text-gray-600 hover:text-primary-700 transition-colors duration-200">Logout</button>
         </>
     ) : (
-        <Link to="/login" className="text-base font-medium text-gray-600 hover:text-primary-700 transition-colors duration-200">Login</Link> 
+        <Link to={ROUTES.AUTH.LOGIN} className="text-base font-medium text-gray-600 hover:text-primary-700 transition-colors duration-200">Login</Link>
     );
 }
 

@@ -1,0 +1,73 @@
+{
+  "core-reading-skills": {
+    "skimming": {
+      "title": "Skimming for Main Ideas",
+      "mindmap": {
+        "id": "root",
+        "title": "Skimming Strategies",
+        "text": "Effective Skimming for IELTS Reading",
+        "children": [
+          {
+            "id": "1",
+            "text": "What to Look For",
+            "children": [
+              { "id": "1-1", "text": "Titles & Headings" },
+              { "id": "1-2", "text": "First/Last Sentences" },
+              { "id": "1-3", "text": "Bold or Italic Text" },
+              { "id": "1-4", "text": "Numbers & Dates" }
+            ]
+          },
+          {
+            "id": "2",
+            "text": "Reading Pattern",
+            "children": [
+              { "id": "2-1", "text": "→ Read title completely" },
+              { "id": "2-2", "text": "↓ Scan first paragraph" },
+              { "id": "2-3", "text": "↓ First lines of body" },
+              { "id": "2-4", "text": "→ Read conclusion" }
+            ]
+          },
+          {
+            "id": "3",
+            "text": "Time Allocation",
+            "children": [
+              { "id": "3-1", "text": "Title (10 seconds)" },
+              { "id": "3-2", "text": "First para (30 seconds)" },
+              { "id": "3-3", "text": "Body scan (1 minute)" },
+              { "id": "3-4", "text": "Conclusion (20 seconds)" }
+            ]
+          },
+          {
+            "id": "4",
+            "text": "Common Mistakes",
+            "children": [
+              { "id": "4-1", "text": "Reading every word" },
+              { "id": "4-2", "text": "Getting stuck on vocabulary" },
+              { "id": "4-3", "text": "Missing key connectors" },
+              { "id": "4-4", "text": "Skipping visual aids" }
+            ]
+          }
+        ]
+      },
+      "tips": [
+        "Read the first and last paragraphs completely",
+        "Focus on first sentences of body paragraphs",
+        "Pay attention to headings and subheadings",
+        "Look for repeated keywords and themes",
+        "Don't get caught up in difficult vocabulary"
+      ],
+      "traps": [
+        "Reading every word in detail",
+        "Spending too much time on difficult sections",
+        "Ignoring text organization and structure",
+        "Missing the overall purpose of the text"
+      ],
+      "strategies": [
+        "Preview the questions before skimming",
+        "Use headings to create a mental map",
+        "Circle key terms while skimming",
+        "Note paragraph topics in margins"
+      ]
+    }
+  }
+}

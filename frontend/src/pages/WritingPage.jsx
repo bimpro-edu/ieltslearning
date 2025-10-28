@@ -41,7 +41,7 @@ import OrientationMindmap from '../components/OrientationMindmap';
 import Task1Mindmap from "../components/Task1Mindmap";
 import Task2Mindmap from "../components/Task2Mindmap";
 import AdvancedWritingSkills from '../components/AdvancedWritingSkills';
-import PracticeAssessment from '../components/PracticeAssessment';
+import { PracticeAssessment } from '../components/PracticeAssessment';
 
 
 const roadmap = [

@@ -37,6 +37,7 @@ class Lesson(BaseModel):
     title: str
     content: List[LessonContent]
     exercises: List[str]
+    mindmap: Dict[str, Any] | None = None
 
 class SkeletonItem(BaseModel):
     role: str

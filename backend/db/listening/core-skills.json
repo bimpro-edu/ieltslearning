@@ -1,0 +1,67 @@
+{
+  "category": "core-listening-skills",
+  "title": "Core Listening Skills",
+  "topics": [
+    {
+      "key": "predicting",
+      "title": "Predicting Answers from Context",
+      "description": "Learn to anticipate answers by analyzing question context and speaker cues",
+      "templates": [
+        {
+          "name": "Basic Strategy",
+          "content": "1. Read questions before listening\n2. Underline keywords in questions\n3. Think about possible answers\n4. Listen for synonyms and paraphrasing"
+        },
+        {
+          "name": "Advanced Technique",
+          "content": "1. Analyze question types for likely answers\n2. Consider context clues and speaker roles\n3. Use background knowledge of topics\n4. Practice active prediction during pauses"
+        }
+      ],
+      "mindmap": {
+        "title": "Prediction Skills",
+        "nodes": [
+          {
+            "id": "1",
+            "label": "Question Analysis",
+            "children": ["1a", "1b", "1c"],
+            "data": {
+              "description": "Break down questions for key information"
+            }
+          },
+          {
+            "id": "1a",
+            "label": "Keywords",
+            "data": {
+              "description": "Identify important words to listen for"
+            }
+          },
+          {
+            "id": "1b",
+            "label": "Question Type",
+            "data": {
+              "description": "Recognize what kind of answer is needed"
+            }
+          },
+          {
+            "id": "1c",
+            "label": "Context Clues",
+            "data": {
+              "description": "Use surrounding information"
+            }
+          }
+        ]
+      },
+      "tips": [
+        "Always read ahead during breaks",
+        "Look for signal words in questions",
+        "Consider the logical answer type",
+        "Use your knowledge of the topic"
+      ],
+      "traps": [
+        "Expecting exact word matches",
+        "Missing synonyms and paraphrases",
+        "Not using question context",
+        "Predicting too specifically"
+      ]
+    }
+  ]
+}

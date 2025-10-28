@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ROUTES } from '../constants/routes';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -12,7 +13,7 @@ const HomePage = () => {
         <section className="mt-10">
           <h2 className="text-2xl font-bold text-primary-700 mb-6 text-center tracking-wide">Core Skills</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <Link to="/tasks/listening" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
+            <Link to={ROUTES.TASKS.LISTENING} className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">🎧</span>
               <span className="font-bold text-lg mb-1">Listening</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
@@ -20,7 +21,7 @@ const HomePage = () => {
               </div>
               <span className="text-xs text-gray-500">40% done</span>
             </Link>
-            <Link to="/tasks/reading" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
+            <Link to={ROUTES.TASKS.READING} className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">📖</span>
               <span className="font-bold text-lg mb-1">Reading</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
@@ -28,7 +29,7 @@ const HomePage = () => {
               </div>
               <span className="text-xs text-gray-500">30% done</span>
             </Link>
-            <Link to="/tasks/writing" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
+            <Link to={ROUTES.TASKS.WRITING} className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">✍️</span>
               <span className="font-bold text-lg mb-1">Writing</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">
@@ -36,7 +37,7 @@ const HomePage = () => {
               </div>
               <span className="text-xs text-gray-500">50% done</span>
             </Link>
-            <Link to="/tasks/speaking" className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
+            <Link to={ROUTES.TASKS.SPEAKING} className="bg-white rounded-xl shadow flex flex-col items-center p-6 hover:ring-2 hover:ring-primary transition-all">
               <span className="text-4xl mb-2">🎤</span>
               <span className="font-bold text-lg mb-1">Speaking</span>
               <div className="w-full h-2 bg-gray-200 rounded-full mb-2">

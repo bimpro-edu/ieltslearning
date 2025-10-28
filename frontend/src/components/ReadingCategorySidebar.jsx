@@ -1,33 +1,42 @@
 import React from 'react';
-import { getReadingTopicsForCategory } from '../utils/loadTemplates';
+import { getReadingTopicsForCategory } from '../utils/readingTemplates';
 
+/**
+ * Renders a sidebar with a list of reading topics for a given category.
+ * It is a synchronous component that gets data from a centralized source.
+ */
 export default function ReadingCategorySidebar({ categoryKey = 'core-reading-skills', selectedTopic, setSelectedTopic }) {
+  // Fetch topics synchronously from the centralized data source
   const topics = getReadingTopicsForCategory(categoryKey);
-  
+
+  if (!topics || topics.length === 0) {
+    return (
+      <aside className="w-72 bg-white border-r border-gray-200 p-6 shadow-lg flex flex-col min-h-screen">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800">Reading Topics</h2>
+        <p className="text-gray-500">No topics available for this category.</p>
+      </aside>
+    );
+  }
+
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 p-4 flex flex-col h-full">
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold text-primary-700 mb-2">Reading Skills</h3>
-        <p className="text-sm text-gray-600">Select a topic to explore tips, traps, and predictions</p>
-      </div>
-      <nav className="flex-1">
-        <ul className="space-y-1">
-          {topics.map(topic => (
-            <li key={topic.key}>
-              <button
-                className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-colors text-sm ${
-                  selectedTopic === topic.key 
-                    ? 'bg-primary-100 text-primary-700 border border-primary-200' 
-                    : 'hover:bg-gray-100 text-gray-700'
-                }`}
-                onClick={() => setSelectedTopic(topic.key)}
-              >
-                {topic.title}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <aside className="w-72 bg-white border-r border-gray-200 p-6 shadow-lg flex flex-col min-h-screen">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800">Reading Topics</h2>
+      <ul className="space-y-2">
+        {topics.map(topic => (
+          <li key={topic.key}>
+            <button
+              className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+                selectedTopic === topic.key 
+                  ? 'bg-primary-100 text-primary-700 shadow-sm' 
+                  : 'text-gray-600 hover:bg-gray-50 hover:shadow-sm'
+              }`}
+              onClick={() => setSelectedTopic(topic.key)}
+            >
+              {topic.title}
+            </button>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }

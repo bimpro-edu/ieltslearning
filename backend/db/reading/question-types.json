@@ -1,0 +1,59 @@
+{
+  "question-types": {
+    "multiple-choice": {
+      "title": "Multiple Choice Questions",
+      "mindmap": {
+        "id": "root",
+        "title": "Multiple Choice Strategy",
+        "nodes": [
+          {
+            "id": "approach",
+            "text": "Basic Approach",
+            "children": [
+              { "id": "a1", "text": "Read question stem first" },
+              { "id": "a2", "text": "Predict possible answer" },
+              { "id": "a3", "text": "Eliminate wrong options" }
+            ]
+          },
+          {
+            "id": "types",
+            "text": "Question Types",
+            "children": [
+              { "id": "t1", "text": "Main idea questions" },
+              { "id": "t2", "text": "Detail questions" },
+              { "id": "t3", "text": "Inference questions" }
+            ]
+          },
+          {
+            "id": "tricks",
+            "text": "Common Tricks",
+            "children": [
+              { "id": "tr1", "text": "Similar vocabulary" },
+              { "id": "tr2", "text": "Partial matches" },
+              { "id": "tr3", "text": "Out of context options" }
+            ]
+          }
+        ]
+      },
+      "tips": [
+        "Read the question before looking at options",
+        "Try to answer before looking at choices",
+        "Cross out clearly wrong answers",
+        "Look for qualifier words (always, never, most)",
+        "Check for extreme language in options"
+      ],
+      "traps": [
+        "Choosing first option that seems correct",
+        "Being misled by similar vocabulary",
+        "Not reading all options before deciding",
+        "Selecting based on general knowledge"
+      ],
+      "strategies": [
+        "Use process of elimination",
+        "Look for word matches carefully",
+        "Consider context of passage",
+        "Double-check extreme statements"
+      ]
+    }
+  }
+}

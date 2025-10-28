@@ -1,0 +1,59 @@
+{
+  "advanced-skills": {
+    "author-purpose": {
+      "title": "Identifying Author Purpose",
+      "mindmap": {
+        "id": "root",
+        "title": "Author Purpose Analysis",
+        "nodes": [
+          {
+            "id": "purposes",
+            "text": "Common Purposes",
+            "children": [
+              { "id": "p1", "text": "To inform/explain" },
+              { "id": "p2", "text": "To persuade/argue" },
+              { "id": "p3", "text": "To describe/illustrate" }
+            ]
+          },
+          {
+            "id": "signals",
+            "text": "Language Signals",
+            "children": [
+              { "id": "s1", "text": "Opinion indicators" },
+              { "id": "s2", "text": "Factual statements" },
+              { "id": "s3", "text": "Descriptive language" }
+            ]
+          },
+          {
+            "id": "structure",
+            "text": "Text Structure",
+            "children": [
+              { "id": "st1", "text": "Introduction signals" },
+              { "id": "st2", "text": "Development patterns" },
+              { "id": "st3", "text": "Conclusion markers" }
+            ]
+          }
+        ]
+      },
+      "tips": [
+        "Look for author's tone and attitude",
+        "Identify main arguments or claims",
+        "Notice language patterns and style",
+        "Consider target audience",
+        "Examine evidence presentation"
+      ],
+      "traps": [
+        "Confusing fact with opinion",
+        "Missing subtle bias indicators",
+        "Overlooking context clues",
+        "Assuming neutral stance"
+      ],
+      "strategies": [
+        "Analyze opening paragraph carefully",
+        "Track argument development",
+        "Note tone shifts and emphasis",
+        "Consider alternative viewpoints"
+      ]
+    }
+  }
+}

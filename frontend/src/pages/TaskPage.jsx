@@ -9,6 +9,12 @@ import Footer from '../components/Footer';
 import Task1Mindmap from '../components/Task1Mindmap';
 
 function getTaskData(taskType, category, subCategory) {
+  if (taskType === 'reading') {
+    return {
+      data: null,
+      title: 'Reading Tasks'
+    };
+  }
   if (taskType === 'task2') {
     // Capitalize first letter for Task2 data lookup (e.g., 'opinion' -> 'Opinion')
     const dataKey = category.charAt(0).toUpperCase() + category.slice(1);

@@ -1,3 +1,7 @@
+import json
+from typing import Dict, Any
+from pathlib import Path
+
 IELTS = {
     "Task1": {
         "Academic": {
@@ -7,6 +11,34 @@ IELTS = {
                 "Body1": "Looking at the details, [feature A] started at [value] in [year] and [describe its trend, e.g., rose/fell significantly] to [value] in [year].",
                 "Body2": "In contrast, [feature B] followed an opposite pattern, beginning at [value] and [describe its trend] to end the period at [value]."
             },
+            # ... rest of Task1.Academic data ...
+        },
+        "General": {
+            # ... Task1.General data ...
+        }
+    },
+    "Task2": {
+        # ... Task2 data ...
+    }
+}
+
+# Load listening lessons data
+def load_listening_data():
+    try:
+        base_path = Path(__file__).parent.parent / "db" / "listening"
+        return {
+            "core-skills": json.load(open(base_path / "core-skills.json")),
+            "question-types": json.load(open(base_path / "question-types.json")),
+            "test-skills": json.load(open(base_path / "test-skills.json"))
+        }
+    except FileNotFoundError as e:
+        print(f"Warning: Listening lesson file not found: {e}")
+        return {}
+    except json.JSONDecodeError as e:
+        print(f"Error parsing listening lesson file: {e}")
+        return {}
+
+LISTENING = load_listening_data()
             "PieChart": {
                 "Intro": "The pie charts provide information on/compare [what the data shows] in [location/year].",
                 "Overview": "Overall, the largest proportion of [category] was [the biggest slice], whereas the smallest was [the smallest slice].",

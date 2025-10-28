@@ -1,6 +1,6 @@
 
 
-import { getListeningTopicsForCategory } from '../utils/loadTemplates';
+import { getListeningTopicsForCategory } from '../utils/listeningTemplates';
 
 export default function ListeningCategorySidebar({ categoryKey, selectedTopic, setSelectedTopic }) {
   const topics = getListeningTopicsForCategory(categoryKey);

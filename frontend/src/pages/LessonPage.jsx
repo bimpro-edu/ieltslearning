@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SimpleMindMapViewer from '../components/SimpleMindMapViewer';
 
 export default function LessonPage() {
   const { lessonId } = useParams();
@@ -20,8 +21,14 @@ export default function LessonPage() {
       <Header />
       <div className="p-4 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-4">{lesson.title}</h1>
+        {lesson.mindmap && (
+          <div className="my-8">
+            <h2 className="text-2xl font-semibold mb-4">Mind Map</h2>
+            <SimpleMindMapViewer mindMapData={lesson.mindmap} />
+          </div>
+        )}
         <div className="prose lg:prose-xl">
-          {lesson.content.map((item, index) => {
+          {lesson.content?.map((item, index) => {
             if (item.type === 'p') {
               return <p key={index}>{item.text}</p>;
             }
@@ -39,7 +46,7 @@ export default function LessonPage() {
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4">Exercises</h2>
           <ul className="list-disc pl-5">
-            {lesson.exercises.map(exerciseId => (
+            {lesson.exercises?.map(exerciseId => (
               <li key={exerciseId}>
                 <Link to={`/exercises/${exerciseId}`} className="text-blue-600 hover:underline">
                   {exerciseId}

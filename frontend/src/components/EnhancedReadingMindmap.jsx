@@ -4,14 +4,15 @@ import 'reactflow/dist/style.css';
 
 // Base style for nodes
 const nodeBaseStyle = {
-  border: '2px solid #90caf9',
-  borderRadius: 12,
-  padding: 12,
-  fontSize: 16,
+  border: '1px solid #90caf9',
+  borderRadius: 20,
+  padding: '8px 16px',
+  fontSize: 14,
   background: '#fff',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
-  minWidth: 200,
-  minHeight: 40,
+  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+  minWidth: 160,
+  maxWidth: 220,
+  textAlign: 'center',
   cursor: 'pointer',
 };
 
@@ -449,6 +450,20 @@ const EnhancedReadingMindmap = ({ section = 'orientation' }) => {
         nodesConnectable={false}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        defaultEdgeOptions={{
+          type: 'bezier',
+          animated: true,
+          style: { 
+            stroke: '#90caf9',
+            strokeWidth: 2
+          },
+          markerEnd: {
+            type: 'arrowclosed',
+            color: '#90caf9',
+            width: 20,
+            height: 20
+          }
+        }}
         fitView
       >
         <Controls />

@@ -1,0 +1,67 @@
+{
+  "category": "question-types",
+  "title": "Question Types & Strategies",
+  "topics": [
+    {
+      "key": "form-completion",
+      "title": "Form Completion",
+      "description": "Strategies for completing forms, notes, and tables accurately",
+      "templates": [
+        {
+          "name": "Basic Approach",
+          "content": "1. Scan the form structure first\n2. Note the word limit for each answer\n3. Listen for specific information\n4. Check spelling and grammar fit"
+        },
+        {
+          "name": "Advanced Strategy",
+          "content": "1. Predict information categories\n2. Look for form section headers\n3. Note any special instructions\n4. Listen for corrections and changes"
+        }
+      ],
+      "mindmap": {
+        "title": "Form Completion Skills",
+        "nodes": [
+          {
+            "id": "1",
+            "label": "Form Analysis",
+            "children": ["1a", "1b", "1c"],
+            "data": {
+              "description": "Understanding form structure and requirements"
+            }
+          },
+          {
+            "id": "1a",
+            "label": "Word Limits",
+            "data": {
+              "description": "Check maximum words allowed"
+            }
+          },
+          {
+            "id": "1b",
+            "label": "Information Types",
+            "data": {
+              "description": "Identify what kind of information needed"
+            }
+          },
+          {
+            "id": "1c",
+            "label": "Answer Format",
+            "data": {
+              "description": "Note any specific format requirements"
+            }
+          }
+        ]
+      },
+      "tips": [
+        "Read form headings carefully",
+        "Note any capitalization requirements",
+        "Listen for spelling of proper nouns",
+        "Check grammar fit in sentences"
+      ],
+      "traps": [
+        "Exceeding word limits",
+        "Missing capitalization requirements",
+        "Not checking grammar fit",
+        "Writing incorrect spelling"
+      ]
+    }
+  ]
+}

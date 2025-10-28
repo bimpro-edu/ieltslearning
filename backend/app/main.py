@@ -12,6 +12,7 @@ from .graders.coherence import score_coherence_and_cohesion
 from .graders.advanced_coherence import score_coherence_and_cohesion_advanced
 from .models import Lesson, SubmitReorderPayload, SubmitSkeletonPayload, SubmitConnectorChoicePayload, SubmitParagraphImprovementPayload, UserCreate, UserInDB, Token
 from .database import SessionLocal, engine
+from .routes import api_router
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -25,6 +26,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include all API routes
+app.include_router(api_router)
 
 # Dependency to get DB session
 def get_db():
@@ -105,6 +109,7 @@ def get_lessons():
 def get_lesson(lesson_id: str):
     for lesson in lessons_db:
         if lesson["id"] == lesson_id:
+            print(lesson)
             return lesson
     raise HTTPException(status_code=404, detail="Lesson not found")
 

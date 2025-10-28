@@ -16,6 +16,7 @@ const LessonCard = ({ title, description, to }) => (
 const listeningClusters = [
   {
     title: 'Core Listening Skills',
+    categoryKey: 'core-skills',
     color: 'bg-blue-50',
     lessons: [
       { key: 'predicting', title: 'Predicting Answers from Context', description: 'Learn to anticipate answers by analyzing question context and speaker cues.' },
@@ -27,6 +28,7 @@ const listeningClusters = [
   },
   {
     title: 'Question Types & Strategies',
+    categoryKey: 'question-types',
     color: 'bg-green-50',
     lessons: [
       { key: 'form', title: 'Form Completion', description: 'Strategies for completing notes, tables, and summaries accurately.' },
@@ -39,6 +41,7 @@ const listeningClusters = [
   },
   {
     title: 'Test Skills & Mindset',
+    categoryKey: 'test-skills',
     color: 'bg-yellow-50',
     lessons: [
       { key: 'spelling', title: 'Spelling & Numbers Training', description: 'Master spelling, numbers, dates, and addresses as they appear in the test.' },
@@ -60,8 +63,6 @@ export default function ListeningLessonsListPage({ hideHeaderFooter }) {
         <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">IELTS Listening Lesson Library</h1>
           <div className="space-y-12">
             {listeningClusters.map((cluster, idx) => {
-              // Convert cluster title to kebab-case for URL
-              const clusterKey = cluster.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
               return (
                 <div key={cluster.title} className={`rounded-lg shadow ${cluster.color}`}>
                   <button
@@ -76,13 +77,18 @@ export default function ListeningLessonsListPage({ hideHeaderFooter }) {
                     <div className="px-6 pb-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         <LessonCard
-                          key={clusterKey}
+                          key={cluster.categoryKey}
                           title={`Explore ${cluster.title}`}
                           description={`View all topics, tips, and mindmaps for ${cluster.title}.`}
-                          to={`/listening/${clusterKey}`}
+                          to={`/listening/${cluster.categoryKey}`}
                         />
                         {cluster.lessons.map(lesson => (
-                          <LessonCard key={lesson.key} title={lesson.title} description={lesson.description} to={lesson.to} />
+                          <LessonCard 
+                            key={lesson.key} 
+                            title={lesson.title} 
+                            description={lesson.description} 
+                            to={`/listening/${cluster.categoryKey}/${lesson.key}`} 
+                          />
                         ))}
                       </div>
                     </div>

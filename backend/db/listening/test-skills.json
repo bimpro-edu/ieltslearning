@@ -1,0 +1,67 @@
+{
+  "category": "test-skills",
+  "title": "Test Skills & Mindset",
+  "topics": [
+    {
+      "key": "time-management",
+      "title": "Time Management",
+      "description": "Learn when to read ahead and when to focus on listening",
+      "templates": [
+        {
+          "name": "Basic Strategy",
+          "content": "1. Use breaks effectively\n2. Preview upcoming questions\n3. Write answers quickly\n4. Transfer answers strategically"
+        },
+        {
+          "name": "Advanced Technique",
+          "content": "1. Manage section transitions\n2. Use parallel processing\n3. Handle unexpected situations\n4. Optimize answer checking"
+        }
+      ],
+      "mindmap": {
+        "title": "Time Management Skills",
+        "nodes": [
+          {
+            "id": "1",
+            "label": "Break Utilization",
+            "children": ["1a", "1b", "1c"],
+            "data": {
+              "description": "Making the most of pauses"
+            }
+          },
+          {
+            "id": "1a",
+            "label": "Question Preview",
+            "data": {
+              "description": "Read upcoming questions"
+            }
+          },
+          {
+            "id": "1b",
+            "label": "Answer Transfer",
+            "data": {
+              "description": "Strategy for answer sheet"
+            }
+          },
+          {
+            "id": "1c",
+            "label": "Section Planning",
+            "data": {
+              "description": "Prepare for next section"
+            }
+          }
+        ]
+      },
+      "tips": [
+        "Use 30-second breaks effectively",
+        "Write answers as you listen",
+        "Transfer in groups of 5-10",
+        "Keep track of question numbers"
+      ],
+      "traps": [
+        "Spending too long on one question",
+        "Not using breaks efficiently",
+        "Rushing transfers",
+        "Losing track of place"
+      ]
+    }
+  ]
+}

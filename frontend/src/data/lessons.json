@@ -1,0 +1,445 @@
+[
+  {
+    "id": "predicting",
+    "title": "Predicting Answers from Context",
+    "content": [
+      {"type": "p", "text": "Learning to predict answers in IELTS Listening is a crucial skill that can significantly improve your performance."},
+      {"type": "p", "text": "When you predict answers, you're preparing your mind to listen for specific information, making it easier to catch the correct details when they're spoken."},
+      {"type": "p", "text": "Key prediction strategies include:"},
+      {"type": "p", "text": "1. Analyze question types - Different question formats (multiple choice, form completion, etc.) require different prediction approaches."},
+      {"type": "p", "text": "2. Look for context clues - The question text often contains hints about what type of answer to expect (numbers, names, dates, etc.)."},
+      {"type": "p", "text": "3. Use question order - Questions typically follow the order of the audio, so use this to anticipate when information will come."},
+      {"type": "p", "text": "4. Consider grammar - The grammatical structure of the question can tell you what part of speech the answer will be."},
+      {"type": "p", "text": "Common prediction patterns:"},
+      {"type": "p", "text": "- For form completion: Predict the type of information (name, date, phone number)"},
+      {"type": "p", "text": "- For multiple choice: Read all options and think about likely synonyms"},
+      {"type": "p", "text": "- For matching: Study both lists and think about logical connections"}
+    ],
+    "exercises": [],
+    "mindmap": {
+      "id": "predicting",
+      "label": "Foundations",
+      "color": "#f8bbd0",
+      "children": []
+    }
+  },
+  {
+    "id": "task1-academic-linegraph",
+    "title": "Task 1 Academic: LineGraph",
+    "content": [
+      {"type": "p", "text": "Intro: The line graph illustrates/compares [what the data shows] from [start year] to [end year]."},
+      {"type": "p", "text": "Overview: Overall, it is clear that [the main trend or most significant feature]. Another key feature is that [a second main trend]."},
+      {"type": "p", "text": "Body1: Looking at the details, [feature A] started at [value] in [year] and [describe its trend, e.g., rose/fell significantly] to [value] in [year]."},
+      {"type": "p", "text": "Body2: In contrast, [feature B] followed an opposite pattern, beginning at [value] and [describe its trend] to end the period at [value]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task1-academic-piechart",
+    "title": "Task 1 Academic: PieChart",
+    "content": [
+      {"type": "p", "text": "Intro: The pie charts provide information on/compare [what the data shows] in [location/year]."},
+      {"type": "p", "text": "Overview: Overall, the largest proportion of [category] was [the biggest slice], whereas the smallest was [the smallest slice]."},
+      {"type": "p", "text": "Body1: Specifically, [category A] accounted for [percentage] of the total. This was followed by [category B] with [percentage]."},
+      {"type": "p", "text": "Body2: Meanwhile, the remaining categories, [C and D], made up a smaller portion of the total, at [percentage] and [percentage] respectively."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task1-academic-barchart",
+    "title": "Task 1 Academic: BarChart",
+    "content": [
+      {"type": "p", "text": "Intro: The bar chart illustrates/compares [what the data shows] across [several categories or time periods]."},
+      {"type": "p", "text": "Overview: Overall, [the highest category/value] stands out, while [the lowest category/value] is also noticeable. All other categories fall in between these two extremes."},
+      {"type": "p", "text": "Body1: Focusing on [category A], its value was [number], which was significantly higher/lower than [category B] at [number]."},
+      {"type": "p", "text": "Body2: Furthermore, [category C] and [category D] had similar figures, at [number] and [number] respectively."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task1-academic-table",
+    "title": "Task 1 Academic: Table",
+    "content": [
+      {"type": "p", "text": "Intro: The table provides data on/compares [what the data shows] in [number] different [countries/categories]."},
+      {"type": "p", "text": "Overview: Overall, the table highlights that [the most significant piece of information]. It is also evident that [a secondary significant point]."},
+      {"type": "p", "text": "Body1: Regarding [category A], the figure for [item 1] was [value], compared to only [value] for [item 2]."},
+      {"type": "p", "text": "Body2: Another key point is that [item 3] had the highest/lowest [metric] across all categories, with a figure of [value]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task1-academic-processdiagram",
+    "title": "Task 1 Academic: ProcessDiagram",
+    "content": [
+      {"type": "p", "text": "Intro: The diagram illustrates the process by which [the end product] is produced / the stages involved in [the process]."},
+      {"type": "p", "text": "Overview: Overall, the process consists of [number] main stages, beginning with [the first stage] and culminating in [the final stage]."},
+      {"type": "p", "text": "Body1: The process begins when [describe the first stage]. Following this, [describe the second stage, using sequencers like 'next', 'then', 'after that']."},
+      {"type": "p", "text": "Body2: In the subsequent stage, [describe the next steps]. The final stage of the process involves [describe the last stage and the end result]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task1-academic-map",
+    "title": "Task 1 Academic: Map",
+    "content": [
+      {"type": "p", "text": "Intro: The two maps illustrate the changes that have taken place in the town/area of [place name] between [year 1] and [year 2]."},
+      {"type": "p", "text": "Overview: Overall, the area has undergone significant transformation, with the most notable changes being [the most obvious change, e.g., the addition of new facilities] and [a second major change, e.g., the removal of green spaces]."},
+      {"type": "p", "text": "Body1: Looking at the map from [year 1], the area was predominantly [residential/rural/industrial]. To the north/south/east/west, there was a [key feature, e.g., large park]."},
+      {"type": "p", "text": "Body2: By [year 2], this area had been transformed. For example, the [feature from Body 1] was replaced by a [new feature]. Additionally, a new [building/road] was constructed in the [location]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task2-opinion",
+    "title": "Task 2: Opinion",
+    "content": [
+      {"type": "p", "text": "Intro: It is often argued that [paraphrase the statement]. In my view, I completely agree/disagree with this proposition, and this essay will outline the reasons why."},
+      {"type": "p", "text": "Body1: One of the primary reasons for my agreement/disagreement is that [first main idea]. For example, [provide a specific example or evidence]."},
+      {"type": "p", "text": "Body2: Another significant factor is [second main idea]. To illustrate this, [provide a specific example or evidence]."},
+      {"type": "p", "text": "Body3_Optional: Some might argue that [counter-argument], however, this perspective overlooks [rebuttal]."},
+      {"type": "p", "text": "Conclusion: In conclusion, for the reasons mentioned above, I firmly believe that [restate your thesis]. It is recommended that [provide a final thought or recommendation]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task2-discussion",
+    "title": "Task 2: Discussion",
+    "content": [
+      {"type": "p", "text": "Intro: The issue of whether [topic A] or [topic B] is more beneficial has sparked considerable debate. This essay will examine both perspectives before providing my own viewpoint."},
+      {"type": "p", "text": "Body1: On the one hand, there are several reasons why people advocate for [View A]. The most prominent one is that [explain reason 1 for View A]."},
+      {"type": "p", "text": "Body2: On the other hand, those who support [View B] argue that [explain reason 1 for View B]. A compelling argument is that [explain reason 2 for View B]."},
+      {"type": "p", "text": "Body3_Optional: While both viewpoints have merit, it is important to consider [a third, nuanced perspective or a synthesis of ideas]."},
+      {"type": "p", "text": "Conclusion: In conclusion, while both sides of the argument have valid points, I am of the opinion that [your opinion]. This is because [briefly summarize your main reason]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task2-problemsolution",
+    "title": "Task 2: ProblemSolution",
+    "content": [
+      {"type": "p", "text": "Intro: In recent years, [the problem] has become a major issue affecting many people. This essay will explore the primary causes of this problem and propose some viable solutions."},
+      {"type": "p", "text": "Body1: The main cause of [the problem] is undoubtedly [Cause 1]. This is because [explain the cause]. Another contributing factor is [Cause 2]."},
+      {"type": "p", "text": "Body2: To address this issue, several solutions can be implemented. Firstly, the government could [propose Solution 1]. Secondly, individuals have a role to play by [propose Solution 2]."},
+      {"type": "p", "text": "Body3_Optional: Beyond these, [an additional solution or a long-term implication] could also be considered to further alleviate the problem."},
+      {"type": "p", "text": "Conclusion: In summary, [the problem] is a complex issue with multiple causes. However, by implementing the measures outlined above, it is possible to mitigate the situation effectively."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task2-advantagedisadvantage",
+    "title": "Task 2: AdvantageDisadvantage",
+    "content": [
+      {"type": "p", "text": "Intro: The trend towards [the topic] has both positive and negative aspects. This essay will discuss the main advantages and disadvantages of this development."},
+      {"type": "p", "text": "Body1: The primary advantage of [the topic] is that [Advantage 1]. For instance, [provide an example]. Another benefit is that [Advantage 2]."},
+      {"type": "p", "text": "Body2: Despite these benefits, there are also significant drawbacks. The most serious disadvantage is that [Disadvantage 1]. Furthermore, [Disadvantage 2] is another point to consider."},
+      {"type": "p", "text": "Body3_Optional: A further point to consider is [a third advantage/disadvantage or a balanced perspective on the overall impact]."},
+      {"type": "p", "text": "Conclusion: In conclusion, while [the topic] offers clear advantages in terms of [Advantage 1], the disadvantages, such as [Disadvantage 1], cannot be ignored. In my opinion, the benefits ultimately outweigh/do not outweigh the drawbacks."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "task2-doublequestion",
+    "title": "Task 2: DoubleQuestion",
+    "content": [
+      {"type": "p", "text": "Intro: The topic of [the general subject] raises several important questions. This essay will first address [the first question] and then discuss [the second question]."},
+      {"type": "p", "text": "Body1: Regarding the first question, [answer the first question directly]. The main reason for this is [provide a reason]. For example, [give an example]."},
+      {"type": "p", "text": "Body2: Turning to the second question, [answer the second question directly]. This is largely because [provide a reason]. A clear illustration of this is [give an example]."},
+      {"type": "p", "text": "Conclusion: In conclusion, the answers to these two questions are clear. [Briefly summarize answer 1], and [briefly summarize answer 2]."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "predicting",
+    "title": "Reading: Predicting Content",
+    "content": [
+      {"type": "p", "text": "Predicting content is a crucial pre-reading strategy. By looking at titles, headings, and images, you can activate your prior knowledge and form expectations about the text."},
+      {"type": "p", "text": "This helps you to read more actively and with better comprehension."}
+    ],
+    "exercises": [],
+    "mindmap": {
+      "id": "predicting",
+      "label": "Foundations",
+      "color": "#f8bbd0",
+      "children": [
+        {
+          "label": "Reading Skills",
+          "color": "#e3f2fd",
+          "children": [
+            {
+              "label": "Skimming",
+              "color": "#e3f2fd",
+              "details": "Grabbing main idea quickly."
+            },
+            {
+              "label": "Scanning",
+              "color": "#e3f2fd",
+              "details": "Locating specific facts (dates, names, numbers)."
+            },
+            {
+              "label": "Close Reading",
+              "color": "#e3f2fd",
+              "details": "For True/False/Not Given, inference, matching headings."
+            }
+          ]
+        },
+        {
+          "label": "Understanding Question Types",
+          "color": "#e3f2fd",
+          "children": [
+            {
+              "label": "True/False/Not Given (TFNG)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Yes/No/Not Given (YNNG)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Matching headings",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Matching information/features",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Sentence completion",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Summary/Note/Table completion",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Multiple Choice Questions (MCQs)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Short answer questions",
+              "color": "#e3f2fd"
+            }
+          ]
+        },
+        {
+          "label": "Building Vocabulary for Reading",
+          "color": "#e3f2fd",
+          "children": [
+            {
+              "label": "Academic Word List (AWL)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Synonyms and collocations",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Topic-based clusters (science, history, environment, society)",
+              "color": "#e3f2fd"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "skimming",
+    "title": "Reading: Skimming for Gist",
+    "content": [
+      {"type": "p", "text": "Skimming is the skill of reading quickly to get a general idea or 'gist' of a text. You don't read every word. Instead, you let your eyes move quickly over the text, focusing on headings, subheadings, and the first and last sentences of paragraphs."},
+      {"type": "p", "text": "It's particularly useful when you need to decide if a text is relevant to your needs."}
+    ],
+    "exercises": [],
+    "mindmap": {
+      "id": "skimming",
+      "label": "Foundations",
+      "color": "#f8bbd0",
+      "children": [
+        {
+          "label": "Reading Skills",
+          "color": "#e3f2fd",
+          "children": [
+            {
+              "label": "Skimming",
+              "color": "#e3f2fd",
+              "details": "Grabbing main idea quickly."
+            },
+            {
+              "label": "Scanning",
+              "color": "#e3f2fd",
+              "details": "Locating specific facts (dates, names, numbers)."
+            },
+            {
+              "label": "Close Reading",
+              "color": "#e3f2fd",
+              "details": "For True/False/Not Given, inference, matching headings."
+            }
+          ]
+        },
+        {
+          "label": "Understanding Question Types",
+          "color": "#e3f2fd",
+          "children": [
+            {
+              "label": "True/False/Not Given (TFNG)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Yes/No/Not Given (YNNG)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Matching headings",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Matching information/features",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Sentence completion",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Summary/Note/Table completion",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Multiple Choice Questions (MCQs)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Short answer questions",
+              "color": "#e3f2fd"
+            }
+          ]
+        },
+        {
+          "label": "Building Vocabulary for Reading",
+          "color": "#e3f2fd",
+          "children": [
+            {
+              "label": "Academic Word List (AWL)",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Synonyms and collocations",
+              "color": "#e3f2fd"
+            },
+            {
+              "label": "Topic-based clusters (science, history, environment, society)",
+              "color": "#e3f2fd"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "scanning",
+    "title": "Reading: Scanning for Specific Information",
+    "content": [
+      {"type": "p", "text": "Scanning is another fast-reading technique. Unlike skimming, when you scan, you are looking for a specific piece of information, such as a name, a date, or a number."},
+      {"type": "p", "text": "You can scan a text much more quickly than you can read it in detail."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "paragraph-structure",
+    "title": "Reading: Understanding Paragraph Structure",
+    "content": [
+      {"type": "p", "text": "Most academic paragraphs have a clear structure: a topic sentence that introduces the main idea, supporting sentences that develop it with examples and evidence, and sometimes a concluding sentence."},
+      {"type": "p", "text": "Understanding this structure helps you to follow the author's argument and locate key information."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "true-false-not-given",
+    "title": "Reading: True/False/Not Given",
+    "content": [
+      {"type": "p", "text": "This question type assesses your ability to understand the information given in the text and to recognize when information is not given."},
+      {"type": "p", "text": "'True' means the statement agrees with the information in the text. 'False' means the statement contradicts the information. 'Not Given' means there is no information on this."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "matching-headings",
+    "title": "Reading: Matching Headings",
+    "content": [
+      {"type": "p", "text": "In this task, you are given a list of headings and you have to match each heading to the correct paragraph or section in the text."},
+      {"type": "p", "text": "This tests your ability to understand the main idea of a paragraph."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "multiple-choice",
+    "title": "Reading: Multiple Choice",
+    "content": [
+      {"type": "p", "text": "Multiple choice questions require you to choose the best answer from a number of options."},
+      {"type": "p", "text": "It's important to read the question and all the options carefully before making your choice. Be aware of distractors - options that are designed to seem correct but are not."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "sentence-completion",
+    "title": "Reading: Sentence Completion",
+    "content": [
+      {"type": "p", "text": "In sentence completion tasks, you need to complete sentences by filling in the gaps with words from the text."},
+      {"type": "p", "text": "The answers are usually in the same order as the information in the text. Pay attention to the grammar of the sentence."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "summary-completion",
+    "title": "Reading: Summary Completion",
+    "content": [
+      {"type": "p", "text": "This task requires you to complete a summary of part of the text using words from a list or from the text itself."},
+      {"type": "p", "text": "It tests your ability to understand the main ideas of a section of the text."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "diagram-labelling",
+    "title": "Reading: Diagram Label Completion",
+    "content": [
+      {"type": "p", "text": "In this task, you have to label a diagram with words from the text."},
+      {"type": "p", "text": "The information in the text that you need to answer the questions is usually located in one section, not spread throughout the text."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "short-answer",
+    "title": "Reading: Short-answer Questions",
+    "content": [
+      {"type": "p", "text": "Short-answer questions require you to write answers to questions based on the information in the text."},
+      {"type": "p", "text": "You must pay close attention to the word limit for your answer (e.g., 'NO MORE THAN TWO WORDS')."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "inference",
+    "title": "Reading: Inference and Implied Meaning",
+    "content": [
+      {"type": "p", "text": "Inference is the ability to understand the meaning of a text even when it is not stated directly. It's about 'reading between the lines'."},
+      {"type": "p", "text": "This skill is crucial for understanding an author's opinion, attitude, or purpose."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "author-purpose",
+    "title": "Reading: Identifying Author's Purpose, Tone, and Attitude",
+    "content": [
+      {"type": "p", "text": "Understanding why an author wrote a text (their purpose) and their feelings about the topic (their tone and attitude) is an advanced reading skill."},
+      {"type": "p", "text": "Look for clues in the author's choice of words, the examples they use, and the way they structure their argument."}
+    ],
+    "exercises": []
+  },
+  {
+    "id": "argument",
+    "title": "Reading: Following a Detailed Argument",
+    "content": [
+      {"type": "p", "text": "Academic texts often contain complex arguments. To follow an argument, you need to be able to identify the main claim, the supporting evidence, and any counter-arguments the author considers."},
+      {"type": "p", "text": "Look for signposting language (e.g., 'However', 'In contrast', 'Therefore') to help you navigate the argument."}
+    ],
+    "exercises": []
+  }
+]

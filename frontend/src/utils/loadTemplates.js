@@ -1,35 +1,20 @@
-// List of real lesson topics for each Listening category (for sidebar)
-const listeningCategoryTopics = {
-  'core-listening-skills': [
-    { key: 'workplace', title: 'Workplace and Employment' },
-    { key: 'shopping', title: 'Shopping and Consumer Rights' },
-    { key: 'climate-change', title: 'Climate Change and You' },
-    { key: 'music-impact', title: 'The Impact of Music on Society' },
-    { key: 'space-exploration', title: 'Space Exploration: Past and Future' },
-    { key: 'renewable-energy', title: 'Renewable Energy Sources' },
-    { key: 'digital-privacy', title: 'Digital Privacy in Modern Life' },
-    { key: 'sports-benefits', title: 'The Benefits of Sports' },
-    { key: 'travel-culture', title: 'Travel and Cultural Exchange' },
-    { key: 'history-internet', title: 'The History of the Internet' },
-    { key: 'university-life', title: 'University Life and Study Skills' },
-    { key: 'accommodation', title: 'Accommodation and Housing' },
-    { key: 'environmental-issues', title: 'Environmental Issues' },
-    { key: 'family', title: 'Family and Relationships' },
-    { key: 'public-services', title: 'Public Services and Facilities' },
-    { key: 'healthcare', title: 'Healthcare and Medical Services' },
-    { key: 'transport', title: 'Transport and Travel' },
-    { key: 'leisure', title: 'Leisure and Free Time' }
-  ]
-};
+import { getListeningTopicsForCategory as _getListeningTopicsForCategory, getListeningTemplateForTopic as _getListeningTemplateForTopic } from './listeningTemplates';
+
 // Export function to get topics for a listening category (for sidebar)
 export function getListeningTopicsForCategory(categoryKey) {
-  return listeningCategoryTopics[categoryKey] || [];
+  return _getListeningTopicsForCategory(categoryKey);
 }
 
 // Export function for loading writing templates (for TaskPage and others)
 export function loadTemplates({ taskType, category, band }) {
   return templateMap[taskType]?.[category]?.[band] || [];
 }
+
+// Export function to get all reading categories
+export function getReadingCategories() {
+  return readingCategories;
+}
+
 import task2_positiveNegativeDevelopment_band5 from '../templates/task2/positiveNegativeDevelopment/band5.js';
 import task2_positiveNegativeDevelopment_band6 from '../templates/task2/positiveNegativeDevelopment/band6.js';
 import task2_positiveNegativeDevelopment_band7 from '../templates/task2/positiveNegativeDevelopment/band7.js';
@@ -45,6 +30,49 @@ import task2_discussion_band5 from '../templates/task2/discussion/band5.js';
 import task2_discussion_band6 from '../templates/task2/discussion/band6.js';
 import task2_discussion_band7 from '../templates/task2/discussion/band7.js';
 import task2_discussion_band8 from '../templates/task2/discussion/band8.js';
+
+// Listening Templates
+import listening_workplace from '../templates/listening/core-listening-skills/workplace.js';
+import listening_shopping from '../templates/listening/core-listening-skills/shopping.js';
+import listening_climate_change from '../templates/listening/core-listening-skills/climate-change.js';
+import listening_music_impact from '../templates/listening/core-listening-skills/music-impact.js';
+import listening_space_exploration from '../templates/listening/core-listening-skills/space-exploration.js';
+import listening_renewable_energy from '../templates/listening/core-listening-skills/renewable-energy.js';
+import listening_digital_privacy from '../templates/listening/core-listening-skills/digital-privacy.js';
+import listening_sports_benefits from '../templates/listening/core-listening-skills/sports-benefits.js';
+import listening_travel_culture from '../templates/listening/core-listening-skills/travel-culture.js';
+import listening_history_internet from '../templates/listening/core-listening-skills/history-internet.js';
+import listening_university_life from '../templates/listening/core-listening-skills/university-life.js';
+import listening_accommodation from '../templates/listening/core-listening-skills/accommodation.js';
+import listening_environmental_issues from '../templates/listening/core-listening-skills/environmental-issues.js';
+import listening_family from '../templates/listening/core-listening-skills/family.js';
+import listening_public_services from '../templates/listening/core-listening-skills/public-services.js';
+import listening_healthcare from '../templates/listening/core-listening-skills/healthcare.js';
+import listening_transport from '../templates/listening/core-listening-skills/transport.js';
+import listening_leisure from '../templates/listening/core-listening-skills/leisure.js';
+
+const listeningTemplateMap = {
+  'core-listening-skills': {
+    'workplace': listening_workplace,
+    'shopping': listening_shopping,
+    'climate-change': listening_climate_change,
+    'music-impact': listening_music_impact,
+    'space-exploration': listening_space_exploration,
+    'renewable-energy': listening_renewable_energy,
+    'digital-privacy': listening_digital_privacy,
+    'sports-benefits': listening_sports_benefits,
+    'travel-culture': listening_travel_culture,
+    'history-internet': listening_history_internet,
+    'university-life': listening_university_life,
+    'accommodation': listening_accommodation,
+    'environmental-issues': listening_environmental_issues,
+    'family': listening_family,
+    'public-services': listening_public_services,
+    'healthcare': listening_healthcare,
+    'transport': listening_transport,
+    'leisure': listening_leisure,
+  }
+};
 
 // Mapping: { [taskType]: { [category]: { [band]: templateData } } }
 const templateMap = {
@@ -70,359 +98,23 @@ const templateMap = {
   }
 };
 
-// Listening templates for all topics (single valid object)
-const listeningTemplates = {
-  'workplace': {
-    title: 'Workplace and Employment',
-    tips: [
-      'Listen for job titles, duties, and requirements. E.g., "Applicants must have experience with Excel."',
-      'Pay attention to working hours, pay, and benefits. E.g., "The salary is $2,000 per month."',
-      'Note any problems or workplace issues. E.g., "There is a staff meeting every Friday."',
-      'Underline or write down company names, positions, or deadlines.'
-    ],
-    traps: [
-      'Don\'t confuse job roles or departments. E.g., "HR" vs. "IT".',
-      'Be careful with numbers and schedules. E.g., "The shift starts at 8am, not 9am."',
-      'Don\'t assume all benefits apply to all employees—listen for details.'
-    ],
-    predictions: [
-      'Expect questions about duties, pay, and workplace issues. E.g., "What is one responsibility of the new employee?"',
-      'Some answers may be about company policies or rules.',
-      'You may need to match people to their job preferences.'
-    ]
-  },
-  'shopping': {
-    title: 'Shopping and Consumer Rights',
-    tips: [
-      'Listen for types of shops, products, and services. E.g., "The supermarket is open until 9pm."',
-      'Pay attention to prices, discounts, and complaints. E.g., "The shoes are on sale for $30."',
-      'Note any problems or solutions discussed. E.g., "The product was faulty, so she returned it."',
-      'Underline or write down names, prices, or product details.'
-    ],
-    traps: [
-      'Don\'t confuse types of shops or products. E.g., "pharmacy" vs. "bakery".',
-      'Be careful with prices and offers. E.g., "Buy one get one free" vs. "50% off".',
-      'Don\'t assume all complaints are resolved—listen for outcomes.'
-    ],
-    predictions: [
-      'Expect questions about products, prices, and complaints. E.g., "What did the customer buy?"',
-      'Some answers may be about solutions or advice.',
-      'You may need to match people to their purchases.'
-    ]
-  },
-  'climate-change': {
-    title: 'Climate Change and You',
-    tips: [
-      'Listen for causes and effects of climate change. E.g., "Burning fossil fuels causes global warming."',
-      'Note any personal actions or solutions mentioned. E.g., "You can help by recycling and using less energy."',
-      'Underline or write down scientific terms and their meanings.'
-    ],
-    traps: [
-      'Don\'t confuse causes with effects. E.g., "Rising temperatures are an effect, not a cause."',
-      'Be careful with scientific terms and data. E.g., "Greenhouse gases" vs. "carbon footprint".',
-      'Don\'t assume all solutions are equally effective—listen for the speaker\'s evaluation.'
-    ],
-    predictions: [
-      'Expect questions about environmental impact and solutions. E.g., "What is one way to reduce emissions?"',
-      'Answers may require inference from examples. E.g., "Using public transport helps the environment."',
-      'Some answers may be about future predictions or trends.'
-    ]
-  },
-  'music-impact': {
-    title: 'The Impact of Music on Society',
-    tips: [
-      'Listen for examples of music\'s influence on culture or emotions. E.g., "Music can bring people together at festivals."',
-      'Pay attention to genres and their social roles. E.g., "Classical music is often used in films to create emotion."',
-      'Note any historical changes or trends. E.g., "Rock music became popular in the 1960s."',
-      'Underline or write down names of artists, genres, or events.'
-    ],
-    traps: [
-      'Don\'t mix up genres or historical periods. E.g., "Jazz originated before hip-hop."',
-      'Watch for opinions vs. facts. E.g., "Some people believe pop music is too commercial."',
-      'Don\'t assume all examples are positive—listen for criticism as well.'
-    ],
-    predictions: [
-      'Expect questions about effects, examples, and opinions. E.g., "How does music affect mood?"',
-      'Some answers may be subjective or require interpretation. E.g., "Why do people listen to sad songs?"',
-      'You may need to identify the main idea or theme of a passage.'
-    ]
-  },
-  'space-exploration': {
-    title: 'Space Exploration: Past and Future',
-    tips: [
-      'Listen for key missions and dates. E.g., "Apollo 11 landed on the moon in 1969."',
-      'Pay attention to reasons for exploration. E.g., "Scientists want to find life on Mars."',
-      'Note any challenges or risks mentioned. E.g., "Radiation is a major concern for astronauts."',
-      'Underline or write down names of spacecraft or astronauts.'
-    ],
-    traps: [
-      'Don\'t confuse different missions or planets. E.g., "Voyager explored the outer planets, not the moon."',
-      'Be careful with numbers and statistics. E.g., "The mission lasted 8 days, not 18."',
-      'Don\'t assume all missions were successful—listen for failures or problems.'
-    ],
-    predictions: [
-      'Expect questions about achievements, goals, and challenges. E.g., "What was the first spacecraft to leave the solar system?"',
-      'Some answers may be about future plans or technologies. E.g., "Mars colonization is a future goal."',
-      'You may need to match missions to their outcomes.'
-    ]
-  },
-  'renewable-energy': {
-    title: 'Renewable Energy Sources',
-    tips: [
-      'Listen for types of renewable energy. E.g., "Solar, wind, and hydro are common sources."',
-      'Pay attention to advantages and disadvantages. E.g., "Wind energy is clean but depends on weather."',
-      'Note any statistics or comparisons. E.g., "Solar power use increased by 20% last year."',
-      'Underline or write down key terms and their meanings.'
-    ],
-    traps: [
-      'Don\'t confuse renewable and non-renewable sources. E.g., "Coal is not renewable."',
-      'Be careful with numbers and percentages. E.g., "Hydro provides 15% of electricity, not 50%."',
-      'Don\'t assume all sources are equally effective—listen for the speaker\'s evaluation.'
-    ],
-    predictions: [
-      'Expect questions about types, benefits, and challenges. E.g., "What is one advantage of solar energy?"',
-      'Some answers may be about environmental impact or cost.',
-      'You may need to compare two or more energy sources.'
-    ]
-  },
-  'digital-privacy': {
-    title: 'Digital Privacy in Modern Life',
-    tips: [
-      'Listen for examples of privacy risks. E.g., "Sharing passwords can lead to identity theft."',
-      'Pay attention to advice for staying safe online. E.g., "Use strong passwords and two-factor authentication."',
-      'Note any laws or regulations mentioned. E.g., "GDPR protects user data in Europe."',
-      'Underline or write down key terms like "encryption" or "phishing".'
-    ],
-    traps: [
-      'Don\'t ignore warnings or exceptions. E.g., "Not all websites are secure."',
-      'Be careful with similar-sounding terms. E.g., "malware" vs. "malicious".',
-      'Don\'t assume all advice applies everywhere—listen for context.'
-    ],
-    predictions: [
-      'Expect questions about risks, solutions, and laws. E.g., "What is one way to protect your privacy online?"',
-      'Some answers may be about consequences of not protecting privacy.',
-      'You may need to identify the main risk in a scenario.'
-    ]
-  },
-  'sports-benefits': {
-    title: 'The Benefits of Sports',
-    tips: [
-      'Listen for physical, mental, and social benefits. E.g., "Sports improve teamwork and reduce stress."',
-      'Pay attention to examples of different sports. E.g., "Swimming builds endurance; basketball improves coordination."',
-      'Note any statistics or recommendations. E.g., "Children should exercise for at least 1 hour a day."',
-      'Underline or write down names of sports and their benefits.'
-    ],
-    traps: [
-      'Don\'t confuse benefits with risks. E.g., "Injuries are a risk, not a benefit."',
-      'Be careful with numbers and recommendations. E.g., "30 minutes a day" vs. "1 hour a day."',
-      'Don\'t assume all sports have the same benefits—listen for differences.'
-    ],
-    predictions: [
-      'Expect questions about types of benefits and examples. E.g., "How does sport help mental health?"',
-      'Some answers may be about recommendations or guidelines.',
-      'You may need to match sports to their specific benefits.'
-    ]
-  },
-  'travel-culture': {
-    title: 'Travel and Cultural Exchange',
-    tips: [
-      'Listen for reasons people travel and what they learn. E.g., "Traveling helps you understand new cultures."',
-      'Pay attention to cultural differences and experiences. E.g., "Trying local food is a big part of travel."',
-      'Note any challenges or surprises mentioned. E.g., "She was surprised by the local customs."',
-      'Underline or write down country names, foods, or traditions.'
-    ],
-    traps: [
-      'Don\'t confuse countries or customs. E.g., "Japanese bowing" vs. "French cheek kissing".',
-      'Be careful with reasons for travel. E.g., "business" vs. "pleasure".',
-      'Don\'t assume all experiences are positive—listen for problems.'
-    ],
-    predictions: [
-      'Expect questions about reasons, experiences, and challenges. E.g., "What did the traveler learn?"',
-      'Some answers may be about cultural differences.',
-      'You may need to match people to their travel experiences.'
-    ]
-  },
-  'history-internet': {
-    title: 'The History of the Internet',
-    tips: [
-      'Listen for key dates and technological milestones. E.g., "The World Wide Web was invented in 1989."',
-      'Pay attention to names of inventors or organizations. E.g., "Tim Berners-Lee created the first website."',
-      'Note the sequence of events and how the internet evolved over time.'
-    ],
-    traps: [
-      'Don\'t confuse the invention of the internet with the invention of the World Wide Web.',
-      'Be careful with dates and technical terms. E.g., "ARPANET" vs. "Internet".',
-      'Don\'t assume all countries adopted the internet at the same time.'
-    ],
-    predictions: [
-      'Expect questions about important years, people, and inventions. E.g., "Who invented the World Wide Web?"',
-      'Some answers may require understanding the order of events.',
-      'You may need to match inventions to their inventors or dates.'
-    ]
-  },
-  'university-life': {
-    title: 'University Life and Study Skills',
-    tips: [
-      'Listen for references to lectures, seminars, and assignments. E.g., "The essay is due next Monday."',
-      'Pay attention to advice about time management and study techniques. E.g., "Make a revision timetable."',
-      'Note any campus locations or resources mentioned. E.g., "The library is open until 10pm."',
-      'Underline or write down names of courses, professors, or deadlines.'
-    ],
-    traps: [
-      'Don\'t confuse different types of academic tasks. E.g., "presentation" vs. "report".',
-      'Be careful with dates and times. E.g., "The meeting is on Thursday, not Tuesday."',
-      'Don\'t assume all advice is for everyone—listen for exceptions.'
-    ],
-    predictions: [
-      'Expect questions about study skills, campus life, and deadlines. E.g., "Where can students get help with writing?"',
-      'Some answers may be about rules or procedures.',
-      'You may need to match resources to their purposes.'
-    ]
-  },
-  'accommodation': {
-    title: 'Accommodation and Housing',
-    tips: [
-      'Listen for types of accommodation and their features. E.g., "The apartment has two bedrooms and a balcony."',
-      'Pay attention to costs, contracts, and facilities. E.g., "The rent includes water and electricity."',
-      'Note any problems or repairs mentioned. E.g., "The heating is not working properly."',
-      'Underline or write down addresses, prices, or landlord details.'
-    ],
-    traps: [
-      'Don\'t confuse different types of housing. E.g., "shared flat" vs. "studio apartment".',
-      'Be careful with numbers and contract terms. E.g., "six-month lease" vs. "one-year lease".',
-      'Don\'t assume all facilities are included—listen for exceptions.'
-    ],
-    predictions: [
-      'Expect questions about features, costs, and problems. E.g., "What is included in the rent?"',
-      'Some answers may be about solutions to housing issues.',
-      'You may need to match people to their accommodation preferences.'
-    ]
-  },
-  'environmental-issues': {
-    title: 'Environmental Issues',
-    tips: [
-      'Listen for causes and effects of environmental problems. E.g., "Air pollution is caused by car emissions."',
-      'Pay attention to solutions and actions. E.g., "Recycling helps reduce waste."',
-      'Note any statistics or scientific terms mentioned. E.g., "CO2 levels have increased."',
-      'Underline or write down names of organizations or environmental laws.'
-    ],
-    traps: [
-      'Don\'t confuse causes with effects. E.g., "Deforestation is a cause, not an effect."',
-      'Be careful with numbers and percentages. E.g., "30% reduction" vs. "70% increase".',
-      'Don\'t assume all solutions are equally effective—listen for the speaker\'s evaluation.'
-    ],
-    predictions: [
-      'Expect questions about causes, effects, and solutions. E.g., "What is one way to reduce pollution?"',
-      'Some answers may require inference from examples.',
-      'You may need to match problems to their solutions.'
-    ]
-  },
-  'family': {
-    title: 'Family and Relationships',
-    tips: [
-      'Listen for family roles and relationships. E.g., "She is the eldest daughter."',
-      'Pay attention to family events and traditions. E.g., "They celebrate together every year."',
-      'Note any problems or conflicts mentioned. E.g., "There was a disagreement about chores."',
-      'Underline or write down names, ages, or relationships.'
-    ],
-    traps: [
-      'Don\'t confuse family members or relationships. E.g., "cousin" vs. "niece".',
-      'Be careful with ages and family structure. E.g., "older brother" vs. "younger brother".',
-      'Don\'t assume all families are the same—listen for unique situations.'
-    ],
-    predictions: [
-      'Expect questions about roles, events, and problems. E.g., "Who is responsible for cooking?"',
-      'Some answers may be about solutions to family issues.',
-      'You may need to match people to their relationships.'
-    ]
-  },
-  'public-services': {
-    title: 'Public Services and Facilities',
-    tips: [
-      'Listen for types of public services and their purposes. E.g., "The library offers free internet access."',
-      'Pay attention to opening hours, locations, and rules. E.g., "The swimming pool is closed on Mondays."',
-      'Note any problems or complaints mentioned. E.g., "The bus service is often late."',
-      'Underline or write down names of services, places, or officials.'
-    ],
-    traps: [
-      'Don\'t confuse different services or facilities. E.g., "post office" vs. "bank".',
-      'Be careful with times and locations. E.g., "open until 5pm" vs. "open until 6pm".',
-      'Don\'t assume all services are free—listen for costs or requirements.'
-    ],
-    predictions: [
-      'Expect questions about services, rules, and problems. E.g., "What does the community center offer?"',
-      'Some answers may be about solutions to service issues.',
-      'You may need to match people to the services they use.'
-    ]
-  },
-  'healthcare': {
-    title: 'Healthcare and Medical Services',
-    tips: [
-      'Listen for types of healthcare services and their purposes. E.g., "The clinic provides vaccinations."',
-      'Pay attention to symptoms, treatments, and advice. E.g., "Take this medicine twice a day."',
-      'Note any emergencies or special instructions. E.g., "Call 911 in case of chest pain."',
-      'Underline or write down names of doctors, medicines, or conditions.'
-    ],
-    traps: [
-      'Don\'t confuse symptoms with diagnoses. E.g., "headache" vs. "migraine".',
-      'Be careful with dosages and schedules. E.g., "once a day" vs. "twice a day".',
-      'Don\'t assume all advice is general—listen for specific instructions.'
-    ],
-    predictions: [
-      'Expect questions about services, advice, and emergencies. E.g., "What should the patient do next?"',
-      'Some answers may be about solutions to health problems.',
-      'You may need to match people to their medical needs.'
-    ]
-  },
-  'transport': {
-    title: 'Transport and Travel',
-    tips: [
-      'Listen for types of transport and travel details. E.g., "The train leaves at 7:30am."',
-      'Pay attention to schedules, routes, and costs. E.g., "The bus ticket costs $2."',
-      'Note any problems or delays mentioned. E.g., "The flight was cancelled due to weather."',
-      'Underline or write down times, destinations, or ticket types.'
-    ],
-    traps: [
-      'Don\'t confuse types of transport or routes. E.g., "express train" vs. "local train".',
-      'Be careful with times and connections. E.g., "departure" vs. "arrival".',
-      'Don\'t assume all tickets are valid for all routes—listen for restrictions.'
-    ],
-    predictions: [
-      'Expect questions about schedules, problems, and costs. E.g., "What time does the bus leave?"',
-      'Some answers may be about solutions to travel issues.',
-      'You may need to match people to their travel plans.'
-    ]
-  },
-  'leisure': {
-    title: 'Leisure and Free Time',
-    tips: [
-      'Listen for types of leisure activities and preferences. E.g., "She enjoys hiking on weekends."',
-      'Pay attention to reasons for choosing activities. E.g., "He plays chess to relax."',
-      'Note any problems or barriers mentioned. E.g., "The park is too far from home."',
-      'Underline or write down names of activities, places, or people.'
-    ],
-    traps: [
-      'Don\'t confuse different activities or their purposes. E.g., "reading" for fun vs. for study.',
-      'Be careful with times and locations. E.g., "evenings" vs. "weekends".',
-      'Don\'t assume everyone has the same opportunities—listen for limitations.'
-    ],
-
-    predictions: [
-      'Expect questions about activities, preferences, and problems. E.g., "What does the person do in their free time?"',
-      'Some answers may be about solutions to leisure barriers.',
-      'You may need to match people to their favorite activities.'
-    ]
-  }
-};
-
 export function getListeningTemplateForTopic(categoryKey, topicKey) {
-  // categoryKey is ignored; topicKey is used to fetch the template
-  return listeningTemplates[topicKey] || null;
+  return _getListeningTemplateForTopic(categoryKey, topicKey);
 }
+
+// Reading categories
+const readingCategories = [
+  { key: 'core-reading-skills', title: 'Core Reading Skills' },
+  { key: 'advanced-skills', title: 'Advanced Reading Skills' },
+  { key: 'question-types', title: 'Question Type Mastery' },
+];
 
 // Reading category topics for sidebar navigation
 const readingCategoryTopics = {
   'core-reading-skills': [
+    { key: 'diagram-label-completion', title: 'Diagram Label Completion' },
+    { key: 'author-attitude', title: "Identifying Author's Attitude" },
+    { key: 'main-idea', title: 'Identifying Main Idea' },
     { key: 'true-false-ng', title: 'True/False/Not Given' },
     { key: 'yes-no-ng', title: 'Yes/No/Not Given' },
     { key: 'matching-headings', title: 'Matching Headings' },
@@ -446,6 +138,61 @@ const readingCategoryTopics = {
 
 // Reading templates for all question types with rich tips, traps, and predictions
 const readingTemplates = {
+  'diagram-label-completion': {
+    title: 'Diagram Label Completion',
+    tips: [
+      'Analyze the diagram to understand the process or object it represents.',
+      'Scan the text for keywords related to the diagram.',
+      'The answers are usually located in a specific section of the passage.',
+      'Pay attention to the word limit for each label.',
+      'Use the labels already provided to orient yourself in the text.'
+    ],
+    traps: [
+      'Do not assume the answers will be in the same order as the labels on the diagram.',
+      'Be careful with technical terms that may be paraphrased in the text.',
+      'Do not use your own knowledge to label the diagram; use only the information from the text.'
+    ],
+    predictions: [
+      'Diagram label completion questions often appear in passages about science or technology.',
+      'Expect to label parts of a machine, a biological process, or a natural phenomenon.'
+    ]
+  },
+  'author-attitude': {
+    title: "Identifying Author's Attitude",
+    tips: [
+      'Look for words that express opinions, emotions, or judgments (e.g., "fortunately", "unfortunately", "surprisingly").',
+      'Pay attention to the author\'s choice of adjectives and adverbs.',
+      'Consider the overall tone of the passage: is it positive, negative, or neutral?',
+      'Identify whether the author is presenting their own view or reporting the views of others.'
+    ],
+    traps: [
+      'Do not confuse the author\'s attitude with the opinions of people quoted in the text.',
+      'Be aware that the author\'s attitude may be subtle and not explicitly stated.',
+      'Do not assume that the author agrees with everything they mention.'
+    ],
+    predictions: [
+      'This skill is crucial for Yes/No/Not Given questions and some multiple-choice questions.',
+      'Expect to find questions about the author\'s purpose, tone, or bias in argumentative passages.'
+    ]
+  },
+  'main-idea': {
+    title: 'Identifying Main Idea',
+    tips: [
+      'The main idea is the central point or message of a paragraph or the entire passage.',
+      'Look for a topic sentence, which is often the first or last sentence of a paragraph.',
+      'Ask yourself, "What is the author\'s primary purpose in this paragraph?".',
+      'Distinguish between the main idea and supporting details or examples.'
+    ],
+    traps: [
+      'Do not choose a detail or example as the main idea.',
+      'Be careful with headings that are too broad or too narrow.',
+      'Do not be misled by a single sentence; consider the paragraph as a whole.'
+    ],
+    predictions: [
+      'This skill is essential for Matching Headings questions.',
+      'Understanding the main idea of each paragraph helps you to follow the author\'s argument.'
+    ]
+  },
   'true-false-ng': {
     title: 'True/False/Not Given',
     tips: [
@@ -453,7 +200,7 @@ const readingTemplates = {
       'FALSE: The statement contradicts the information in the passage (opposite meaning).',
       'NOT GIVEN: The information is not mentioned in the passage at all.',
       'Look for paraphrases and synonyms rather than exact word matches.',
-      'Pay attention to qualifying words like "some," "all," "never," "always."',
+      'Pay attention to qualifying words like "some," "all," "never," "always." ',
       'The statements usually follow the order of information in the passage.'
     ],
     traps: [
@@ -478,13 +225,13 @@ const readingTemplates = {
       'NO: The statement contradicts the writer\'s views or claims in the passage.',
       'NOT GIVEN: The writer\'s view on this is not mentioned in the passage.',
       'Focus on the writer\'s opinions, beliefs, and arguments, not just facts.',
-      'Look for opinion markers like "believe," "argue," "suggest," "claim."',
+      'Look for opinion markers like "believe," "argue," "suggest," "claim." ',
       'Pay attention to the writer\'s tone and attitude toward different topics.'
     ],
     traps: [
       'Don\'t confuse facts with opinions - this question type is about the writer\'s views.',
       'Watch out for statements that seem factual but are actually the writer\'s opinion.',
-      'Be careful with conditional language like "might," "could," "probably."',
+      'Be careful with conditional language like "might," "could," "probably." ',
       'Don\'t assume the writer agrees with something just because it\'s mentioned.',
       'Multiple viewpoints may be presented - focus on what the writer personally believes.'
     ],
@@ -652,7 +399,7 @@ const readingTemplates = {
       'Read the question and options carefully before looking at the passage.',
       'Eliminate obviously wrong answers to increase your chances.',
       'Look for paraphrases of the correct answer in the passage.',
-      'Pay attention to qualifying words like "mainly," "according to," "suggests."',
+      'Pay attention to qualifying words like "mainly," "according to," "suggests." ',
       'The correct answer must be supported by evidence in the passage.',
       'For multiple-answer questions, check how many options to choose.'
     ],
@@ -809,7 +556,7 @@ const readingTemplates = {
     traps: [
       'Don\'t choose answers just because they use words from the passage.',
       'Avoid options that are factually correct but not mentioned in the text.',
-      'Be careful with extreme statements that use words like "always," "never," "all," "none."',
+      'Be careful with extreme statements that use words like "always," "never," "all," "none." ',
       'Don\'t confuse the order of information or mix up cause and effect.',
       'Watch out for distractors that combine information from different parts of the passage.'
     ],
