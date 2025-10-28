@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import ReadingCategorySidebar from '../../components/ReadingCategorySidebar';
 import ReadingCategoryCanvas from '../../components/ReadingCategoryCanvas';
 import { getReadingTopicsForCategory } from '../../utils/readingTemplates';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 // This page renders the sidebar (topics) and canvas (tips/traps/predictions) for a Reading category
 export default function ReadingCategoryPage() {
@@ -19,18 +21,22 @@ export default function ReadingCategoryPage() {
   }, [categoryKey, topicKey]);
 
   return (
-    <div className="flex min-h-screen bg-site-bg">
-      <ReadingCategorySidebar 
-        categoryKey={categoryKey} 
-        selectedTopic={selectedTopic} 
-        setSelectedTopic={setSelectedTopic} 
-      />
-      <main className="flex-1 p-6">
-        <ReadingCategoryCanvas 
+    <div className="flex flex-col min-h-screen bg-site-bg">
+      <Header />
+      <div className="flex flex-1">
+        <ReadingCategorySidebar 
           categoryKey={categoryKey} 
-          topicKey={selectedTopic} 
+          selectedTopic={selectedTopic} 
+          setSelectedTopic={setSelectedTopic} 
         />
-      </main>
+        <main className="flex-1 p-6">
+          <ReadingCategoryCanvas 
+            categoryKey={categoryKey} 
+            topicKey={selectedTopic} 
+          />
+        </main>
+      </div>
+      <Footer />
     </div>
   );
 }

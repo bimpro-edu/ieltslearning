@@ -26,33 +26,42 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
     switch (activeTab) {
       case 'tips':
         return (
-          <ul className="list-disc ml-6 space-y-2 text-base text-gray-700">
+          <ul className="space-y-4">
             {template.tips.map((tip, i) => (
-              <li key={i}>
-                {tip.statement}
-                {tip.example && <p className="text-sm text-gray-500 ml-4">e.g., {tip.example}</p>}
+              <li key={i} className="flex">
+                <span className="text-green-500 mr-2">&#9679;</span>
+                <div>
+                  {tip.statement}
+                  {tip.example && <p className="text-sm text-gray-500 ml-4 italic">e.g., {tip.example}</p>}
+                </div>
               </li>
             ))}
           </ul>
         );
       case 'traps':
         return (
-          <ul className="list-disc ml-6 space-y-2 text-base text-red-700">
+          <ul className="space-y-4">
             {template.traps.map((trap, i) => (
-              <li key={i}>
-                {trap.statement}
-                {trap.example && <p className="text-sm text-gray-500 ml-4">e.g., {trap.example}</p>}
+              <li key={i} className="flex">
+                <span className="text-red-500 mr-2">&#9679;</span>
+                <div>
+                  {trap.statement}
+                  {trap.example && <p className="text-sm text-gray-500 ml-4 italic">e.g., {trap.example}</p>}
+                </div>
               </li>
             ))}
           </ul>
         );
       case 'predictions':
         return (
-          <ul className="list-disc ml-6 space-y-2 text-base text-blue-700">
+          <ul className="space-y-4">
             {template.predictions.map((p, i) => (
-              <li key={i}>
-                {p.statement}
-                {p.example && <p className="text-sm text-gray-500 ml-4">e.g., {p.example}</p>}
+              <li key={i} className="flex">
+                <span className="text-blue-500 mr-2">&#9679;</span>
+                <div>
+                  {p.statement}
+                  {p.example && <p className="text-sm text-gray-500 ml-4 italic">e.g., {p.example}</p>}
+                </div>
               </li>
             ))}
           </ul>
@@ -63,41 +72,38 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow p-6 min-h-[calc(100vh-2rem)]">
-      <h2 className="text-2xl font-bold mb-4">{template.title}</h2>
+    <div className="bg-gray-50 rounded-xl shadow-lg p-6 min-h-[calc(100vh-2rem)]">
+      <h2 className="text-3xl font-bold mb-6 text-primary">{template.title}</h2>
 
       {/* Mindmap (if available) */}
       {template.mindmap && (
         <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-2 text-primary-700">Mind Map</h3>
-          <MindMap data={template.mindmap} />
+          <h3 className="text-xl font-semibold mb-2 text-primary">Mind Map</h3>
+          <div className="bg-white p-4 rounded-lg shadow-inner">
+            <MindMap data={template.mindmap} />
+          </div>
         </div>
       )}
 
-      <div className="border-b border-gray-200 mb-4">
-        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-          <button
-            onClick={() => setActiveTab('tips')}
-            className={`${activeTab === 'tips' ? 'border-primary-500 text-primary-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
-          >
-            Tips
-          </button>
-          <button
-            onClick={() => setActiveTab('traps')}
-            className={`${activeTab === 'traps' ? 'border-primary-500 text-primary-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
-          >
-            Common Mistakes
-          </button>
-          <button
-            onClick={() => setActiveTab('predictions')}
-            className={`${activeTab === 'predictions' ? 'border-primary-500 text-primary-600' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'} whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
-          >
-            Predictions
-          </button>
-        </nav>
+      <div className="flex space-x-1 rounded-lg bg-gray-200 p-1 mb-4">
+        <button
+          onClick={() => setActiveTab('tips')}
+          className={`w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white transition-all duration-200 ${activeTab === 'tips' ? 'bg-primary shadow' : 'text-gray-600 hover:bg-white/[0.12] hover:text-black'}`}>
+          Tips
+        </button>
+        <button
+          onClick={() => setActiveTab('traps')}
+          className={`w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white transition-all duration-200 ${activeTab === 'traps' ? 'bg-primary shadow' : 'text-gray-600 hover:bg-white/[0.12] hover:text-black'}`}>
+          Common Mistakes
+        </button>
+        <button
+          onClick={() => setActiveTab('predictions')}
+          className={`w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white transition-all duration-200 ${activeTab === 'predictions' ? 'bg-primary shadow' : 'text-gray-600 hover:bg-white/[0.12] hover:text-black'}`}>
+          Predictions
+        </button>
       </div>
 
-      <div>
+      <div className="bg-white p-6 rounded-lg shadow-inner">
         {renderContent()}
       </div>
 
