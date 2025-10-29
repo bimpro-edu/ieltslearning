@@ -1,5 +1,6 @@
 import { getListeningTopicsForCategory as _getListeningTopicsForCategory, getListeningTemplateForTopic as _getListeningTemplateForTopic } from './listeningTemplates';
 import { predictingTopics } from './predictingTemplates';
+import { skimmingTopics } from './skimmingTemplates';
 
 // Export function to get topics for a listening category (for sidebar)
 export function getListeningTopicsForCategory(categoryKey) {
@@ -130,49 +131,17 @@ const categoryTopics = {
   ],
 
   'core-reading-skills': [
-    // Core comprehension skills
-    { key: 'academic-vocabulary', title: 'Academic Vocabulary Building' },
-    { key: 'skimming-scanning', title: 'Skimming & Scanning Techniques' },
-    { key: 'main-idea', title: 'Identifying Main Idea' },
-    { key: 'paraphrase-tracking', title: 'Paraphrase Recognition' },
-    { key: 'inference-skills', title: 'Inference & Implication' },
-    { key: 'text-structure', title: 'Understanding Text Structure' },
-    
-    // Opinion & argument focused
-    { key: 'author-attitude', title: "Identifying Author's Attitude" },
-    { key: 'opinion-identification', title: 'Opinion & Arguments Recognition' },
-    { key: 'evidence-evaluation', title: 'Evidence & Support Analysis' },
-    { key: 'argument-structure', title: 'Argument Structure Analysis' },
-    { key: 'bias-recognition', title: 'Bias & Perspective Recognition' },
-    
-    // Problem-solution focused
-    { key: 'problem-identification', title: 'Problem Identification' },
-    { key: 'cause-effect', title: 'Cause & Effect Analysis' },
-    { key: 'solution-evaluation', title: 'Solution Evaluation' },
-    { key: 'impact-assessment', title: 'Impact Assessment' },
-    
-    // Advantage-disadvantage focused
-    { key: 'pros-cons-analysis', title: 'Pros & Cons Analysis' },
-    { key: 'comparative-reading', title: 'Comparative Reading' },
-    { key: 'balanced-perspective', title: 'Balanced Perspective Analysis' },
-    
-    // Technical & practical skills
-    { key: 'time-management', title: 'Reading Time Management' },
-    { key: 'trap-awareness', title: 'Common Traps & Distractors' },
-    { key: 'mock-tests', title: 'Mock Reading Tests' },
-    
-    // Question type mastery
-    { key: 'true-false-ng', title: 'True/False/Not Given' },
-    { key: 'yes-no-ng', title: 'Yes/No/Not Given' },
-    { key: 'matching-headings', title: 'Matching Headings' },
-    { key: 'matching-information', title: 'Matching Information' },
-    { key: 'matching-features', title: 'Matching Features' },
-    { key: 'sentence-completion', title: 'Sentence Completion' },
-    { key: 'summary-completion', title: 'Summary Completion' },
-    { key: 'note-completion', title: 'Note/Table/Flow-chart Completion' },
-    { key: 'multiple-choice', title: 'Multiple Choice Questions' },
-    { key: 'short-answer', title: 'Short Answer Questions' },
-    { key: 'diagram-label-completion', title: 'Diagram Label Completion' }
+    // Subject-style topics (copied from Predicting category to appear on Skimming page)
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'science', title: 'Science' },
+    { key: 'environment', title: 'Environment' },
+    { key: 'health', title: 'Health' },
+    { key: 'business', title: 'Business & Economy' },
+    { key: 'society', title: 'Society & Culture' },
+    { key: 'history', title: 'History' },
+    { key: 'arts', title: 'Arts & Culture' },
+    { key: 'global-issues', title: 'Global Issues' }
   ]
 };
 
@@ -188,10 +157,16 @@ export function getReadingTopicsForCategory(categoryKey) {
 
 // Export function to get template for a specific topic
 export function getReadingTemplateForTopic(categoryKey, topicKey) {
-  if (categoryKey === 'predicting') {
-    return predictingTopics[topicKey] || null;
+  // First check category-specific templates
+  if (categoryKey === 'core-reading-skills' && skimmingTopics && skimmingTopics[topicKey]) {
+    return skimmingTopics[topicKey];
   }
   
+  if (categoryKey === 'predicting' && predictingTopics && predictingTopics[topicKey]) {
+    return predictingTopics[topicKey];
+  }
+
+  // Fall back to general reading templates
   return readingTemplates[topicKey] || null;
 }
 

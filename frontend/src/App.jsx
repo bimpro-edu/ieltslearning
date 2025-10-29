@@ -16,6 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import TaskPage from './pages/TaskPage'; // Import TaskPage
 import ReadingPage from './pages/ReadingPage'; // Import ReadingPage
 import ReadingCategoryPage from './pages/reading/ReadingCategoryPage';
+import SkimmingPage from './pages/reading/SkimmingPage';
 
 import ReadingLessonsListPage from './pages/ReadingLessonsListPage';
 
@@ -34,6 +35,10 @@ function App() {
           
           {/* Reading Module */}
           <Route path={ROUTES.READING.HOME} element={<ReadingPage />} />
+          <Route path="/reading/skimming" element={<SkimmingPage />} />
+          {/* Redirect old skimming URLs to the new short URL */}
+          <Route path="/reading/core-reading-skills/skimming" element={<Navigate to="/reading/skimming" replace />} />
+          <Route path="/reading/core-skills/skimming" element={<Navigate to="/reading/skimming" replace />} />
           <Route path="/reading/core-reading-skills/predicting" element={<Navigate to="/reading/predicting" replace />} />
           <Route path="/reading/:categoryKey/:topicKey" element={<ReadingCategoryPage />} />
           <Route path="/reading/:categoryKey" element={<ReadingCategoryPage />} />

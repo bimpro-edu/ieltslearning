@@ -26,7 +26,7 @@ const readingClusters = [
         key: 'skimming',
         title: 'Skimming for Gist',
         description: 'Read the first and last paragraphs, and the first sentence of all other paragraphs. This gives you a quick overview. For instance, in an article about climate change, skimming helps you quickly grasp the main arguments without getting lost in data.',
-        to: '/reading/core-skills/skimming'
+        to: '/reading/skimming'
       },
       {
         key: 'scanning',

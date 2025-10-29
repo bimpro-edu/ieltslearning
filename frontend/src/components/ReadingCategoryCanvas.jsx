@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect, useRef } from "react";
-import { getReadingTemplateForTopic } from "../utils/loadTemplates";
+import { getReadingTemplateForTopic } from "../utils/readingTemplates";
 
 export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
   const [activeExample, setActiveExample] = useState(0);
@@ -32,12 +32,8 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
     return <div className="text-gray-500 text-lg mt-12 text-center">No data available for this topic.</div>;
   }
 
-  // For predicting category, ensure examples exist
-  if (categoryKey === "predicting") {
-    if (!template.examples || !Array.isArray(template.examples) || template.examples.length === 0) {
-      return <div className="text-gray-500 text-lg mt-12 text-center">No examples available for this topic.</div>;
-    }
-
+  // If the template provides examples (e.g., predicting templates), ensure bounds and compute currentExample
+  if (template.examples && Array.isArray(template.examples) && template.examples.length > 0) {
     // Keep activeExample within bounds
     const safeActiveExample = Math.min(activeExample, template.examples.length - 1);
     if (safeActiveExample !== activeExample) {
@@ -46,7 +42,7 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
   }
 
   // Get the current example safely
-  const currentExample = categoryKey === "predicting" && template.examples ? template.examples[activeExample] : null;
+  const currentExample = template.examples && template.examples.length > 0 ? template.examples[activeExample] : null;
 
   return (
     <div ref={containerRef} className="bg-gray-50 rounded-xl shadow-lg p-6 min-h-[calc(100vh-2rem)]">
@@ -65,7 +61,7 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
           </button>
         </div>
       </div>
-      {categoryKey === "predicting" && template.examples ? (
+      {template.examples ? (
         <div className="space-y-6">
           <div className="flex space-x-1 rounded-lg bg-gray-200 p-1">
             {template.examples.map((example, index) => (
