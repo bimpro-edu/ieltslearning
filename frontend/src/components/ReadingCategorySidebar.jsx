@@ -5,7 +5,7 @@ import { getReadingTopicsForCategory } from '../utils/readingTemplates';
  * Renders a sidebar with a list of reading topics for a given category.
  * It is a synchronous component that gets data from a centralized source.
  */
-export default function ReadingCategorySidebar({ categoryKey = 'core-reading-skills', selectedTopic, setSelectedTopic }) {
+export default function ReadingCategorySidebar({ categoryKey = 'predicting', selectedTopic, setSelectedTopic }) {
   // Fetch topics synchronously from the centralized data source
   const topics = getReadingTopicsForCategory(categoryKey);
 

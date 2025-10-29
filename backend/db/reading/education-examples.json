@@ -1,0 +1,60 @@
+{
+  "education": {
+    "examples": [
+      {
+        "content": "More and more universities are offering online degrees alongside traditional campus-based education. While this development has made higher education more accessible, some argue that it diminishes the quality of learning. Online education provides flexibility for students who work or have family commitments, and it can significantly reduce costs associated with accommodation and transportation. However, the lack of face-to-face interaction and immediate feedback may impact the development of critical thinking and communication skills that are traditionally fostered in classroom settings.",
+        "tips": [
+          "Start with a clear trend or change in education",
+          "Present balanced viewpoints by discussing both advantages and disadvantages",
+          "Use specific examples to support your arguments about accessibility and quality"
+        ],
+        "mistakes": [
+          "Making unsupported claims about educational quality",
+          "Focusing only on technology without considering the human aspect of learning",
+          "Overlooking the role of practical skills and hands-on experience"
+        ],
+        "predictions": [
+          "Questions about the effectiveness of online vs. traditional education",
+          "Discussion of cost-benefit analysis in higher education",
+          "Impact on student engagement and learning outcomes"
+        ]
+      },
+      {
+        "content": "The role of technology in primary education has become increasingly prominent, with tablets and interactive whiteboards replacing traditional textbooks and blackboards. This shift has led to more engaging and personalized learning experiences, as students can progress at their own pace and receive immediate feedback. However, concerns have been raised about screen time, digital literacy gaps among different socioeconomic groups, and the potential loss of fundamental skills like handwriting.",
+        "tips": [
+          "Address both the technological and pedagogical aspects",
+          "Consider long-term implications for child development",
+          "Include specific examples of educational technology integration"
+        ],
+        "mistakes": [
+          "Assuming all technological integration is beneficial",
+          "Ignoring the digital divide and access issues",
+          "Overlooking the importance of teacher training and support"
+        ],
+        "predictions": [
+          "Questions about balancing traditional and digital learning methods",
+          "Impact of technology on student attention and engagement",
+          "Discussion of educational equality and access"
+        ]
+      },
+      {
+        "content": "The growing emphasis on standardized testing in education systems worldwide has sparked debate about its effectiveness in measuring student achievement. While these tests provide quantifiable data for comparing schools and students, they may encourage 'teaching to the test' rather than fostering genuine understanding and creativity. Some educators argue for more holistic assessment methods that consider project work, practical skills, and personal development alongside academic performance.",
+        "tips": [
+          "Present multiple perspectives on assessment methods",
+          "Use specific examples of different evaluation approaches",
+          "Consider cultural differences in educational values"
+        ],
+        "mistakes": [
+          "Taking an extreme position for or against testing",
+          "Oversimplifying the complexity of student assessment",
+          "Ignoring the practical needs of educational systems"
+        ],
+        "predictions": [
+          "Discussion of alternative assessment methods",
+          "Impact on teaching methods and curriculum design",
+          "Balance between standardization and individualization in education"
+        ]
+      }
+    ]
+  }
+}

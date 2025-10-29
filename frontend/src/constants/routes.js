@@ -11,6 +11,7 @@ export const ROUTES = {
   READING: {
     HOME: '/reading',
     CORE_SKILLS: '/reading/core-reading-skills',
+    PREDICTING: '/reading/predicting',
     CATEGORY: (categoryKey) => `/reading/${categoryKey}`,
     TOPIC: (categoryKey, topicKey) => `/reading/${categoryKey}/${topicKey}`
   },

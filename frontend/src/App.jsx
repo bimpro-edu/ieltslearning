@@ -34,6 +34,7 @@ function App() {
           
           {/* Reading Module */}
           <Route path={ROUTES.READING.HOME} element={<ReadingPage />} />
+          <Route path="/reading/core-reading-skills/predicting" element={<Navigate to="/reading/predicting" replace />} />
           <Route path="/reading/:categoryKey/:topicKey" element={<ReadingCategoryPage />} />
           <Route path="/reading/:categoryKey" element={<ReadingCategoryPage />} />
           

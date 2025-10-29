@@ -1,5 +1,94 @@
 {
   "core-reading-skills": {
+    "predicting": {
+      "topics": {
+        "education": {
+          "title": "Education",
+          "examples": [
+            {
+              "title": "Online Learning Trends",
+              "content": "As educational institutions worldwide embrace digital transformation...",
+              "tips": [
+                "Look for key terms related to educational technology",
+                "Pay attention to statistics about online learning adoption",
+                "Notice comparative language between traditional and online education"
+              ],
+              "predictions": [
+                "The passage will likely discuss advantages and challenges of online learning",
+                "There may be statistics about student enrollment in online courses",
+                "Examples of successful online learning implementations could be mentioned"
+              ]
+            },
+            {
+              "title": "Higher Education Access",
+              "content": "The debate over university accessibility and funding continues to evolve...",
+              "tips": [
+                "Focus on economic terms and statistics",
+                "Look for policy-related vocabulary",
+                "Watch for cause-effect relationships"
+              ],
+              "predictions": [
+                "Discussion of tuition costs and student debt is likely",
+                "Government policies regarding education funding may be analyzed",
+                "International comparisons of education systems might be included"
+              ]
+            },
+            {
+              "title": "Early Childhood Development",
+              "content": "Recent research into early childhood education reveals...",
+              "tips": [
+                "Look for developmental psychology terms",
+                "Notice age-specific references",
+                "Watch for research methodology indicators"
+              ],
+              "predictions": [
+                "The text may present research findings about early learning",
+                "Different educational approaches might be compared",
+                "Long-term impacts of early education could be discussed"
+              ]
+            }
+          ]
+        },
+        "technology": {
+          "title": "Technology",
+          "examples": [
+            {
+              "title": "Artificial Intelligence Impact",
+              "content": "The rapid advancement of AI technologies is reshaping various industries...",
+              "tips": [
+                "Look for technical terminology",
+                "Notice industry-specific applications",
+                "Watch for future predictions"
+              ],
+              "predictions": [
+                "Discussion of AI applications in different sectors",
+                "Potential challenges and ethical considerations",
+                "Future developments and implications"
+              ]
+            }
+          ]
+        },
+        "environment": {
+          "title": "Environment",
+          "examples": [
+            {
+              "title": "Climate Change Solutions",
+              "content": "As global temperatures continue to rise, innovative approaches...",
+              "tips": [
+                "Look for scientific terminology",
+                "Notice environmental metrics",
+                "Watch for solution-oriented language"
+              ],
+              "predictions": [
+                "Discussion of specific climate change impacts",
+                "Proposed solutions and their effectiveness",
+                "Policy recommendations and international cooperation"
+              ]
+            }
+          ]
+        }
+      }
+    },
     "skimming": {
       "title": "Skimming for Main Ideas",
       "mindmap": {

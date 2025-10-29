@@ -1,4 +1,5 @@
 import { getListeningTopicsForCategory as _getListeningTopicsForCategory, getListeningTemplateForTopic as _getListeningTemplateForTopic } from './listeningTemplates';
+import { predictingTopics } from './predictingTemplates';
 
 // Export function to get topics for a listening category (for sidebar)
 export function getListeningTopicsForCategory(categoryKey) {
@@ -10,9 +11,63 @@ export function loadTemplates({ taskType, category, band }) {
   return templateMap[taskType]?.[category]?.[band] || [];
 }
 
+// Reading categories for the sidebar
+export const readingCategories = [
+  { key: 'predicting', title: 'Predicting Content' },
+  { key: 'core-reading-skills', title: 'Core Reading Skills' },
+  { key: 'advanced-skills', title: 'Advanced Reading Skills' },
+  { key: 'question-types', title: 'Question Type Mastery' }
+];
+
+// Topics for each category
+const categoryTopics = {
+  'predicting': [
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'environment', title: 'Environment' }
+  ],
+  'core-reading-skills': [
+    { key: 'diagram-label-completion', title: 'Diagram Label Completion' },
+    { key: 'author-attitude', title: "Identifying Author's Attitude" },
+    { key: 'main-idea', title: 'Identifying Main Idea' },
+    { key: 'true-false-ng', title: 'True/False/Not Given' },
+    { key: 'yes-no-ng', title: 'Yes/No/Not Given' },
+    { key: 'matching-headings', title: 'Matching Headings' },
+    { key: 'matching-information', title: 'Matching Information' },
+    { key: 'matching-features', title: 'Matching Features' },
+    { key: 'sentence-completion', title: 'Sentence Completion' },
+    { key: 'summary-completion', title: 'Summary Completion' },
+    { key: 'note-completion', title: 'Note/Table/Flow-chart Completion' },
+    { key: 'multiple-choice', title: 'Multiple Choice Questions' },
+    { key: 'short-answer', title: 'Short Answer Questions' },
+    { key: 'academic-vocabulary', title: 'Academic Vocabulary Building' },
+    { key: 'skimming-scanning', title: 'Skimming & Scanning Techniques' },
+    { key: 'paraphrase-tracking', title: 'Paraphrase Recognition' },
+    { key: 'time-management', title: 'Reading Time Management' },
+    { key: 'trap-awareness', title: 'Common Traps & Distractors' },
+    { key: 'inference-skills', title: 'Inference & Implication' },
+    { key: 'text-structure', title: 'Understanding Text Structure' },
+    { key: 'mock-tests', title: 'Mock Reading Tests' }
+  ]
+};
+
 // Export function to get all reading categories
 export function getReadingCategories() {
   return readingCategories;
+}
+
+// Export function to get topics for a reading category
+export function getReadingTopicsForCategory(categoryKey) {
+  return categoryTopics[categoryKey] || [];
+}
+
+// Export function to get template for a specific topic
+export function getReadingTemplateForTopic(categoryKey, topicKey) {
+  if (categoryKey === 'predicting') {
+    return predictingTopics[topicKey] || null;
+  }
+  
+  return readingTemplates[topicKey] || null;
 }
 
 import task2_positiveNegativeDevelopment_band5 from '../templates/task2/positiveNegativeDevelopment/band5.js';
@@ -102,39 +157,7 @@ export function getListeningTemplateForTopic(categoryKey, topicKey) {
   return _getListeningTemplateForTopic(categoryKey, topicKey);
 }
 
-// Reading categories
-const readingCategories = [
-  { key: 'core-reading-skills', title: 'Core Reading Skills' },
-  { key: 'advanced-skills', title: 'Advanced Reading Skills' },
-  { key: 'question-types', title: 'Question Type Mastery' },
-];
-
-// Reading category topics for sidebar navigation
-const readingCategoryTopics = {
-  'core-reading-skills': [
-    { key: 'diagram-label-completion', title: 'Diagram Label Completion' },
-    { key: 'author-attitude', title: "Identifying Author's Attitude" },
-    { key: 'main-idea', title: 'Identifying Main Idea' },
-    { key: 'true-false-ng', title: 'True/False/Not Given' },
-    { key: 'yes-no-ng', title: 'Yes/No/Not Given' },
-    { key: 'matching-headings', title: 'Matching Headings' },
-    { key: 'matching-information', title: 'Matching Information' },
-    { key: 'matching-features', title: 'Matching Features' },
-    { key: 'sentence-completion', title: 'Sentence Completion' },
-    { key: 'summary-completion', title: 'Summary Completion' },
-    { key: 'note-completion', title: 'Note/Table/Flow-chart Completion' },
-    { key: 'multiple-choice', title: 'Multiple Choice Questions' },
-    { key: 'short-answer', title: 'Short Answer Questions' },
-    { key: 'academic-vocabulary', title: 'Academic Vocabulary Building' },
-    { key: 'skimming-scanning', title: 'Skimming & Scanning Techniques' },
-    { key: 'paraphrase-tracking', title: 'Paraphrase Recognition' },
-    { key: 'time-management', title: 'Reading Time Management' },
-    { key: 'trap-awareness', title: 'Common Traps & Distractors' },
-    { key: 'inference-skills', title: 'Inference & Implication' },
-    { key: 'text-structure', title: 'Understanding Text Structure' },
-    { key: 'mock-tests', title: 'Mock Reading Tests' }
-  ]
-};
+// Import order: first imports go at the top of the file
 
 // Reading templates for all question types with rich tips, traps, and predictions
 const readingTemplates = {
@@ -645,13 +668,4 @@ const readingTemplates = {
   }
 };
 
-// Export function to get topics for a reading category (for sidebar)
-export function getReadingTopicsForCategory(categoryKey) {
-  return readingCategoryTopics[categoryKey] || [];
-}
-
-// Export function for reading templates
-export function getReadingTemplateForTopic(categoryKey, topicKey) {
-  // categoryKey is ignored; topicKey is used to fetch the template
-  return readingTemplates[topicKey] || null;
-}
+// No need to redefine these functions as they are already defined above
