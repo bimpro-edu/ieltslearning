@@ -73,16 +73,68 @@ export const predictingTopics = {
     examples: [
       {
         title: "Artificial Intelligence Impact",
-        content: "The rapid advancement of AI technologies is reshaping various industries...",
+        content: "The rapid advancement of AI technologies is reshaping various industries and sectors of society. From healthcare diagnostics to financial services, artificial intelligence systems are automating complex tasks and augmenting human capabilities in unprecedented ways. This transformation raises important questions about the future of work, privacy, and ethical considerations.",
         tips: [
-          "Look for technical terminology",
-          "Notice industry-specific applications",
-          "Watch for future predictions"
+          "Look for technical terminology related to AI and machine learning",
+          "Notice specific industry applications and use cases",
+          "Watch for discussions of societal impact and ethical concerns",
+          "Pay attention to future predictions and trends"
+        ],
+        mistakes: [
+          "Focusing only on positive aspects without considering challenges",
+          "Missing ethical implications and societal concerns",
+          "Overlooking discussions about human-AI interaction",
+          "Ignoring regulatory and policy aspects"
         ],
         predictions: [
-          "Discussion of AI applications in different sectors",
-          "Potential challenges and ethical considerations",
-          "Future developments and implications"
+          "Discussion of AI applications across different sectors",
+          "Analysis of potential job market impacts",
+          "Ethical considerations and privacy concerns",
+          "Future developments and regulatory frameworks"
+        ]
+      },
+      {
+        title: "Cybersecurity Challenges",
+        content: "As digital technologies become increasingly integrated into our daily lives, the importance of cybersecurity has reached critical levels. Organizations and individuals face evolving threats from sophisticated cyber attacks, while security experts develop new strategies to protect sensitive data and digital infrastructure.",
+        tips: [
+          "Identify security-related terminology and concepts",
+          "Look for descriptions of different types of cyber threats",
+          "Notice prevention and protection strategies",
+          "Focus on emerging security technologies"
+        ],
+        mistakes: [
+          "Assuming the text only discusses technical aspects",
+          "Missing human factors in cybersecurity",
+          "Overlooking organizational security practices",
+          "Ignoring international cybersecurity cooperation"
+        ],
+        predictions: [
+          "Overview of current cybersecurity challenges",
+          "Discussion of emerging threats and solutions",
+          "Impact on businesses and individuals",
+          "Future trends in digital security"
+        ]
+      },
+      {
+        title: "Smart Cities Development",
+        content: "The concept of smart cities is revolutionizing urban planning and development. Through the integration of Internet of Things (IoT) devices, data analytics, and connected infrastructure, cities are becoming more efficient, sustainable, and responsive to citizens' needs.",
+        tips: [
+          "Look for urban planning and technology integration terms",
+          "Notice environmental and sustainability aspects",
+          "Watch for examples of smart city initiatives",
+          "Focus on citizen-centric improvements"
+        ],
+        mistakes: [
+          "Focusing only on technology without considering social impact",
+          "Missing sustainability and environmental aspects",
+          "Overlooking challenges in implementation",
+          "Ignoring privacy and security concerns"
+        ],
+        predictions: [
+          "Description of smart city technologies and systems",
+          "Case studies of successful implementations",
+          "Environmental and social benefits",
+          "Future urban development trends"
         ]
       }
     ]
@@ -92,16 +144,68 @@ export const predictingTopics = {
     examples: [
       {
         title: "Climate Change Solutions",
-        content: "As global temperatures continue to rise, innovative approaches...",
+        content: "As global temperatures continue to rise, scientists and policymakers are exploring innovative approaches to combat climate change. From renewable energy technologies to carbon capture systems, multiple strategies are being developed and implemented worldwide. These solutions vary in scale, from individual actions to international collaborative efforts.",
         tips: [
-          "Look for scientific terminology",
-          "Notice environmental metrics",
-          "Watch for solution-oriented language"
+          "Look for scientific terminology related to climate science",
+          "Notice specific measurements and environmental metrics",
+          "Watch for solution-oriented language and proposals",
+          "Pay attention to global cooperation terminology"
+        ],
+        mistakes: [
+          "Focusing only on problems without noticing solutions",
+          "Missing references to international agreements",
+          "Overlooking economic aspects of climate solutions",
+          "Ignoring mentions of technological innovations"
         ],
         predictions: [
-          "Discussion of specific climate change impacts",
-          "Proposed solutions and their effectiveness",
-          "Policy recommendations and international cooperation"
+          "Discussion of various climate mitigation strategies",
+          "Analysis of current environmental trends and data",
+          "International cooperation and policy measures",
+          "Economic implications of climate solutions"
+        ]
+      },
+      {
+        title: "Biodiversity Conservation",
+        content: "The preservation of Earth's biodiversity faces unprecedented challenges in the modern era. From habitat loss to species extinction, various factors threaten the delicate balance of ecosystems worldwide. Conservation efforts are being intensified through both traditional and innovative approaches.",
+        tips: [
+          "Identify terminology related to species and habitats",
+          "Look for statistics about endangered species",
+          "Notice conservation strategies and methods",
+          "Focus on ecosystem interconnections"
+        ],
+        mistakes: [
+          "Missing the connection between different environmental factors",
+          "Overlooking economic aspects of conservation",
+          "Focusing only on large, charismatic species",
+          "Ignoring local community involvement"
+        ],
+        predictions: [
+          "Description of current biodiversity challenges",
+          "Examples of successful conservation projects",
+          "Role of local communities in preservation",
+          "Future conservation strategies and technologies"
+        ]
+      },
+      {
+        title: "Sustainable Urban Development",
+        content: "Cities worldwide are transforming their infrastructure and policies to become more environmentally sustainable. From green building designs to waste management systems, urban planners are implementing comprehensive approaches to reduce environmental impact while maintaining quality of life for residents.",
+        tips: [
+          "Look for urban planning and sustainability terms",
+          "Notice metrics for environmental performance",
+          "Watch for examples of green infrastructure",
+          "Focus on community engagement aspects"
+        ],
+        mistakes: [
+          "Focusing only on new construction without considering retrofitting",
+          "Missing social aspects of sustainability",
+          "Overlooking economic feasibility concerns",
+          "Ignoring existing infrastructure challenges"
+        ],
+        predictions: [
+          "Overview of sustainable urban planning principles",
+          "Case studies of successful green cities",
+          "Integration of technology in sustainability",
+          "Future trends in urban environmental design"
         ]
       }
     ]
