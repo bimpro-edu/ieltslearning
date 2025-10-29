@@ -1,13 +1,25 @@
-﻿import React, { useState } from "react";
+﻿import React, { useState, useEffect, useRef } from "react";
 import { getReadingTemplateForTopic } from "../utils/loadTemplates";
 
 export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
   const [activeExample, setActiveExample] = useState(0);
+  const [expandAll, setExpandAll] = useState(false);
+  const containerRef = useRef(null);
 
   // Reset activeExample when topic changes
-  React.useEffect(() => {
+  useEffect(() => {
     setActiveExample(0);
+    setExpandAll(false);
   }, [topicKey]);
+
+  // Toggle details open state inside the canvas
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const details = containerRef.current.querySelectorAll('details');
+    details.forEach(d => {
+      try { d.open = expandAll; } catch (e) { /* ignore */ }
+    });
+  }, [expandAll, topicKey, activeExample]);
 
   if (!topicKey) {
     return <div className="text-gray-500 text-lg mt-12 text-center">Select a topic to view details.</div>;
@@ -37,9 +49,22 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
   const currentExample = categoryKey === "predicting" && template.examples ? template.examples[activeExample] : null;
 
   return (
-    <div className="bg-gray-50 rounded-xl shadow-lg p-6 min-h-[calc(100vh-2rem)]">
-      <h2 className="text-3xl font-bold mb-6 text-primary">{template.title}</h2>
-      
+    <div ref={containerRef} className="bg-gray-50 rounded-xl shadow-lg p-6 min-h-[calc(100vh-2rem)]">
+      <div className="flex items-start justify-between mb-4">
+        <h2 className="text-3xl font-bold text-primary">{template.title}</h2>
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={() => setExpandAll(prev => !prev)}
+            className="inline-flex items-center px-3 py-2 rounded-md bg-gray-100 hover:bg-gray-200 text-sm font-medium text-gray-700 focus:outline-none"
+            aria-pressed={expandAll}
+          >
+            <svg className={`w-4 h-4 mr-2 transform ${expandAll ? 'rotate-180' : ''}`} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+            </svg>
+            {expandAll ? 'Collapse all' : 'Expand all'}
+          </button>
+        </div>
+      </div>
       {categoryKey === "predicting" && template.examples ? (
         <div className="space-y-6">
           <div className="flex space-x-1 rounded-lg bg-gray-200 p-1">

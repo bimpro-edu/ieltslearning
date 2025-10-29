@@ -219,16 +219,64 @@ export const predictingTopics = {
         tips: [
           "Look for simplified explanations and metaphors",
           "Identify where technical terms are defined or paraphrased",
-          "Notice examples that illustrate scientific concepts"
+          "Notice examples that illustrate scientific concepts",
+          "Track how uncertainties or limitations are described"
         ],
         mistakes: [
           "Confusing simplified descriptions with precise technical meanings",
-          "Missing caveats or limitations mentioned by the author"
+          "Missing caveats or limitations mentioned by the author",
+          "Overlooking the difference between analogy and evidence",
+          "Ignoring when the author signals uncertainty"
         ],
         predictions: [
           "Examples illustrating the science concept",
           "Comparisons between expert and popular explanations",
-          "Implications for public understanding or policy"
+          "Implications for public understanding or policy",
+          "References to further reading or case studies"
+        ]
+      },
+      {
+        title: "Research Methodology Overview",
+        content: "This passage outlines common research methods used in a scientific field and discusses their strengths and limitations.",
+        tips: [
+          "Note study design names (e.g., longitudinal, randomized)",
+          "Look for statements about sample size and validity",
+          "Identify limitations and suggested improvements",
+          "Watch for comparative evaluations of methods"
+        ],
+        mistakes: [
+          "Assuming all studies provide causal proof",
+          "Missing discussions of bias or confounding factors",
+          "Overlooking the scope of generalizability",
+          "Confusing methodology with findings"
+        ],
+        predictions: [
+          "Descriptions of specific methods and their use cases",
+          "Comments on reliability and validity",
+          "Suggestions for future methodological improvements",
+          "Examples of studies employing the discussed methods"
+        ]
+      },
+      {
+        title: "Science and Society",
+        content: "A discussion of how scientific developments interact with social values, policy, and public perception.",
+        tips: [
+          "Look for mentions of policy, regulation or public opinion",
+          "Note any trade-offs presented between science and social concerns",
+          "Identify stakeholders and their positions",
+          "Watch for predictive language about societal impact"
+        ],
+        mistakes: [
+          "Treating hypothetical impacts as established facts",
+          "Ignoring the social context of scientific recommendations",
+          "Missing counterarguments or dissenting voices",
+          "Overlooking ethical considerations"
+        ],
+        predictions: [
+          "Discussion of policy implications",
+          "Examples of public responses or controversies",
+          "Consideration of ethical and social trade-offs",
+          "Possible future research directions"
         ]
       }
     ]
@@ -242,16 +290,64 @@ export const predictingTopics = {
         tips: [
           "Watch for data and evaluation terminology",
           "Note target populations and interventions",
-          "Pay attention to outcomes and measured impacts"
+          "Pay attention to outcomes and measured impacts",
+          "Identify any cost-benefit or scalability discussions"
         ],
         mistakes: [
           "Assuming causation from correlation in study results",
-          "Overlooking limitations of study design"
+          "Overlooking limitations of study design",
+          "Ignoring population selection issues",
+          "Missing long-term follow-up considerations"
         ],
         predictions: [
           "Descriptions of program components",
           "Measured outcomes and evaluation methods",
-          "Discussion of scalability or challenges"
+          "Discussion of scalability or challenges",
+          "Recommendations for policy or follow-up studies"
+        ]
+      },
+      {
+        title: "Medical Research Findings",
+        content: "A summary of recent findings from clinical research and their potential implications for patient care.",
+        tips: [
+          "Identify the study population and intervention",
+          "Look for statistical terms and confidence indicators",
+          "Note reported side effects or limitations",
+          "Watch for recommended changes to practice"
+        ],
+        mistakes: [
+          "Overstating the clinical significance of small effects",
+          "Ignoring the study's sample composition",
+          "Confusing preliminary findings with established guidelines",
+          "Missing reported adverse events"
+        ],
+        predictions: [
+          "Implications for clinical practice",
+          "Calls for larger or confirmatory trials",
+          "Potential public health impacts",
+          "Discussion of cost or accessibility"
+        ]
+      },
+      {
+        title: "Nutrition & Lifestyle",
+        content: "This passage examines evidence linking diet and lifestyle factors with health outcomes and how guidelines are formed.",
+        tips: [
+          "Note measured outcomes and timeframes",
+          "Differentiate between observational and experimental evidence",
+          "Watch for confounding factors",
+          "Identify the strength of recommendations"
+        ],
+        mistakes: [
+          "Assuming correlation implies causation",
+          "Overgeneralizing from specific populations",
+          "Missing discussion of confounders",
+          "Ignoring recommended dose/frequency details"
+        ],
+        predictions: [
+          "Summary of evidence and guideline implications",
+          "Potential behavior change recommendations",
+          "Areas flagged for further research",
+          "Public health messaging considerations"
         ]
       }
     ]
@@ -265,15 +361,64 @@ export const predictingTopics = {
         tips: [
           "Identify cause-effect language and economic indicators",
           "Note time periods and comparative statistics",
-          "Watch for expert opinions vs. data-driven findings"
+          "Watch for expert opinions vs. data-driven findings",
+          "Pay attention to limitations in the data sources"
         ],
         mistakes: [
           "Confusing opinion with empirical evidence",
-          "Missing the timeframe of reported data"
+          "Missing the timeframe of reported data",
+          "Overlooking external shocks or policy changes",
+          "Ignoring small-sample caveats"
         ],
         predictions: [
           "Trends and their proposed drivers",
-          "Implications for businesses and consumers"
+          "Implications for businesses and consumers",
+          "Possible policy or market responses",
+          "Forecasts with stated assumptions"
+        ]
+      },
+      {
+        title: "Corporate Innovation",
+        content: "This passage explores how firms innovate, the role of R&D, and barriers to innovation in different markets.",
+        tips: [
+          "Look for descriptions of R&D investment and outputs",
+          "Identify institutional or regulatory barriers",
+          "Note examples of successful or failed innovations",
+          "Watch for comparative international examples"
+        ],
+        mistakes: [
+          "Assuming innovation outcomes are uniform across sectors",
+          "Ignoring funding or organizational constraints",
+          "Missing discussion of market readiness",
+          "Overlooking long-term vs short-term impacts"
+        ],
+        predictions: [
+          "Drivers of innovation and barriers",
+          "Case examples of corporate change",
+          "Policy recommendations to support innovation",
+          "Potential market impacts"
+        ]
+      },
+      {
+        title: "Consumer Behaviour",
+        content: "An analysis of how consumer preferences shift in response to price, technology, and social trends.",
+        tips: [
+          "Notice experimental or survey methods used",
+          "Identify demographic breakdowns",
+          "Track stated reasons for behaviour change",
+          "Look for temporal comparisons"
+        ],
+        mistakes: [
+          "Assuming short-term trends are permanent",
+          "Missing segmentation differences",
+          "Confusing stated preference with actual behaviour",
+          "Ignoring external economic factors"
+        ],
+        predictions: [
+          "Patterns in consumer adoption",
+          "Impacts on product markets",
+          "Potential business strategies",
+          "Future research directions"
         ]
       }
     ]
@@ -287,15 +432,64 @@ export const predictingTopics = {
         tips: [
           "Look for examples illustrating cultural shifts",
           "Identify the perspectives presented (e.g., locals, migrants, experts)",
-          "Watch for chronological development or cause-effect chains"
+          "Watch for chronological development or cause-effect chains",
+          "Notice language that signals attitude or evaluation"
         ],
         mistakes: [
           "Overgeneralizing from a single case study",
-          "Missing nuanced positions or minority viewpoints"
+          "Missing nuanced positions or minority viewpoints",
+          "Ignoring historical context",
+          "Assuming cultural change is uniform"
         ],
         predictions: [
           "Examples of cultural adaptation",
-          "Discussion of drivers and consequences"
+          "Discussion of drivers and consequences",
+          "References to policy or social programmes",
+          "Comparisons across regions or time"
+        ]
+      },
+      {
+        title: "Media and Society",
+        content: "A passage about the role of media in shaping public opinion and social behaviour.",
+        tips: [
+          "Note different media channels discussed",
+          "Identify claims about influence and supporting evidence",
+          "Watch for examples and counterexamples",
+          "Pay attention to the author's stance"
+        ],
+        mistakes: [
+          "Assuming correlation equals causation for media effects",
+          "Missing subtle hedging language",
+          "Overlooking methodological details of cited studies",
+          "Ignoring countervailing evidence"
+        ],
+        predictions: [
+          "Examples of media influence",
+          "Debates on regulation or ethics",
+          "Evidence from case studies",
+          "Proposed measures to mitigate harms"
+        ]
+      },
+      {
+        title: "Demographics and Social Policy",
+        content: "This passage presents demographic trends and the implications for social policy and services.",
+        tips: [
+          "Identify key statistics and their sources",
+          "Note proposed policy responses",
+          "Look for projections and their assumptions",
+          "Watch for regional comparisons"
+        ],
+        mistakes: [
+          "Overlooking the assumptions behind projections",
+          "Ignoring policy trade-offs",
+          "Confusing short-term fluctuations with long-term trends",
+          "Missing marginalized groups in analysis"
+        ],
+        predictions: [
+          "Projected demographic shifts",
+          "Policy recommendations and challenges",
+          "Impacts on services and infrastructure",
+          "Calls for targeted interventions"
         ]
       }
     ]
@@ -309,15 +503,64 @@ export const predictingTopics = {
         tips: [
           "Note dates, locations and evidence types",
           "Look for reinterpretations of previous theories",
-          "Track the sequence of discovery and analysis"
+          "Track the sequence of discovery and analysis",
+          "Identify which claims are speculative vs. evidenced"
         ],
         mistakes: [
           "Confusing tentative hypotheses with confirmed facts",
-          "Overlooking the archaeological context"
+          "Overlooking the archaeological context",
+          "Missing dating or provenance details",
+          "Ignoring alternative interpretations"
         ],
         predictions: [
           "Description of the find and its significance",
-          "Comparison with previous interpretations"
+          "Comparison with previous interpretations",
+          "Suggested further lines of inquiry",
+          "Implications for the broader historical narrative"
+        ]
+      },
+      {
+        title: "Historiography and Interpretation",
+        content: "A discussion of how historians' interpretations change over time and the factors that drive reinterpretation.",
+        tips: [
+          "Note the historiographical debate positions",
+          "Identify evidence each side uses",
+          "Watch for references to methodology or sources",
+          "Pay attention to chronological framing"
+        ],
+        mistakes: [
+          "Assuming older interpretations are invalid without reason",
+          "Missing methodological critiques",
+          "Overlooking source biases",
+          "Confusing interpretation with primary evidence"
+        ],
+        predictions: [
+          "Comparison of historiographical positions",
+          "Examples where reinterpretation changed understanding",
+          "Discussion of drivers of reinterpretation",
+          "Potential new evidence that could shift views"
+        ]
+      },
+      {
+        title: "Cultural Heritage Management",
+        content: "This passage looks at how societies preserve and manage cultural heritage in the face of development pressures.",
+        tips: [
+          "Identify stakeholders and competing interests",
+          "Note legal or policy frameworks mentioned",
+          "Look for examples of successful preservation efforts",
+          "Watch for trade-offs between development and preservation"
+        ],
+        mistakes: [
+          "Assuming preservation always wins over development",
+          "Missing economic or social arguments",
+          "Overlooking indigenous or local perspectives",
+          "Ignoring funding or governance constraints"
+        ],
+        predictions: [
+          "Discussion of preservation strategies",
+          "Examples of contested heritage cases",
+          "Policy implications and recommendations",
+          "Future challenges for heritage management"
         ]
       }
     ]
@@ -331,15 +574,64 @@ export const predictingTopics = {
         tips: [
           "Identify the main characteristics of the movement",
           "Note critics' arguments and supporting examples",
-          "Pay attention to terminology used in art criticism"
+          "Pay attention to terminology used in art criticism",
+          "Look for historical influences cited by the author"
         ],
         mistakes: [
           "Treating subjective critique as objective fact",
-          "Missing contextual background for the movement"
+          "Missing contextual background for the movement",
+          "Ignoring the artist's stated intent",
+          "Overlooking socio-political contexts"
         ],
         predictions: [
           "Examples of representative artists or works",
-          "Critical reception and debates"
+          "Critical reception and debates",
+          "Links to broader cultural trends",
+          "Possible future directions"
+        ]
+      },
+      {
+        title: "Music & Society",
+        content: "A passage discussing how musical trends reflect and influence social movements and identity.",
+        tips: [
+          "Note links made between music and social groups",
+          "Identify examples of musical influence on behaviour",
+          "Watch for evidence supporting claims",
+          "Pay attention to historical lineage of genres"
+        ],
+        mistakes: [
+          "Assuming a single causal link between music and social change",
+          "Overlooking cross-cultural influences",
+          "Missing nuance in artist motivations",
+          "Ignoring commercial vs grassroots distinctions"
+        ],
+        predictions: [
+          "Examples connecting music to movements",
+          "Discussion of identity and belonging",
+          "Critical responses and debates",
+          "Future genre evolutions"
+        ]
+      },
+      {
+        title: "Literary Trends",
+        content: "This passage analyses recent trends in literature and how they respond to social and cultural changes.",
+        tips: [
+          "Identify thematic patterns across works",
+          "Note critical reception and cited examples",
+          "Watch for authorial intent vs critical interpretation",
+          "Pay attention to form and stylistic choices"
+        ],
+        mistakes: [
+          "Treating critical consensus as unanimous",
+          "Missing the author's historical or cultural influences",
+          "Overgeneralizing across diverse works",
+          "Ignoring publication or audience contexts"
+        ],
+        predictions: [
+          "Examples of representative authors or works",
+          "Critical debates and interpretations",
+          "Links to cultural or political shifts",
+          "Emerging thematic concerns"
         ]
       }
     ]
@@ -353,15 +645,64 @@ export const predictingTopics = {
         tips: [
           "Look for policy language and data",
           "Identify stakeholders and their positions",
-          "Watch for proposed solutions and trade-offs"
+          "Watch for proposed solutions and trade-offs",
+          "Note regional vs global perspectives"
         ],
         mistakes: [
           "Oversimplifying complex international dynamics",
-          "Ignoring regional or local nuances"
+          "Ignoring regional or local nuances",
+          "Missing funding or governance constraints",
+          "Assuming one-size-fits-all solutions"
         ],
         predictions: [
           "Descriptions of policy proposals",
-          "Discussion of implementation challenges"
+          "Discussion of implementation challenges",
+          "Examples of international cooperation",
+          "References to measurable outcomes or targets"
+        ]
+      },
+      {
+        title: "Climate Diplomacy",
+        content: "A passage about international negotiations and agreements aimed at addressing environmental challenges.",
+        tips: [
+          "Identify key negotiating parties and positions",
+          "Note commitments and timelines",
+          "Look for language about enforcement or monitoring",
+          "Watch for references to scientific consensus"
+        ],
+        mistakes: [
+          "Assuming agreements imply immediate action",
+          "Missing caveats about implementation",
+          "Overlooking differences in national capacities",
+          "Ignoring non-state actors' roles"
+        ],
+        predictions: [
+          "Summaries of pledge types and targets",
+          "Discussion of implementation challenges",
+          "Examples of bilateral or multilateral initiatives",
+          "Future negotiation trajectories"
+        ]
+      },
+      {
+        title: "Humanitarian Response",
+        content: "This passage examines how international agencies and governments respond to crises, and the logistical, political, and ethical challenges involved.",
+        tips: [
+          "Note actors involved (NGOs, UN, states)",
+          "Identify logistical and ethical constraints",
+          "Watch for descriptions of coordination mechanisms",
+          "Pay attention to assessments of effectiveness"
+        ],
+        mistakes: [
+          "Assuming rapid response equates to effective outcomes",
+          "Missing political constraints",
+          "Overlooking local community roles",
+          "Ignoring funding and access challenges"
+        ],
+        predictions: [
+          "Descriptions of response mechanisms",
+          "Analysis of constraints and trade-offs",
+          "Examples of past operations",
+          "Recommendations for improved coordination"
         ]
       }
     ]
