@@ -66,45 +66,51 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
               </div>
 
               {currentExample.tips && (
-                <div className="p-4 bg-green-50 rounded-lg">
-                  <h4 className="font-semibold text-green-600 mb-3">Tips</h4>
-                  <ul className="space-y-2">
-                    {currentExample.tips.map((tip, i) => (
-                      <li key={i} className="flex text-green-800">
-                        <span className="text-green-500 mr-2">•</span>
-                        {tip}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <details className="border border-green-100 rounded-lg bg-green-50">
+                  <summary className="cursor-pointer p-3 font-semibold text-green-700">Tips</summary>
+                  <div className="p-4">
+                    <ul className="space-y-2">
+                      {currentExample.tips.map((tip, i) => (
+                        <li key={i} className="flex text-green-800">
+                          <span className="text-green-500 mr-2">•</span>
+                          {tip}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
               )}
 
               {currentExample.mistakes && (
-                <div className="p-4 bg-red-50 rounded-lg">
-                  <h4 className="font-semibold text-red-600 mb-3">Common Mistakes</h4>
-                  <ul className="space-y-2">
-                    {currentExample.mistakes.map((mistake, i) => (
-                      <li key={i} className="flex text-red-800">
-                        <span className="text-red-500 mr-2">•</span>
-                        {mistake}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <details className="border border-red-100 rounded-lg bg-red-50">
+                  <summary className="cursor-pointer p-3 font-semibold text-red-700">Common Mistakes</summary>
+                  <div className="p-4">
+                    <ul className="space-y-2">
+                      {currentExample.mistakes.map((mistake, i) => (
+                        <li key={i} className="flex text-red-800">
+                          <span className="text-red-500 mr-2">•</span>
+                          {mistake}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
               )}
 
               {currentExample.predictions && (
-                <div className="p-4 bg-blue-50 rounded-lg">
-                  <h4 className="font-semibold text-blue-600 mb-3">Predictions</h4>
-                  <ul className="space-y-2">
-                    {currentExample.predictions.map((prediction, i) => (
-                      <li key={i} className="flex text-blue-800">
-                        <span className="text-blue-500 mr-2">•</span>
-                        {prediction}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <details className="border border-blue-100 rounded-lg bg-blue-50">
+                  <summary className="cursor-pointer p-3 font-semibold text-blue-700">Predictions</summary>
+                  <div className="p-4">
+                    <ul className="space-y-2">
+                      {currentExample.predictions.map((prediction, i) => (
+                        <li key={i} className="flex text-blue-800">
+                          <span className="text-blue-500 mr-2">•</span>
+                          {prediction}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
               )}
             </div>
           )}
@@ -112,66 +118,72 @@ export default function ReadingCategoryCanvas({ categoryKey, topicKey }) {
       ) : (
         <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
           {template.tips && (
-            <div className="p-4 bg-green-50 rounded-lg">
-              <h4 className="font-semibold text-green-600 mb-3">Tips</h4>
-              <ul className="space-y-2">
-                {template.tips.map((tip, i) => (
-                  <li key={i} className="flex text-green-800">
-                    <span className="text-green-500 mr-2">•</span>
-                    <div>
-                      {typeof tip === "string" ? tip : tip.statement}
-                      {tip.example && (
-                        <p className="text-sm text-gray-500 ml-4 italic">
-                          e.g., {tip.example}
-                        </p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <details className="border border-green-100 rounded-lg bg-green-50">
+              <summary className="cursor-pointer p-3 font-semibold text-green-700">Tips</summary>
+              <div className="p-4">
+                <ul className="space-y-2">
+                  {template.tips.map((tip, i) => (
+                    <li key={i} className="flex text-green-800">
+                      <span className="text-green-500 mr-2">•</span>
+                      <div>
+                        {typeof tip === "string" ? tip : tip.statement}
+                        {tip.example && (
+                          <p className="text-sm text-gray-500 ml-4 italic">
+                            e.g., {tip.example}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
           )}
 
           {template.traps && (
-            <div className="p-4 bg-red-50 rounded-lg">
-              <h4 className="font-semibold text-red-600 mb-3">Common Mistakes</h4>
-              <ul className="space-y-2">
-                {template.traps.map((trap, i) => (
-                  <li key={i} className="flex text-red-800">
-                    <span className="text-red-500 mr-2">•</span>
-                    <div>
-                      {typeof trap === "string" ? trap : trap.statement}
-                      {trap.example && (
-                        <p className="text-sm text-gray-500 ml-4 italic">
-                          e.g., {trap.example}
-                        </p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <details className="border border-red-100 rounded-lg bg-red-50">
+              <summary className="cursor-pointer p-3 font-semibold text-red-700">Common Mistakes</summary>
+              <div className="p-4">
+                <ul className="space-y-2">
+                  {template.traps.map((trap, i) => (
+                    <li key={i} className="flex text-red-800">
+                      <span className="text-red-500 mr-2">•</span>
+                      <div>
+                        {typeof trap === "string" ? trap : trap.statement}
+                        {trap.example && (
+                          <p className="text-sm text-gray-500 ml-4 italic">
+                            e.g., {trap.example}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
           )}
 
           {template.predictions && (
-            <div className="p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-semibold text-blue-600 mb-3">Predictions</h4>
-              <ul className="space-y-2">
-                {template.predictions.map((p, i) => (
-                  <li key={i} className="flex text-blue-800">
-                    <span className="text-blue-500 mr-2">•</span>
-                    <div>
-                      {typeof p === "string" ? p : p.statement}
-                      {p.example && (
-                        <p className="text-sm text-gray-500 ml-4 italic">
-                          e.g., {p.example}
-                        </p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <details className="border border-blue-100 rounded-lg bg-blue-50">
+              <summary className="cursor-pointer p-3 font-semibold text-blue-700">Predictions</summary>
+              <div className="p-4">
+                <ul className="space-y-2">
+                  {template.predictions.map((p, i) => (
+                    <li key={i} className="flex text-blue-800">
+                      <span className="text-blue-500 mr-2">•</span>
+                      <div>
+                        {typeof p === "string" ? p : p.statement}
+                        {p.example && (
+                          <p className="text-sm text-gray-500 ml-4 italic">
+                            e.g., {p.example}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
           )}
         </div>
       )}

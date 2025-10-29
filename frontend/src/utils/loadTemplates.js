@@ -13,10 +13,25 @@ export function loadTemplates({ taskType, category, band }) {
 
 // Reading categories for the sidebar
 export const readingCategories = [
+  // Foundational Categories
   { key: 'predicting', title: 'Predicting Content' },
   { key: 'core-reading-skills', title: 'Core Reading Skills' },
   { key: 'advanced-skills', title: 'Advanced Reading Skills' },
-  { key: 'question-types', title: 'Question Type Mastery' }
+  { key: 'question-types', title: 'Question Type Mastery' },
+  
+  // Academic Subject Areas
+  { key: 'science-tech', title: 'Science & Technology' },
+  { key: 'environment', title: 'Environment & Nature' },
+  { key: 'society-culture', title: 'Society & Culture' },
+  { key: 'health-medicine', title: 'Health & Medicine' },
+  { key: 'arts-humanities', title: 'Arts & Humanities' },
+  
+  // Specialized Topics
+  { key: 'business-economics', title: 'Business & Economics' },
+  { key: 'education-research', title: 'Education & Research' },
+  { key: 'global-issues', title: 'Global Issues' },
+  { key: 'history-archaeology', title: 'History & Archaeology' },
+  { key: 'urban-planning', title: 'Urban Development' }
 ];
 
 // Topics for each category
@@ -26,10 +41,120 @@ const categoryTopics = {
     { key: 'technology', title: 'Technology' },
     { key: 'environment', title: 'Environment' }
   ],
+
+  'science-tech': [
+    { key: 'robotics-automation', title: 'Robotics & Automation' },
+    { key: 'biotechnology', title: 'Biotechnology' },
+    { key: 'digital-innovation', title: 'Digital Innovation' },
+    { key: 'space-exploration', title: 'Space Exploration' },
+    { key: 'renewable-energy', title: 'Renewable Energy' }
+  ],
+
+  'environment': [
+    { key: 'climate-change', title: 'Climate Change' },
+    { key: 'biodiversity', title: 'Biodiversity & Ecosystems' },
+    { key: 'sustainable-development', title: 'Sustainable Development' },
+    { key: 'conservation', title: 'Conservation' },
+    { key: 'environmental-policy', title: 'Environmental Policy' }
+  ],
+
+  'society-culture': [
+    { key: 'cultural-diversity', title: 'Cultural Diversity' },
+    { key: 'social-change', title: 'Social Change' },
+    { key: 'migration-identity', title: 'Migration & Identity' },
+    { key: 'traditions', title: 'Traditions & Customs' },
+    { key: 'language-society', title: 'Language & Society' }
+  ],
+
+  'health-medicine': [
+    { key: 'medical-research', title: 'Medical Research' },
+    { key: 'public-health', title: 'Public Health' },
+    { key: 'mental-health', title: 'Mental Health' },
+    { key: 'nutrition', title: 'Nutrition & Diet' },
+    { key: 'healthcare-systems', title: 'Healthcare Systems' }
+  ],
+
+  'arts-humanities': [
+    { key: 'art-history', title: 'Art History' },
+    { key: 'literature', title: 'Literature' },
+    { key: 'archaeology', title: 'Archaeology' },
+    { key: 'philosophy', title: 'Philosophy' },
+    { key: 'performing-arts', title: 'Performing Arts' }
+  ],
+
+  'business-economics': [
+    { key: 'global-economy', title: 'Global Economy' },
+    { key: 'business-innovation', title: 'Business Innovation' },
+    { key: 'market-trends', title: 'Market Trends' },
+    { key: 'economic-policy', title: 'Economic Policy' },
+    { key: 'entrepreneurship', title: 'Entrepreneurship' }
+  ],
+
+  'education-research': [
+    { key: 'learning-methods', title: 'Learning Methods' },
+    { key: 'educational-technology', title: 'Educational Technology' },
+    { key: 'academic-research', title: 'Academic Research' },
+    { key: 'higher-education', title: 'Higher Education' },
+    { key: 'lifelong-learning', title: 'Lifelong Learning' }
+  ],
+
+  'global-issues': [
+    { key: 'sustainability', title: 'Sustainability' },
+    { key: 'global-health', title: 'Global Health' },
+    { key: 'international-relations', title: 'International Relations' },
+    { key: 'human-rights', title: 'Human Rights' },
+    { key: 'poverty-development', title: 'Poverty & Development' }
+  ],
+
+  'history-archaeology': [
+    { key: 'ancient-civilizations', title: 'Ancient Civilizations' },
+    { key: 'historical-discoveries', title: 'Historical Discoveries' },
+    { key: 'cultural-heritage', title: 'Cultural Heritage' },
+    { key: 'world-history', title: 'World History' },
+    { key: 'archaeological-finds', title: 'Archaeological Finds' }
+  ],
+
+  'urban-planning': [
+    { key: 'smart-cities', title: 'Smart Cities' },
+    { key: 'transportation', title: 'Transportation' },
+    { key: 'urban-design', title: 'Urban Design' },
+    { key: 'housing', title: 'Housing & Architecture' },
+    { key: 'sustainability-planning', title: 'Sustainable Planning' }
+  ],
+
   'core-reading-skills': [
-    { key: 'diagram-label-completion', title: 'Diagram Label Completion' },
-    { key: 'author-attitude', title: "Identifying Author's Attitude" },
+    // Core comprehension skills
+    { key: 'academic-vocabulary', title: 'Academic Vocabulary Building' },
+    { key: 'skimming-scanning', title: 'Skimming & Scanning Techniques' },
     { key: 'main-idea', title: 'Identifying Main Idea' },
+    { key: 'paraphrase-tracking', title: 'Paraphrase Recognition' },
+    { key: 'inference-skills', title: 'Inference & Implication' },
+    { key: 'text-structure', title: 'Understanding Text Structure' },
+    
+    // Opinion & argument focused
+    { key: 'author-attitude', title: "Identifying Author's Attitude" },
+    { key: 'opinion-identification', title: 'Opinion & Arguments Recognition' },
+    { key: 'evidence-evaluation', title: 'Evidence & Support Analysis' },
+    { key: 'argument-structure', title: 'Argument Structure Analysis' },
+    { key: 'bias-recognition', title: 'Bias & Perspective Recognition' },
+    
+    // Problem-solution focused
+    { key: 'problem-identification', title: 'Problem Identification' },
+    { key: 'cause-effect', title: 'Cause & Effect Analysis' },
+    { key: 'solution-evaluation', title: 'Solution Evaluation' },
+    { key: 'impact-assessment', title: 'Impact Assessment' },
+    
+    // Advantage-disadvantage focused
+    { key: 'pros-cons-analysis', title: 'Pros & Cons Analysis' },
+    { key: 'comparative-reading', title: 'Comparative Reading' },
+    { key: 'balanced-perspective', title: 'Balanced Perspective Analysis' },
+    
+    // Technical & practical skills
+    { key: 'time-management', title: 'Reading Time Management' },
+    { key: 'trap-awareness', title: 'Common Traps & Distractors' },
+    { key: 'mock-tests', title: 'Mock Reading Tests' },
+    
+    // Question type mastery
     { key: 'true-false-ng', title: 'True/False/Not Given' },
     { key: 'yes-no-ng', title: 'Yes/No/Not Given' },
     { key: 'matching-headings', title: 'Matching Headings' },
@@ -40,14 +165,7 @@ const categoryTopics = {
     { key: 'note-completion', title: 'Note/Table/Flow-chart Completion' },
     { key: 'multiple-choice', title: 'Multiple Choice Questions' },
     { key: 'short-answer', title: 'Short Answer Questions' },
-    { key: 'academic-vocabulary', title: 'Academic Vocabulary Building' },
-    { key: 'skimming-scanning', title: 'Skimming & Scanning Techniques' },
-    { key: 'paraphrase-tracking', title: 'Paraphrase Recognition' },
-    { key: 'time-management', title: 'Reading Time Management' },
-    { key: 'trap-awareness', title: 'Common Traps & Distractors' },
-    { key: 'inference-skills', title: 'Inference & Implication' },
-    { key: 'text-structure', title: 'Understanding Text Structure' },
-    { key: 'mock-tests', title: 'Mock Reading Tests' }
+    { key: 'diagram-label-completion', title: 'Diagram Label Completion' }
   ]
 };
 
