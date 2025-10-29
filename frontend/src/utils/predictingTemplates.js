@@ -209,5 +209,161 @@ export const predictingTopics = {
         ]
       }
     ]
+  },
+  'science': {
+    title: 'Science',
+    examples: [
+      {
+        title: "Popular Science Communication",
+        content: "Scientific ideas are increasingly presented to the public via books, articles, and media. This passage discusses how complex concepts are translated for non-specialist audiences.",
+        tips: [
+          "Look for simplified explanations and metaphors",
+          "Identify where technical terms are defined or paraphrased",
+          "Notice examples that illustrate scientific concepts"
+        ],
+        mistakes: [
+          "Confusing simplified descriptions with precise technical meanings",
+          "Missing caveats or limitations mentioned by the author"
+        ],
+        predictions: [
+          "Examples illustrating the science concept",
+          "Comparisons between expert and popular explanations",
+          "Implications for public understanding or policy"
+        ]
+      }
+    ]
+  },
+  'health': {
+    title: 'Health',
+    examples: [
+      {
+        title: "Public Health Initiatives",
+        content: "This passage outlines a public health program aimed at improving community health outcomes and the measures used to evaluate its success.",
+        tips: [
+          "Watch for data and evaluation terminology",
+          "Note target populations and interventions",
+          "Pay attention to outcomes and measured impacts"
+        ],
+        mistakes: [
+          "Assuming causation from correlation in study results",
+          "Overlooking limitations of study design"
+        ],
+        predictions: [
+          "Descriptions of program components",
+          "Measured outcomes and evaluation methods",
+          "Discussion of scalability or challenges"
+        ]
+      }
+    ]
+  },
+  'business': {
+    title: 'Business & Economy',
+    examples: [
+      {
+        title: "Market Trends Analysis",
+        content: "Analysts describe recent market behavior and the factors driving changes in a particular sector.",
+        tips: [
+          "Identify cause-effect language and economic indicators",
+          "Note time periods and comparative statistics",
+          "Watch for expert opinions vs. data-driven findings"
+        ],
+        mistakes: [
+          "Confusing opinion with empirical evidence",
+          "Missing the timeframe of reported data"
+        ],
+        predictions: [
+          "Trends and their proposed drivers",
+          "Implications for businesses and consumers"
+        ]
+      }
+    ]
+  },
+  'society': {
+    title: 'Society & Culture',
+    examples: [
+      {
+        title: "Cultural Change and Identity",
+        content: "This passage examines how cultural practices evolve in response to migration, technology, and globalization.",
+        tips: [
+          "Look for examples illustrating cultural shifts",
+          "Identify the perspectives presented (e.g., locals, migrants, experts)",
+          "Watch for chronological development or cause-effect chains"
+        ],
+        mistakes: [
+          "Overgeneralizing from a single case study",
+          "Missing nuanced positions or minority viewpoints"
+        ],
+        predictions: [
+          "Examples of cultural adaptation",
+          "Discussion of drivers and consequences"
+        ]
+      }
+    ]
+  },
+  'history': {
+    title: 'History',
+    examples: [
+      {
+        title: "Historical Discovery Case Study",
+        content: "An account of a recent archaeological find and how it changes understanding of a historical period.",
+        tips: [
+          "Note dates, locations and evidence types",
+          "Look for reinterpretations of previous theories",
+          "Track the sequence of discovery and analysis"
+        ],
+        mistakes: [
+          "Confusing tentative hypotheses with confirmed facts",
+          "Overlooking the archaeological context"
+        ],
+        predictions: [
+          "Description of the find and its significance",
+          "Comparison with previous interpretations"
+        ]
+      }
+    ]
+  },
+  'arts': {
+    title: 'Arts & Culture',
+    examples: [
+      {
+        title: "Contemporary Art Movements",
+        content: "This passage surveys a recent trend in contemporary art and the critical responses it has received.",
+        tips: [
+          "Identify the main characteristics of the movement",
+          "Note critics' arguments and supporting examples",
+          "Pay attention to terminology used in art criticism"
+        ],
+        mistakes: [
+          "Treating subjective critique as objective fact",
+          "Missing contextual background for the movement"
+        ],
+        predictions: [
+          "Examples of representative artists or works",
+          "Critical reception and debates"
+        ]
+      }
+    ]
+  },
+  'global-issues': {
+    title: 'Global Issues',
+    examples: [
+      {
+        title: "International Development Challenges",
+        content: "This passage discusses systemic challenges in international development, including financing, governance, and sustainability.",
+        tips: [
+          "Look for policy language and data",
+          "Identify stakeholders and their positions",
+          "Watch for proposed solutions and trade-offs"
+        ],
+        mistakes: [
+          "Oversimplifying complex international dynamics",
+          "Ignoring regional or local nuances"
+        ],
+        predictions: [
+          "Descriptions of policy proposals",
+          "Discussion of implementation challenges"
+        ]
+      }
+    ]
   }
 };

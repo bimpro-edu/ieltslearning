@@ -39,7 +39,14 @@ const categoryTopics = {
   'predicting': [
     { key: 'education', title: 'Education' },
     { key: 'technology', title: 'Technology' },
-    { key: 'environment', title: 'Environment' }
+    { key: 'environment', title: 'Environment' },
+    { key: 'science', title: 'Science' },
+    { key: 'health', title: 'Health' },
+    { key: 'business', title: 'Business & Economy' },
+    { key: 'society', title: 'Society & Culture' },
+    { key: 'history', title: 'History' },
+    { key: 'arts', title: 'Arts & Culture' },
+    { key: 'global-issues', title: 'Global Issues' }
   ],
 
   'science-tech': [
