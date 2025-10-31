@@ -17,6 +17,7 @@ import TaskPage from './pages/TaskPage'; // Import TaskPage
 import ReadingPage from './pages/ReadingPage'; // Import ReadingPage
 import ReadingCategoryPage from './pages/reading/ReadingCategoryPage';
 import SkimmingPage from './pages/reading/SkimmingPage';
+import ScanningPage from './pages/reading/ScanningPage';
 
 import ReadingLessonsListPage from './pages/ReadingLessonsListPage';
 
@@ -36,9 +37,12 @@ function App() {
           {/* Reading Module */}
           <Route path={ROUTES.READING.HOME} element={<ReadingPage />} />
           <Route path="/reading/skimming" element={<SkimmingPage />} />
-          {/* Redirect old skimming URLs to the new short URL */}
+          <Route path="/reading/scanning" element={<ScanningPage />} />
+          {/* Redirect old skimming/scanning URLs to the new short URLs */}
           <Route path="/reading/core-reading-skills/skimming" element={<Navigate to="/reading/skimming" replace />} />
           <Route path="/reading/core-skills/skimming" element={<Navigate to="/reading/skimming" replace />} />
+          <Route path="/reading/core-reading-skills/scanning" element={<Navigate to="/reading/scanning" replace />} />
+          <Route path="/reading/core-skills/scanning" element={<Navigate to="/reading/scanning" replace />} />
           <Route path="/reading/core-reading-skills/predicting" element={<Navigate to="/reading/predicting" replace />} />
           <Route path="/reading/:categoryKey/:topicKey" element={<ReadingCategoryPage />} />
           <Route path="/reading/:categoryKey" element={<ReadingCategoryPage />} />

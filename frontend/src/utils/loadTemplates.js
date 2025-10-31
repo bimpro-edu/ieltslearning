@@ -1,6 +1,7 @@
 import { getListeningTopicsForCategory as _getListeningTopicsForCategory, getListeningTemplateForTopic as _getListeningTemplateForTopic } from './listeningTemplates';
 import { predictingTopics } from './predictingTemplates';
 import { skimmingTopics } from './skimmingTemplates';
+import { scanningTopics } from './scanningTemplates';
 
 // Export function to get topics for a listening category (for sidebar)
 export function getListeningTopicsForCategory(categoryKey) {
@@ -157,7 +158,12 @@ export function getReadingTopicsForCategory(categoryKey) {
 
 // Export function to get template for a specific topic
 export function getReadingTemplateForTopic(categoryKey, topicKey) {
-  // First check category-specific templates
+  // If the caller explicitly requests scanning variants (special category key), return scanning templates
+  if (categoryKey === 'core-reading-skills-scanning' && scanningTopics && scanningTopics[topicKey]) {
+    return scanningTopics[topicKey];
+  }
+
+  // First check category-specific skimming templates (default for core-reading-skills)
   if (categoryKey === 'core-reading-skills' && skimmingTopics && skimmingTopics[topicKey]) {
     return skimmingTopics[topicKey];
   }

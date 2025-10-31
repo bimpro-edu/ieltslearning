@@ -32,7 +32,7 @@ const readingClusters = [
         key: 'scanning',
         title: 'Scanning for Specific Information',
         description: 'To find a name like "Dr. Evans," let your eyes float across the lines, looking only for the capital E or the shape of the name. This is much faster than reading every word. Use it to find dates, numbers, and keywords from the question.',
-        to: '/reading/core-skills/scanning'
+        to: '/reading/scanning'
       },
       {
         key: 'paragraph-structure',
