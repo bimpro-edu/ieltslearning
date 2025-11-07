@@ -3,14 +3,16 @@ import ReactFlow, { MiniMap, Controls, Background, useNodesState, useEdgesState,
 
 import 'reactflow/dist/style.css';
 
-export default function SimpleMindMapViewer({ mindMapData }) {
-  const [nodes, setNodes, onNodesChange] = useNodesState(mindMapData.nodes || []);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(mindMapData.edges || []);
+export default function SimpleMindMapViewer({ data }) {
+  const [nodes, setNodes, onNodesChange] = useNodesState((data && data.nodes) || []);
+  const [edges, setEdges, onEdgesChange] = useEdgesState((data && data.edges) || []);
 
   useEffect(() => {
-    setNodes(mindMapData.nodes || []);
-    setEdges(mindMapData.edges || []);
-  }, [mindMapData, setNodes, setEdges]);
+    if (data) {
+      setNodes(data.nodes || []);
+      setEdges(data.edges || []);
+    }
+  }, [data, setNodes, setEdges]);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),

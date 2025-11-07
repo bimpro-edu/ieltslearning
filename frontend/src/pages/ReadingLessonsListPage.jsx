@@ -38,7 +38,7 @@ const readingClusters = [
         key: 'paragraph-structure',
         title: 'Understanding Paragraph Structure',
         description: "Most paragraphs have a topic sentence (the main idea) and supporting sentences (details, examples). Finding the topic sentence is key to understanding the paragraph's purpose, which is crucial for matching headings.",
-        to: '/reading/core-skills/paragraph-structure'
+        to: '/reading/paragraph-structure'
       },
     ]
   },

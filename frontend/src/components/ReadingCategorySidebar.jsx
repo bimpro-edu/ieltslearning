@@ -1,5 +1,6 @@
 import React from 'react';
 import { getReadingTopicsForCategory } from '../utils/readingTemplates';
+import { getParagraphStructureTopics } from '../utils/paragraphStructureTemplates';
 
 /**
  * Renders a sidebar with a list of reading topics for a given category.
@@ -7,7 +8,10 @@ import { getReadingTopicsForCategory } from '../utils/readingTemplates';
  */
 export default function ReadingCategorySidebar({ categoryKey = 'predicting', selectedTopic, setSelectedTopic }) {
   // Fetch topics synchronously from the centralized data source
-  const topics = getReadingTopicsForCategory(categoryKey);
+  // Special-case: paragraph-structure uses its own topic list
+  const topics = categoryKey === 'paragraph-structure'
+    ? getParagraphStructureTopics(categoryKey)
+    : getReadingTopicsForCategory(categoryKey);
 
   if (!topics || topics.length === 0) {
     return (
@@ -32,7 +36,8 @@ export default function ReadingCategorySidebar({ categoryKey = 'predicting', sel
               }`}
               onClick={() => setSelectedTopic(topic.key)}
             >
-              {topic.title}
+              {/* support both {title} and {label} shapes returned by different providers */}
+              {topic.title || topic.label || topic.key}
             </button>
           </li>
         ))}

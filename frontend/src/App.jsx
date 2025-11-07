@@ -18,6 +18,7 @@ import ReadingPage from './pages/ReadingPage'; // Import ReadingPage
 import ReadingCategoryPage from './pages/reading/ReadingCategoryPage';
 import SkimmingPage from './pages/reading/SkimmingPage';
 import ScanningPage from './pages/reading/ScanningPage';
+import ParagraphStructurePage from './pages/reading/ParagraphStructurePage';
 
 import ReadingLessonsListPage from './pages/ReadingLessonsListPage';
 
@@ -38,11 +39,14 @@ function App() {
           <Route path={ROUTES.READING.HOME} element={<ReadingPage />} />
           <Route path="/reading/skimming" element={<SkimmingPage />} />
           <Route path="/reading/scanning" element={<ScanningPage />} />
+          <Route path="/reading/paragraph-structure" element={<ParagraphStructurePage />} />
           {/* Redirect old skimming/scanning URLs to the new short URLs */}
           <Route path="/reading/core-reading-skills/skimming" element={<Navigate to="/reading/skimming" replace />} />
           <Route path="/reading/core-skills/skimming" element={<Navigate to="/reading/skimming" replace />} />
           <Route path="/reading/core-reading-skills/scanning" element={<Navigate to="/reading/scanning" replace />} />
           <Route path="/reading/core-skills/scanning" element={<Navigate to="/reading/scanning" replace />} />
+          <Route path="/reading/core-reading-skills/paragraph-structure" element={<Navigate to="/reading/paragraph-structure" replace />} />
+          <Route path="/reading/core-skills/paragraph-structure" element={<Navigate to="/reading/paragraph-structure" replace />} />
           <Route path="/reading/core-reading-skills/predicting" element={<Navigate to="/reading/predicting" replace />} />
           <Route path="/reading/:categoryKey/:topicKey" element={<ReadingCategoryPage />} />
           <Route path="/reading/:categoryKey" element={<ReadingCategoryPage />} />
