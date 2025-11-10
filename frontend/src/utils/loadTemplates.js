@@ -144,6 +144,31 @@ const categoryTopics = {
     { key: 'arts', title: 'Arts & Culture' },
     { key: 'global-issues', title: 'Global Issues' }
   ]
+
+  ,
+  // Topics representing the different question types and strategy pages
+  'question-types': [
+    { key: 'diagram-label-completion', title: 'Diagram Label Completion' },
+    { key: 'author-attitude', title: "Author's Attitude" },
+    { key: 'main-idea', title: 'Main Idea' },
+    { key: 'true-false-ng', title: 'True/False/Not Given' },
+    { key: 'yes-no-ng', title: 'Yes/No/Not Given' },
+    { key: 'matching-headings', title: 'Matching Headings' },
+    { key: 'matching-information', title: 'Matching Information' },
+    { key: 'matching-features', title: 'Matching Features' },
+    { key: 'sentence-completion', title: 'Sentence Completion' },
+    { key: 'summary-completion', title: 'Summary Completion' },
+    { key: 'note-completion', title: 'Note/Table/Flow-chart Completion' },
+    { key: 'multiple-choice', title: 'Multiple Choice' },
+    { key: 'short-answer', title: 'Short Answer Questions' },
+    { key: 'academic-vocabulary', title: 'Academic Vocabulary' },
+    { key: 'skimming-scanning', title: 'Skimming & Scanning' },
+    { key: 'paraphrase-tracking', title: 'Paraphrase Recognition' },
+    { key: 'time-management', title: 'Reading Time Management' },
+    { key: 'trap-awareness', title: 'Common Traps & Distractors' },
+    { key: 'inference-skills', title: 'Inference & Implication' },
+    { key: 'text-structure', title: 'Understanding Text Structure' }
+  ],
 };
 
 // Export function to get all reading categories
@@ -284,6 +309,50 @@ const readingTemplates = {
     predictions: [
       { statement: 'Diagram label completion questions often appear in passages about science or technology.', example: 'Passages about biology, engineering, or environmental science are common sources.' },
       { statement: 'Expect to label parts of a machine, a biological process, or a natural phenomenon.', example: 'You might be asked to label the parts of a plant, the stages of a chemical reaction, or the components of a simple engine.' }
+    ],
+    examples: [
+      {
+        title: 'Label the Water Pump',
+        content: 'Passage: A short technical description explains a simple water pump used in irrigation. The text describes how water enters the inlet, is pushed by an impeller, passes a filter, and leaves via an outlet; the diagram shows five numbered parts adjacent to these elements. Task: use words from the passage to label parts 1–5.\n\nPractice focus: connect process language ("flows in", "is driven by") with diagram labels and watch for paraphrases ("impeller" vs "rotating blade").',
+        tips: [
+          'Read the diagram first to understand the overall process flow.',
+          'Underline the technical terms in the passage and look for paraphrases in the diagram labels.'
+        ],
+        mistakes: [
+          'Relying on your own engineering knowledge instead of the passage text.',
+          'Assuming label order on the diagram matches the order in the description.'
+        ],
+        predictions: [
+          'Questions will emphasise process steps and physical parts in engineering or environmental contexts.'
+        ]
+      },
+      {
+        title: 'Parts of a Wind Turbine',
+        content: `Passage: The Aurora 2.0MW research turbine has a rotor diameter of 82 m and three composite rotor blades mounted on a central rotor hub. The hub is bolted to a low-speed shaft that transfers the rotor's rotation into a two-stage planetary gearbox housed inside the nacelle; the gearbox increases rotational speed and drives a synchronous generator, which produces alternating current. The nacelle, which sits on top of an 80 m tubular steel tower, contains the gearbox, generator, blade pitch actuators, power electronics and control systems. A yaw drive rotates the nacelle so the rotor faces the wind, and an anemometer and wind vane mounted on the nacelle measure wind speed and direction for the control system.
+
+Task: On the diagram label the numbered parts (1–7) by matching them to the components named in the passage. For each label give a short supporting quote from the passage (one brief phrase or sentence).
+
+Sample answer:
+1 — Rotor blade: "three composite rotor blades mounted on a central rotor hub"
+2 — Rotor hub: "mounted on a central rotor hub"
+3 — Low-speed shaft: "the hub is bolted to a low-speed shaft that transfers the rotor's rotation"
+4 — Gearbox: "a two-stage planetary gearbox housed inside the nacelle"
+5 — Generator: "drives a synchronous generator, which produces alternating current"
+6 — Nacelle: "The nacelle... contains the gearbox, generator, blade pitch actuators, power electronics and control systems"
+7 — Tower: "sits on top of an 80 m tubular steel tower"
+`,
+        tips: [
+          'Locate the sentence that lists components and match those phrases to diagram labels.',
+          'Watch for paraphrasing: "power conversion unit" may refer to the generator.'
+        ],
+        mistakes: [
+          'Confusing the gearbox with the generator due to similar context sentences.',
+          'Ignoring brief parenthetical definitions in the passage.'
+        ],
+        predictions: [
+          'Diagrams often accompany science and technology passages; focus on nouns and process verbs.'
+        ]
+      }
     ]
   },
   'author-attitude': {
@@ -302,6 +371,32 @@ const readingTemplates = {
     predictions: [
       { statement: 'This skill is crucial for Yes/No/Not Given questions and some multiple-choice questions.', example: 'A "Yes/No/Not Given" question might ask if the author agrees with a certain statement.' },
       { statement: 'Expect to find questions about the author\'s purpose, tone, or bias in argumentative passages.', example: 'Passages that discuss social issues, scientific controversies, or historical interpretations are likely to have such questions.' }
+    ],
+    examples: [
+      {
+        title: 'Editorial Tone Analysis',
+        content: 'Passage: An editorial argues that city planners have neglected pedestrian needs in favour of car traffic. The author uses charged adjectives and contrastive language to make the case. Task: identify three phrases that show the author\'s attitude and write a short sentence summarising the overall tone (positive/negative/neutral).\n\nPractice focus: distinguish reporting of fact from evaluative language and spot hedging or intensifiers that reveal stance.',
+        tips: [
+          'Look for evaluative adjectives and adverbs (e.g., "reckless", "surprisingly").',
+          'Note whether the author attributes claims ("experts say") or states them directly.'
+        ],
+        mistakes: [
+          'Confusing a quoted source\'s view with the author\'s own attitude.',
+          'Over-interpreting mild language as strong support.'
+        ]
+      },
+      {
+        title: 'Research Summary Evaluation',
+        content: 'Passage: A short summary describes recent research on diet and cognition. The author offers cautious language about causality and highlights limitations. Task: decide whether the author presents the findings positively, negatively, or neutrally and support your decision with evidence from the text.',
+        tips: [
+          'Pay attention to modal verbs (may, might) and qualifiers that indicate caution.',
+          'Distinguish between the researchers\' results and the author\'s commentary.'
+        ],
+        mistakes: [
+          'Mistaking the researchers\' cautious wording for the author\'s scepticism.',
+          'Ignoring qualifications or sample size comments that limit claims.'
+        ]
+      }
     ]
   },
   'main-idea': {
@@ -320,6 +415,23 @@ const readingTemplates = {
     predictions: [
       { statement: 'This skill is essential for Matching Headings questions.', example: 'Each heading is the main idea of a paragraph.' },
       { statement: 'Understanding the main idea of each paragraph helps you to follow the author\'s argument.', example: 'It allows you to create a mental map of the passage, making it easier to find information.' }
+    ],
+    examples: [
+      {
+        title: 'Main Idea Extraction',
+        content: 'Passage: A paragraph discusses causes of deforestation, listing agricultural expansion, logging, and infrastructure development as primary drivers. Task: write one concise sentence that captures the paragraph\'s main idea and explain why the details support that sentence.\n\nPractice focus: ignore side examples and focus on the central claim that links the listed causes.',
+        tips: [
+          'Ask "what is the paragraph trying to prove or explain?" to identify the central claim.',
+          'Look for linking words that summarise (e.g., "primarily due to").'
+        ],
+        mistakes: [
+          'Picking a supporting detail as the main idea instead of the overarching point.'
+        ]
+      },
+      {
+        title: 'Choose the Best Summary',
+        content: 'Given a paragraph describing the social impacts of urbanisation, choose the best one-line summary from three options and explain which parts of the paragraph each option covers or misses.\n\nPractice focus: rule out options that are too broad or too narrow.'
+      }
     ]
   },
   'true-false-ng': {
@@ -345,6 +457,30 @@ const readingTemplates = {
       { statement: 'Look for questions about research findings, historical facts, or processes.', example: 'These types of passages are common in the Academic Reading test.' },
       { statement: 'Some questions may test your understanding of cause and effect relationships.', example: 'A question might ask if A caused B.' },
       { statement: 'The most challenging questions often involve subtle paraphrasing.', example: 'The question might use a completely different sentence structure and vocabulary to express the same idea.' }
+    ],
+    examples: [
+      {
+        title: 'TFNG Practice: Study Result',
+        content: 'Passage excerpt: "A survey showed 70% preferred online classes." Statement: "Less than half prefer online classes."\n\nTask: decide whether the statement is True, False, or Not Given and provide a brief justification citing the passage. Practice identifying exact numerical facts and paraphrase traps.',
+        tips: [
+          'Pay attention to exact numbers and qualifiers (most, many, some).',
+          'Check whether the statement paraphrases or changes the fact.'
+        ],
+        mistakes: [
+          'Assuming paraphrased wording implies the same meaning without checking qualifiers.'
+        ]
+      },
+      {
+        title: 'Fact Checking: Causation vs Correlation',
+        content: 'Passage: Researchers report no clear link between A and B in a study. Statement: "A causes B."\n\nTask: decide True/False/Not Given and explain why the passage supports or does not support causation claims.',
+        tips: [
+          'Look for causal language ("cause", "lead to") in the passage; absent language usually means Not Given.',
+          'Be cautious: "associated with" does not equal causation.'
+        ],
+        mistakes: [
+          'Interpreting correlation statements as causation without explicit evidence.'
+        ]
+      }
     ]
   },
   'yes-no-ng': {
@@ -370,6 +506,23 @@ const readingTemplates = {
         { statement: 'Look for questions testing your understanding of the writer\'s recommendations.', example: 'The author might suggest a course of action, and a question might ask if they support it.' },
         { statement: 'Some questions may involve the writer\'s attitude toward research or studies.', example: 'The author might express skepticism or support for a particular study.' },
         { statement: 'The writer\'s implicit views may be tested, not just explicit statements.', example: 'You might have to infer the author\'s opinion from their choice of words.' }
+    ],
+    examples: [
+      {
+        title: 'Yes/No/Not Given: Policy Example',
+        content: 'Passage: An opinion piece critiques proposed changes to public transport funding and hints at concerns about access. Statement: "The author believes the policy will improve services."\n\nTask: decide Yes/No/Not Given and quote evidence from the text to justify the choice.',
+        tips: [
+          'Distinguish between the author\'s explicit claims and reported opinions of others.',
+          'Look for clear evaluative statements that indicate support or opposition.'
+        ],
+        mistakes: [
+          'Inferring support when the author only reports others\' views.'
+        ]
+      },
+      {
+        title: 'Author\'s Stance in Dual-view Paragraph',
+        content: 'Passage: A paragraph presents two viewpoints about urban farming, then briefly notes trends. Task: decide whether the author explicitly favours one view and provide a sentence explaining your reasoning.'
+      }
     ]
   },
   'matching-headings': {
@@ -395,6 +548,23 @@ const readingTemplates = {
         { statement: 'Extra headings are included as distractors.', example: 'These are headings that don\'t match any of the paragraphs.' },
         { statement: 'Questions test your ability to identify main ideas and themes.', example: 'This is a test of your overall understanding of the passage.' },
         { statement: 'Paragraphs often follow a logical progression of ideas.', example: 'This can help you to predict the content of the next paragraph.' }
+    ],
+    examples: [
+      {
+        title: 'Matching Headings: Five Mini-Paragraphs',
+        content: 'Task: Read five concise paragraphs on different aspects of renewable energy. Choose the best heading for each paragraph from a list of seven headings and briefly note the sentence that signals the main idea for each choice.\n\nPractice focus: find the sentence that contains the paragraph\'s primary claim and avoid selecting headings that only match minor details.',
+        tips: [
+          'Underline topic sentences and linking words that summarise the paragraph.',
+          'Eliminate headings that are either too broad or too narrowly focused.'
+        ],
+        mistakes: [
+          'Selecting a heading that matches a supporting detail rather than the main idea.'
+        ]
+      },
+      {
+        title: 'Heading Strategy Drill',
+        content: 'Practice technique: before reading the paragraphs, cross out two headings that clearly do not match any paragraph topic. Then read paragraphs to match remaining headings quickly.'
+      }
     ]
   },
   'matching-information': {
@@ -420,6 +590,23 @@ const readingTemplates = {
         { statement: 'Some questions test your ability to locate supporting evidence for claims.', example: 'The question might ask you to find the evidence that supports a particular statement.' },
         { statement: 'Information might be presented as case studies or specific instances.', example: 'The passage might describe a particular person or event to illustrate a point.' },
         { statement: 'Multiple correct answers may come from the same paragraph.', example: 'You might be able to use the same paragraph for more than one question.' }
+    ],
+    examples: [
+      {
+        title: 'Find the Detail (Historical Event)',
+        content: 'Passage: A paragraph describes the timeline of a historical event including dates, key figures and locations. Task: answer a specific question that requires locating the exact sentence containing the requested fact and copy the short phrase as the answer.',
+        tips: [
+          'Scan for dates and proper nouns when the question asks for a name or year.',
+          'Read the entire sentence containing the keyword to ensure context matches the question.'
+        ],
+        mistakes: [
+          'Selecting a nearby sentence that looks similar but does not provide the exact fact.'
+        ]
+      },
+      {
+        title: 'Scattered Information Drill',
+        content: 'Passage: Relevant information is presented across two or three sentences in a paragraph. Task: synthesize details to answer a question that cannot be resolved from a single sentence.'
+      }
     ]
   },
   'matching-features': {
@@ -445,6 +632,16 @@ const readingTemplates = {
         { statement: 'Could test relationships between concepts, theories, or research findings.', example: 'You might be asked to match a theory to the person who proposed it.' },
         { statement: 'Questions often involve expert opinions, research results, or historical facts.', example: 'These are the types of information that are often tested in this question type.' },
         { statement: 'Some features may not be used, or some may be used more than once.', example: 'There might be more features than people, or vice versa.' }
+    ],
+    examples: [
+      {
+        title: 'Match People to Opinions',
+        content: 'Short passage with three experts quoted. Match each expert to the opinion or finding attributed to them.'
+      },
+      {
+        title: 'Feature Identification',
+        content: 'Given descriptions of places, match each description to the correct location listed.'
+      }
     ]
   },
   'sentence-completion': {
@@ -470,6 +667,16 @@ const readingTemplates = {
         { statement: 'Could involve completing definitions, processes, or cause-effect relationships.', example: 'You might be asked to complete a sentence that defines a key term.' },
         { statement: 'Some gaps may require understanding of pronoun references.', example: 'You might need to know what "it" or "they" refers to.' },
         { statement: 'The completed sentences should summarize important information from the passage.', example: 'This is a test of your ability to understand the main points of the passage.' }
+    ],
+    examples: [
+      {
+        title: 'Sentence Completion Drill',
+        content: 'Fill the gap: "The primary cause of X was __________." Use one word from the passage to complete the sentence.'
+      },
+      {
+        title: 'Pronoun Reference Practice',
+        content: 'Complete sentences where pronoun resolution is necessary (e.g., decide what "it" refers to in the previous sentence).' 
+      }
     ]
   },
   'summary-completion': {
@@ -495,6 +702,16 @@ const readingTemplates = {
         { statement: 'Often includes cause-effect relationships or sequential information.', example: 'The summary might describe how something happened or why it happened.' },
         { statement: 'Key vocabulary and technical terms are frequently tested.', example: 'This is a test of your vocabulary.' },
         { statement: 'The summary may combine information from different parts of the passage.', example: 'You might need to read several paragraphs to find the answers.' }
+    ],
+    examples: [
+      {
+        title: 'Summary Gap Fill',
+        content: 'Fill the missing words in a short summary about a research study, using words from the passage (1-3 words per gap).' 
+      },
+      {
+        title: 'Combine Details',
+        content: 'Condense two short paragraphs into a one-sentence summary that captures both main points.'
+      }
     ]
   },
   'note-completion': {
@@ -520,6 +737,16 @@ const readingTemplates = {
         { statement: 'Tables might compare different aspects of multiple subjects or concepts.', example: 'You might be asked to compare two different types of animals.' },
         { statement: 'Flow-charts typically show processes, cycles, or cause-effect relationships.', example: 'You might be asked to complete a flow-chart that shows how a machine works.' },
         { statement: 'Notes may summarize key points from different sections of the passage.', example: 'This is a test of your ability to identify the main ideas.' }
+    ],
+    examples: [
+      {
+        title: 'Complete the Table',
+  content: 'A table with missing entries needs to be completed using exact words from the passage; practice with three short tables.'
+      },
+      {
+        title: 'Flow-chart Completion',
+        content: 'Complete a simple flow-chart describing a manufacturing process by filling in missing steps taken from the text.'
+      }
     ]
   },
   'multiple-choice': {
@@ -545,6 +772,16 @@ const readingTemplates = {
         { statement: 'Some questions test your understanding of vocabulary in context.', example: 'You might be asked to choose the best definition for a word.' },
         { statement: 'Could involve identifying the best title or summary for a section.', example: 'This is a test of your ability to understand the main idea.' },
         { statement: 'Multiple-answer questions might ask for characteristics, examples, or factors.', example: 'You might be asked to choose two reasons why something happened.' }
+    ],
+    examples: [
+      {
+        title: 'Multiple Choice Mini-Test',
+        content: 'Read a short passage and answer three multiple-choice questions that test main idea, detail, and inference.'
+      },
+      {
+        title: 'Elimination Practice',
+        content: 'Given a question and four options, practise eliminating two clearly wrong choices before selecting the best answer.'
+      }
     ]
   },
   'short-answer': {
@@ -570,6 +807,16 @@ const readingTemplates = {
         { statement: 'Often focus on who did what, when something happened, or where events occurred.', example: 'These are all things that you might be asked about.' },
         { statement: 'Could ask for reasons, methods, or characteristics.', example: 'You might be asked to explain why something happened.' },
         { statement: 'Answers are usually concrete nouns, proper nouns, or numerical information.', example: 'These are the types of words that are often used in short-answer questions.' }
+    ],
+    examples: [
+      {
+        title: 'Short Answer Practice: Dates & Names',
+        content: 'Find the exact year and name mentioned in a short passage and provide them as answers (1-3 words).' 
+      },
+      {
+        title: 'Definition Retrieval',
+        content: 'Locate and copy a precise definition of a technical term from the passage.'
+      }
     ]
   },
   'academic-vocabulary': {
@@ -595,6 +842,16 @@ const readingTemplates = {
         { statement: 'Technical vocabulary specific to passage topics will be crucial for understanding.', example: 'If the passage is about biology, you will need to know some biology vocabulary.' },
         { statement: 'Many questions test your ability to recognize paraphrases of academic terms.', example: 'This is a key skill for the reading test.' },
         { statement: 'Understanding word families helps with multiple question types.', example: 'If you know the word "analyze," you can probably understand "analysis" and "analytical."' }
+    ],
+    examples: [
+      {
+        title: 'AWL Spotting',
+        content: 'Identify five academic words in a passage and give simple synonyms for each.'
+      },
+      {
+        title: 'Word Family Drill',
+        content: 'From a short paragraph, list the base form and two derived forms (e.g., analyze, analysis, analytical).' 
+      }
     ]
   },
   'skimming-scanning': {
@@ -620,6 +877,16 @@ const readingTemplates = {
         { statement: 'You\'ll need both skills within the 60-minute time limit.', example: 'You need to be able to switch between skimming and scanning quickly and efficiently.' },
         { statement: 'Effective skimming helps you understand passage structure and organization.', example: 'This will help you to find information more easily.' },
         { statement: 'Scanning skills are crucial for True/False/Not Given and matching questions.', example: 'These question types require you to find specific information in the passage.' }
+    ],
+    examples: [
+      {
+        title: 'Skim for Main Idea',
+        content: 'Spend 1 minute skimming a paragraph and write its main idea in one sentence.'
+      },
+      {
+        title: 'Scan for Numbers',
+        content: 'Find three numerical facts in a short passage within 30 seconds.'
+      }
     ]
   },
   'paraphrase-tracking': {
@@ -645,6 +912,16 @@ const readingTemplates = {
         { statement: 'Paraphrasing is especially important in True/False/Not Given questions.', example: 'You need to be able to tell if a statement is a paraphrase of the information in the passage.' },
         { statement: 'Multiple choice options often paraphrase information from the passage.', example: 'You need to be able to recognize which option is the best paraphrase.' },
         { statement: 'Understanding paraphrases is key to matching exercises and summary completion.', example: 'These question types require you to match paraphrased information.' }
+    ],
+    examples: [
+      {
+        title: 'Paraphrase Pairing',
+        content: 'Given a sentence from the passage and three paraphrases, choose the best paraphrase and explain why the others are weaker.'
+      },
+      {
+        title: 'Synonym Hunt',
+  content: 'Find two synonyms for a highlighted academic word in the passage and indicate where each appears.'
+      }
     ]
   },
   'time-management': {
@@ -670,6 +947,16 @@ const readingTemplates = {
         { statement: 'Some questions require more time for careful analysis than others.', example: 'You need to be able to recognize which questions will take more time.' },
         { statement: 'Time management skills improve with regular practice under test conditions.', example: 'The more you practice, the better you will get at managing your time.' },
         { statement: 'The academic reading test requires sustained concentration for the full 60 minutes.', example: 'You need to be able to focus for the whole hour.' }
+    ],
+    examples: [
+      {
+        title: '20-Minute Passage Drill',
+        content: 'Complete a short passage and its questions in 20 minutes, tracking time for each question type.'
+      },
+      {
+        title: 'Section Planning',
+        content: 'Practice assigning time blocks to question groups (e.g., 10 mins for MCQ, 5 mins for matching) and reflect on improvements.'
+      }
     ]
   },
   'trap-awareness': {
@@ -695,6 +982,16 @@ const readingTemplates = {
         { statement: 'Multiple choice questions use attractive distractors that seem logical.', example: 'You need to read the options carefully to make sure you are not being tricked.' },
         { statement: 'Matching exercises include extra options designed to confuse test-takers.', example: 'There are usually more options than questions.' },
         { statement: 'Understanding common trap patterns helps you avoid predictable mistakes.', example: 'The more you practice, the better you will get at recognizing traps.' }
+    ],
+    examples: [
+      {
+        title: 'Identify the Distractor',
+        content: 'Given a question and four options, identify which option is a distractor and explain why it is misleading.'
+      },
+      {
+        title: 'Edge-case Trap Practice',
+        content: 'Practice questions that hinge on qualifiers (e.g., "some" vs "all") and explain the marking rationale.'
+      }
     ]
   },
   'inference-skills': {
@@ -720,6 +1017,16 @@ const readingTemplates = {
         { statement: 'Some questions test your ability to understand implied criticism or support.', example: 'The author might not directly criticize something, but you can infer their criticism from their choice of words.' },
         { statement: 'Inference skills are important for Yes/No/Not Given questions.', example: 'You might need to infer the author\'s opinion to answer a Yes/No/Not Given question.' },
         { statement: 'You might need to infer the meaning of vocabulary from context.', example: 'If you don\'t know the meaning of a word, you can try to guess it from the context.' }
+    ],
+    examples: [
+      {
+        title: 'Inference Practice',
+        content: 'Read a paragraph and answer an inference question that asks you to deduce the author\'s implied conclusion.'
+      },
+      {
+        title: 'Implied Relationships',
+        content: 'Identify implied cause-effect relationships in a short passage and justify your inference with evidence.'
+      }
     ]
   },
   'text-structure': {
@@ -745,6 +1052,16 @@ const readingTemplates = {
         { statement: 'Academic texts often follow predictable structural patterns.', example: 'This can help you to predict the structure of the passage.' },
         { statement: 'Recognizing structure helps you locate information more efficiently.', example: 'If you know the structure of the passage, you can find the information you are looking for more quickly.' },
         { statement: 'Structure awareness improves your overall comprehension and reading speed.', example: 'The better you understand the structure of the passage, the faster you will be able to read it.' }
+    ],
+    examples: [
+      {
+        title: 'Structure Mapping',
+        content: 'Outline the structure of a short passage (introduction, body points, conclusion) in a few bullet points.'
+      },
+      {
+        title: 'Identify Text Pattern',
+        content: 'Given a paragraph, identify whether it follows problem-solution, cause-effect, or comparison-contrast and justify your choice.'
+      }
     ]
   },
   'mock-tests': {
