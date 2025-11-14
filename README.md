@@ -1,4 +1,4 @@
-# IELTS Writing - Coherence & Cohesion
+# IELTS Learning
 
 This project is a learning tool designed to help IELTS students improve their writing skills in the "Coherence and Cohesion" category for Task 2 essays.
 

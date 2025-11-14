@@ -34,10 +34,14 @@ backend/app/__pycache__/
 *.swp
 *.swo
 .idea/
-*.iml
+.iml
 
 # Test coverage
 coverage/
 
 # Others
 *.bak
+
+# AI Assistant config
+.serena
+.claude
