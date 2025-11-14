@@ -1,0 +1,346 @@
+{
+  "title": "Essential IELTS Grammar Guide",
+  "description": "Comprehensive grammar reference for IELTS Writing and Speaking",
+  "sections": [
+    {
+      "id": "complex-sentences",
+      "title": "Complex Sentence Structures",
+      "level": "Intermediate to Advanced",
+      "importance": "Critical for Band 7+",
+      "explanation": "Complex sentences demonstrate grammatical range and help you express sophisticated ideas. They combine independent and dependent clauses using subordinating conjunctions.",
+      "rules": [
+        {
+          "rule": "Use subordinating conjunctions to create complexity",
+          "examples": [
+            {
+              "correct": "Although technology has improved communication, it has also increased social isolation.",
+              "explanation": "'Although' introduces a dependent clause, creating a complex sentence that shows contrast."
+            },
+            {
+              "correct": "Since renewable energy costs have fallen dramatically, many countries are transitioning away from fossil fuels.",
+              "explanation": "'Since' shows cause-effect relationship in a complex structure."
+            }
+          ],
+          "commonMistakes": [
+            {
+              "incorrect": "Although technology has improved communication. It has also increased social isolation.",
+              "correct": "Although technology has improved communication, it has also increased social isolation.",
+              "explanation": "Don't create a sentence fragment by putting a period after the dependent clause."
+            }
+          ]
+        },
+        {
+          "rule": "Combine multiple clauses for sophistication",
+          "examples": [
+            {
+              "correct": "While some argue that education should be free, others believe that charging fees ensures quality, which is why this debate continues.",
+              "explanation": "This sentence combines three clauses with different relationships (contrast, reason, result)."
+            }
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "instruction": "Combine these simple sentences into one complex sentence:",
+          "simple": "1. Technology improves efficiency. 2. It creates job displacement. 3. This causes social problems.",
+          "answer": "Although technology improves efficiency, it creates job displacement, which causes social problems.",
+          "alternatives": [
+            "While technology improves efficiency, the job displacement it creates causes social problems.",
+            "Technology improves efficiency; however, the resulting job displacement causes social problems."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conditionals",
+      "title": "Conditional Sentences",
+      "level": "All Levels",
+      "importance": "Essential for hypothetical arguments",
+      "explanation": "Conditionals express hypothetical situations and their consequences. IELTS essays often require discussing potential outcomes.",
+      "types": [
+        {
+          "type": "Zero Conditional (General Truths)",
+          "structure": "If + present simple, present simple",
+          "use": "Express facts or general truths",
+          "examples": [
+            "If you heat water to 100°C, it boils.",
+            "If people exercise regularly, they generally feel healthier."
+          ]
+        },
+        {
+          "type": "First Conditional (Real Future Possibility)",
+          "structure": "If + present simple, will + base verb",
+          "use": "Express real possibilities in the future",
+          "examples": [
+            "If governments invest in renewable energy, they will reduce carbon emissions.",
+            "If the current trend continues, urban populations will exceed rural populations by 2050."
+          ]
+        },
+        {
+          "type": "Second Conditional (Hypothetical Present/Future)",
+          "structure": "If + past simple, would + base verb",
+          "use": "Express hypothetical or unlikely situations",
+          "examples": [
+            "If governments banned single-use plastics, pollution would decrease significantly.",
+            "If education were completely free, more people would pursue higher qualifications."
+          ]
+        },
+        {
+          "type": "Third Conditional (Hypothetical Past)",
+          "structure": "If + past perfect, would have + past participle",
+          "use": "Express hypothetical past situations and their consequences",
+          "examples": [
+            "If countries had acted sooner on climate change, current temperatures would not have risen so dramatically.",
+            "If the internet had not been invented, modern communication would have developed very differently."
+          ]
+        },
+        {
+          "type": "Mixed Conditionals",
+          "structure": "Various combinations",
+          "use": "Express complex hypothetical relationships across time periods",
+          "examples": [
+            "If the government had invested in infrastructure earlier, traffic congestion would not be such a problem now.",
+            "If people were more environmentally conscious, we would not have caused so much damage in the past."
+          ]
+        }
+      ],
+      "commonMistakes": [
+        {
+          "incorrect": "If governments will invest in education, society will benefit.",
+          "correct": "If governments invest in education, society will benefit.",
+          "explanation": "Don't use 'will' in the if-clause of first conditionals."
+        },
+        {
+          "incorrect": "If I would be rich, I would travel the world.",
+          "correct": "If I were rich, I would travel the world.",
+          "explanation": "Use past simple (or 'were' for 'to be') in second conditional if-clauses, not 'would.'"
+        }
+      ]
+    },
+    {
+      "id": "passive-voice",
+      "title": "Passive Voice",
+      "level": "Intermediate to Advanced",
+      "importance": "Essential for academic writing",
+      "explanation": "Passive voice emphasizes actions over actors, creating a more formal, objective tone appropriate for academic writing.",
+      "structures": [
+        {
+          "tense": "Present Simple",
+          "active": "Scientists conduct experiments.",
+          "passive": "Experiments are conducted (by scientists).",
+          "structure": "is/are + past participle"
+        },
+        {
+          "tense": "Past Simple",
+          "active": "The government implemented new policies.",
+          "passive": "New policies were implemented (by the government).",
+          "structure": "was/were + past participle"
+        },
+        {
+          "tense": "Present Perfect",
+          "active": "Researchers have discovered a new method.",
+          "passive": "A new method has been discovered (by researchers).",
+          "structure": "has/have been + past participle"
+        },
+        {
+          "tense": "Future Simple",
+          "active": "Technology will transform education.",
+          "passive": "Education will be transformed (by technology).",
+          "structure": "will be + past participle"
+        },
+        {
+          "tense": "Modal Verbs",
+          "active": "We should address climate change immediately.",
+          "passive": "Climate change should be addressed immediately.",
+          "structure": "modal + be + past participle"
+        }
+      ],
+      "when": [
+        "When the actor is unknown or unimportant: 'The building was constructed in 1995.'",
+        "To maintain focus on the topic: 'Environmental damage has been caused by industrial pollution.'",
+        "For formal, objective tone: 'It is believed that education improves social mobility.'",
+        "To avoid repetition: 'The study examined 500 participants. They were divided into three groups.'"
+      ],
+      "examples": [
+        {
+          "topic": "Academic Writing",
+          "sentences": [
+            "It is widely accepted that climate change poses a significant threat.",
+            "Several solutions have been proposed to address urban congestion.",
+            "The research was conducted over a five-year period."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relative-clauses",
+      "title": "Relative Clauses",
+      "level": "Intermediate",
+      "importance": "Essential for adding detail and sophistication",
+      "explanation": "Relative clauses add information about nouns, allowing you to pack more meaning into sentences without creating choppy writing.",
+      "types": [
+        {
+          "type": "Defining Relative Clauses",
+          "use": "Essential information identifying which person/thing",
+          "punctuation": "No commas",
+          "examples": [
+            "Students who study regularly achieve better results. (Which students? Those who study regularly)",
+            "Countries that invest in education see economic benefits. (Which countries? Those that invest)",
+            "The policy which was implemented last year has reduced pollution."
+          ]
+        },
+        {
+          "type": "Non-defining Relative Clauses",
+          "use": "Additional, non-essential information",
+          "punctuation": "Commas required",
+          "examples": [
+            "Denmark, which has invested heavily in renewable energy, generates most electricity from wind.",
+            "My professor, who has researched this topic for 20 years, believes significant change is possible.",
+            "The Internet, which was developed in the 1960s, has transformed communication."
+          ]
+        }
+      ],
+      "pronouns": [
+        {
+          "pronoun": "who/whom",
+          "use": "People",
+          "example": "The scientist who discovered this lives in Germany. / The scientist whom I mentioned won a Nobel Prize."
+        },
+        {
+          "pronoun": "which",
+          "use": "Things/animals",
+          "example": "The car which I bought is very fuel-efficient."
+        },
+        {
+          "pronoun": "that",
+          "use": "People or things (defining clauses only)",
+          "example": "The book that I read explained this concept well."
+        },
+        {
+          "pronoun": "whose",
+          "use": "Possession",
+          "example": "Scientists whose research focuses on climate change often work internationally."
+        },
+        {
+          "pronoun": "where",
+          "use": "Places",
+          "example": "Cities where public transport is excellent have less traffic congestion."
+        }
+      ],
+      "commonMistakes": [
+        {
+          "incorrect": "My friend, that lives in London, is visiting.",
+          "correct": "My friend, who lives in London, is visiting.",
+          "explanation": "Use 'who,' not 'that,' in non-defining relative clauses."
+        },
+        {
+          "incorrect": "Denmark which has invested in renewable energy, generates clean electricity.",
+          "correct": "Denmark, which has invested in renewable energy, generates clean electricity.",
+          "explanation": "Non-defining relative clauses require commas on both sides."
+        }
+      ]
+    },
+    {
+      "id": "articles",
+      "title": "Articles (a/an/the)",
+      "level": "All Levels",
+      "importance": "Common source of errors",
+      "explanation": "Articles are small but critical. Errors with articles are noticeable and can lower your grammar score.",
+      "rules": [
+        {
+          "article": "a/an (indefinite)",
+          "uses": [
+            "First mention: 'A study found that...'",
+            "Jobs/roles: 'She is a teacher.'",
+            "General examples: 'A healthy diet includes vegetables.'"
+          ],
+          "examples": [
+            "A smartphone has become essential for modern communication.",
+            "An effective solution requires cooperation."
+          ]
+        },
+        {
+          "article": "the (definite)",
+          "uses": [
+            "Second mention: 'A study was conducted. The study found...'",
+            "Unique things: 'the sun, the internet, the government'",
+            "Superlatives: 'the most important factor'",
+            "Specific things both speaker and listener know: 'the solution to this problem'"
+          ],
+          "examples": [
+            "The internet has transformed communication.",
+            "The government should invest in education.",
+            "The solution to climate change requires global cooperation."
+          ]
+        },
+        {
+          "article": "no article (zero article)",
+          "uses": [
+            "Plural/uncountable nouns (general): 'Education is important. / Children need nutrition.'",
+            "Countries (most): 'France, China, Brazil'",
+            "Languages: 'English, Spanish'",
+            "Abstract concepts: 'freedom, democracy, happiness'"
+          ],
+          "examples": [
+            "Technology has changed society.",
+            "Education improves social mobility.",
+            "Children require proper nutrition."
+          ]
+        }
+      ],
+      "commonMistakes": [
+        {
+          "incorrect": "The education is important for society.",
+          "correct": "Education is important for society.",
+          "explanation": "Use no article with uncountable nouns used generally."
+        },
+        {
+          "incorrect": "Government should invest in infrastructure.",
+          "correct": "The government should invest in infrastructure.",
+          "explanation": "Use 'the' with government when referring to a specific country's government."
+        }
+      ]
+    }
+  ],
+  "bandDescriptors": {
+    "band9": "Uses a wide range of structures with full flexibility and accuracy; rare minor errors occur only as 'slips'",
+    "band8": "Uses a wide range of structures; majority of sentences are error-free; makes only very occasional errors",
+    "band7": "Uses a variety of complex structures; produces frequent error-free sentences; has good control of grammar and punctuation but may make a few errors",
+    "band6": "Uses a mix of simple and complex sentence forms; makes some errors in grammar and punctuation but they rarely reduce communication",
+    "band5": "Uses only a limited range of structures; attempts complex sentences but these tend to be less accurate than simple sentences"
+  },
+  "practiceExercises": [
+    {
+      "type": "Error Correction",
+      "instruction": "Identify and correct the grammatical errors in these sentences:",
+      "sentences": [
+        {
+          "incorrect": "If governments will invest more in education, society will benefit greatly.",
+          "correct": "If governments invest more in education, society will benefit greatly.",
+          "error": "Incorrect use of 'will' in first conditional if-clause"
+        },
+        {
+          "incorrect": "Technology who has transformed communication continues to evolve rapidly.",
+          "correct": "Technology which has transformed communication continues to evolve rapidly.",
+          "error": "Use 'which' not 'who' for things"
+        },
+        {
+          "incorrect": "The education is essential for economic development.",
+          "correct": "Education is essential for economic development.",
+          "error": "No article needed with uncountable nouns used generally"
+        }
+      ]
+    },
+    {
+      "type": "Sentence Combination",
+      "instruction": "Combine these simple sentences into one complex sentence using appropriate grammatical structures:",
+      "exercises": [
+        {
+          "simple": ["Renewable energy is becoming cheaper.", "Many countries are adopting it.", "This reduces carbon emissions."],
+          "answer": "As renewable energy becomes cheaper, many countries are adopting it, which reduces carbon emissions.",
+          "grammaticalFeatures": ["Subordinating conjunction (As)", "Relative clause (which)", "Present continuous tense"]
+        }
+      ]
+    }
+  ]
+}

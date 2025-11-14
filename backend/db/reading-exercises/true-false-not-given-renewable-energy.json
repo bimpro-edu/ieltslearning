@@ -1,0 +1,83 @@
+{
+  "id": "tfng-renewable-energy-1",
+  "title": "The Future of Renewable Energy",
+  "type": "true-false-not-given",
+  "difficulty": "medium",
+  "passage": {
+    "title": "The Global Transition to Renewable Energy",
+    "text": "The world's energy landscape is undergoing a dramatic transformation as nations increasingly shift from fossil fuels to renewable energy sources. Solar and wind power, once considered expensive alternatives, have become cost-competitive with traditional energy sources in many regions. According to the International Renewable Energy Agency, the cost of solar photovoltaic electricity has fallen by 89% since 2010, while onshore wind costs have decreased by 70% during the same period.\n\nThis price revolution has accelerated adoption rates far beyond initial projections. In 2020, renewable energy accounted for approximately 29% of global electricity generation, up from just 20% a decade earlier. Countries like Denmark now generate over 80% of their electricity from renewable sources, primarily wind power, demonstrating that high renewable penetration is technically feasible even in industrialized nations.\n\nHowever, the transition faces significant challenges. The intermittent nature of solar and wind power creates grid stability issues that require substantial investment in energy storage technologies and grid infrastructure. Current battery storage costs, while declining, remain prohibitively expensive for large-scale seasonal storage. Additionally, some heavy industries such as steel and cement production require extremely high temperatures that are difficult to achieve using renewable electricity alone.\n\nDespite these obstacles, technological innovation continues to address renewable energy limitations. Researchers at MIT have developed new molten salt battery designs that could store energy for days or weeks at a fraction of lithium-ion battery costs. Meanwhile, green hydrogen produced through renewable-powered electrolysis shows promise for decarbonizing heavy industry and long-distance transportation.\n\nThe economic implications of this energy transition extend beyond environmental benefits. The renewable energy sector already employs over 12 million people worldwide, surpassing employment in fossil fuel extraction. As the sector expands, it is projected to create millions of additional jobs, particularly in manufacturing, installation, and maintenance. However, this transition also threatens communities dependent on fossil fuel industries, necessitating careful planning for just transitions that support affected workers.\n\nGovernments play a crucial role in facilitating this shift through policy frameworks and financial incentives. Feed-in tariffs, which guarantee renewable energy producers a set price for electricity, have successfully stimulated renewable development in Germany and other countries. Carbon pricing mechanisms, implemented in regions covering nearly a quarter of global emissions, create financial incentives for reducing fossil fuel use. Yet critics argue that current policies remain insufficient to meet international climate commitments, particularly the Paris Agreement goal of limiting warming to 1.5°C.\n\nThe renewable energy transition represents one of the most significant economic and technological shifts in human history. While challenges remain, the combination of plummeting costs, improving technology, and growing political will suggests that a renewable-dominated energy future is not only possible but increasingly inevitable."
+  },
+  "questions": [
+    {
+      "number": 1,
+      "statement": "Solar energy costs have decreased by more than 85% since 2010.",
+      "correctAnswer": "TRUE",
+      "explanation": "The passage states that 'the cost of solar photovoltaic electricity has fallen by 89% since 2010,' which is indeed more than 85%."
+    },
+    {
+      "number": 2,
+      "statement": "Denmark produces all of its electricity from wind power.",
+      "correctAnswer": "FALSE",
+      "explanation": "The passage says Denmark generates 'over 80% of their electricity from renewable sources, primarily wind power,' not 100% or all of it from wind specifically."
+    },
+    {
+      "number": 3,
+      "statement": "Battery storage technology can currently store energy cost-effectively for several months.",
+      "correctAnswer": "FALSE",
+      "explanation": "The passage states that 'Current battery storage costs, while declining, remain prohibitively expensive for large-scale seasonal storage,' indicating it cannot cost-effectively store energy for seasonal (several months) periods."
+    },
+    {
+      "number": 4,
+      "statement": "MIT researchers have created a battery that is cheaper than lithium-ion batteries for long-term storage.",
+      "correctAnswer": "NOT GIVEN",
+      "explanation": "The passage mentions that MIT developed 'new molten salt battery designs that could store energy for days or weeks at a fraction of lithium-ion battery costs,' but uses 'could,' suggesting it's not yet confirmed or commercially available."
+    },
+    {
+      "number": 5,
+      "statement": "More people work in renewable energy than in fossil fuel extraction globally.",
+      "correctAnswer": "TRUE",
+      "explanation": "The passage explicitly states 'The renewable energy sector already employs over 12 million people worldwide, surpassing employment in fossil fuel extraction.'"
+    },
+    {
+      "number": 6,
+      "statement": "Germany was the first country to implement feed-in tariffs.",
+      "correctAnswer": "NOT GIVEN",
+      "explanation": "While the passage mentions that feed-in tariffs 'have successfully stimulated renewable development in Germany and other countries,' it does not state whether Germany was the first to implement them."
+    },
+    {
+      "number": 7,
+      "statement": "Current government policies are adequate to meet Paris Agreement climate targets.",
+      "correctAnswer": "FALSE",
+      "explanation": "The passage states that 'critics argue that current policies remain insufficient to meet international climate commitments, particularly the Paris Agreement goal,' indicating policies are not adequate."
+    },
+    {
+      "number": 8,
+      "statement": "Green hydrogen can help reduce emissions from heavy industry.",
+      "correctAnswer": "TRUE",
+      "explanation": "The passage mentions that 'green hydrogen produced through renewable-powered electrolysis shows promise for decarbonizing heavy industry,' which means reducing emissions."
+    }
+  ],
+  "tips": [
+    "Pay attention to exact numbers and qualifiers (more than, all, some)",
+    "FALSE means the statement contradicts the passage; NOT GIVEN means the information isn't mentioned",
+    "Watch for paraphrasing - the questions won't use exact words from the passage",
+    "Don't use your own knowledge - only what's stated in the passage"
+  ],
+  "vocabulary": [
+    {
+      "word": "intermittent",
+      "definition": "occurring at irregular intervals; not continuous or steady",
+      "context": "solar and wind power's intermittent nature"
+    },
+    {
+      "word": "penetration",
+      "definition": "the extent to which a product or technology is used within a market",
+      "context": "high renewable penetration is technically feasible"
+    },
+    {
+      "word": "decarbonizing",
+      "definition": "reducing or eliminating carbon dioxide emissions",
+      "context": "green hydrogen for decarbonizing heavy industry"
+    }
+  ]
+}

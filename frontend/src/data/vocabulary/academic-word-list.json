@@ -1,0 +1,414 @@
+{
+  "title": "Essential Academic Vocabulary for IELTS",
+  "description": "High-frequency academic words organized by topic with examples and exercises",
+  "topics": [
+    {
+      "topic": "Education",
+      "wordFamilies": [
+        {
+          "baseWord": "analyze",
+          "forms": {
+            "verb": "analyze/analyse",
+            "noun": "analysis (singular), analyses (plural), analyst",
+            "adjective": "analytical",
+            "adverb": "analytically"
+          },
+          "definition": "examine something in detail to understand it or explain it",
+          "collocations": [
+            "analyze data",
+            "critical analysis",
+            "in-depth analysis",
+            "statistical analysis"
+          ],
+          "examples": [
+            {
+              "sentence": "Researchers must analyze the data carefully before drawing conclusions.",
+              "context": "Academic Writing Task 2"
+            },
+            {
+              "sentence": "A thorough analysis of the results reveals several important trends.",
+              "context": "Academic Writing Task 2"
+            },
+            {
+              "sentence": "Students need analytical skills to succeed in higher education.",
+              "context": "Discussion Essay"
+            }
+          ],
+          "synonyms": ["examine", "evaluate", "assess", "investigate"],
+          "band": "7-8"
+        },
+        {
+          "baseWord": "significant",
+          "forms": {
+            "adjective": "significant",
+            "noun": "significance",
+            "adverb": "significantly",
+            "verb": "signify"
+          },
+          "definition": "important, notable, or meaningful",
+          "collocations": [
+            "significant impact",
+            "significant increase/decrease",
+            "statistically significant",
+            "significant difference",
+            "of great significance"
+          ],
+          "examples": [
+            {
+              "sentence": "Technology has had a significant impact on modern education.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "The study showed a significant increase in student performance.",
+              "context": "Academic Writing"
+            },
+            {
+              "sentence": "Understanding cultural diversity is of great significance in education.",
+              "context": "Discussion Essay"
+            }
+          ],
+          "synonyms": ["important", "substantial", "considerable", "notable"],
+          "band": "6-7"
+        },
+        {
+          "baseWord": "approach",
+          "forms": {
+            "noun": "approach",
+            "verb": "approach"
+          },
+          "definition": "a way of dealing with something; a method",
+          "collocations": [
+            "traditional approach",
+            "innovative approach",
+            "practical approach",
+            "take an approach",
+            "adopt an approach"
+          ],
+          "examples": [
+            {
+              "sentence": "Many schools are adopting a more student-centered approach to learning.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "A multifaceted approach is needed to address educational inequality.",
+              "context": "Problem-Solution Essay"
+            }
+          ],
+          "synonyms": ["method", "strategy", "technique", "way"],
+          "band": "6-7"
+        }
+      ]
+    },
+    {
+      "topic": "Technology",
+      "wordFamilies": [
+        {
+          "baseWord": "innovation",
+          "forms": {
+            "noun": "innovation, innovator",
+            "verb": "innovate",
+            "adjective": "innovative",
+            "adverb": "innovatively"
+          },
+          "definition": "a new idea, method, or invention",
+          "collocations": [
+            "technological innovation",
+            "drive innovation",
+            "innovative solution",
+            "innovative approach"
+          ],
+          "examples": [
+            {
+              "sentence": "Technological innovation has transformed how we communicate.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "Companies must innovate continuously to remain competitive.",
+              "context": "Discussion Essay"
+            },
+            {
+              "sentence": "The most innovative solutions often come from interdisciplinary collaboration.",
+              "context": "Academic Writing"
+            }
+          ],
+          "synonyms": ["advancement", "development", "breakthrough", "invention"],
+          "band": "7-8"
+        },
+        {
+          "baseWord": "facilitate",
+          "forms": {
+            "verb": "facilitate",
+            "noun": "facilitation, facilitator",
+            "adjective": "facilitative"
+          },
+          "definition": "make an action or process easier or more likely to happen",
+          "collocations": [
+            "facilitate communication",
+            "facilitate learning",
+            "facilitate access",
+            "facilitate cooperation"
+          ],
+          "examples": [
+            {
+              "sentence": "Social media platforms facilitate instant communication across vast distances.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "Technology facilitates access to information and educational resources.",
+              "context": "Discussion Essay"
+            }
+          ],
+          "synonyms": ["enable", "assist", "promote", "support"],
+          "band": "7-8"
+        },
+        {
+          "baseWord": "integrate",
+          "forms": {
+            "verb": "integrate",
+            "noun": "integration",
+            "adjective": "integrated, integral"
+          },
+          "definition": "combine things to form a unified whole",
+          "collocations": [
+            "integrate technology",
+            "fully integrated",
+            "integrate into",
+            "integral part"
+          },
+          "examples": [
+            {
+              "sentence": "Schools must integrate technology effectively into their curricula.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "Technology has become an integral part of modern life.",
+              "context": "Discussion Essay"
+            }
+          ],
+          "synonyms": ["incorporate", "combine", "merge", "unify"],
+          "band": "7"
+        }
+      ]
+    },
+    {
+      "topic": "Environment",
+      "wordFamilies": [
+        {
+          "baseWord": "sustain",
+          "forms": {
+            "verb": "sustain",
+            "noun": "sustainability, sustenance",
+            "adjective": "sustainable",
+            "adverb": "sustainably"
+          },
+          "definition": "maintain or support over time; able to continue without depleting resources",
+          "collocations": [
+            "sustainable development",
+            "sustainable energy",
+            "environmentally sustainable",
+            "sustain growth"
+          ],
+          "examples": [
+            {
+              "sentence": "Sustainable development balances economic growth with environmental protection.",
+              "context": "Discussion Essay"
+            },
+            {
+              "sentence": "Countries must transition to sustainable energy sources.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "Current consumption patterns cannot be sustained indefinitely.",
+              "context": "Problem-Solution Essay"
+            }
+          ],
+          "synonyms": ["maintain", "support", "preserve", "uphold"],
+          "band": "7-8"
+        },
+        {
+          "baseWord": "impact",
+          "forms": {
+            "noun": "impact",
+            "verb": "impact"
+          },
+          "definition": "a marked effect or influence",
+          "collocations": [
+            "significant impact",
+            "environmental impact",
+            "have an impact on",
+            "negative/positive impact"
+          ],
+          "examples": [
+            {
+              "sentence": "Climate change has a significant impact on global ecosystems.",
+              "context": "Discussion Essay"
+            },
+            {
+              "sentence": "Human activities impact the environment in numerous ways.",
+              "context": "Problem-Solution Essay"
+            }
+          ],
+          "synonyms": ["effect", "influence", "consequence", "result"],
+          "band": "6-7"
+        }
+      ]
+    },
+    {
+      "topic": "Society & Economics",
+      "wordFamilies": [
+        {
+          "baseWord": "allocate",
+          "forms": {
+            "verb": "allocate",
+            "noun": "allocation"
+          },
+          "definition": "distribute resources or duties for a particular purpose",
+          "collocations": [
+            "allocate resources",
+            "allocate funds",
+            "resource allocation",
+            "allocate budget"
+          ],
+          "examples": [
+            {
+              "sentence": "Governments must allocate resources efficiently to meet public needs.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "The allocation of healthcare funding remains a contentious issue.",
+              "context": "Discussion Essay"
+            }
+          ],
+          "synonyms": ["distribute", "assign", "apportion", "designate"],
+          "band": "7-8"
+        },
+        {
+          "baseWord": "contribute",
+          "forms": {
+            "verb": "contribute",
+            "noun": "contribution, contributor",
+            "adjective": "contributory"
+          },
+          "definition": "give something (especially money or help) to a common purpose or fund; be a factor in causing something",
+          "collocations": [
+            "contribute to",
+            "make a contribution",
+            "contributing factor",
+            "significant contribution"
+          ],
+          "examples": [
+            {
+              "sentence": "Education contributes significantly to economic development.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "Multiple factors contribute to urban poverty.",
+              "context": "Problem-Solution Essay"
+            }
+          ],
+          "synonyms": ["add to", "give to", "provide", "supply"],
+          "band": "6-7"
+        },
+        {
+          "baseWord": "implement",
+          "forms": {
+            "verb": "implement",
+            "noun": "implementation"
+          },
+          "definition": "put a plan or system into effect",
+          "collocations": [
+            "implement policies",
+            "implement changes",
+            "implement a strategy",
+            "successful implementation"
+          ],
+          "examples": [
+            {
+              "sentence": "Governments should implement stricter environmental regulations.",
+              "context": "Opinion Essay"
+            },
+            {
+              "sentence": "The implementation of new policies requires careful planning.",
+              "context": "Problem-Solution Essay"
+            }
+          ],
+          "synonyms": ["execute", "carry out", "apply", "enforce"],
+          "band": "7"
+        }
+      ]
+    }
+  ],
+  "phraseBank": {
+    "introducing": [
+      "It is widely acknowledged that...",
+      "There is growing consensus that...",
+      "Recent research indicates that...",
+      "A considerable body of evidence suggests...",
+      "It has been argued that..."
+    ],
+    "contrasting": [
+      "However, it should be noted that...",
+      "Conversely, some argue that...",
+      "On the other hand, opponents contend that...",
+      "Despite these advantages, there are significant drawbacks...",
+      "While this perspective has merit, an alternative view suggests..."
+    ],
+    "emphasizing": [
+      "It is crucial to recognize that...",
+      "Of particular significance is...",
+      "What is most striking is...",
+      "A key consideration is...",
+      "It cannot be overstated that..."
+    ],
+    "concluding": [
+      "In conclusion, the evidence suggests...",
+      "To summarize, it is clear that...",
+      "On balance, the benefits outweigh...",
+      "Ultimately, it can be argued that...",
+      "Taking all factors into account..."
+    ]
+  },
+  "exercises": [
+    {
+      "type": "Gap Fill",
+      "instructions": "Complete the sentences with the correct form of the word in brackets.",
+      "questions": [
+        {
+          "sentence": "Researchers must _____ (analysis) the data before drawing conclusions.",
+          "answer": "analyze/analyse",
+          "explanation": "Need the verb form"
+        },
+        {
+          "sentence": "Technology has had a _____ (significance) impact on education.",
+          "answer": "significant",
+          "explanation": "Need the adjective form to modify 'impact'"
+        },
+        {
+          "sentence": "The _____ (sustain) of current consumption patterns is impossible.",
+          "answer": "sustainability",
+          "explanation": "Need the noun form as the subject"
+        }
+      ]
+    },
+    {
+      "type": "Collocation Matching",
+      "instructions": "Match the verbs with appropriate nouns to create common IELTS collocations.",
+      "pairs": [
+        {"verb": "conduct", "noun": "research/a study"},
+        {"verb": "implement", "noun": "policies/changes"},
+        {"verb": "allocate", "noun": "resources/funds"},
+        {"verb": "facilitate", "noun": "communication/learning"},
+        {"verb": "exacerbate", "noun": "problems/inequality"}
+      ]
+    }
+  ],
+  "studyTips": [
+    "Learn word families together (analyze, analysis, analytical) to expand vocabulary efficiently",
+    "Focus on collocations - knowing which words go together naturally improves fluency",
+    "Practice using academic words in your own sentences related to IELTS topics",
+    "Keep a vocabulary notebook organized by topic",
+    "Review regularly using spaced repetition",
+    "Pay attention to which words are countable/uncountable and their article usage",
+    "Notice how words change form and meaning in different contexts"
+  ]
+}

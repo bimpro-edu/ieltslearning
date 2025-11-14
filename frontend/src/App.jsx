@@ -21,6 +21,7 @@ import ScanningPage from './pages/reading/ScanningPage';
 import ParagraphStructurePage from './pages/reading/ParagraphStructurePage';
 
 import ReadingLessonsListPage from './pages/ReadingLessonsListPage';
+import Task2CategoryPage from './pages/task2/Task2CategoryPage';
 
 function App() {
   return (
@@ -60,6 +61,10 @@ function App() {
           <Route path={ROUTES.TASKS.WRITING} element={<WritingPage />} />
           <Route path={ROUTES.TASKS.LISTENING} element={<ListeningPage />} />
           <Route path={ROUTES.TASKS.READING} element={<ReadingPage />} />
+
+          {/* Task 2 Writing Category Pages */}
+          <Route path="/tasks/writing/task2/:categoryKey" element={<Task2CategoryPage />} />
+
           <Route path="/tasks/:taskType/:category/" element={<TaskPage />} />
           <Route path="/tasks/:taskType/:category/:subCategory" element={<TaskPage />} />
           

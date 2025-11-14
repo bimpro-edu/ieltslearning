@@ -1,0 +1,364 @@
+{
+  "title": "IELTS Speaking Test Complete Guide",
+  "description": "Comprehensive guide to all three parts of the IELTS Speaking test with strategies and sample questions",
+  "overview": {
+    "duration": "11-14 minutes",
+    "format": "Face-to-face interview with certified examiner",
+    "parts": 3,
+    "scoring": "Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation"
+  },
+  "parts": [
+    {
+      "part": 1,
+      "title": "Introduction and Interview",
+      "duration": "4-5 minutes",
+      "description": "The examiner asks questions about yourself and familiar topics",
+      "topics": [
+        "Home/Accommodation",
+        "Work/Studies",
+        "Hometown",
+        "Family",
+        "Hobbies/Interests",
+        "Daily Routine",
+        "Food",
+        "Technology",
+        "Travel",
+        "Weather"
+      ],
+      "strategies": [
+        "Answer fully - don't just say 'yes' or 'no'",
+        "Extend your answers with reasons or examples",
+        "Aim for 2-3 sentences per answer",
+        "Be natural and conversational",
+        "Don't memorize answers - they sound unnatural"
+      ],
+      "sampleQuestions": [
+        {
+          "topic": "Studies",
+          "questions": [
+            "What subject are you studying?",
+            "Why did you choose this subject?",
+            "What do you find most interesting about your studies?",
+            "What are your future study plans?"
+          ],
+          "sampleAnswer": {
+            "question": "Why did you choose this subject?",
+            "band7Response": "I chose to study computer science because I've always been fascinated by technology and how it shapes our daily lives. Ever since I was young, I enjoyed problem-solving and logical thinking, and programming combines both of these interests perfectly. Plus, the career prospects in this field are excellent, which influenced my decision as well.",
+            "analysis": {
+              "strengths": [
+                "Extended answer with multiple reasons",
+                "Personal details make it authentic",
+                "Good vocabulary (fascinated, shapes, prospects)",
+                "Natural flow with linking words (because, and, plus)"
+              ],
+              "length": "Appropriate 3-4 sentences"
+            }
+          }
+        },
+        {
+          "topic": "Hometown",
+          "questions": [
+            "Can you describe your hometown?",
+            "What do you like most about your hometown?",
+            "Has your hometown changed much since you were a child?",
+            "Would you like to live there in the future?"
+          ],
+          "sampleAnswer": {
+            "question": "Has your hometown changed much since you were a child?",
+            "band7Response": "Yes, it has transformed quite dramatically. When I was growing up, it was a relatively quiet place with mostly small local businesses, but over the past decade, it's become much more urbanized. Several shopping malls have been built, and the population has increased significantly. While these developments have brought more conveniences, I sometimes miss the peaceful atmosphere it had before.",
+            "analysis": {
+              "strengths": [
+                "Clear comparison between past and present",
+                "Specific examples (shopping malls, population growth)",
+                "Good range of vocabulary (transformed, urbanized, significantly)",
+                "Shows ability to express nuanced opinion (balanced view)"
+              ]
+            }
+          }
+        },
+        {
+          "topic": "Technology",
+          "questions": [
+            "Do you use social media?",
+            "How has technology changed the way you communicate?",
+            "What technology do you use most often?",
+            "Do you think people rely too much on technology?"
+          ],
+          "sampleAnswer": {
+            "question": "How has technology changed the way you communicate?",
+            "band8Response": "Technology has revolutionized my communication patterns entirely. In the past, I would primarily call people or meet face-to-face, but now I use various messaging apps like WhatsApp and WeChat to stay in touch with friends and family. This has made communication much more convenient, especially with people living abroad, though I do think that we've lost some of the personal connection that comes with in-person conversations. I try to balance digital communication with regular face-to-face meetings when possible.",
+            "analysis": {
+              "strengths": [
+                "Sophisticated vocabulary (revolutionized, patterns, entirely)",
+                "Clear past-present contrast",
+                "Specific examples (WhatsApp, WeChat)",
+                "Nuanced perspective showing critical thinking",
+                "Good length and coherence"
+              ]
+            }
+          }
+        }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Yes, I like it.",
+          "problem": "Too short, doesn't develop the answer",
+          "better": "Yes, I really enjoy it because it allows me to express my creativity. For example, I love experimenting with different recipes and flavors."
+        },
+        {
+          "mistake": "I am studying English for improving my career prospect and also I want to travel.",
+          "problem": "Grammatical error (for + -ing, incorrect tense)",
+          "better": "I'm studying English to improve my career prospects, and I also want to use it when I travel abroad."
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "title": "Long Turn (Cue Card)",
+      "duration": "3-4 minutes (1 minute preparation, 2 minutes speaking)",
+      "description": "You receive a card with a topic and must speak for 1-2 minutes",
+      "structure": [
+        "Examiner gives you topic card and paper",
+        "1 minute to prepare and make notes",
+        "Speak for 1-2 minutes on the topic",
+        "Examiner may ask 1-2 follow-up questions"
+      ],
+      "strategies": [
+        "Use the full minute to plan - note keywords, not full sentences",
+        "Organize your notes according to the bullet points on the card",
+        "Speak for the full 2 minutes if possible",
+        "Use the bullet points as a structure",
+        "Include specific examples and details",
+        "Use a variety of tenses (past, present, present perfect)",
+        "Don't panic if you can't think of the perfect word - paraphrase"
+      ],
+      "sampleTopics": [
+        {
+          "topic": "Describe a person who has influenced you",
+          "cueCard": {
+            "instruction": "Describe a person who has had an important influence on your life.",
+            "prompts": [
+              "Who this person is",
+              "How you know this person",
+              "What influence this person has had on you",
+              "And explain why this person has been important to you"
+            ]
+          },
+          "sampleNotes": {
+            "who": "Mr. Chen - high school physics teacher",
+            "how": "taught me for 3 years, also debate club advisor",
+            "influence": "sparked interest in science, taught critical thinking, encouraged university",
+            "why": "changed career direction, still use his advice, role model"
+          },
+          "band7Response": "I'd like to talk about my high school physics teacher, Mr. Chen, who has been incredibly influential in shaping my academic and career path. I first met him when I was 15, and he taught me physics for three years. What made him exceptional was not just his deep knowledge of the subject, but his ability to make complex concepts accessible and exciting.\n\nMr. Chen had a unique teaching style that emphasized understanding over memorization. He would often relate physics principles to real-world phenomena, which made the subject come alive for me. For instance, when teaching about electricity, he brought in old household appliances and we disassembled them to see how the concepts worked in practice. This hands-on approach completely changed my perspective on science.\n\nBeyond the classroom, he was also my debate club advisor, which helped me develop critical thinking skills that I still use today. He always encouraged us to question assumptions and think independently, which has been invaluable in my university studies.\n\nThe reason Mr. Chen has been so important to me is that he fundamentally changed my career direction. Before meeting him, I had no particular interest in science, but his passion and teaching inspired me to pursue physics at university. Even now, when I face difficult problems, I remember his advice to break them down into smaller, manageable parts. He showed me that a great teacher doesn't just impart knowledge but inspires students to discover their own potential.",
+          "analysis": {
+            "strengths": [
+              "Well-organized following the cue card structure",
+              "Specific examples (physics concepts, disassembling appliances)",
+              "Range of vocabulary (influential, accessible, hands-on, invaluable)",
+              "Variety of tenses used appropriately",
+              "Personal and authentic",
+              "Good length (approximately 2 minutes)",
+              "Clear conclusion explaining importance"
+            ],
+            "covers_all_points": true
+          },
+          "followUpQuestions": [
+            {
+              "question": "Do you still keep in touch with this person?",
+              "purpose": "Test ability to extend the topic"
+            },
+            {
+              "question": "Would you like to become a teacher yourself?",
+              "purpose": "Connect to broader theme"
+            }
+          ]
+        },
+        {
+          "topic": "Describe a technological device",
+          "cueCard": {
+            "instruction": "Describe a technological device you find useful.",
+            "prompts": [
+              "What the device is",
+              "When you got it",
+              "How you use it",
+              "And explain why you find it useful"
+            ]
+          },
+          "sampleNotes": {
+            "what": "noise-canceling headphones",
+            "when": "last year, birthday gift",
+            "how": "studying, commuting, relaxing",
+            "why": "improves focus, reduces stress, better sleep"
+          },
+          "band8Response": "I'd like to describe my noise-canceling headphones, which have become an indispensable part of my daily routine. I received them as a birthday gift last year, and they've honestly transformed how I manage my time and productivity.\n\nThese headphones use advanced technology to actively block out external sounds, creating what I can only describe as a bubble of silence. I primarily use them in three contexts: when I'm studying in noisy environments like coffee shops or libraries, during my daily commute on crowded public transport, and before bed to help me relax.\n\nWhat makes them so useful is the dramatic improvement they've brought to my concentration and overall well-being. Before I had them, I found it nearly impossible to focus in public spaces because I'd be constantly distracted by conversations, traffic noise, or other disturbances. Now, when I put them on, I can immediately enter a state of deep focus, which has significantly boosted my academic performance. During my commute, they've turned what used to be a stressful, noisy experience into peaceful time where I can listen to podcasts or music without having to blast the volume to dangerous levels.\n\nPerhaps most importantly, they've improved my sleep quality. I live in a busy area with a lot of nighttime noise, and these headphones allow me to play calming sounds or white noise that masks the external disturbances. This has made an enormous difference to how rested I feel each morning.\n\nIn essence, this relatively simple piece of technology has enhanced multiple aspects of my life - my studies, my daily routine, and my health. It's a perfect example of how the right technological tool can solve several problems simultaneously.",
+          "analysis": {
+            "strengths": [
+              "Sophisticated vocabulary (indispensable, transformed, disturbances, simultaneously)",
+              "Complex sentence structures",
+              "Specific details and contexts",
+              "Clear organization following cue card",
+              "Extends beyond basic description to explain impact",
+              "Natural flow and coherence"
+            ]
+          }
+        }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Speaking for only 30-45 seconds",
+          "problem": "Not developing ideas fully",
+          "solution": "Add specific examples, details, and explanations for each bullet point"
+        },
+        {
+          "mistake": "Writing full sentences during preparation time",
+          "problem": "Wastes time and leads to memorized-sounding responses",
+          "solution": "Write only keywords and brief notes to jog your memory"
+        },
+        {
+          "mistake": "Going off-topic",
+          "problem": "Not addressing the specific prompts on the card",
+          "solution": "Check your notes against each bullet point before speaking"
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "title": "Two-Way Discussion",
+      "duration": "4-5 minutes",
+      "description": "Examiner asks abstract questions related to Part 2 topic",
+      "characteristics": [
+        "More abstract and analytical than Parts 1 & 2",
+        "Requires expressing and justifying opinions",
+        "May involve hypothetical situations",
+        "Tests ability to discuss issues in depth",
+        "Demonstrates critical thinking"
+      ],
+      "strategies": [
+        "Take a moment to think before answering",
+        "Structure answers clearly (First... Secondly... Furthermore...)",
+        "Give balanced perspectives when appropriate",
+        "Use sophisticated vocabulary and complex grammar",
+        "Provide specific examples to support abstract points",
+        "Show ability to discuss causes, effects, solutions, comparisons"
+      ],
+      "questionTypes": [
+        {
+          "type": "Opinion",
+          "examples": [
+            "Do you think technology has improved people's lives?",
+            "Some say education should be free. What's your view?"
+          ],
+          "structure": "State opinion → Give reasons → Provide examples → Consider counter-argument (optional)"
+        },
+        {
+          "type": "Comparison",
+          "examples": [
+            "How has education changed in your country over the last few decades?",
+            "What are the differences between online and traditional learning?"
+          ],
+          "structure": "Identify key differences → Explain each difference → Give examples"
+        },
+        {
+          "type": "Prediction",
+          "examples": [
+            "How do you think cities will change in the future?",
+            "What impact will AI have on employment?"
+          ],
+          "structure": "Identify trends → Predict likely outcomes → Acknowledge uncertainty where appropriate"
+        },
+        {
+          "type": "Problem-Solution",
+          "examples": [
+            "What can be done to reduce traffic congestion?",
+            "How can countries address environmental problems?"
+          ],
+          "structure": "Acknowledge problem → Suggest multiple solutions → Evaluate feasibility"
+        }
+      ],
+      "sampleDiscussion": {
+        "theme": "Education (following Part 2 about an influential teacher)",
+        "questions": [
+          {
+            "question": "What makes a good teacher?",
+            "band7Response": "I think several qualities contribute to being an excellent teacher. First and foremost, they need deep knowledge of their subject, but equally important is the ability to communicate that knowledge effectively. The best teachers I've encountered can explain complex ideas in simple terms and adapt their teaching style to different students' needs. Additionally, passion is crucial - when teachers genuinely love their subject and teaching, that enthusiasm is contagious and motivates students. Finally, good teachers show genuine interest in their students' development beyond just academic achievement; they mentor and inspire, which can have lasting impact.",
+            "techniques": [
+              "Clear structure (First... equally important... Additionally... Finally)",
+              "Multiple points with explanation",
+              "Personal example ('teachers I've encountered')",
+              "Sophisticated vocabulary (encountered, contagious, mentor)",
+              "Balanced view covering different aspects"
+            ]
+          },
+          {
+            "question": "How has education changed compared to the past?",
+            "band8Response": "Education has undergone dramatic transformations over the past few decades, both in methodology and accessibility. Perhaps the most obvious change is the integration of technology - whereas previous generations relied entirely on textbooks and lectures, today's students have access to vast online resources, interactive learning platforms, and virtual classrooms that transcend geographical boundaries. This technological shift has democratized education to some extent, making quality resources available to students who might not have had access otherwise.\n\nBeyond technology, there's been a philosophical shift in teaching approaches. Traditional education emphasized rote memorization and passive learning, but modern pedagogy increasingly focuses on critical thinking, creativity, and active participation. Students are now encouraged to question, analyze, and apply knowledge rather than simply absorb information.\n\nHowever, I should note that these changes aren't universal. In many developing regions, education still relies heavily on traditional methods due to infrastructure limitations and resource constraints. This creates a growing educational divide that concerns many educators and policymakers.",
+            "techniques": [
+              "Multiple paragraphs developing different aspects",
+              "Comparative structure (past vs. present)",
+              "Academic vocabulary (integration, democratized, pedagogy, infrastructure)",
+              "Complex sentences and subordinate clauses",
+              "Balanced view acknowledging limitations",
+              "Shows critical thinking about global inequality"
+            ]
+          },
+          {
+            "question": "Should university education be free for everyone?",
+            "band8Response": "This is quite a contentious issue with valid arguments on both sides. On one hand, making university education free could significantly increase social mobility and ensure that talent rather than wealth determines who receives higher education. Countries like Germany and Norway have demonstrated that free university education is economically viable and can produce highly educated workforces without burdening students with debt. This approach treats education as a public good that benefits society as a whole, similar to primary and secondary schooling.\n\nOn the other hand, there are legitimate concerns about the sustainability and quality of free university education. When government funding is the sole source, universities may struggle with resource limitations that affect teaching quality and research capabilities. Some argue that when students contribute financially, they may take their studies more seriously and universities have greater accountability to provide value.\n\nPersonally, I lean toward a middle-ground approach. Perhaps a system where tuition is heavily subsidized but students pay a modest contribution, with need-based grants for those from disadvantaged backgrounds, might balance accessibility with sustainability. This would reduce the crushing debt burden many students currently face while maintaining some financial stake in their education. However, I acknowledge this is a complex policy question without easy answers.",
+            "techniques": [
+              "Acknowledges complexity ('contentious issue')",
+              "Presents multiple perspectives fairly",
+              "Uses real examples (Germany, Norway)",
+              "States personal opinion with hedging ('I lean toward')",
+              "Suggests nuanced solution",
+              "Demonstrates critical thinking and sophisticated argumentation",
+              "Strong conclusion acknowledging complexity"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "bandDescriptors": {
+    "FlucencyCoherence": {
+      "band9": "speaks fluently with only rare repetition or self-correction; develops topics fully and appropriately",
+      "band8": "develops topics coherently and appropriately; uses a range of connectives and discourse markers",
+      "band7": "speaks at length without noticeable effort; demonstrates clear progression of topics",
+      "band6": "willing to speak at length but may lose coherence at times; uses a range of connectives",
+      "band5": "produces simple speech fluently but complex communication causes fluency problems"
+    },
+    "LexicalResource": {
+      "band9": "uses vocabulary with full flexibility and precision; uses idiomatic language naturally",
+      "band8": "uses a wide range of vocabulary fluently and flexibly; uses less common words with awareness of style",
+      "band7": "uses vocabulary flexibly to discuss a variety of topics; uses some less common words",
+      "band6": "uses vocabulary to discuss familiar and unfamiliar topics; generally paraphrases successfully",
+      "band5": "manages to talk about familiar topics; makes noticeable errors when using uncommon vocabulary"
+    },
+    "GrammaticalRangeAccuracy": {
+      "band9": "uses a full range of structures naturally and appropriately; errors are rare",
+      "band8": "uses a wide range of structures flexibly; majority of sentences are error-free",
+      "band7": "uses a range of complex structures with some flexibility; produces frequent error-free sentences",
+      "band6": "uses a mix of simple and complex structures but with limited flexibility; errors occur but rarely cause misunderstanding",
+      "band5": "produces basic sentence forms and some complex structures; errors are frequent but meaning is usually clear"
+    },
+    "Pronunciation": {
+      "band9": "uses a full range of pronunciation features with precision and subtlety; accent has no effect on intelligibility",
+      "band8": "uses a wide range of pronunciation features; sustained intelligibility despite occasional lapses",
+      "band7": "shows all positive features of Band 6 with some features of Band 8",
+      "band6": "uses a range of pronunciation features with mixed control; accent does not affect intelligibility",
+      "band5": "shows some effective use of features but control is limited; mispronunciations are frequent"
+    }
+  },
+  "generalTips": [
+    "Relax and be yourself - the examiner wants to hear natural English",
+    "Don't memorize answers - examiners can tell and it affects your score",
+    "If you don't understand a question, ask the examiner to repeat or clarify",
+    "Don't worry about perfect grammar - natural fluency is more important",
+    "Use a variety of grammatical structures and vocabulary",
+    "Extend your answers with reasons, examples, and personal experiences",
+    "Practice regularly with a partner or record yourself",
+    "Time yourself during practice to get comfortable with the format",
+    "Listen to English podcasts and watch English videos to improve fluency",
+    "Focus on clear pronunciation, not a perfect accent"
+  ]
+}

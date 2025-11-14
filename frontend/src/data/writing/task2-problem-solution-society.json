@@ -1,0 +1,109 @@
+{
+  "category": "problem-solution",
+  "topic": "society",
+  "title": "Society - Problem-Solution Essays",
+  "examples": [
+    {
+      "id": "society-ps-1",
+      "question": "In many cities, an increasing number of people do not know their neighbors. What are the causes of this problem? What can be done to solve it?",
+      "band": 7.5,
+      "essay": "Modern urban life has paradoxically fostered social isolation despite unprecedented population density, with many city dwellers maintaining minimal relationships with their neighbors. This troubling trend stems from several interconnected factors, yet practical solutions exist to rebuild community cohesion.\n\nThe primary cause of neighborhood disconnection is the fast-paced, career-focused lifestyle that characterizes contemporary urban existence. Professionals frequently work extended hours and face lengthy commutes, leaving minimal time or energy for social interaction. Unlike previous generations who worked near their homes and encountered neighbors regularly, today's workers often leave early and return late, rarely crossing paths with those living nearby. Additionally, the proliferation of digital entertainment and social media provides easily accessible alternatives to face-to-face interaction, reducing the perceived need for local community connections.\n\nArchitectural and urban planning decisions also contribute significantly to this isolation. Modern apartment complexes and housing developments often lack communal spaces that facilitate natural interaction—courtyards, shared gardens, or neighborhood squares where residents might gather casually. Furthermore, the prevalence of private transportation means people drive directly from home to destination without walking through neighborhoods or using public spaces where spontaneous conversations occur.\n\nAddressing these challenges requires multifaceted interventions at both community and governmental levels. Local authorities should invest in creating and maintaining shared public spaces such as community gardens, playgrounds, and recreation centers that encourage neighbor interaction. Cities like Copenhagen have successfully implemented \"pocket parks\"—small green spaces distributed throughout residential areas—that serve as informal gathering points and significantly increase neighborhood social capital.\n\nCommunity organizations can facilitate connection through organized social events and activities. Neighborhood associations might arrange regular street parties, clean-up days, or skill-sharing workshops that bring residents together around common interests and goals. The \"Better Block\" movement in the United States demonstrates how temporary improvements to public spaces, organized by local residents, can spark lasting community engagement and neighborly relationships.\n\nAt the individual level, residents can make conscious efforts to initiate contact through simple gestures like greeting neighbors, attending local events, or participating in community initiatives. Even small actions—holding doors, making eye contact, and introducing oneself—can gradually rebuild social fabric in disconnected neighborhoods.\n\nIn conclusion, while urban anonymity results from complex social, economic, and architectural factors, reversing this trend is achievable through deliberate efforts to create spaces and occasions for interaction. By combining governmental investment in community infrastructure with grassroots organizing and individual initiative, cities can transform from collections of isolated individuals into genuine communities where neighbors know and support one another.",
+      "analysis": {
+        "strengths": [
+          "Clear problem-solution structure",
+          "Multiple well-explained causes",
+          "Diverse solutions at different levels (government, community, individual)",
+          "Specific examples (Copenhagen pocket parks, Better Block movement)",
+          "Sophisticated vocabulary (paradoxically, proliferation, multifaceted)",
+          "Strong conclusion synthesizing solutions"
+        ],
+        "improvements": [
+          "Could include statistics on neighborhood disconnection",
+          "Might explore cultural differences in neighboring"
+        ]
+      }
+    },
+    {
+      "id": "society-ps-2",
+      "question": "Many young people today spend too much time using smartphones and other digital devices. What problems does this cause? What solutions can you suggest?",
+      "band": 8,
+      "essay": "The ubiquity of smartphones and digital devices has fundamentally altered how young people interact with the world, often to detrimental effect. Excessive screen time among youth precipitates serious physical, psychological, and social consequences, yet targeted interventions by parents, educators, and technology companies can mitigate these harms.\n\nThe problems arising from youth device overuse manifest across multiple dimensions of wellbeing. Physically, prolonged screen exposure contributes to rising rates of myopia among children, with studies indicating that adolescents spending more than three hours daily on screens face significantly elevated risk of vision problems. Additionally, excessive device use displaces physical activity, exacerbating childhood obesity rates and associated health complications. The sedentary lifestyle promoted by digital device dependency also affects sleep patterns, as blue light exposure before bedtime disrupts circadian rhythms and melatonin production, leading to chronic sleep deprivation during crucial developmental years.\n\nPsychologically, constant digital engagement correlates with increased anxiety, depression, and attention deficits among young users. Social media platforms, in particular, expose adolescents to unrealistic social comparisons and cyberbullying while fragmenting attention spans through endless scrolling and notification-driven interruptions. Research from the University of Pennsylvania found that limiting social media use to just 30 minutes daily significantly reduced symptoms of depression and loneliness among participants, underscoring the causal relationship between excessive device use and mental health deterioration.\n\nSocial development also suffers as digital communication displaces face-to-face interaction essential for building empathy, reading social cues, and developing authentic relationships. Young people who spend excessive time on devices often struggle with in-person communication and experience reduced social confidence, potentially impacting future career prospects and personal relationships.\n\nAddressing these challenges requires coordinated action across multiple stakeholders. Parents must establish and enforce reasonable screen time limits, ideally creating device-free zones during meals and before bedtime. Modeling healthy technology use themselves proves crucial, as research consistently shows that parental device habits significantly influence children's behavior. Practical tools like Apple's Screen Time or Google's Family Link enable parents to monitor and restrict usage while teaching children self-regulation.\n\nEducational institutions should incorporate digital literacy and wellness into curricula, teaching students to use technology intentionally rather than compulsively. Schools might implement phone-free policies during class hours, as France has done nationally, demonstrating how institutional boundaries can reduce distraction and improve academic focus. Some progressive schools have introduced mindfulness programs specifically addressing technology addiction, equipping students with coping strategies and self-awareness.\n\nTechnology companies bear responsibility for designing less addictive products. Implementing features like usage reminders, simplified notification controls, and age-appropriate default settings could reduce compulsive use. Some companies have begun responding to pressure—Instagram, for example, now allows users to hide like counts, reducing the anxiety associated with social validation metrics.\n\nGovernments might also play a role through public health campaigns educating families about digital wellness and potentially regulating marketing of devices and addictive apps to children, similar to restrictions on junk food advertising.\n\nIn conclusion, while smartphones and digital devices offer undeniable benefits, their excessive use among young people creates significant health, psychological, and social problems. Effectively addressing these issues requires comprehensive strategies encompassing parental guidance, educational reform, corporate responsibility, and governmental oversight. By implementing these multilevel interventions, society can help young people develop balanced relationships with technology that enhance rather than diminish their development and wellbeing.",
+      "analysis": {
+        "strengths": [
+          "Comprehensive identification of problems across multiple domains",
+          "Specific research evidence (University of Pennsylvania study)",
+          "Multi-stakeholder solutions (parents, schools, companies, government)",
+          "Sophisticated vocabulary and complex sentences",
+          "Specific examples (France's phone policy, Instagram like counts)",
+          "Excellent organization and cohesion",
+          "Balanced tone acknowledging technology benefits"
+        ],
+        "improvements": [
+          "Already at very high level",
+          "Could potentially include more international examples"
+        ]
+      }
+    },
+    {
+      "id": "society-ps-3",
+      "question": "In many countries, the gap between rich and poor is widening. What problems does this create? What can be done to address this issue?",
+      "band": 7,
+      "essay": "Growing economic inequality has emerged as one of the defining challenges of the 21st century, with wealth concentration reaching levels unseen since the early 1900s. This widening gap generates profound social, economic, and political problems, yet evidence-based policies can reverse these trends and create more equitable societies.\n\nIncome inequality creates multiple interconnected problems. Economically, it stifles growth by reducing consumer purchasing power—when wealth concentrates among the rich, who save rather than spend, overall demand decreases, limiting business expansion and job creation. The International Monetary Fund has documented that countries with high inequality experience slower, more volatile economic growth than more egalitarian societies.\n\nSocially, extreme inequality erodes social cohesion and trust. When vast disparities exist, people from different economic backgrounds inhabit separate worlds with minimal interaction, breeding resentment and undermining the sense of shared citizenship essential for democratic societies. Research consistently shows that unequal societies experience higher rates of crime, health problems, and social dysfunction across all income levels, not just among the poor.\n\nEducationally, inequality perpetuates across generations as wealthy families access superior schools, tutoring, and university education while lower-income children attend underfunded institutions, creating an entrenched class system inconsistent with meritocratic ideals. This talent waste represents enormous economic inefficiency as capable individuals cannot contribute their full potential.\n\nSeveral policy interventions can address these challenges. Progressive taxation, where higher earners pay larger percentages of income, can fund social programs while reducing extreme wealth concentration. Scandinavian countries demonstrate that robust social safety nets funded through progressive taxation create prosperous, innovative economies with high living standards and low inequality.\n\nInvestment in universal public services—particularly education and healthcare—ensures all citizens access opportunities regardless of birth circumstances. When Finland reformed its education system to minimize disparities between schools, it achieved both greater equality and higher overall academic performance, proving that equity and excellence are compatible.\n\nLabor market policies including living wage requirements, stronger worker protections, and support for collective bargaining help ensure economic growth benefits workers, not just shareholders. Germany's codetermination system, giving workers representation on corporate boards, has maintained strong manufacturing employment and more equitable wage distribution than comparable economies.\n\nIn conclusion, widening inequality threatens economic prosperity, social cohesion, and democratic stability. However, proven policy tools exist to create more equitable societies without sacrificing economic dynamism. By implementing progressive taxation, investing in universal public services, and strengthening labor protections, governments can build economies that work for everyone, not just the wealthy few.",
+      "analysis": {
+        "strengths": [
+          "Multiple well-explained problems",
+          "Evidence-based solutions with country examples",
+          "Addresses economic, social, and political dimensions",
+          "Good use of data (IMF reference)",
+          "Clear structure with distinct problem and solution sections",
+          "Strong conclusion"
+        ],
+        "improvements": [
+          "Could include more specific statistics",
+          "Might discuss potential criticisms of proposed solutions",
+          "Could explore technological factors more"
+        ]
+      }
+    }
+  ],
+  "tips": [
+    "Clearly separate problems from solutions sections",
+    "Provide multiple specific problems and solutions",
+    "Use real-world examples of successful solutions",
+    "Consider different stakeholders (government, individuals, organizations)",
+    "Address both immediate and long-term solutions",
+    "Include evidence and data when possible"
+  ],
+  "vocabulary": [
+    {
+      "word": "ubiquity",
+      "definition": "the fact of appearing everywhere or of being very common",
+      "example": "The ubiquity of smartphones has changed social interaction"
+    },
+    {
+      "word": "precipitate",
+      "definition": "cause (an event or situation) to happen suddenly",
+      "example": "Excessive screen time precipitates health problems"
+    },
+    {
+      "word": "multifaceted",
+      "definition": "having many different aspects or features",
+      "example": "Addressing inequality requires multifaceted interventions"
+    },
+    {
+      "word": "erode",
+      "definition": "gradually destroy or diminish",
+      "example": "Inequality erodes social cohesion"
+    },
+    {
+      "word": "perpetuate",
+      "definition": "make something continue indefinitely",
+      "example": "Poor education systems perpetuate inequality"
+    },
+    {
+      "word": "egalitarian",
+      "definition": "believing in or based on the principle of equality",
+      "example": "Scandinavian countries maintain egalitarian societies"
+    }
+  ]
+}

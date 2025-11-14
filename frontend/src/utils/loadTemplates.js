@@ -181,6 +181,68 @@ export function getReadingTopicsForCategory(categoryKey) {
   return categoryTopics[categoryKey] || [];
 }
 
+// Task 2 Writing Categories
+export const task2Categories = [
+  { key: 'opinion', title: 'Opinion Essays' },
+  { key: 'discussion', title: 'Discussion Essays' },
+  { key: 'problem-solution', title: 'Problem-Solution Essays' },
+  { key: 'advantage-disadvantage', title: 'Advantage-Disadvantage Essays' },
+  { key: 'double-question', title: 'Double Question Essays' }
+];
+
+// Task 2 topics by category (domains)
+const task2TopicsByCategory = {
+  'opinion': [
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'environment', title: 'Environment' },
+    { key: 'health', title: 'Health & Lifestyle' },
+    { key: 'society', title: 'Society & Culture' },
+    { key: 'business', title: 'Business & Economy' },
+    { key: 'government', title: 'Government & Law' },
+    { key: 'media', title: 'Media & Communication' }
+  ],
+  'discussion': [
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'environment', title: 'Environment' },
+    { key: 'health', title: 'Health & Lifestyle' },
+    { key: 'society', title: 'Society & Culture' },
+    { key: 'business', title: 'Business & Economy' },
+    { key: 'government', title: 'Government & Law' },
+    { key: 'media', title: 'Media & Communication' }
+  ],
+  'problem-solution': [
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'environment', title: 'Environment' },
+    { key: 'health', title: 'Health & Lifestyle' },
+    { key: 'society', title: 'Society & Culture' },
+    { key: 'urban-planning', title: 'Urban Planning' },
+    { key: 'crime', title: 'Crime & Safety' }
+  ],
+  'advantage-disadvantage': [
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'environment', title: 'Environment' },
+    { key: 'work', title: 'Work & Career' },
+    { key: 'globalization', title: 'Globalization' },
+    { key: 'tourism', title: 'Tourism & Travel' }
+  ],
+  'double-question': [
+    { key: 'education', title: 'Education' },
+    { key: 'technology', title: 'Technology' },
+    { key: 'environment', title: 'Environment' },
+    { key: 'health', title: 'Health & Lifestyle' },
+    { key: 'society', title: 'Society & Culture' }
+  ]
+};
+
+// Export function to get topics for a Task 2 category
+export function getTopicsForCategory(categoryKey) {
+  return task2TopicsByCategory[categoryKey] || [];
+}
+
 // Export function to get template for a specific topic
 export function getReadingTemplateForTopic(categoryKey, topicKey) {
   // If the caller explicitly requests scanning variants (special category key), return scanning templates
